@@ -108,6 +108,7 @@ pre {
  * Remove the gray background on active links in IE 10.
  */
 a {
+    text-decoration: none;
 	background-color: transparent;
 }
 
@@ -477,6 +478,7 @@ ol {
 	list-style: decimal;
 }
 
+
 li > ul,
 li > ol {
 	margin-bottom: 0;
@@ -519,7 +521,7 @@ a {
 }
 
 a:visited {
-	color: #800080;
+	color: inherit;
 }
 
 a:hover,
@@ -629,19 +631,18 @@ textarea {
 
 /* Navigation
 --------------------------------------------- */
-.main-navigation {
+.huda-main-navigation {
 	display: block;
-	width: 100%;
 }
 
-.main-navigation ul {
+.huda-main-navigation ul {
 	display: none;
 	list-style: none;
 	margin: 0;
 	padding-left: 0;
 }
 
-.main-navigation ul ul {
+.huda-main-navigation ul ul {
 	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
 	float: left;
 	position: absolute;
@@ -650,49 +651,51 @@ textarea {
 	z-index: 99999;
 }
 
-.main-navigation ul ul ul {
+.huda-main-navigation ul ul ul {
 	left: -999em;
 	top: 0;
 }
 
-.main-navigation ul ul li:hover > ul,
-.main-navigation ul ul li.focus > ul {
+.huda-main-navigation ul ul li:hover > ul,
+.huda-main-navigation ul ul li.focus > ul {
 	display: block;
 	left: auto;
 }
 
-.main-navigation ul ul a {
+.huda-main-navigation ul ul a {
 	width: 200px;
 }
 
-.main-navigation ul li:hover > ul,
-.main-navigation ul li.focus > ul {
+.huda-main-navigation ul li:hover > ul,
+.huda-main-navigation ul li.focus > ul {
 	left: auto;
 }
 
-.main-navigation li {
+.huda-main-navigation li {
 	position: relative;
 }
 
-.main-navigation a {
+.huda-main-navigation a {
 	display: block;
 	text-decoration: none;
 }
 
 /* Small menu. */
 .menu-toggle,
-.main-navigation.toggled ul {
+.huda-main-navigation.toggled ul {
 	display: block;
 }
 
-@media screen and (min-width: 37.5em) {
+@media screen and (min-width: 48.5em) {
 
 	.menu-toggle {
 		display: none;
 	}
 
-	.main-navigation ul {
+	.huda-main-navigation ul {
 		display: flex;
+        justify-content: flex-end;
+        gap: 1.2em;
 	}
 }
 

@@ -1,0 +1,114 @@
+/*
+    Theme Name: Huda
+    Huda Custom Styles
+
+    /*--------------------------------------------------------------
+    >>> TABLE OF CONTENTS:
+    ----------------------------------------------------------------
+    # Global
+        - Variables
+    # Base
+        - Typography
+        - Elements
+        - Links
+        - Forms
+    ## Layouts
+    # Components
+        - Header 
+        - Footer
+        - Posts and pages
+        - Comments
+        - Widgets
+        - Media
+        - Captions
+        - Galleries
+    # Utilities
+        - Accessibility
+        - Alignments
+    # Responsive Styles
+*/
+
+/*---------------------------
+# Global
+----------------------------*/
+
+
+/* Variables
+-------------------------- */
+:root{
+    --huda-white-color: #ffffff;
+    --huda-black-color: #ffffff;
+    --huda-neon-blue-color: #6168FC;
+    --huda-neutral-color: #77B5FF;
+    --huda-pink-color: #FF349A;
+    --huda-dark-pink-color: #81386A;
+    --huda-dark-pink-color: #F8BDDA;
+    --huda-slate-100-color: #f1f5f9;
+    --huda-slate-200-color: #e2e8f0;
+
+    --content-padding: 1em 1em;
+
+    --box-shadow-sm: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+    --box-shadow-regular: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+    --box-shadow-lg: 0 1rem 3rem rgba(0,0,0,.175)!important;
+
+    --z-index: 999999;
+}
+
+
+/*---------------------------
+# Components
+----------------------------*/
+
+
+
+/* Header
+-------------------------- */
+header.huda-primary-header{
+    width: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--content-padding);
+    border-bottom: 1px solid var(--huda-slate-200-color);
+}
+
+header .huda-site-title-wrapper{
+    width: auto;
+}
+
+header .huda-site-title-wrapper a{
+    font-size: 1.2em;
+    font-weight: 900;
+}
+
+header .huda-main-navigation.toggled .menu-menu-menu-container{
+    width: 230px;
+    height: 100vh;
+    position: fixed;
+    top:0;
+    left: 0;
+    background-color: #f3f4f6;
+    padding: 1.2em 2em;
+    box-shadow: var(--box-shadow-regular);
+    z-index: var(--z-index);
+}
+
+header .huda-main-navigation .menu-toggle{
+    width: inherit;
+}
+
+.huda-main-navigation .current-menu-item a{
+    font-weight: 500;
+    color: var(--huda-neon-blue-color);
+}
+
+
+/*---------------------------
+# Responsive Styles
+----------------------------*/
+@media screen and (max-width: 48.5em) {
+    header .huda-main-navigation ul li{
+        padding-bottom: 0.96em;
+    }
+}
