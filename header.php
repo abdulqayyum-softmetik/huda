@@ -25,34 +25,32 @@
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'huda' ); ?></a>
 
 	<header id="masthead" class="huda-primary-header">
-		<div class="huda-site-title-wrapper">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
+		<div class="d-flex align-items-center justify-content-between container">
+			<div class="huda-site-title-wrapper">
+				<?php 
+					if(  function_exists('the_custom_logo') && has_custom_logo() ) : 
+						the_custom_logo();
+					else :
+						?>
+							<div class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></div>
+							<p><?php bloginfo( 'description' ); ?></p>
+						<?php
+					endif;
 				?>
-				<div class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></div>
-				<?php
-			else :
-				?>
-				<div class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></div>
-				<?php
-			endif;
-			$huda_description = get_bloginfo( 'description', 'display' );
-			if ( $huda_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $huda_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
+					
+					
+			</div><!-- .site-branding -->
 
-		<nav id="huda-site-navigation" class="huda-main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( display_svg_icon('menu_icon'), 'huda' ); ?><?php display_svg_icon('menu_icon'); ?></button>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>
-		</nav><!-- #site-navigation -->
+			<nav id="huda-site-navigation" class="huda-main-navigation">
+				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( display_svg_icon('menu_icon'), 'huda' ); ?><?php display_svg_icon('menu_icon'); ?></button>
+				<?php
+				wp_nav_menu(
+					array(
+						'theme_location' => 'menu-1',
+						'menu_id'        => 'primary-menu',
+					)
+				);
+				?>
+			</nav><!-- #site-navigation -->
+		</div>
 	</header><!-- #masthead -->

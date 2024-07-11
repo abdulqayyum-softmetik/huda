@@ -32,15 +32,15 @@ if ( post_password_required() ) {
 			if ( '1' === $huda_comment_count ) {
 				printf(
 					/* translators: 1: title. */
-					esc_html__( 'One thought on &ldquo;%1$s&rdquo;', 'huda' ),
-					'<span>' . wp_kses_post( get_the_title() ) . '</span>'
+					esc_html__( 'Comments %1$s', $huda_comment_count, 'huda' ),
+					'<span>' . $huda_comment_count . '</span>'
 				);
 			} else {
 				printf( 
 					/* translators: 1: comment count number, 2: title. */
-					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $huda_comment_count, 'comments title', 'huda' ) ),
+					esc_html( _nx( '%1$s comments %2$s', '%1$s comments %2$s', $huda_comment_count, 'comments title', 'huda' ) ),
 					number_format_i18n( $huda_comment_count ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-					'<span>' . wp_kses_post( get_the_title() ) . '</span>'
+					'<span>' . '' . '</span>'
 				);
 			}
 			?>

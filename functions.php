@@ -137,19 +137,7 @@ add_action( 'widgets_init', 'huda_widgets_init' );
 /**
  * Enqueue scripts and styles.
  */
-function huda_scripts() {
-	wp_enqueue_style( 'huda-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_enqueue_style( 'huda-normlize-css', get_template_directory_uri() . '/assets/css/normalize.css', array(), _S_VERSION );
-	wp_enqueue_style( 'huda-stylesheet', get_template_directory_uri() . '/assets/css/stylesheet.css', array(), _S_VERSION );
-	wp_style_add_data( 'huda-style', 'rtl', 'replace' );
-
-	wp_enqueue_script( 'huda-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), _S_VERSION, true );
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
-}
-add_action( 'wp_enqueue_scripts', 'huda_scripts' );
+require get_template_directory() . '/inc/theme-scripts.php';
 
 /**
  *  Enable svg mime type support
@@ -202,6 +190,37 @@ if (!function_exists('display_svg_icon')) {
         }
     }
 }
+
+/**
+ * Implement footer copyright text.
+ */
+
+// Function to generate dynamic copyright text
+function huda_dynamic_copyright() {
+    $start_year = 2024; // Replace with the year you started your website
+    $current_year = date('Y');
+    if ($start_year == $current_year) {
+        $year = $current_year;
+    } else {
+        $year = $start_year . ' - ' . $current_year;
+    }
+    return 'Copyright &copy; ' . $year . '';
+}
+
+// Shortcode to display the dynamic copyright text
+function huda_copyright_shortcode() {
+    return huda_dynamic_copyright();
+}
+add_shortcode('huda_copyright', 'huda_copyright_shortcode');
+
+/**
+ * Filter the excerpt length to 20 words.
+ *
+ * @param int $length Excerpt length.
+ * @return int (Maybe) modified excerpt length.
+ */
+add_filter( 'excerpt_length', function( $length ) { return 9; } );
+add_filter('excerpt_more', '__return_false');
 
 /**
  * Implement the Custom Header feature.

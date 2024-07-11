@@ -398,10 +398,11 @@ h4,
 h5,
 h6 {
 	clear: both;
+	margin: 0;
 }
 
 p {
-	margin-bottom: 1.5em;
+	margin: 0;
 }
 
 dfn,
@@ -467,7 +468,7 @@ hr {
 
 ul,
 ol {
-	margin: 0 0 1.5em 3em;
+	margin: 0 0 0 0;
 }
 
 ul {
@@ -482,7 +483,7 @@ ol {
 li > ul,
 li > ol {
 	margin-bottom: 0;
-	margin-left: 1.5em;
+	margin-left: 0;
 }
 
 dt {
@@ -517,7 +518,7 @@ table {
 /* Links
 --------------------------------------------- */
 a {
-	color: #4169e1;
+	color: #6168FC;
 }
 
 a:visited {
@@ -699,10 +700,10 @@ textarea {
 	}
 }
 
-.site-main .comment-navigation,
-.site-main
+.huda-site-main .comment-navigation,
+.huda-site-main
 .posts-navigation,
-.site-main
+.huda-site-main
 .post-navigation {
 	margin: 0 0 1.5em;
 }
@@ -744,7 +745,7 @@ textarea {
 .page-content,
 .entry-content,
 .entry-summary {
-	margin: 1.5em 0 0;
+	margin: 0.4em 0 0;
 }
 
 .page-links {

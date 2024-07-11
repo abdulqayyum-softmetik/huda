@@ -22,7 +22,15 @@
 	const menu = siteNavigation.getElementsByTagName( 'ul' )[ 0 ];
 
 	// Hide menu toggle button if menu is empty and return early.
-	if ( 'undefined' === typeof menu ) {
+	if ( 'undefined' === typeof menu ) {document.addEventListener("DOMContentLoaded", function() {
+        const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+        
+        lazyImages.forEach(img => {
+            img.addEventListener('load', () => {
+                img.classList.add('lazyloaded');
+            });
+        });
+    });
 		button.style.display = 'none';
 		return;
 	}
