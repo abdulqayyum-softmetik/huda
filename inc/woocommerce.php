@@ -118,7 +118,7 @@ if ( ! function_exists( 'huda_woocommerce_wrapper_before' ) ) {
 	 */
 	function huda_woocommerce_wrapper_before() {
 		?>
-			<main id="primary" class="site-main">
+			<main id="primary" class="huda-site-main">
 		<?php
 	}
 }

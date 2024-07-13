@@ -137,17 +137,90 @@ add_action( 'widgets_init', 'huda_widgets_init' );
 /**
  * Enqueue scripts and styles.
  */
-function huda_scripts() {
-	wp_enqueue_style( 'huda-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_style_add_data( 'huda-style', 'rtl', 'replace' );
+require get_template_directory() . '/inc/theme-scripts.php';
 
-	wp_enqueue_script( 'huda-navigation', get_template_directory_uri() . 'assets/js/navigation.js', array(), _S_VERSION, true );
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
+/**
+ *  Enable svg mime type support
+ */
+if(!function_exists('huda_svg_support')){
+	function huda_svg_support($mimes){
+		$mimes['svg'] = 'image/svg+xml';
+		return $mimes;
 	}
+	add_filter('upload_mimes', 'huda_svg_support');
 }
-add_action( 'wp_enqueue_scripts', 'huda_scripts' );
+
+
+// Ensure this is within PHP tags
+if (!function_exists('get_svg_icons')) {
+    function get_svg_icons() {
+        $json_path = get_template_directory() . '/assets/svg/icons.json';
+        
+        // Check if the file exists
+        if (!file_exists($json_path)) {
+            error_log('Icons JSON file not found: ' . $json_path);
+            return [];
+        }
+
+        // Get the contents of the file
+        $json = file_get_contents($json_path);
+        if ($json === false) {
+            error_log('Error reading Icons JSON file: ' . $json_path);
+            return [];
+        }
+
+        // Decode the JSON
+        $icons = json_decode($json, true);
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            error_log('Error decoding JSON: ' . json_last_error_msg());
+            return [];
+        }
+
+        return $icons;
+    }
+}
+
+if (!function_exists('display_svg_icon')) {
+    function display_svg_icon($menu_icon) {
+        $icons = get_svg_icons();
+        if (array_key_exists($menu_icon, $icons)) {
+            echo $icons[$menu_icon];
+        } else {
+            echo 'Icon not found: ' . $menu_icon;
+        }
+    }
+}
+
+/**
+ * Implement footer copyright text.
+ */
+
+// Function to generate dynamic copyright text
+function huda_dynamic_copyright() {
+    $start_year = 2024; // Replace with the year you started your website
+    $current_year = date('Y');
+    if ($start_year == $current_year) {
+        $year = $current_year;
+    } else {
+        $year = $start_year . ' - ' . $current_year;
+    }
+    return 'Copyright &copy; ' . $year . '';
+}
+
+// Shortcode to display the dynamic copyright text
+function huda_copyright_shortcode() {
+    return huda_dynamic_copyright();
+}
+add_shortcode('huda_copyright', 'huda_copyright_shortcode');
+
+/**
+ * Filter the excerpt length to 20 words.
+ *
+ * @param int $length Excerpt length.
+ * @return int (Maybe) modified excerpt length.
+ */
+add_filter( 'excerpt_length', function( $length ) { return 9; } );
+add_filter('excerpt_more', '__return_false');
 
 /**
  * Implement the Custom Header feature.
@@ -182,3 +255,5 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
+
+?>

@@ -13,16 +13,13 @@
 
 	<footer id="colophon" class="site-footer">
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'huda' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'huda' ), 'WordPress' );
-				?>
-			</a>
+			
+			<?php echo do_shortcode('[huda_copyright]'); ?>
+
 			<span class="sep"> | </span>
 				<?php
 				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'huda' ), 'huda', '<a href="https://softmetik.com/wphuda">softmetik</a>' );
+				printf( esc_html__( '%1$s by %2$s.', 'huda' ), 'Huda Wordpress Theme', '<a href="https://softmetik.com/wphuda">softmetik</a>' );
 				?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->

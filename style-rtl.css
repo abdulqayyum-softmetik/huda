@@ -647,19 +647,19 @@ textarea {
 
 /* Navigation
 --------------------------------------------- */
-.main-navigation {
+.huda-main-navigation {
 	display: block;
 	width: 100%;
 }
 
-.main-navigation ul {
+.huda-main-navigation ul {
 	display: none;
 	list-style: none;
 	margin: 0;
 	padding-right: 0;
 }
 
-.main-navigation ul ul {
+.huda-main-navigation ul ul {
 	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
 	float: right;
 	position: absolute;
@@ -668,38 +668,38 @@ textarea {
 	z-index: 99999;
 }
 
-.main-navigation ul ul ul {
+.huda-main-navigation ul ul ul {
 	right: -999em;
 	top: 0;
 }
 
-.main-navigation ul ul li:hover > ul,
-.main-navigation ul ul li.focus > ul {
+.huda-main-navigation ul ul li:hover > ul,
+.huda-main-navigation ul ul li.focus > ul {
 	display: block;
 	right: auto;
 }
 
-.main-navigation ul ul a {
+.huda-main-navigation ul ul a {
 	width: 200px;
 }
 
-.main-navigation ul li:hover > ul,
-.main-navigation ul li.focus > ul {
+.huda-main-navigation ul li:hover > ul,
+.huda-main-navigation ul li.focus > ul {
 	right: auto;
 }
 
-.main-navigation li {
+.huda-main-navigation li {
 	position: relative;
 }
 
-.main-navigation a {
+.huda-main-navigation a {
 	display: block;
 	text-decoration: none;
 }
 
 /* Small menu. */
 .menu-toggle,
-.main-navigation.toggled ul {
+.huda-main-navigation.toggled ul {
 	display: block;
 }
 
@@ -709,15 +709,15 @@ textarea {
 		display: none;
 	}
 
-	.main-navigation ul {
+	.huda-main-navigation ul {
 		display: flex;
 	}
 }
 
-.site-main .comment-navigation,
-.site-main
+.huda-site-main .comment-navigation,
+.huda-site-main
 .posts-navigation,
-.site-main
+.huda-site-main
 .post-navigation {
 	margin: 0 0 1.5em;
 }
