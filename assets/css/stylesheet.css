@@ -72,6 +72,21 @@ main{
     padding: 2em 0;
 }
 
+/*---------------------------
+# Base
+----------------------------*/
+
+/* Typography
+-------------------------- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	clear: both;
+	margin: 0.10em 0;
+}
 
 /*---------------------------
 # Components
@@ -212,6 +227,8 @@ body.single article.post .post-thumbnail img{
     border-bottom: 2px solid var(--huda-neon-blue-300);
     background-color: var(--huda-neon-blue-light);
 }
+
+.category-page .category-title
 
 /* Comments
 -------------------------- */

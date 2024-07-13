@@ -19,20 +19,27 @@
         <div class="col-md-3">
             <div class="post">
                 <div class="thumbnail-wrapper">
-                <a href="<?php echo esc_url(get_permalink()); ?>">
-                    <?php the_post_thumbnail('thumbnail'); // Display the post thumbnail ?>
-                </a>
+                    <a href="<?php echo esc_url(get_permalink()); ?>">
+                        <?php the_post_thumbnail('thumbnail'); // Display the post thumbnail ?>
+                    </a>
                 </div>
                 <h2>
                     <a href="<?php echo esc_url(get_permalink()); ?>">
                         <?php echo esc_html(get_the_title()); ?>
                     </a>
                 </h2>
+
                 <div class="entry">
+                    <div>
+                            <?php
+                            huda_posted_on();
+                            huda_posted_by();
+                        ?>
+                    </div>
                     <?php echo wp_kses_post(get_the_excerpt()); ?>
                 </div>
             </div>
-            </div>
+        </div>
         <?php endwhile; ?>
 
         <div class="pagination">
@@ -47,5 +54,5 @@
         </div>
     </div>
 <?php else : ?>
-    <p><?php esc_html_e('No posts found in this category.', 'textdomain'); ?></p>
+    <p class="text-center pb-5"><?php esc_html_e('No posts found in this category.', 'textdomain'); ?></p>
 <?php endif; ?>
