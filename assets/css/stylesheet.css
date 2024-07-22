@@ -17,6 +17,7 @@
     # Components
         - Header 
         - Footer
+        - navigation
         - Posts and pages
         - Comments
         - Widgets
@@ -24,6 +25,7 @@
         - Captions
         - Galleries
         - blockquote
+        - Sidebar
     # Utilities
         - Accessibility
         - Alignments
@@ -34,6 +36,10 @@
 # Global
 ----------------------------*/
 
+html, body {
+    margin: 0;
+    height: 100%;
+}
 
 /* Variables
 -------------------------- */
@@ -69,6 +75,7 @@ main, aside, footer{
 
 
 main{
+    flex: 1;
     padding: 2em 0;
 }
 
@@ -78,6 +85,11 @@ main{
 
 /* Typography
 -------------------------- */
+ul,ol{
+    list-style-type: none;
+    padding-left: 0;
+}
+
 h1,
 h2,
 h3,
@@ -87,6 +99,14 @@ h6 {
 	clear: both;
 	margin: 0.10em 0;
 }
+
+/* Links
+-------------------------- */
+
+a{
+    text-decoration: none;
+}
+
 
 /*---------------------------
 # Components
@@ -143,6 +163,7 @@ header .huda-main-navigation .menu-toggle{
 /* Footer
 -------------------------- */
 footer.site-footer{
+    flex-shrink: 0;
     text-align: center;
     padding: 1.4em 1em;
     border-top: 0.063em solid var(--huda-slate-100-color);
@@ -156,6 +177,111 @@ footer.entry-footer{
     margin-top: 0.8em;
 }
 
+/* Navigation
+--------------------------------------------- */
+.huda-main-navigation {
+	display: block;
+}
+
+.huda-main-navigation ul {
+	display: none;
+	list-style: none;
+	margin: 0;
+	padding-left: 0;
+}
+
+.huda-main-navigation ul ul {
+	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+	float: left;
+	position: absolute;
+	top: 100%;
+	left: -999em;
+	z-index: 99999;
+}
+
+.huda-main-navigation ul ul ul {
+	left: -999em;
+	top: 0;
+}
+
+.huda-main-navigation ul ul li:hover > ul,
+.huda-main-navigation ul ul li.focus > ul {
+	display: block;
+	left: auto;
+}
+
+.huda-main-navigation ul ul a {
+	width: 200px;
+}
+
+.huda-main-navigation ul li:hover > ul,
+.huda-main-navigation ul li.focus > ul {
+	left: auto;
+}
+
+.huda-main-navigation li {
+	position: relative;
+}
+
+.huda-main-navigation a {
+	display: block;
+	text-decoration: none;
+    color: #333333;
+}
+
+/* Small menu. */
+.menu-toggle,
+.huda-main-navigation.toggled ul {
+	display: block;
+}
+
+@media screen and (min-width: 48.5em) {
+
+	.menu-toggle {
+		display: none;
+	}
+
+	.huda-main-navigation ul {
+		display: flex;
+        justify-content: flex-end;
+        gap: 1.2em;
+	}
+}
+
+.huda-site-main .comment-navigation,
+.huda-site-main
+.posts-navigation,
+.huda-site-main
+.post-navigation {
+	margin: 0 0 1.5em;
+}
+
+.comment-navigation .nav-links,
+.posts-navigation .nav-links,
+.post-navigation .nav-links {
+	display: flex;
+}
+
+.comment-navigation .nav-previous,
+.posts-navigation .nav-previous,
+.post-navigation .nav-previous {
+	flex: 1 0 50%;
+}
+
+.comment-navigation .nav-next,
+.posts-navigation .nav-next,
+.post-navigation .nav-next {
+	text-align: end;
+	flex: 1 0 50%;
+}
+
+/* Media
+--------------------------------------------- */
+img{
+    max-width: 100%;
+    height: auto;
+}
+
 /* blockquote
 -------------------------- */
 blockquote{
@@ -165,12 +291,18 @@ blockquote{
     border-left: 2px solid var(--huda-neon-blue-color);
     box-shadow: var(--box-shadow-sm);
 }
+
 blockquote p{
     padding-left: 1em;
 }
 
 /* Posts and pages
 -------------------------- */
+#page{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 .home article.sticky{
     width: 100%;
     margin: 2em auto;
@@ -187,6 +319,9 @@ blockquote p{
 }
 article.post header{
     margin-top: 0.6em;
+}
+article.post header h3.entry-title a{
+    color: #333333;
 }
 article.post header.entry-header .entry-meta .author-title{
     text-transform: capitalize;
@@ -227,8 +362,6 @@ body.single article.post .post-thumbnail img{
     border-bottom: 2px solid var(--huda-neon-blue-300);
     background-color: var(--huda-neon-blue-light);
 }
-
-.category-page .category-title
 
 /* Comments
 -------------------------- */
@@ -329,6 +462,21 @@ form.comment-form label{
 .comment-form-cookies-consent input{
     width: auto !important;
 }
+
+/* Posts and pages
+-------------------------- */
+aside{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.2em;
+}
+
+aside a{
+    color: #333333
+    ;
+}
+
 /*---------------------------
 # Responsive Styles
 ----------------------------*/

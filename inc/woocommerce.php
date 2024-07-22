@@ -43,7 +43,7 @@ add_action( 'after_setup_theme', 'huda_woocommerce_setup' );
  * @return void
  */
 function huda_woocommerce_scripts() {
-	wp_enqueue_style( 'huda-woocommerce-style', get_template_directory_uri() . '/woocommerce.css', array(), _S_VERSION );
+	wp_enqueue_style( 'huda-woocommerce-style', get_template_directory_uri() . '/assets/css/woocommerce.css', array(), _S_VERSION );
 
 	$font_path   = WC()->plugin_url() . '/assets/fonts/';
 	$inline_font = '@font-face {
@@ -108,6 +108,25 @@ add_filter( 'woocommerce_output_related_products_args', 'huda_woocommerce_relate
 remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
 remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
 
+/**
+ * Remove default WooCommerce Sidebar.
+ */
+remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
+
+// Add custom class to WooCommerce sale flash
+function huda_custom_woocommerce_sale_flash($html, $post, $product) {
+    // Add your custom classes here
+    $custom_class = 'huda-onsale-card';
+
+    // Modify the HTML to include the custom classes
+    $html = '<span class="onsale ' . esc_attr($custom_class) . '">' . esc_html__('Sale!', 'woocommerce') . '</span>';
+
+    return $html;
+}
+add_filter('woocommerce_sale_flash', 'huda_custom_woocommerce_sale_flash', 10, 3);
+
+
+
 if ( ! function_exists( 'huda_woocommerce_wrapper_before' ) ) {
 	/**
 	 * Before Content.
@@ -118,7 +137,7 @@ if ( ! function_exists( 'huda_woocommerce_wrapper_before' ) ) {
 	 */
 	function huda_woocommerce_wrapper_before() {
 		?>
-			<main id="primary" class="huda-site-main">
+			<main id="primary" class="huda-site-main container">
 		<?php
 	}
 }
