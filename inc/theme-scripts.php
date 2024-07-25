@@ -3,7 +3,6 @@
 function huda_scripts() {
 	wp_enqueue_style( 'huda-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.min.css', array(), '5.2.3' );
-	// wp_enqueue_style( 'huda-normlize-css', get_template_directory_uri() . '/assets/css/normalize.css', array(), _S_VERSION );
 	wp_enqueue_style( 'huda-stylesheet', get_template_directory_uri() . '/assets/css/stylesheet.css', array(), _S_VERSION );
 	wp_style_add_data( 'huda-style', 'rtl', 'replace' );
 

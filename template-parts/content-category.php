@@ -23,15 +23,17 @@
                         <?php the_post_thumbnail('thumbnail'); // Display the post thumbnail ?>
                     </a>
                 </div>
+                
                 <h2>
                     <a href="<?php echo esc_url(get_permalink()); ?>">
+                        
                         <?php echo esc_html(get_the_title()); ?>
                     </a>
                 </h2>
 
                 <div class="entry">
                     <div>
-                            <?php
+                        <?php
                             huda_posted_on();
                             huda_posted_by();
                         ?>

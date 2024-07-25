@@ -4,32 +4,6 @@ Theme Name: Huda
 WooCommerce styles override
 */
 
-/* Variables
--------------------------- */
-:root{
-    --huda-white-color: #ffffff;
-    --huda-black-color: #ffffff;
-    --huda-neon-blue-color: #6168FC;
-    --huda-neutral-color: #77B5FF;
-    --huda-pink-color: #FF349A;
-    --huda-dark-pink-color: #81386A;
-    --huda-dark-pink-color: #F8BDDA;
-    --huda-slate-100-color: #f1f5f9;
-    --huda-slate-200-color: #e2e8f0;
-    --huda-neon-blue-light: #eff0ff;
-    --huda-neon-blue-300: #9095fd;
-	--huda-warning-color: #ef4444;
-
-    --content-padding: 1em 1em;
-    --content-padding-x: 0em 1em;
-
-    --box-shadow-sm: 0 .125rem .25rem rgba(0,0,0,.075)!important;
-    --box-shadow-regular: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
-    --box-shadow-lg: 0 1rem 3rem rgba(0,0,0,.175)!important;
-
-    --z-index: 999999;
-}
-
 /**
  * Woocomrece Components
  */
@@ -38,7 +12,8 @@ WooCommerce styles override
  -------------*/
  ul.products li.product span.onsale.huda-onsale-card,
  span.onsale,
- a.added_to_cart.wc-forward{
+ a.added_to_cart.wc-forward,
+ .woocommerce-product-gallery__trigger{
 	position: absolute;
 	z-index: 999;
 	padding: 0.4em 0.8em;
@@ -55,7 +30,6 @@ body:not(.woocommerce-block-theme-has-button-styles) .wc-block-components-button
 	width: 100%;
     height: auto;
     text-align: center;
-    margin-top: 0.4em;
     border-radius: 0.2em;
     padding: 0.6em 0.8em;
 	color: var(--huda-white-color);
@@ -150,20 +124,25 @@ ul.products {
 }
 
 ul.products li.product {
-	width: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	list-style: none;
 	position: relative;
 	margin-bottom: 2em;
-	min-height: 440px;
+	min-height: 450px;
 }
+
 ul.products li.product .woocommerce-loop-product__title{
 	font-size: 1.6em;
 	margin: 0.3em 0;
 	line-height: normal;
 	color: #000000;
+}
+
+ul.products li.product span.price{
+	display: block;
+	margin-bottom: 1em;
 }
 
 a.added_to_cart.wc-forward {
@@ -238,7 +217,7 @@ ul.products li.product a.button{
 
 @media screen and (max-width: 768px) {
 	ul.products li.product {
-		min-height: 600px;
+		min-height: auto;
 	}
 }	
 
@@ -714,7 +693,7 @@ form.cart{
 
 form.cart div.quantity input{
 	width: 6em;
-	padding: 0.4em 0.8em;
+	padding: 0.60em 0.8em;
 }
 
 form.cart button.single_add_to_cart_button.button.alt{

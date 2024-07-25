@@ -45,7 +45,7 @@ html, body {
 -------------------------- */
 :root{
     --huda-white-color: #ffffff;
-    --huda-black-color: #ffffff;
+    --huda-black-color: #000000;
     --huda-neon-blue-color: #6168FC;
     --huda-neutral-color: #77B5FF;
     --huda-pink-color: #FF349A;
@@ -105,7 +105,11 @@ h6 {
 
 a{
     text-decoration: none;
+    color: var(--huda-neon-blue-color);
 }
+
+/* Elements
+-------------------------- */
 
 
 /*---------------------------
@@ -287,7 +291,7 @@ img{
 blockquote{
     margin: 0.8em;
     padding: 1.2em;
-    background-color: var(--huda-black-color);
+    background-color: var(--huda-slate-100-color);
     border-left: 2px solid var(--huda-neon-blue-color);
     box-shadow: var(--box-shadow-sm);
 }
@@ -298,11 +302,13 @@ blockquote p{
 
 /* Posts and pages
 -------------------------- */
-#page{
+#page,
+.category-page{
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: calc(100vh - 30px);
 }
+
 .home article.sticky{
     width: 100%;
     margin: 2em auto;
@@ -317,15 +323,19 @@ blockquote p{
     align-items: center;
     gap: 1.4em;
 }
+
 article.post header{
     margin-top: 0.6em;
 }
+
 article.post header h3.entry-title a{
     color: #333333;
 }
+
 article.post header.entry-header .entry-meta .author-title{
     text-transform: capitalize;
 }
+
 article.post .thumbnail-wrapper,
 .category-posts .thumbnail-wrapper{
     width: 100%;
@@ -333,12 +343,14 @@ article.post .thumbnail-wrapper,
     overflow: hidden;
     border-radius: 0.8em;
 }
+
 article.post .thumbnail-wrapper img,
 .category-posts .thumbnail-wrapper img{
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
+
 article.post a.btn-read-more{
     margin-top: 0.8rem;
     color: var(--huda-white-color);
@@ -353,7 +365,11 @@ body.single article.post .post-thumbnail img{
     border-bottom: 2px solid var(--huda-neon-blue-color);
 }
 
-.category-page .category-title{
+.category-posts{
+    margin-bottom: 2rem;
+}
+
+.category-page .category-breadcrumb{
     width: 100%;
     margin: 2em auto;
     padding: 1em 1.8em;
@@ -361,6 +377,10 @@ body.single article.post .post-thumbnail img{
     border-radius: 0.6em;
     border-bottom: 2px solid var(--huda-neon-blue-300);
     background-color: var(--huda-neon-blue-light);
+}
+
+.category-posts .post h2 a{
+    color: var(--huda-black-color);
 }
 
 /* Comments
@@ -463,7 +483,11 @@ form.comment-form label{
     width: auto !important;
 }
 
-/* Posts and pages
+.wp-block-latest-comments__comment{
+    margin-bottom: 0.2em;
+}
+
+/* Sidebar
 -------------------------- */
 aside{
     display: flex;
@@ -473,8 +497,11 @@ aside{
 }
 
 aside a{
-    color: #333333
-    ;
+    color: #333333;
+}
+
+aside footer{
+    padding: 0;
 }
 
 /*---------------------------
