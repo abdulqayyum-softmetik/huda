@@ -13,7 +13,7 @@ if ( ! function_exists( 'huda_posted_on' ) ) :
 	 */
 	function huda_posted_on() {
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+		if ( get_the_time( 'U' )) {
 			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
 		}
 
@@ -21,8 +21,6 @@ if ( ! function_exists( 'huda_posted_on' ) ) :
 			$time_string,
 			esc_attr( get_the_date( DATE_W3C ) ),
 			esc_html( get_the_date() ),
-			esc_attr( get_the_modified_date( DATE_W3C ) ),
-			esc_html( get_the_modified_date() )
 		);
 
 		$posted_on = sprintf(
