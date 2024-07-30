@@ -261,4 +261,10 @@ if ( class_exists( 'WooCommerce' ) ) {
  */
 require get_template_directory() . '/inc/core/theme-hooks.php';
 
+
+/**
+ * Kirki Customizer Additions.
+ */
+require get_template_directory() . '/inc/kirki/kirki.php';
+
 ?>
