@@ -256,4 +256,9 @@ if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
 
+/**
+ * Implement the Custom Hooks.
+ */
+require get_template_directory() . '/inc/core/theme-hooks.php';
+
 ?>
