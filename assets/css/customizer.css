@@ -1,0 +1,12 @@
+/* Customizer
+-------------------------- */
+label.customize-control-label .customize-control-title{
+    width: 290px;
+    color: #0f0e17;
+    font-weight: 700;
+    margin-left: -1em;
+    padding: 0.6em 0.8em;
+    text-transform: uppercase;
+    background: #fffffe;
+    border-bottom: 2px solid #e2e8f0;
+}

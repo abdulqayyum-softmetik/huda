@@ -10,7 +10,11 @@
  */
 ?>
 <!doctype html>
-<html <?php language_attributes(); ?>>
+	<?php if ( true == get_theme_mod( 'huda_rtl_switch_setting', 'on' ) ) : ?>
+		<html <?php language_attributes(); ?> dir="rtl">
+	<?php else : ?>
+		<html <?php language_attributes(); ?> dir="ltr">
+	<?php endif; ?>
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
