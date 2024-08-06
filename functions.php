@@ -223,11 +223,6 @@ add_filter( 'excerpt_length', function( $length ) { return 9; } );
 add_filter('excerpt_more', '__return_false');
 
 /**
- * Implement the Custom Header feature.
- */
-require get_template_directory() . '/inc/custom-header.php';
-
-/**
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/template-tags.php';
@@ -236,11 +231,6 @@ require get_template_directory() . '/inc/template-tags.php';
  * Functions which enhance the theme by hooking into WordPress.
  */
 require get_template_directory() . '/inc/template-functions.php';
-
-/**
- * Customizer additions.
- */
-require get_template_directory() . '/inc/customizer.php';
 
 /**
  * Load Jetpack compatibility file.
@@ -260,5 +250,17 @@ if ( class_exists( 'WooCommerce' ) ) {
  * Implement the Custom Hooks.
  */
 require get_template_directory() . '/inc/core/theme-hooks.php';
+
+
+/**
+ * Kirki Customizer Adavnced Options.
+ */
+
+if( class_exists( 'kirki' ) ){
+	locate_template('customizer', true, true);
+}
+// require get_template_directory() . '/inc/kirki/kirki.php';
+require get_template_directory() . '/inc/customizer.php';
+
 
 ?>

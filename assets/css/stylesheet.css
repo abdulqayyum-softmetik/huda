@@ -48,7 +48,7 @@ html, body {
     --huda-black-color: #000000;
     --huda-neon-blue-color: #6168FC;
     --huda-neutral-color: #77B5FF;
-    --huda-pink-color: #FF349A;
+    --huda-pink-color: #ff8906;
     --huda-dark-pink-color: #81386A;
     --huda-dark-pink-color: #F8BDDA;
     --huda-slate-100-color: #f1f5f9;
@@ -125,6 +125,7 @@ header.huda-primary-header{
     justify-content: space-between;
     padding: var(--content-padding);
     border-bottom: 0.063em solid var(--huda-slate-200-color);
+    background-color: var(--huda-white-color);
 }
 
 header .huda-site-title-wrapper{
@@ -171,6 +172,7 @@ footer.site-footer{
     text-align: center;
     padding: 1.4em 1em;
     border-top: 0.063em solid var(--huda-slate-100-color);
+    background-color: var(--huda-white-color);
 }
 
 footer.entry-footer{
@@ -351,10 +353,8 @@ article.post .thumbnail-wrapper img,
     object-fit: cover;
 }
 
-article.post a.btn-read-more{
+article.post a.btn{
     margin-top: 0.8rem;
-    color: var(--huda-white-color);
-    background-color: var(--huda-neon-blue-color);
 }
 
 body.single article.post .post-thumbnail img{
