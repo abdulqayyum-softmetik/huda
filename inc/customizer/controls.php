@@ -27,7 +27,7 @@ new \Kirki\Field\Typography(
 			'letter-spacing'  => '0',
 			'text-transform'  => 'none',
 			'text-decoration' => 'none',
-			'text-align'      => 'left',
+			'text-align'      => 'initial',
 		],
 		'output'      => [
 			[
@@ -55,7 +55,7 @@ new \Kirki\Field\Typography(
 			'letter-spacing'  => '0',
 			'text-transform'  => 'none',
 			'text-decoration' => 'none',
-			'text-align'      => 'left',
+			'text-align'      => 'initial',
 		],
 		'output'      => [
 			[
@@ -83,7 +83,7 @@ new \Kirki\Field\Typography(
 			'letter-spacing'  => '0',
 			'text-transform'  => 'none',
 			'text-decoration' => 'none',
-			'text-align'      => 'left',
+			'text-align'      => 'initial',
 		],
 		'output'      => [
 			[
@@ -111,7 +111,7 @@ new \Kirki\Field\Typography(
 			'letter-spacing'  => '0',
 			'text-transform'  => 'none',
 			'text-decoration' => 'none',
-			'text-align'      => 'left',
+			'text-align'      => 'initial',
 		],
 		'output'      => [
 			[
@@ -139,7 +139,7 @@ new \Kirki\Field\Typography(
 			'letter-spacing'  => '0',
 			'text-transform'  => 'none',
 			'text-decoration' => 'none',
-			'text-align'      => 'left',
+			'text-align'      => 'initial',
 		],
 		'output'      => [
 			[
@@ -167,7 +167,7 @@ new \Kirki\Field\Typography(
 			'letter-spacing'  => '0',
 			'text-transform'  => 'none',
 			'text-decoration' => 'none',
-			'text-align'      => 'left',
+			'text-align'      => 'initial',
 		],
 		'output'      => [
 			[
@@ -195,7 +195,7 @@ new \Kirki\Field\Typography(
 			'letter-spacing'  => '0',
 			'text-transform'  => 'none',
 			'text-decoration' => 'none',
-			'text-align'      => 'left',
+			'text-align'      => 'initial',
 		],
 		'output'      => [
 			[
@@ -223,7 +223,7 @@ new \Kirki\Field\Typography(
 			'letter-spacing'  => '0',
 			'text-transform'  => 'none',
 			'text-decoration' => 'none',
-			'text-align'      => 'left',
+			'text-align'      => 'initial',
 		],
 		'output'      => [
 			[
@@ -329,7 +329,7 @@ new \Kirki\Field\Checkbox_Switch(
 	[
 		'settings'    => 'huda_rtl_switch_setting',
 		'label'       => esc_html__( 'RTL VESRION', 'huda' ),
-		'description' => esc_html__( 'Right To left version', 'huda' ),
+		'description' => esc_html__( 'Right To initial version', 'huda' ),
 		'section'     => 'huda_rtl_section',
 		'default'     => 'off',
 		'choices'     => [
@@ -344,16 +344,50 @@ new \Kirki\Field\Checkbox_Switch(
 /*
 * Buttons Control
 */
-new \Kirki\Field\Dimensions(
+// new \Kirki\Pro\Field\Padding(
+// 	[
+// 		'settings'    => 'huda_buttons_padding',
+// 		'label'       => esc_html__( 'Padding Control', 'huda' ),
+// 		'description' => '',
+// 		'section'     => 'huda_buttons_section',
+// 		'tab'        => 'general',
+// 		'default'     => [
+// 			'top'    => 2,
+// 			'bottom' => 2,
+// 		],
+// 		// 'transport'   => 'postMessage',
+// 		// 'tooltip'     => esc_html__( 'Buttons padding', 'huda' ),
+// 		'choices'     => [
+// 			'unit' => 'px',
+// 		],
+// 		'output'      => [
+// 			[
+// 				'element' => '.btn, .button, button',
+// 			],
+// 		],
+// 	]
+// );
+
+new \Kirki\Field\Typography(
 	[
-		'settings'    => 'huda_buttons_setting_dimensions_1',
-		'label'       => esc_html__( 'Button Width/Height', 'huda' ),
-		'description' => esc_html__( 'Description', 'huda' ),
+		'settings'    => 'huda_buttons_typography_setting',
+		'label'       => esc_html__( 'Buttons Typography', 'huda' ),
+		'description' => esc_html__( '', 'huda' ),
 		'section'     => 'huda_buttons_section',
-		'tab'         => 'general',
+		'tab'        => 'general',
+		'priority'    => 10,
+		'transport'   => 'auto',
 		'default'     => [
-			'width'  => '140px',
-			'height' => '40px',
+			'font-family'     => 'Roboto',
+			'variant'         => 'regular',
+			'font-style'      => 'normal',
+			'color'           => '#fffffe',
+			'font-size'       => '14px',
+			'line-height'     => '1.5',
+			'letter-spacing'  => '0',
+			'text-transform'  => 'none',
+			'text-decoration' => 'none',
+			'text-align'      => 'initial',
 		],
 		'output'      => [
 			[

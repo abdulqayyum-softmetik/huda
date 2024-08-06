@@ -16,7 +16,7 @@ function huda_scripts() {
 add_action( 'wp_enqueue_scripts', 'huda_scripts' );
 
 
-// function huda_customizer_style() {
-//     wp_enqueue_style( 'huda-customizer-style', get_template_directory_uri() . '/assets/css/customizer.css' );
-// }
-// add_action( 'customize_controls_enqueue_scripts', 'huda_customizer_style' );
+function huda_customizer_style() {
+    wp_enqueue_style( 'huda-customizer-style', get_template_directory_uri() . '/assets/css/customizer.css' );
+}
+add_action( 'customize_controls_enqueue_scripts', 'huda_customizer_style' );
