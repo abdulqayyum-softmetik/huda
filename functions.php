@@ -140,87 +140,14 @@ add_action( 'widgets_init', 'huda_widgets_init' );
 require get_template_directory() . '/inc/theme-scripts.php';
 
 /**
- *  Enable svg mime type support
+ * Svg icons suport.
  */
-if(!function_exists('huda_svg_support')){
-	function huda_svg_support($mimes){
-		$mimes['svg'] = 'image/svg+xml';
-		return $mimes;
-	}
-	add_filter('upload_mimes', 'huda_svg_support');
-}
-
-
-// Ensure this is within PHP tags
-if (!function_exists('get_svg_icons')) {
-    function get_svg_icons() {
-        $json_path = get_template_directory() . '/assets/svg/icons.json';
-        
-        // Check if the file exists
-        if (!file_exists($json_path)) {
-            error_log('Icons JSON file not found: ' . $json_path);
-            return [];
-        }
-
-        // Get the contents of the file
-        $json = file_get_contents($json_path);
-        if ($json === false) {
-            error_log('Error reading Icons JSON file: ' . $json_path);
-            return [];
-        }
-
-        // Decode the JSON
-        $icons = json_decode($json, true);
-        if (json_last_error() !== JSON_ERROR_NONE) {
-            error_log('Error decoding JSON: ' . json_last_error_msg());
-            return [];
-        }
-
-        return $icons;
-    }
-}
-
-if (!function_exists('display_svg_icon')) {
-    function display_svg_icon($menu_icon) {
-        $icons = get_svg_icons();
-        if (array_key_exists($menu_icon, $icons)) {
-            echo $icons[$menu_icon];
-        } else {
-            echo 'Icon not found: ' . $menu_icon;
-        }
-    }
-}
+require get_template_directory() . '/inc/svg-support.php';
 
 /**
- * Implement footer copyright text.
+ * Excerpt Length.
  */
-
-// Function to generate dynamic copyright text
-function huda_dynamic_copyright() {
-    $start_year = 2024; // Replace with the year you started your website
-    $current_year = date('Y');
-    if ($start_year == $current_year) {
-        $year = $current_year;
-    } else {
-        $year = $start_year . ' - ' . $current_year;
-    }
-    return 'Copyright &copy; ' . $year . '';
-}
-
-// Shortcode to display the dynamic copyright text
-function huda_copyright_shortcode() {
-    return huda_dynamic_copyright();
-}
-add_shortcode('huda_copyright', 'huda_copyright_shortcode');
-
-/**
- * Filter the excerpt length to 20 words.
- *
- * @param int $length Excerpt length.
- * @return int (Maybe) modified excerpt length.
- */
-add_filter( 'excerpt_length', function( $length ) { return 9; } );
-add_filter('excerpt_more', '__return_false');
+require get_template_directory() . '/inc/excerpt.php';
 
 /**
  * Custom template tags for this theme.
