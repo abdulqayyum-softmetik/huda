@@ -383,6 +383,10 @@ body.single article.post .post-thumbnail img{
     background-color: var(--huda-neon-blue-light);
 }
 
+.category-page .category-breadcrumb h1{
+    text-align: center;
+}
+
 .category-posts .post h2 a{
     color: var(--huda-black-color);
 }
