@@ -49,7 +49,7 @@ function huda_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
-			'menu-1' => esc_html__( 'Primary', 'huda' ),
+			'main-menu' => esc_html__( 'Primary', 'huda' ),
 		)
 	);
 
@@ -99,6 +99,15 @@ function huda_setup() {
 			'flex-height' => true,
 		)
 	);
+
+	// Add support for Elementor
+	add_theme_support('elementor');
+
+	// Add support for Gutenberg
+    add_theme_support('align-wide');
+    add_theme_support('wp-block-styles');
+    add_theme_support('editor-styles');
+    add_editor_style('style-editor.css');
 }
 add_action( 'after_setup_theme', 'huda_setup' );
 
@@ -140,9 +149,14 @@ add_action( 'widgets_init', 'huda_widgets_init' );
 require get_template_directory() . '/inc/theme-scripts.php';
 
 /**
- * Svg icons suport.
+ * Bootstrap 5 Nav Walker.
  */
-require get_template_directory() . '/inc/svg-support.php';
+require get_template_directory() . '/inc/bootstrap-navigation.php';
+
+/**
+ * Ajax live serach.
+ */
+require get_template_directory() . '/inc/live-search.php';
 
 /**
  * Excerpt Length.

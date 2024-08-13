@@ -21,7 +21,7 @@ new \Kirki\Field\Typography(
 			'font-family'     => 'Roboto',
 			'variant'         => 'regular',
 			'font-style'      => 'normal',
-			'color'           => '#333333',
+			'color'           => 'currentColor',
 			'font-size'       => '14px',
 			'line-height'     => '1.5',
 			'letter-spacing'  => '0',
@@ -49,7 +49,7 @@ new \Kirki\Field\Typography(
 			'font-family'     => 'Roboto',
 			'variant'         => 'regular',
 			'font-style'      => 'normal',
-			'color'           => '#333333',
+			'color'           => 'currentColor',
 			'font-size'       => '14px',
 			'line-height'     => '1.5',
 			'letter-spacing'  => '0',
@@ -77,7 +77,7 @@ new \Kirki\Field\Typography(
 			'font-family'     => 'Roboto',
 			'variant'         => 'regular',
 			'font-style'      => 'normal',
-			'color'           => '#333333',
+			'color'           => 'currentColor',
 			'font-size'       => '14px',
 			'line-height'     => '1.5',
 			'letter-spacing'  => '0',
@@ -105,7 +105,7 @@ new \Kirki\Field\Typography(
 			'font-family'     => 'Roboto',
 			'variant'         => 'regular',
 			'font-style'      => 'normal',
-			'color'           => '#333333',
+			'color'           => 'currentColor',
 			'font-size'       => '14px',
 			'line-height'     => '1.5',
 			'letter-spacing'  => '0',
@@ -133,7 +133,7 @@ new \Kirki\Field\Typography(
 			'font-family'     => 'Roboto',
 			'variant'         => 'regular',
 			'font-style'      => 'normal',
-			'color'           => '#333333',
+			'color'           => 'currentColor',
 			'font-size'       => '14px',
 			'line-height'     => '1.5',
 			'letter-spacing'  => '0',
@@ -161,7 +161,7 @@ new \Kirki\Field\Typography(
 			'font-family'     => 'Roboto',
 			'variant'         => 'regular',
 			'font-style'      => 'normal',
-			'color'           => '#333333',
+			'color'           => 'currentColor',
 			'font-size'       => '14px',
 			'line-height'     => '1.5',
 			'letter-spacing'  => '0',
@@ -189,7 +189,7 @@ new \Kirki\Field\Typography(
 			'font-family'     => 'Roboto',
 			'variant'         => 'regular',
 			'font-style'      => 'normal',
-			'color'           => '#333333',
+			'color'           => 'currentColor',
 			'font-size'       => '14px',
 			'line-height'     => '1.5',
 			'letter-spacing'  => '0',
@@ -217,7 +217,7 @@ new \Kirki\Field\Typography(
 			'font-family'     => 'Roboto',
 			'variant'         => 'regular',
 			'font-style'      => 'normal',
-			'color'           => '#333333',
+			'color'           => 'currentColor',
 			'font-size'       => '14px',
 			'line-height'     => '1.5',
 			'letter-spacing'  => '0',
@@ -303,25 +303,6 @@ new \Kirki\Field\Color(
 	]
 );
 
-new \Kirki\Field\Color(
-	[
-		'settings'    => 'huda_color_setting_body_background_color_setting_rgba',
-		'label'       => __( 'Body Background Color', 'huda' ),
-		'description' => esc_html__( '', 'huda' ),
-		'section'     => 'huda_colors_section',
-		'default'     => '#fffffe',
-		'output' => array(
-			array(
-				'element'  => 'body',
-				'property' => 'background-color',
-			)
-		),
-		'choices'     => [
-			'alpha' => true,
-		],
-	]
-);
-
 /*
 * RTL Control
 */
@@ -339,34 +320,32 @@ new \Kirki\Field\Checkbox_Switch(
 	]
 );
 
-
-
 /*
 * Buttons Control
 */
-// new \Kirki\Pro\Field\Padding(
-// 	[
-// 		'settings'    => 'huda_buttons_padding',
-// 		'label'       => esc_html__( 'Padding Control', 'huda' ),
-// 		'description' => '',
-// 		'section'     => 'huda_buttons_section',
-// 		'tab'        => 'general',
-// 		'default'     => [
-// 			'top'    => 2,
-// 			'bottom' => 2,
-// 		],
-// 		// 'transport'   => 'postMessage',
-// 		// 'tooltip'     => esc_html__( 'Buttons padding', 'huda' ),
-// 		'choices'     => [
-// 			'unit' => 'px',
-// 		],
-// 		'output'      => [
-// 			[
-// 				'element' => '.btn, .button, button',
-// 			],
-// 		],
-// 	]
-// );
+new \Kirki\Pro\Field\Padding(
+	[
+		'settings'    => 'huda_buttons_padding',
+		'label'       => esc_html__( 'Buttons Padding', 'huda' ),
+		'description' => 'Example description.',
+		'section'     => 'huda_buttons_section',
+		'tab'        => 'general',
+		'default'     => [
+			'top'    => 2,
+			'bottom' => 2,
+		],
+		'transport'   => 'postMessage',
+		'tooltip'     => esc_html__( 'Buttons Padding', 'Huda' ),
+		'choices'     => [
+			'unit' => 'px',
+		],
+		'output'      => [
+			[
+				'element' => '.btn, .button, button',
+			],
+		],
+	]
+);
 
 new \Kirki\Field\Typography(
 	[
@@ -378,10 +357,10 @@ new \Kirki\Field\Typography(
 		'priority'    => 10,
 		'transport'   => 'auto',
 		'default'     => [
-			'font-family'     => 'Roboto',
+			'font-family'     => 'Poppins',
 			'variant'         => 'regular',
 			'font-style'      => 'normal',
-			'color'           => '#fffffe',
+			'color'           => 'inherit',
 			'font-size'       => '14px',
 			'line-height'     => '1.5',
 			'letter-spacing'  => '0',
@@ -404,7 +383,7 @@ new \Kirki\Field\Color(
 		'description' => esc_html__( '', 'huda' ),
 		'section'     => 'huda_buttons_section',
 		'tab'         => 'design',
-		'default'     => '#fffffe',
+		'default'     => 'inherit',
 		'output' => array(
 			array(
 				'element'  => '.btn, .button, button',
@@ -450,3 +429,4 @@ new \Kirki\Field\Color(
 		),
 	]
 );
+

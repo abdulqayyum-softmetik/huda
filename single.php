@@ -9,6 +9,10 @@
 
 get_header();
 ?>
+	<?php 
+		// Before the content
+		do_action('tha_content_before');
+	?>
 	<main id="primary" class="site-main container">
 		<div class="row">
 			<div class="col-md-8">
@@ -38,5 +42,10 @@ get_header();
 			</div>
 		</div>
 	</main><!-- #main -->
-<?php
-get_footer();
+	<?php 
+		// After the content
+		do_action('tha_content_after'); 
+	?>
+
+	<?php
+	get_footer();

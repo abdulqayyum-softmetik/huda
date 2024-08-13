@@ -26,6 +26,7 @@
         - Galleries
         - blockquote
         - Sidebar
+        - Icons
     # Utilities
         - Accessibility
         - Alignments
@@ -55,6 +56,7 @@ html, body {
     --huda-slate-200-color: #e2e8f0;
     --huda-neon-blue-light: #eff0ff;
     --huda-neon-blue-300: #9095fd;
+    --huda-border-color: #dee2e6;
 
     --content-padding: 1em 1em;
     --content-padding-x: 0em 1em;
@@ -124,8 +126,6 @@ header.huda-primary-header{
     align-items: center;
     justify-content: space-between;
     padding: var(--content-padding);
-    border-bottom: 0.063em solid var(--huda-slate-200-color);
-    background-color: var(--huda-white-color);
 }
 
 header .huda-site-title-wrapper{
@@ -140,7 +140,7 @@ header .huda-site-title-wrapper a{
 
 header .huda-site-title-wrapper 
 img.custom-logo{
-    max-width: 88px;
+    max-width: 120px;
 }
 
 header .huda-main-navigation.toggled
@@ -162,7 +162,20 @@ header .huda-main-navigation .menu-toggle{
 
 .huda-main-navigation .current-menu-item a{
     font-weight: 500;
-    color: var(--huda-neon-blue-color);
+    color: currentColor;
+}
+
+a.nav-link.active::before{
+    content: '';
+    position: absolute;
+    top: 110%;
+    bottom: 0;
+    left: 50%;
+    width: 20px;
+    height: 3px;
+    border-radius: 50px;
+    background-color: currentColor;
+    transform: translateX(-50%);
 }
 
 /* Footer
@@ -171,8 +184,7 @@ footer.site-footer{
     flex-shrink: 0;
     text-align: center;
     padding: 1.4em 1em;
-    border-top: 0.063em solid var(--huda-slate-100-color);
-    background-color: var(--huda-white-color);
+    background-color: inherit;
 }
 
 footer.entry-footer{
@@ -185,12 +197,8 @@ footer.entry-footer{
 
 /* Navigation
 --------------------------------------------- */
-.huda-main-navigation {
-	display: block;
-}
 
 .huda-main-navigation ul {
-	display: none;
 	list-style: none;
 	margin: 0;
 	padding-left: 0;
@@ -232,27 +240,9 @@ footer.entry-footer{
 .huda-main-navigation a {
 	display: block;
 	text-decoration: none;
-    color: #333333;
+    color: inherit;
 }
 
-/* Small menu. */
-.menu-toggle,
-.huda-main-navigation.toggled ul {
-	display: block;
-}
-
-@media screen and (min-width: 48.5em) {
-
-	.menu-toggle {
-		display: none;
-	}
-
-	.huda-main-navigation ul {
-		display: flex;
-        justify-content: flex-end;
-        gap: 1.2em;
-	}
-}
 
 .huda-site-main .comment-navigation,
 .huda-site-main
@@ -302,6 +292,19 @@ blockquote p{
     padding-left: 1em;
 }
 
+
+/* Icons
+-------------------------- */
+.huda-header-icons-wrapper{
+    width: 60px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 1px solid var(--huda-border-color);
+    border-radius: 50px;
+}
+
 /* Posts and pages
 -------------------------- */
 #page,
@@ -331,7 +334,7 @@ article.post header{
 }
 
 article.post header h3.entry-title a{
-    color: #333333;
+    color: currentColor;
 }
 
 article.post header.entry-header .entry-meta .author-title{
@@ -381,6 +384,10 @@ body.single article.post .post-thumbnail img{
 
 .category-posts .post h2 a{
     color: var(--huda-black-color);
+}
+
+body.search form.search-form{
+    text-align: center;
 }
 
 /* Comments
@@ -502,6 +509,41 @@ aside a{
 
 aside footer{
     padding: 0;
+}
+
+.dark-light-toggler .checkbox{
+    opacity: 0;
+    position: absolute;
+    display: none;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+}
+
+.dark-light-toggler .checkbox-label{
+    width: 3.75em;
+    position: relative;
+    border-radius: 3.125em;
+}
+
+.dark-light-toggler .checkbox:checked ~ i.fa-sun{
+    display: block;
+}
+
+.dark-light-toggler .checkbox:checked ~ i.fa-moon{
+    display: none;
+}
+
+.dark-light-toggler #lightDarkSwitch,
+.dark-light-toggler i.fa-sun{
+    display: none;
+}
+
+.dark-light-toggler i.fa-sun,
+.dark-light-toggler i.fa-moon{
+    font-size: 1.125em;
+    cursor: pointer;
+
 }
 
 /*---------------------------

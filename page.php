@@ -14,9 +14,11 @@
 
 get_header();
 ?>
-
+	<?php 
+		// Before the content
+		do_action('tha_content_before');
+	?>
 	<main id="primary" class="huda-site-main container">
-
 		<?php
 		while ( have_posts() ) :
 			the_post();
@@ -32,6 +34,10 @@ get_header();
 		?>
 
 	</main><!-- #main -->
+	<?php 
+		// After the content
+		do_action('tha_content_after'); 
+	?>
 
-<?php
-get_footer();
+	<?php
+	get_footer();

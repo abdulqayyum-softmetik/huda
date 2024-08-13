@@ -130,7 +130,7 @@ ul.products li.product {
 	list-style: none;
 	position: relative;
 	margin-bottom: 2em;
-	min-height: 450px;
+	min-height: 430px;
 }
 
 ul.products li.product .woocommerce-loop-product__title{
