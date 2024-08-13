@@ -27,6 +27,7 @@
         - blockquote
         - Sidebar
         - Icons
+        - Buttons
     # Utilities
         - Accessibility
         - Alignments
@@ -494,6 +495,23 @@ form.comment-form label{
     margin-bottom: 0.2em;
 }
 
+form.wp-block-search__button-outside 
+.wp-block-search__inside-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+form.wp-block-search__button-outside 
+.wp-block-search__button{
+    border: unset;
+}
+
+form.wp-block-search__button-outside 
+.wp-block-search__inside-wrapper input{
+    padding: 0.375em 0.625em;
+}
+
 /* Sidebar
 -------------------------- */
 aside{
@@ -511,40 +529,35 @@ aside footer{
     padding: 0;
 }
 
-.dark-light-toggler .checkbox{
-    opacity: 0;
-    position: absolute;
-    display: none;
-    width: 100%;
-    height: 100%;
-    z-index: 999;
-}
 
-.dark-light-toggler .checkbox-label{
-    width: 3.75em;
-    position: relative;
-    border-radius: 3.125em;
-}
-
-.dark-light-toggler .checkbox:checked ~ i.fa-sun{
-    display: block;
-}
-
-.dark-light-toggler .checkbox:checked ~ i.fa-moon{
-    display: none;
-}
-
-.dark-light-toggler #lightDarkSwitch,
-.dark-light-toggler i.fa-sun{
-    display: none;
-}
-
-.dark-light-toggler i.fa-sun,
-.dark-light-toggler i.fa-moon{
-    font-size: 1.125em;
-    cursor: pointer;
-
-}
+/* Button
+ -------------*/
+ ul.products li.product .button,
+ form.cart button.single_add_to_cart_button.button.alt,
+ body:not(.woocommerce-block-theme-has-button-styles) .wc-block-components-button:not(.is-link){
+     width: 100%;
+     height: auto;
+     text-align: center;
+     border-radius: 0.2em;
+     padding: 0.6em 0.8em;
+     color: var(--huda-white-color);
+     border: 0.063em solid var(--huda-neon-blue-color) !important;
+     background-color: var(--huda-neon-blue-color) !important;
+     transition: 0.3s ease-in;
+ }
+ 
+ form.cart button.single_add_to_cart_button.button.alt:hover,
+ ul.products li.product .button:hover,
+ form.cart button.single_add_to_cart_button.button.alt:hover,
+ body:not(.woocommerce-block-theme-has-button-styles) .wc-block-components-button:not(.is-link):hover,
+ li.product .button:hover,
+ form.wp-block-search__button-outside 
+ .wp-block-search__button:hover,
+ form.comment-form .form-submit input:hover{
+     color: #4169e1 !important;
+     border: 1px solid #4169e1;
+     background-color: var(--huda-white-color) !important;
+ }
 
 /*---------------------------
 # Responsive Styles

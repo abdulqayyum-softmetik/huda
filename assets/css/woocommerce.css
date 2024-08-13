@@ -22,32 +22,8 @@ WooCommerce styles override
 	background-color: #ffffff;
 }
 
-/* Button
- -------------*/
-ul.products li.product .button,
-form.cart button.single_add_to_cart_button.button.alt,
-body:not(.woocommerce-block-theme-has-button-styles) .wc-block-components-button:not(.is-link){
-	width: 100%;
-    height: auto;
-    text-align: center;
-    border-radius: 0.2em;
-    padding: 0.6em 0.8em;
-	color: var(--huda-white-color);
-	border: 0.063em solid var(--huda-neon-blue-color) !important;
-	background-color: var(--huda-neon-blue-color) !important;
-	transition: 0.3s ease-in-out;
-}
-
-form.cart button.single_add_to_cart_button.button.alt:hover,
-ul.products li.product .button:hover,
-form.cart button.single_add_to_cart_button.button.alt:hover,
-body:not(.woocommerce-block-theme-has-button-styles) .wc-block-components-button:not(.is-link):hover,
-li.product .button:hover{
-	color: #4169e1 !important;
-	background-color: var(--huda-white-color) !important;
-}
-
-body:not(.woocommerce-block-theme-has-button-styles) .wc-block-components-button:not(.is-link){
+body:not(.woocommerce-block-theme-has-button-styles) 
+.wc-block-components-button:not(.is-link){
 	width: 16em !important;
 }
 

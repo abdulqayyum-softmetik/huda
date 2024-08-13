@@ -46,14 +46,6 @@
                                 ?>
                             </div>
                         </div>
-                        <div class="dark-light-toggler d-flex justify-content-center gap-4">
-                            <label for="checkbox" class="huda-header-icons-wrapper checkbox-label">
-                                <input type="checkbox" class="checkbox" id="checkbox">
-                                <i class="fas fa-moon"></i>
-                                <i class="fas fa-sun"></i>
-                            </label>
-                        </div>
-                        
                         <div class="huda-header-icons-wrapper">
                             <i class="fas fa-search"></i>
                         </div>
