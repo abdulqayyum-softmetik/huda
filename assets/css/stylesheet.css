@@ -508,7 +508,8 @@ form.wp-block-search__button-outside
 }
 
 form.wp-block-search__button-outside 
-.wp-block-search__inside-wrapper input{
+.wp-block-search__inside-wrapper input,
+form.search-form input.search-field{
     padding: 0.375em 0.625em;
 }
 
@@ -534,12 +535,13 @@ aside footer{
  -------------*/
  ul.products li.product .button,
  form.cart button.single_add_to_cart_button.button.alt,
- body:not(.woocommerce-block-theme-has-button-styles) .wc-block-components-button:not(.is-link){
-     width: 100%;
+ body:not(.woocommerce-block-theme-has-button-styles) .wc-block-components-button:not(.is-link),
+ form.search-form input.search-submit{
+     width:auto;
      height: auto;
      text-align: center;
      border-radius: 0.2em;
-     padding: 0.6em 0.8em;
+     padding: 0.6em 1em;
      color: var(--huda-white-color);
      border: 0.063em solid var(--huda-neon-blue-color) !important;
      background-color: var(--huda-neon-blue-color) !important;
@@ -553,7 +555,11 @@ aside footer{
  li.product .button:hover,
  form.wp-block-search__button-outside 
  .wp-block-search__button:hover,
- form.comment-form .form-submit input:hover{
+ form.comment-form .form-submit input:hover,
+button:hover,
+.button:hover,
+.btn:hover,
+form.search-form input.search-submit:hover{
      color: #4169e1 !important;
      border: 1px solid #4169e1;
      background-color: var(--huda-white-color) !important;

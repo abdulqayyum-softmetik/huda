@@ -14,7 +14,7 @@
 		// After the content
 		do_action('tha_content_after'); 
 	?>
-		<footer id="colophon" class="site-footer">
+		<footer id="colophon" class="site-footer border-top">
 			<div class="site-info">
 				
 				&copy; <?php echo date('Y'); ?>
