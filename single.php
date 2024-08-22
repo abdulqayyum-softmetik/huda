@@ -11,7 +11,7 @@ get_header();
 ?>
 	<?php 
 		// Before the content
-		do_action('tha_content_before');
+		do_action('huda_content_before');
 	?>
 	<main id="primary" class="site-main container">
 		<div class="row">
@@ -44,7 +44,7 @@ get_header();
 	</main><!-- #main -->
 	<?php 
 		// After the content
-		do_action('tha_content_after'); 
+		do_action('huda_content_after'); 
 	?>
 
 	<?php

@@ -30,15 +30,15 @@
 
 	<?php 
 		// Before the header
-		do_action('tha_header_before');
+		do_action('huda_header_before');
   	?>
 
 	<?php 
 		// Header Default Content
-		get_template_part( 'inc/templates/headers/default', 'header' );  
+		get_template_part( 'template-parts/headers/default', 'header' );  
 	?>
 
 	<?php 
 		// After the header
-		do_action('tha_header_after'); 
+		do_action('huda_header_after'); 
   	?>

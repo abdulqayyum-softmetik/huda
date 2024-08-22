@@ -161,3 +161,22 @@ if ( ! function_exists( 'wp_body_open' ) ) :
 		do_action( 'wp_body_open' );
 	}
 endif;
+
+if ( ! function_exists( 'huda_comment_count' ) ) :
+	/**
+	 * Prints post comment counts.
+	 */
+	function huda_comment_count(){
+		
+		$arg = get_comments_number(get_the_ID());
+		
+		echo '<span class="comment-count">' . $arg . '</span>';
+	}
+endif;
+
+
+if ( ! function_exists( 'huda_post_view_count' ) ) :
+	
+endif;
+
+

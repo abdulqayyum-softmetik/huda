@@ -7,9 +7,11 @@ function huda_scripts() {
 	wp_enqueue_style( 'huda-stylesheet', get_template_directory_uri() . '/assets/css/stylesheet.css', array(), _S_VERSION );
 	wp_enqueue_style( 'huda-customizer-style', get_template_directory_uri() . '/assets/css/customizer.css', array(), _S_VERSION );
 	wp_enqueue_style( 'font-awesome-fonts', get_template_directory_uri() . '/assets/css/fontawesome.min.css', array(), '5.15.4' ); 
+	wp_enqueue_style( 'swiper-css', get_template_directory_uri() . '/assets/css/swiper-bundle.min.css', array(), '11.0.5' ); 
 
 	wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/assets/js/bootstrap.bundle.min.js', array(), '5.2.3', true );
-	wp_enqueue_script( 'main-js', get_template_directory_uri() . '/assets/js/main.js', array(), '5.2.3', true );
+	wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/assets/js/swiper-bundle.js', array(), '11.0.5', true );
+	wp_enqueue_script( 'swiper-js', get_template_directory_uri() . '/assets/js/main.js', array(), '5.2.3', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

@@ -9,7 +9,7 @@
 
 ?>
 
-<div class="<?php echo is_home() ? 'col-md-3' : 'col-md-12'; ?>  <?php echo is_sticky() ? 'col-md-12' : 'col-md-3' ?> ">
+<div class="<?php echo is_home() ? 'col-lg-3 col-md-6 col-12' : 'col-lg-12 col-md-12 col-12'; ?>  <?php echo is_sticky() ? 'col-lg-12 col-md-12 col-12' : 'col-lg-3 col-md-6 col-12' ?> ">
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<div class="<?php echo is_home() ? 'thumbnail-wrapper' : ''; ?>">
 			<?php huda_post_thumbnail('medium'); ?>
@@ -27,8 +27,8 @@
 					?>
 					<div class="entry-meta">
 						<?php
-						huda_posted_on();
-						huda_posted_by();
+							huda_posted_on();
+							huda_posted_by();
 						?>
 					</div><!-- .entry-meta -->
 				<?php endif; ?>
