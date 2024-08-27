@@ -16,7 +16,7 @@
 		?>
 		<?php 
 			// Footer Default Content
-			get_template_part( 'template-parts/footers/default', 'footer' );  
+			get_template_part( 'template-parts/footers/footer', 'default' );  
 		?>
 		<?php 
 			// After the footer

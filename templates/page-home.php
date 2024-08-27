@@ -11,10 +11,7 @@ get_header();
 
 
 // Featured Section
-get_template_part( 'template-parts/sections/featured', 'section' );
-
-// Featured Category Section
-get_template_part( 'template-parts/sections/featured', 'category' );
+get_template_part( 'template-parts/sections/featured', 'content' );
 
 
 get_footer();

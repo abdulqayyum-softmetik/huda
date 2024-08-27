@@ -36,7 +36,7 @@
 
 	<?php 
 		// Header Default Content
-		get_template_part( 'template-parts/headers/default', 'header' );  
+		get_template_part( 'template-parts/headers/header', 'default' );  
 	?>
 
 	<?php 
