@@ -323,30 +323,6 @@ new \Kirki\Field\Checkbox_Switch(
 /*
 * Buttons Control
 */
-new \Kirki\Pro\Field\Padding(
-	[
-		'settings'    => 'huda_buttons_padding',
-		'label'       => esc_html__( 'Buttons Padding', 'huda' ),
-		'description' => 'Example description.',
-		'section'     => 'huda_buttons_section',
-		'tab'        => 'general',
-		'default'     => [
-			'top'    => 2,
-			'bottom' => 2,
-		],
-		'transport'   => 'postMessage',
-		'tooltip'     => esc_html__( 'Buttons Padding', 'Huda' ),
-		'choices'     => [
-			'unit' => 'px',
-		],
-		'output'      => [
-			[
-				'element' => '.btn, .button, button',
-			],
-		],
-	]
-);
-
 new \Kirki\Field\Typography(
 	[
 		'settings'    => 'huda_buttons_typography_setting',

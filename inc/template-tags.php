@@ -175,8 +175,21 @@ if ( ! function_exists( 'huda_comment_count' ) ) :
 endif;
 
 
-if ( ! function_exists( 'huda_post_view_count' ) ) :
-	
+if ( ! function_exists( 'huda_post_read_time' ) ) :
+	function huda_post_read_time( $post_id ) {
+		$post = get_post_field( 'post_content', $post_id );
+		$post_wordcount = str_word_count( strip_tags( $post ) ); 
+		$check_time = ceil( $post_wordcount / 250 ); 
+			
+		if ( $check_time == 1 ) { 
+			$label = " Minute Read";
+		} else {
+			$label = " Minutes Read";
+		}
+			
+		$arg = $check_time . $label; 
+		return $arg;		
+	}
 endif;
 
 

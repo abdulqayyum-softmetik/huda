@@ -1,4 +1,4 @@
-<footer id="colophon" class="site-footer-default border m-3">
+<footer id="colophon" class="site-footer-default">
     <div class="row pb-3">
         <div class="col-lg-6 col-md-4 col-12">
             <div class="col-lg-6">

@@ -1,5 +1,5 @@
 <div class="container-fluid d-lg-none pt-3 px-2">
-    <div class="d-flex align-items-center justify-content-between">
+    <div class="moile-nav d-flex align-items-center justify-content-between">
         <?php 
             get_template_part( 'inc/custom', 'logo' );  
         ?>
@@ -70,7 +70,7 @@
                                 </div>
                             </div>
                             <div class="huda-header-icons-wrapper">
-                                <a href="<?php echo esc_url( get_permalink() ); ?>" class="btn btn-subscribe rounded-pill text-white">Subscribe</a>
+                                <a href="<?php echo esc_url( get_permalink() ); ?>" class="btn btn-subscribe rounded-pill text-white d-flex gap-2"> Subscribe <i class="fas fa-paper-plane"></i></a>
                             </div>
                             
                         </div>
