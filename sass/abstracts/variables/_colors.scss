@@ -1,4 +1,5 @@
-$color__background-body: #fff;
+
+$color__background-body: #F4F4F4;
 $color__background-screen: #f1f1f1;
 $color__background-hr: #ccc;
 $color__background-button: #e6e6e6;
@@ -18,3 +19,40 @@ $color__border-button-hover: #ccc #bbb #aaa;
 $color__border-button-focus: #aaa #bbb #bbb;
 $color__border-input: #ccc;
 $color__border-abbr: #666;
+
+$color__black: #0F0E17;
+$color__white: #FFFFFE;
+$color__danger: #F25F4C;
+
+[data-bs-theme=dark]{
+
+    body{
+        color: $color__white;
+        background: $color__black;
+
+
+        a{
+            color: $color__danger;
+        }
+
+        p{
+            color: $color__white;
+        }
+
+        label {
+            cursor: pointer;
+            .toggle-wrapper {
+                .toggle {
+                   
+    
+                    &::before {
+                        content: "\f185";
+                        color: $color__black;
+                    }
+                    
+                }
+            }
+        }
+    }
+    
+}

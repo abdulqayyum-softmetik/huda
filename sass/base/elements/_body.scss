@@ -1,3 +1,16 @@
 body {
 	background: $color__background-body; // Fallback for when there is no custom background color defined.
+
+	.site{
+		display: flex;
+		flex-direction: column;
+		min-height: 100vh;
+		margin: 0;
+
+		main,
+		.category-page{
+			flex: 1;
+			padding: 1.8em 2em;
+		}
+	}
 }

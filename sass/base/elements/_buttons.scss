@@ -19,3 +19,23 @@ input[type="submit"] {
 		border-color: $color__border-button-focus;
 	}
 }
+
+.btn {
+	&.btn-read-more-arrow {
+		width: 2.625em;
+		height: 2.625em;
+		border-radius: 3.125em;
+		background-color: $color__black;
+		transition: 800ms ease-in-out color;
+
+		&:hover{
+			background-color: $color__danger;
+		}
+
+		svg{
+			color: $color__white;
+		}
+
+		@include flex-center;
+	}
+}

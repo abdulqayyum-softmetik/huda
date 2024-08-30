@@ -406,3 +406,22 @@ new \Kirki\Field\Color(
 	]
 );
 
+
+
+/*
+* Blog Control
+*/
+new \Kirki\Field\Radio_Image(
+	[
+		'settings'    => 'blog__container__setting',
+		'label'       => esc_html__( 'Container Layout', 'kirki' ),
+		'section'     => 'huda_blog_layouts_section',
+		'default'     => 'container',
+		'tab'         => 'general',
+		'priority'    => 10,
+		'choices'     => [
+			'container' => get_template_directory_uri() . '/assets/images/narrow-width.png',
+			'container-fluid'   => get_template_directory_uri() . '/assets/images/full-width.png',
+		],
+	]
+);

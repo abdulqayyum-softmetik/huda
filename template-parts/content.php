@@ -9,12 +9,12 @@
 
 ?>
 
-<div class="<?php echo is_home() ? 'col-lg-3 col-md-6 col-12' : 'col-lg-12 col-md-12 col-12'; ?>  <?php echo is_sticky() ? 'col-lg-12 col-md-12 col-12' : 'col-lg-3 col-md-6 col-12' ?> ">
+<div class="<?php echo is_home() ? 'col-lg-4 col-md-6 col-12' : 'col-lg-12 col-md-12 col-12'; ?>">
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<div class="<?php echo is_home() ? 'thumbnail-wrapper' : ''; ?>">
 			<?php huda_post_thumbnail('medium'); ?>
 		</div>
-		<div>
+		<div class="article-content">
 			<header class="entry-header">
 				<?php
 				if ( is_singular() ) :
@@ -34,62 +34,49 @@
 				<?php endif; ?>
 			</header><!-- .entry-header -->
 
-			<div class="entry-content">
+			<div class="entry-content m-0">
 				<?php
-
-				if ( is_home() ) :
-					the_excerpt(
-					sprintf(
-						wp_kses(
-							/* translators: %s: Name of current post. Only visible to screen readers */
-							__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'huda' ),
-							array(
-								'span' => array(
-									'class' => array(),
+					if ( is_home() ) :
+					// silence is golden
+					else :
+						the_content(
+							sprintf(
+								wp_kses(
+									/* translators: %s: Name of current post. Only visible to screen readers */
+									__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'huda' ),
+									array(
+										'span' => array(
+											'class' => array(),
+										),
+									)
 								),
+								wp_kses_post( get_the_title() )
 							)
-						),
-						wp_kses_post( get_the_title() )
-					)
-				);
-				else :
-					the_content(
-						sprintf(
-							wp_kses(
-								/* translators: %s: Name of current post. Only visible to screen readers */
-								__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'huda' ),
-								array(
-									'span' => array(
-										'class' => array(),
-									),
-								)
-							),
-							wp_kses_post( get_the_title() )
+						);
+					endif;
+
+					wp_link_pages(
+						array(
+							'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'huda' ),
+							'after'  => '</div>',
 						)
 					);
-				endif;
-
-				wp_link_pages(
-					array(
-						'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'huda' ),
-						'after'  => '</div>',
-					)
-				);
 				?>
 			</div><!-- .entry-content -->
 
-			<?php 
-				if ( is_sticky() && is_home() ) :
-					?>
-						<a href="<?php the_permalink() ?>" class="btn btn-read-more">Read Article</a>
-					<?php
-				else :
-					
-				endif;
-			?>
-
 			<footer class="entry-footer">
-				
+				<div class="d-flex align-items-center justify-content-between">
+					<div class="">
+						<?php echo huda_post_read_time( the_ID() ) ?>
+					</div>
+					<div>
+						<a class="btn btn-read-more-arrow" href="<?php echo esc_url( get_permalink() ); ?>">
+							<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+								<path fill-rule="evenodd" d="M8.25 3.75H19.5a.75.75 0 0 1 .75.75v11.25a.75.75 0 0 1-1.5 0V6.31L5.03 20.03a.75.75 0 0 1-1.06-1.06L17.69 5.25H8.25a.75.75 0 0 1 0-1.5Z" clip-rule="evenodd" />
+							</svg>
+						</a>
+					</div>
+				</div>
 			</footer><!-- .entry-footer -->
 		</div>
 	</article><!-- #post-<?php the_ID(); ?> -->

@@ -5,6 +5,18 @@
 	margin-right: auto;
 }
 
+@mixin flex-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+@mixin flex-column {
+	display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 // Column width with margin
 @mixin column-width($numberColumns: 3) {
 	width: map-get($columns, $numberColumns) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );

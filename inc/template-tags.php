@@ -174,8 +174,23 @@ if ( ! function_exists( 'huda_comment_count' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'huda_pagination' ) ) :
+	/**
+	 * Display numeric pagination.
+	 */
+	function huda_pagination(){
+		the_posts_pagination( array(
+			'mid_size'  => 2,
+			'prev_text' => __( '<i class="fas fa-arrow-left"></i> Previous', 'huda' ),
+			'next_text' => __( 'Next <i class="fas fa-arrow-right"></i>', 'huda' ),
+		) );
+	}
+endif;
 
 if ( ! function_exists( 'huda_post_read_time' ) ) :
+	/**
+	 * Display ppost read time.
+	 */
 	function huda_post_read_time( $post_id ) {
 		$post = get_post_field( 'post_content', $post_id );
 		$post_wordcount = str_word_count( strip_tags( $post ) ); 
@@ -191,5 +206,10 @@ if ( ! function_exists( 'huda_post_read_time' ) ) :
 		return $arg;		
 	}
 endif;
+
+
+
+
+
 
 

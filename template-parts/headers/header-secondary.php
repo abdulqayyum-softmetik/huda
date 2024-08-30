@@ -33,9 +33,16 @@
     <header id="masthead" class="w-100 navbar navbar-expand-md justify-content-between navbar-light huda-primary-header">
         <div class="nav-wrapper d-xl-flex align-items-center justify-content-between container-fluid">
             <div class="huda-site-title-wrapper">
-                <?php 
-                    get_template_part( 'inc/custom', 'logo' );  
-                ?>
+            <?php 
+                if(  function_exists('the_custom_logo') && has_custom_logo() ) : 
+                    the_custom_logo();
+                else :
+                    ?>
+                        <div class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></div>
+                        <p><?php bloginfo( 'description' ); ?></p>
+                    <?php
+                endif;
+            ?>
             </div><!-- .site-branding -->
 
             <nav id="huda-site-navigation" class="huda-main-navigation w-100">
