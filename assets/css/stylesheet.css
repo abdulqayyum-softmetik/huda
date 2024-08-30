@@ -532,6 +532,55 @@ nav.navigation.pagination .nav-links .fa-arrow-left {
      object-fit: cover;
 }
 
+.single main article {
+  width: auto;
+}
+.single main article header.entry-header {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 99;
+}
+.single main article header.entry-header h1.entry-title {
+  font-size: 52px;
+  font-weight: 700;
+  color: #FFFFFE;
+  text-align: center;
+}
+.single main article header.entry-header .entry-meta {
+  text-align: center;
+  color: #FFFFFE;
+}
+.single main article .post-thumbnail {
+  width: 100%;
+  height: 520px;
+  margin-bottom: 1em;
+  overflow: hidden;
+  background-color: lightgrey;
+}
+.single main article .post-thumbnail img {
+  width: 100%;
+  height: 520px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 20px;
+  position: relative;
+  display: block;
+}
+.single main article .post-thumbnail img::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 520px;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 2;
+  border-radius: 20px;
+  pointer-events: none;
+}
+
 .updated:not(.published) {
   display: none;
 }
@@ -582,6 +631,14 @@ nav.navigation.pagination .nav-links .fa-arrow-left {
   display: inline-block;
 }
 
+/* Aside
+--------------------------------------------- */
+aside.widget-area {
+  background-color: transparent;
+}
+aside.widget-area .wp-block-latest-posts__featured-imageimg {
+  border-radius: 4px;
+}
 /* Captions
 --------------------------------------------- */
 .wp-caption {
@@ -691,11 +748,11 @@ nav.navigation.pagination .nav-links .fa-arrow-left {
   transform: translate(-50%, -50%);
   transition: 200ms ease-in-out color;
 }
-.toggle-switch input:checked ~ label.toggle {
+.toggle-switch input:checked ~ label .toggle {
   left: calc(50% + 0.25em);
 }
-.toggle-switch input:checked ~ label.toggle::before {
-  content: "\f186";
+.toggle-switch input:checked ~ label .toggle::before {
+  content: "\f186" !important;
 }
 
 /* Footer

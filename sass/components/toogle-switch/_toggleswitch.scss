@@ -43,10 +43,10 @@
     input {
         &:checked {
             & ~ label {
-                &.toggle {
+                .toggle {
                     left: calc(50% + 0.25em);
                     &::before {
-                        content: "\f186";
+                        content: "\f186" !important;
                     }
                 }
             }

@@ -21,11 +21,11 @@
     
     // Display single.php content inside the function
     function huda_single_post_content(){
-    $container_width = huda_get_container_width(); 
+        $container_width = huda_get_container_width(); 
     ?>
         <main id="primary" class="site-main <?php echo esc_attr( $container_width ); ?>">
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-12">
                     <?php
                         while ( have_posts() ) :
                             the_post();
@@ -46,9 +46,6 @@
 
                         endwhile; // End of the loop.
                     ?>
-                </div>
-                <div class="col-md-4">
-                    <?php get_sidebar(); ?>
                 </div>
             </div>
         </main><!-- #main -->
