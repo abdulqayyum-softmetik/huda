@@ -147,7 +147,7 @@ var {
 
 abbr,
 acronym {
-  border-bottom: 1px dotted #666;
+  border-bottom: 1px dotted rgba(102, 112, 133, 0.3);
   cursor: help;
 }
 
@@ -260,17 +260,21 @@ input[type=button],
 input[type=reset],
 input[type=submit] {
   border: 1px solid;
+  line-height: normal;
+  padding: 16px 35px;
+  font-weight: 600;
+  color: #FFFFFE;
   border-color: #ccc #ccc #bbb;
-  border-radius: 3px;
-  background: #e6e6e6;
-  color: rgba(0, 0, 0, 0.8);
-  line-height: 1;
-  padding: 0.6em 1em 0.4em;
+  border-radius: 50px;
+  background: #0E0127;
+  transition: 0.3s ease-in;
 }
 button:hover,
 input[type=button]:hover,
 input[type=reset]:hover,
 input[type=submit]:hover {
+  color: #0F0E17;
+  background: #FFFFFE;
   border-color: #ccc #bbb #aaa;
 }
 button:active, button:focus,
@@ -475,6 +479,16 @@ nav.navigation.pagination .nav-links .fa-arrow-right {
 nav.navigation.pagination .nav-links .fa-arrow-left {
   transform: rotate(45deg);
 }
+nav.previous-post .next-post-image img,
+nav.previous-post .prevoius-post-image img, nav.next-post .next-post-image img,
+nav.next-post .prevoius-post-image img {
+  border-radius: 0.625em;
+}
+nav.previous-post a.link, nav.next-post a.link {
+  font-family: "Cormorant";
+  font-weight: 600;
+  font-size: 1.2em;
+}
 
 .site-main .comment-navigation,
 .site-main .posts-navigation,
@@ -649,8 +663,42 @@ nav.navigation.pagination .nav-links .fa-arrow-left {
 .comments-area ol.comment-list li.comment article.comment-body footer.comment-meta .comment-author.vcard b.fn a {
   text-transform: capitalize;
 }
+.comments-area h2.comments-title {
+  margin-bottom: 0.8em;
+}
 .comments-area .comment-respond {
-  margin-top: 1em;
+  margin: 1.8em 0;
+  border-radius: 20px;
+  padding: 60px;
+  background-color: #FFFFFE;
+}
+.comments-area .comment-respond form.comment-form .comment-form-author,
+.comments-area .comment-respond form.comment-form .comment-form-email,
+.comments-area .comment-respond form.comment-form .comment-form-url {
+  width: 48%;
+  float: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.comments-area .comment-respond form.comment-form .comment-form-author label,
+.comments-area .comment-respond form.comment-form .comment-form-email label,
+.comments-area .comment-respond form.comment-form .comment-form-url label {
+  color: #667085;
+  margin-bottom: 12px;
+}
+.comments-area .comment-respond form.comment-form .comment-form-author input,
+.comments-area .comment-respond form.comment-form .comment-form-email input,
+.comments-area .comment-respond form.comment-form .comment-form-url input {
+  padding: 10px 30px;
+  border-radius: 50px;
+  border: 1px solid rgba(102, 112, 133, 0.3);
+}
+.comments-area .comment-respond form.comment-form .comment-form-email {
+  float: right;
+}
+.comments-area .comment-respond form.comment-form .comment-form-url {
+  width: 100%;
 }
 
 /* Widgets
@@ -669,9 +717,12 @@ aside.widget-area ul.wp-block-categories-list {
   gap: 0.8em;
 }
 aside.widget-area ul.wp-block-categories-list li.cat-item {
-  padding: 8px 12px;
+  padding: 8px 16px;
   border-radius: 50px;
   background-color: #FFFFFE;
+}
+aside.widget-area ul.wp-block-categories-list li.cat-item a {
+  color: #0F0E17;
 }
 aside.widget-area ul.wp-block-categories-list li.cat-item #text {
   background-color: #F25F4C;
@@ -681,13 +732,51 @@ aside.widget-area ul li {
   align-items: start;
   justify-content: start;
   margin-bottom: 1em;
+  border-bottom: 1px solid rgba(102, 112, 133, 0.3);
+  padding-bottom: 1em;
   gap: 0.6em;
 }
+aside.widget-area ul li span.post_count {
+  width: 22px;
+  height: 22px;
+  font-size: 14px;
+  color: #FFFFFE;
+  border-radius: 50px;
+  background: #F25F4C;
+  text-align: center;
+}
 aside.widget-area ul li a.wp-block-latest-posts__post-title {
-  font-weight: 500;
+  font-weight: 600;
+  color: #0F0E17;
 }
 aside.widget-area ul li img {
   border-radius: 4px;
+}
+aside.widget-area .widget_tag_cloud p {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.8em;
+}
+aside.widget-area .widget_tag_cloud a.tag-cloud-link {
+  font-size: 1em !important;
+  color: #0F0E17;
+  padding: 8px 16px;
+  border-radius: 50px;
+  background-color: #FFFFFE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4em;
+}
+aside.widget-area .widget_tag_cloud a.tag-cloud-link span.tags_count {
+  width: 22px;
+  height: 22px;
+  font-size: 14px;
+  color: #FFFFFE;
+  border-radius: 50px;
+  background: #F25F4C;
+  text-align: center;
 }
 
 /* Media

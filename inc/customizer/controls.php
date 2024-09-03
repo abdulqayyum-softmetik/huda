@@ -7,6 +7,20 @@
 
 
 /*
+* Logo 
+*/
+new \Kirki\Field\Image(
+	[
+		'settings'    => 'image_setting_url_dark_logo',
+		'label'       => esc_html__( 'Logo Light', 'huda' ),
+		'description' => esc_html__( 'Logo for light scheme', 'huda' ),
+		'section'     => 'title_tagline',
+		'default'     => '',
+	]
+);
+
+
+/*
 * Typography
 */
 new \Kirki\Field\Typography(
@@ -422,6 +436,21 @@ new \Kirki\Field\Radio_Image(
 		'choices'     => [
 			'container' => get_template_directory_uri() . '/assets/images/narrow-width.png',
 			'container-fluid'   => get_template_directory_uri() . '/assets/images/full-width.png',
+		],
+	]
+);
+
+new \Kirki\Field\Radio_Image(
+	[
+		'settings'    => 'blog__sidebar_layout__setting',
+		'label'       => esc_html__( 'Sidebar Layout', 'kirki' ),
+		'section'     => 'huda_blog_layouts_section',
+		'default'     => 'sidebar',
+		'tab'         => 'general',
+		'priority'    => 10,
+		'choices'     => [
+			'no-sidebar' => get_template_directory_uri() . '/assets/images/no-sidebar.png',
+			'sidebar'   => get_template_directory_uri() . '/assets/images/sidebar.png',
 		],
 	]
 );

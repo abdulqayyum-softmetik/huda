@@ -72,7 +72,48 @@
 		}
 	}
 
-	.comment-respond{
-		margin-top: 1em;
+	h2{
+		&.comments-title{
+			margin-bottom: 0.8em;
+		}
 	}
+
+	.comment-respond{
+		margin: 1.8em 0;
+		border-radius: 20px;
+		padding: 60px;
+		background-color: $color__white;
+
+		form{
+			&.comment-form{
+				.comment-form-author,
+				.comment-form-email,
+				.comment-form-url{
+					width: 48%;
+					float: left;
+					@include flex-column;
+
+					label{
+						color: $color__label;
+						margin-bottom: 12px;
+					}
+
+					input{
+						padding: 10px 30px;
+						border-radius: 50px;
+						border: 1px solid $color__border-abbr;
+					}
+				}
+
+				.comment-form-email{
+					float: right;
+				}
+
+				.comment-form-url{
+					width: 100%;
+				}
+			}
+		}
+	}
+	
 }

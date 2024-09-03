@@ -179,11 +179,6 @@ if ( class_exists( 'WooCommerce' ) ) {
 require get_template_directory() . '/inc/core/theme-hooks.php';
 
 /**
- * Implement Hooks Template.
- */
-require get_template_directory() . '/inc/core/theme-hooks-functions.php';
-
-/**
  * Kirki Customizer Adavnced Options.
  */
 

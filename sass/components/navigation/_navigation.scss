@@ -118,6 +118,24 @@ nav {
 			}
 		}
 	}
+
+	&.previous-post,
+	&.next-post{
+		.next-post-image,
+		.prevoius-post-image{
+			img{
+				border-radius: 0.625em;
+			}
+		}
+
+		a{
+			&.link{
+				font-family: 'Cormorant';
+				font-weight: 600;
+				font-size: 1.2em;
+			}
+		}
+	}
 }
 
 .comment-navigation,

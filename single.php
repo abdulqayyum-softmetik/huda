@@ -15,7 +15,11 @@ get_header();
 		do_action('huda_content_before');
 	?>
 	
-	<?php do_action('huda_single_right_sidebar_content'); ?>
+	
+	<?php 
+		// Single page layout
+		do_action('huda_single_page_layout');
+	?>
 
 	<?php 
 		// After the content

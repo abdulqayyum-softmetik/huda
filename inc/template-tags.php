@@ -187,6 +187,8 @@ if ( ! function_exists( 'huda_pagination' ) ) :
 	}
 endif;
 
+
+
 if ( ! function_exists( 'huda_post_read_time' ) ) :
 	/**
 	 * Display ppost read time.
@@ -205,4 +207,55 @@ if ( ! function_exists( 'huda_post_read_time' ) ) :
 		$arg = $check_time . $label; 
 		return $arg;		
 	}
+endif;
+
+if ( ! function_exists( 'huda_comment_form_fields' ) ) :
+	/**
+	 * Comment Field Order
+	 */
+	function huda_comment_form_fields( $fields ) {
+		$comment_field = $fields['comment'];
+		$author_field = $fields['author'];
+		$email_field = $fields['email'];
+		$url_field = $fields['url'];
+		$cookies_field = $fields['cookies'];
+		unset( $fields['comment'] );
+		unset( $fields['author'] );
+		unset( $fields['email'] );
+		unset( $fields['url'] );
+		unset( $fields['cookies'] );
+		// the order of fields is the order below, change it as needed:
+		$fields['author'] = $author_field;
+		$fields['email'] = $email_field;
+		$fields['url'] = $url_field;
+		$fields['comment'] = $comment_field;
+		$fields['cookies'] = $cookies_field;
+		// done ordering, now return the fields:
+		return $fields;
+	}
+	add_filter( 'comment_form_fields', 'huda_comment_form_fields' );
+endif;
+
+if ( ! function_exists( 'huda_tagcloud_postcount_filter' ) ) :
+	/**
+	 * Filter parentheses from tags cloud
+	 */
+	function huda_tagcloud_postcount_filter ($tags_count) {
+		$tags_count = str_replace('<span class="tag-link-count"> (', ' <span class="tags_count"> ', $tags_count);
+		$tags_count = str_replace(')</span>', '</span>', $tags_count);
+		return $tags_count;
+	}
+	add_filter('wp_tag_cloud','huda_tagcloud_postcount_filter');
+endif;
+
+if ( ! function_exists( 'huda_categories_postcount_filter' ) ) :
+	/**
+	 * Filter parentheses from cpost count
+	 */
+	function huda_categories_postcount_filter ($categories_post_count) {
+		$categories_post_count = str_replace('(', '<span class="post_count"> ', $categories_post_count);
+		$categories_post_count = str_replace(')', ' </span>', $categories_post_count);
+		return $categories_post_count;
+	}
+	add_filter('wp_list_categories','huda_categories_postcount_filter');
 endif;
