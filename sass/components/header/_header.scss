@@ -3,6 +3,17 @@ header.header-main{
     background-color: $color__black;
 
     nav{
+
+        a{
+            &.custom-logo-link{
+                img{
+                    @media(max-width: 576px){
+                        max-width: 120px;
+                    }
+                }
+            }
+        }
+
         ul{
             li{
 

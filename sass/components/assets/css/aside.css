@@ -1,6 +1,14 @@
-aside.widget-area {
-  background-color: transparent;
+aside.widget-area ul li {
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  margin-bottom: 1em;
+  gap: 1em;
 }
-aside.widget-area .wp-block-latest-posts__featured-imageimg {
+aside.widget-area ul li a.wp-block-latest-posts__post-title {
+  font-size: 20px;
+  font-weight: 500;
+}
+aside.widget-area ul li img {
   border-radius: 4px;
 }/*# sourceMappingURL=aside.css.map */

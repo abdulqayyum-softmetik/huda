@@ -52,5 +52,5 @@
     <?php
     }
     // Adding the function into a custom hook
-    add_action('huda_single_content','huda_single_post_content');
+    add_action('huda_single_right_sidebar_content','huda_single_post_content');
 ?>

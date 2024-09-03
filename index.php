@@ -16,7 +16,7 @@ get_header();
 ?>
 
 	<main id="primary" class="site-main container">
-		<div class="row">
+		<div class="row gy-2">
 			<?php
 			if ( have_posts() ) :
 

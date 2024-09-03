@@ -6,3 +6,47 @@
 		max-width: 100%;
 	}
 }
+
+aside{
+    &.widget-area{
+        ul {
+
+            &.wp-block-categories-list{
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+				gap: 0.80em;
+
+                li{
+                    &.cat-item{
+						padding: 8px 12px;
+						border-radius: 50px;
+                        background-color: $color__white;
+
+						#text{
+							background-color: $color__danger;
+						}
+                    }
+                }
+            }
+
+            li{
+                display: flex;
+                align-items: start;
+                justify-content: start;
+                margin-bottom: 1em;
+                gap: 0.60em;
+
+                a{
+                    &.wp-block-latest-posts__post-title{    
+                        font-weight: 500;
+                    }
+                }
+
+                img{
+                    border-radius: 4px;
+                }
+            }
+        }
+    }
+}

@@ -15,7 +15,7 @@ get_header();
 		do_action('huda_content_before');
 	?>
 	
-	<?php do_action('huda_single_content'); ?>
+	<?php do_action('huda_single_right_sidebar_content'); ?>
 
 	<?php 
 		// After the content

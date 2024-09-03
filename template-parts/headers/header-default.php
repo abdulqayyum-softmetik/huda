@@ -40,7 +40,7 @@
                                 </div>
                             </div> 
                             
-                            <div class="toggle-switch">
+                            <div class="toggle-switch d-xl-block d-lg-block d-md-block d-none">
                                 <input type="checkbox" name="" id="switch">
                                 <label for="switch">
                                     <div class="toggle-wrapper">
@@ -56,7 +56,7 @@
             </div>
         </div>
 
-        <div class="d-flex align-items-center justify-content-center pt-3">
+        <div class="d-flex align-items-center justify-content-center pt-3 d-xl-block d-lg-block d-md-block d-none">
             <?php
                 wp_nav_menu(array(
                     'theme_location' => 'main-menu',

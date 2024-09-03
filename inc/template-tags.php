@@ -206,10 +206,3 @@ if ( ! function_exists( 'huda_post_read_time' ) ) :
 		return $arg;		
 	}
 endif;
-
-
-
-
-
-
-
