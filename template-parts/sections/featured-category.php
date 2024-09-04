@@ -51,7 +51,7 @@
                                         <div class="col-lg-7 col-md-7 col-12">
                                             <div class="d-flex align-items-center justify-content-between gap-2">
                                                 <div class="text-black"> <b>Category:</b> <?php echo $cat_name ?></div>
-                                                <div class="text-black"> <?php echo huda_post_read_time($post_id); ?> </div>
+                                                <div class="text-black"> <?php echo esc_html( huda_post_read_time( get_the_ID() ) ) ; ?> </div>
                                             </div>
                                             <h3 class="h3 fw-semi-bold text-black pt-2 mb-0">
                                                 <a href="<?php echo esc_url( get_permalink() ); ?>">

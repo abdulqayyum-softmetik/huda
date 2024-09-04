@@ -12,15 +12,17 @@ if ( ! function_exists( 'huda_posted_on' ) ) :
 	 * Prints HTML with meta information for the current post-date/time.
 	 */
 	function huda_posted_on() {
+
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-		if ( get_the_time( 'U' )) {
+
+		if ( get_the_time( 'U' ) ) {
 			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
 		}
 
 		$time_string = sprintf(
 			$time_string,
-			esc_attr( get_the_date( DATE_W3C ) ),
-			esc_html( get_the_date() ),
+			esc_attr( get_the_date( DATE_W3C ) . 'T' . get_the_time('H:i:s')),
+			esc_html( get_the_date() . ' ' . get_the_time() ),
 		);
 
 		$posted_on = sprintf(
@@ -29,8 +31,7 @@ if ( ! function_exists( 'huda_posted_on' ) ) :
 			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 		);
 
-		echo '<span class="posted-on">' . $posted_on . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-
+		echo '<span class="posted-on"> <i class="far fa-clock"></i> ' . $posted_on . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 endif;
 
@@ -39,10 +40,12 @@ if ( ! function_exists( 'huda_posted_by' ) ) :
 	 * Prints HTML with meta information for the current author.
 	 */
 	function huda_posted_by() {
+		$author_avatar_url = esc_url( get_avatar_url( get_the_author_meta( 'ID' ), array('size' => 26) ) ); 
 		$byline = sprintf(
 			/* translators: %s: post author. */
-			esc_html_x( '- %s', 'post author', 'huda' ),
-			'<span class="author-title"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
+			esc_html_x( ' - by %s', 'post author', 'huda' ),
+			'<img class="author-avatar" src="' . $author_avatar_url . '"></img> <span class="author-title"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>',
+			
 		);
 
 		echo '<span class="byline"> ' . $byline . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -187,26 +190,77 @@ if ( ! function_exists( 'huda_pagination' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'huda_social_share' ) ) :
+	/**
+	 * Share post on social media
+	 */
+	function huda_social_share() {
+		?>
+			<div class="d-flex align-items-center justify-content-between gap-3">
+				<div>
+					<a class="dropdown-item" href="https://www.facebook.com/sharer.php?u=<?php echo esc_url( get_permalink() ); ?>" target="_blank">
+						<i class="fab fa-facebook-f"></i>
+					</a>
+				</div>
+				<div>
+					<a class="dropdown-item" href="https://twitter.com/intent/tweet?url=<?php echo get_permalink(); ?>" target="_blank">
+						<i class="fab fa-twitter"></i>
+					</a>
+				</div>
+				<div>
+					<a class="dropdown-item" href="https://www.linkedin.com/shareArticle?url=<?php echo get_permalink(); ?>&title=<?php echo esc_html( get_the_title() ); ?>" target="_blank">
+					<i class="fab fa-linkedin-in"></i>
+					</a>
+				</div>
+				<div>
+					<a class="dropdown-item" href="https://api.whatsapp.com/send?text=<?php echo esc_html( get_the_title() ); ?> <?php echo esc_url( get_permalink() ); ?>" target="_blank">
+						<i class="fab fa-whatsapp"></i>
+					</a>
+				</div>
+			</div>
+		<?php
+	}
+endif;
 
 
 if ( ! function_exists( 'huda_post_read_time' ) ) :
 	/**
-	 * Display ppost read time.
+	 * Display post read time.
 	 */
 	function huda_post_read_time( $post_id ) {
-		$post = get_post_field( 'post_content', $post_id );
-		$post_wordcount = str_word_count( strip_tags( $post ) ); 
-		$check_time = ceil( $post_wordcount / 250 ); 
-			
-		if ( $check_time == 1 ) { 
-			$label = " Minute Read";
-		} else {
-			$label = " Minutes Read";
+		// Get the post content based on the post ID
+		$post_content = get_post_field( 'post_content', $post_id );
+	
+		// Debug: Check if post content is retrieved properly
+		if ( empty( $post_content ) ) {
+			return 'No content available';
 		}
-			
-		$arg = $check_time . $label; 
-		return $arg;		
-	}
+	
+		// Remove shortcodes and HTML tags
+		$clean_content = wp_strip_all_tags( strip_shortcodes( $post_content ) );
+	
+		// Normalize whitespace (replace multiple spaces with a single space)
+		$clean_content = preg_replace( '/\s+/', ' ', trim( $clean_content ) );
+	
+		// Count words
+		$word_count = str_word_count( $clean_content );
+	
+		// Debug: Log the word count for testing
+		error_log( 'Word count: ' . $word_count );
+	
+		// Estimate read time (250 words per minute)
+		$read_time = ceil( $word_count / 250 );
+	
+		// Debug: Log the calculated read time for testing
+		error_log( 'Calculated read time: ' . $read_time );
+	
+		// Determine the correct label based on the read time
+		$label = ( $read_time == 1 ) ? " Minute Read" : " Minutes Read";
+	
+		// Return the formatted string
+		echo wp_kses_post( '<i class="fas fa-book-reader"></i> ' . $read_time . $label );
+	}	
+	
 endif;
 
 if ( ! function_exists( 'huda_comment_form_fields' ) ) :

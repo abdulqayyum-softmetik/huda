@@ -100,7 +100,7 @@
                         <div class="featured-post-content-bottom">
                             <div>
                                 <span class="post-read-time">
-                                    <?php echo huda_post_read_time($post_id); ?>
+                                <?php echo esc_html( huda_post_read_time( get_the_ID() ) ) ; ?>
                                 </span>
                             </div>
                             <h1 class="display-3">
@@ -197,7 +197,7 @@
                                     <div class="featured-post-content-bottom">
                                         <div>
                                             <span class="post-read-time text-white">
-                                                <?php echo huda_post_read_time($post_id); ?>
+                                                <?php echo esc_html( huda_post_read_time( get_the_ID() ) ) ; ?>
                                             </span>
                                         </div>
                                         <h3 class="h3">

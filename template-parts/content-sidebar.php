@@ -6,25 +6,10 @@
  */
 ?>
 
-<?php 
-	// Check if Kirki and get_theme_mod() functions exist
-    if ( function_exists('get_theme_mod') ) {
-        // Function to get container width
-        function huda_get_sidebar_layout() {
-            return get_theme_mod('blog__sidebar__setting', 'no-sidebar'); // container is default value
-        }
-    }
-    
-    // 
-    $sidebar_layout = huda_get_sidebar_layout(); 
-    
-?>
-
 <div class="<?php echo is_home() ? 'col-lg-4 col-md-6 col-12' : 'col-lg-12 col-md-12 col-12'; ?>">
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<div class="<?php echo is_home() ? 'thumbnail-wrapper' : 'position-relative'; ?>">
 			<?php huda_post_thumbnail('medium'); ?>
-
 			<header class="entry-header">
 				<?php
 				if ( is_singular() ) :
@@ -38,16 +23,34 @@
 					<div class="entry-meta">
 						<?php
 							huda_posted_on();
-							huda_posted_by();
+							
+							if( is_singular() ):
+								huda_posted_by();
+							endif;
 						?>
 					</div><!-- .entry-meta -->
+					
 				<?php endif; ?>
 			</header><!-- .entry-header -->
 		</div>
 
 		<div class="<?php echo is_singular() ? 'row' : '' ?>">
-
 			<div class="<?php echo is_singular() ? 'col-lg-8' : '' ?>">
+			<?php 
+				if( is_singular() ) :
+			?>
+				<div class="d-flex align-items-center justify-content-between">
+					<p class="post-read-time"><?php echo esc_html( huda_post_read_time( get_the_ID() ) ) ; ?></p>
+					<?php 
+						if( is_singular() ) : 	
+							esc_html( huda_social_share() );
+						endif;
+					?>
+				</div>
+
+			<?php else : ?>
+				
+			<?php endif;?>
 				<div class="article-content">
 					<div class="entry-content m-0">
 						<?php
@@ -87,7 +90,7 @@
 						<footer class="entry-footer">
 							<div class="d-flex align-items-center justify-content-between">
 								<div class="">
-									<?php echo huda_post_read_time( the_ID() ) ?>
+									<?php echo esc_html( huda_post_read_time( get_the_ID() ) ) ; ?>
 								</div>
 								<div>
 									<a class="btn btn-read-more-arrow" href="<?php echo esc_url( get_permalink() ); ?>">

@@ -72,7 +72,7 @@
 						<footer class="entry-footer">
 							<div class="d-flex align-items-center justify-content-between">
 								<div class="">
-									<?php echo huda_post_read_time( the_ID() ) ?>
+									<?php echo esc_html( huda_post_read_time( get_the_ID() ) ) ; ?>
 								</div>
 								<div>
 									<a class="btn btn-read-more-arrow" href="<?php echo esc_url( get_permalink() ); ?>">

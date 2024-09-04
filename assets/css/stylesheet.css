@@ -795,6 +795,10 @@ aside.widget-area .widget_tag_cloud a.tag-cloud-link span.tags_count {
   display: inline-block;
 }
 
+img.author-avatar {
+  border-radius: 50px;
+}
+
 /* Captions
 --------------------------------------------- */
 .wp-caption {
