@@ -1,3 +1,11 @@
+<?php 
+	// Check if Kirki and get_theme_mod() functions exist
+    if ( function_exists('get_theme_mod') ) {
+		// Sidebar layout variable
+		$logo_light = get_theme_mod('logo_light_setting_url', ''); 
+    }
+?>
+
 <header class="header-main <?php echo is_home() ? 'home' : 'header-pages'; ?>">
     <nav>
         <div class="container-fluid">
@@ -14,13 +22,21 @@
                     <div class="col-lg-8 col-md-8 col-8">
                         <div class="d-flex align-items-center justify-content-center">
                             <?php 
-                                if(  function_exists('the_custom_logo') && has_custom_logo() ) : 
+                                if( function_exists('the_custom_logo') && has_custom_logo() && is_home() ) : 
                                     the_custom_logo();
                                 else :
-                                    ?>
-                                        <div class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></div>
-                                        <p><?php bloginfo( 'description' ); ?></p>
-                                    <?php
+                                    if($logo_light):
+                                        ?>
+                                            <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+                                                <img class="logo-light" src="<?php echo esc_url( $logo_light ); ?>" alt="">
+                                            </a>
+                                        <?php
+                                    else:
+                                        ?>
+                                            <div class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></div>
+                                            <p><?php bloginfo( 'description' ); ?></p>
+                                        <?php
+                                    endif;
                                 endif;
                             ?>
                         </div>

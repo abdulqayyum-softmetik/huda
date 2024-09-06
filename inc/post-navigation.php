@@ -1,4 +1,4 @@
-<div class="d-flex align-items-center justify-content-between">
+<div class="single-post-navigation-wrapper">
     <nav class="previous-post d-flex align-items-center gap-2">
         <?php 
         $prev_post = get_previous_post(); 

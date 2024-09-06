@@ -1,5 +1,5 @@
 <a class="" data-bs-toggle="offcanvas" href="#offcanvasSearch" role="button" aria-controls="offcanvasSearch">
-    <i class="fas fa-search text-white"></i>
+  <i class="fas fa-search"></i>
 </a>
 
 <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasSearch" aria-labelledby="offcanvasSearchLabel">

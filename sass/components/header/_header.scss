@@ -7,8 +7,10 @@ header.header-main{
         a{
             &.custom-logo-link{
                 img{
+                    max-width: 10em;
+
                     @media(max-width: 576px){
-                        max-width: 120px;
+                        max-width: 7.5em;
                     }
                 }
             }
@@ -37,6 +39,7 @@ header.header-main{
                         }
 
                         &.active {
+                            font-weight: 500;
                             color: $color__danger;
                         }
                     }
@@ -64,8 +67,28 @@ header.header-main{
         }
         
 
-        span, .fa-shopping-cart{
+        i, svg, span, 
+        .fa-shopping-cart{
             color: $color__white;
+        }
+    }
+
+    &.header-pages{
+        background-color: $color__white;
+
+        nav{
+            ul{
+                li{
+                    a{
+                        color: $color__black;
+                    }
+                }
+            }
+        }
+
+        i, svg, span, 
+        .fa-shopping-cart{
+            color: $color__black;
         }
     }
 }

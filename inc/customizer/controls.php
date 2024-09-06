@@ -11,11 +11,30 @@
 */
 new \Kirki\Field\Image(
 	[
-		'settings'    => 'image_setting_url_dark_logo',
+		'settings'    => 'logo_light_setting_url',
 		'label'       => esc_html__( 'Logo Light', 'huda' ),
 		'description' => esc_html__( 'Logo for light scheme', 'huda' ),
 		'section'     => 'title_tagline',
 		'default'     => '',
+	]
+);
+
+new \Kirki\Field\Dimension(
+	[
+		'settings'    => 'logo_light_dimension_setting',
+		'label'       => esc_html__( 'Logo Light Width', 'huda' ),
+		'description' => esc_html__( '', 'huda' ),
+		'section'     => 'title_tagline',
+		'default'     => '120px',
+		'choices'     => [
+			'accept_unitless' => true,
+		],
+		'output'      => [
+			[
+				'element' => '.logo-light',
+				'property' => 'width',
+			],
+		],
 	]
 );
 

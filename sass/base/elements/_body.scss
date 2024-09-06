@@ -11,6 +11,18 @@ body {
 		.category-page{
 			flex: 1;
 			padding: 1.8em 2em;
+
+			@media(max-width: 576px){
+				padding: 1em 0.8em;
+			}
+		}
+
+		.category-page{
+			padding: 0;
+			
+			.content{
+				padding: 2em 0;
+			}
 		}
 	}
 }

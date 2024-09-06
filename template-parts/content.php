@@ -18,7 +18,7 @@
 
 <?php
 	// Display content layout
-	if($sidebar_layout == "sidebar") :
+	if( $sidebar_layout == "sidebar" ) :
 		get_template_part( 'template-parts/content', 'sidebar' );
 	else:
 		get_template_part( 'template-parts/content', 'wide' );

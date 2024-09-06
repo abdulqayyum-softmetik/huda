@@ -43,7 +43,7 @@ if ( ! function_exists( 'huda_posted_by' ) ) :
 		$author_avatar_url = esc_url( get_avatar_url( get_the_author_meta( 'ID' ), array('size' => 26) ) ); 
 		$byline = sprintf(
 			/* translators: %s: post author. */
-			esc_html_x( ' - by %s', 'post author', 'huda' ),
+			esc_html_x( '%s', 'post author', 'huda' ),
 			'<img class="author-avatar" src="' . $author_avatar_url . '"></img> <span class="author-title"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>',
 			
 		);
@@ -187,6 +187,19 @@ if ( ! function_exists( 'huda_pagination' ) ) :
 			'prev_text' => __( '<i class="fas fa-arrow-left"></i> Previous', 'huda' ),
 			'next_text' => __( 'Next <i class="fas fa-arrow-right"></i>', 'huda' ),
 		) );
+	}
+endif;
+
+if ( ! function_exists( 'huda_read_more' ) ) :
+	/**
+	 * Display numeric pagination.
+	 */
+	function huda_read_more(){
+		?>
+			<a class="btn btn-read-more-arrow"data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Read More" href="<?php echo esc_url( get_permalink() ); ?>">
+				<i class="fas fa-arrow-right"></i>
+			</a>
+		<?php
 	}
 endif;
 

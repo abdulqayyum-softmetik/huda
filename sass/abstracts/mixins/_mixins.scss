@@ -17,6 +17,12 @@
     justify-content: space-between;
 }
 
+@mixin flex-between{
+	display: flex;
+	align-items: center;
+    justify-content: space-between;
+}
+
 // Column width with margin
 @mixin column-width($numberColumns: 3) {
 	width: map-get($columns, $numberColumns) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );

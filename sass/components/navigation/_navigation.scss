@@ -86,9 +86,17 @@
 	}
 }
 
+.single-post-navigation-wrapper{
+
+	@include flex-between;
+	flex-wrap: wrap;
+	gap: 1em;
+}
+
 nav {
 	&.navigation {
 		&.pagination {
+			justify-content: center;
 			.nav-links{
 				padding: 0.96em 1.2em;
 				border-radius: 50px;
@@ -124,7 +132,9 @@ nav {
 		.next-post-image,
 		.prevoius-post-image{
 			img{
-				border-radius: 0.625em;
+				max-width: 60px;
+				height: auto;
+				border-radius: $rounded__full;
 			}
 		}
 
@@ -137,6 +147,7 @@ nav {
 		}
 	}
 }
+
 
 .comment-navigation,
 .posts-navigation,

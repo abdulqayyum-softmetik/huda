@@ -75,19 +75,84 @@ table.shop_table_responsive tr td.download-actions .button {
  * Products
  */
 ul.products {
-  margin: 0;
-  padding: 0;
+  margin-top: 1em;
 }
 ul.products li.product {
   list-style: none;
   position: relative;
-  margin-bottom: 2em;
+  margin-bottom: 6em;
+}
+ul.products li.product .huda-product-content-wrap {
+  width: 94%;
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  padding: 1em;
+  flex-direction: column;
+  border-radius: 20px;
+  background-color: #FFFFFE;
 }
 ul.products li.product img {
+  width: 100%;
+  height: auto;
   display: block;
+  border-radius: 20px;
+}
+ul.products li.product .onsale.huda-onsale-card {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  font-size: 0.875em;
+  padding: 0.25em 0.75em;
+  color: #FFFFFE;
+  background: #F25F4C;
+  border-radius: 50px;
 }
 ul.products li.product .button {
   display: block;
+  width: 122px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  align-self: flex-end;
+  border: 1px solid;
+  border-color: rgba(102, 112, 133, 0.3);
+  border-radius: 50px;
+  background-color: #0F0E17;
+  transition: color 0.3s;
+}
+ul.products li.product .button:hover {
+  color: #0F0E17;
+  background: #FFFFFE;
+  border-color: #ccc #bbb #aaa;
+}
+ul.products li.product .button.loading {
+  position: relative;
+}
+ul.products li.product .button.loading::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  border: 4px solid;
+  border-color: rgba(255, 255, 255, 0.15) rgba(255, 255, 255, 0.25) rgba(255, 255, 255, 0.35) rgba(255, 255, 255, 0.5);
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @media screen and (min-width: 48em) {
@@ -131,6 +196,11 @@ ul.products li.product .button {
 .single-product div.product .woocommerce-product-gallery {
   position: relative;
   float: left;
+  width: 50%;
+}
+.single-product div.product .woocommerce-product-gallery .wp-post-image {
+  width: 100%;
+  height: 100%;
 }
 .single-product div.product .woocommerce-product-gallery .woocommerce-product-gallery__trigger {
   position: absolute;
@@ -196,6 +266,11 @@ ul.products li.product .button {
 .single-product div.product .woocommerce-product-gallery.woocommerce-product-gallery--columns-5 .flex-control-thumbs li:nth-child(5n+1) {
   clear: both;
 }
+.single-product div.product .entry-summary {
+  float: left;
+  width: 50%;
+  padding-left: 2em;
+}
 
 .stock:empty::before {
   display: none;
@@ -244,6 +319,10 @@ ul.products li.product .button {
 .site-header-cart .product_list_widget {
   margin: 0;
   padding: 0;
+}
+
+.woocommerce-breadcrumb {
+  display: none;
 }
 
 /**
@@ -336,10 +415,15 @@ p.stars.selected a:not(.active)::before {
  * Tabs
  */
 .woocommerce-tabs ul.tabs {
+  width: 100%;
+  display: flex;
+  align-items: center;
   list-style: none;
   margin: 0;
   padding: 0;
+  gap: 1em;
   text-align: left;
+  border-bottom: 1px solid rgba(102, 112, 133, 0.3);
 }
 .woocommerce-tabs ul.tabs li {
   display: block;
@@ -349,6 +433,10 @@ p.stars.selected a:not(.active)::before {
 .woocommerce-tabs ul.tabs li a {
   padding: 1em 0;
   display: block;
+  color: #0F0E17;
+}
+.woocommerce-tabs ul.tabs li.active a {
+  font-weight: 500;
 }
 .woocommerce-tabs .panel h2:first-of-type {
   margin-bottom: 1em;
@@ -383,6 +471,16 @@ p.stars.selected a:not(.active)::before {
   box-shadow: inset 2px 0 0 #e2401c;
 }
 
+.woocommerce-ordering {
+  float: right;
+}
+.woocommerce-ordering select {
+  border: 0;
+  padding: 0.625em 0.75em;
+  border-radius: 20px;
+  border-right: 10px solid transparent;
+}
+
 .required {
   color: #f00;
 }
@@ -399,6 +497,11 @@ p.no-comments {
   clear: both;
 }
 
+.woocommerce-result-count {
+  float: left;
+  line-height: 42px;
+}
+
 .woocommerce-info,
 .woocommerce-noreviews,
 p.no-comments {
@@ -407,6 +510,10 @@ p.no-comments {
 
 .woocommerce-error {
   background-color: #e2401c;
+}
+
+.woocommerce-products-header__title.page-title {
+  display: none;
 }
 
 .demo_store {

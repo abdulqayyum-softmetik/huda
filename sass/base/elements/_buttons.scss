@@ -4,7 +4,7 @@ input[type="reset"],
 input[type="submit"] {
 	border: 1px solid;
 	line-height: normal;
-	padding: 16px  35px;
+	padding: 16px 35px;
 	font-weight: 600;
 	color: $color__white;
 	border-color: $color__border-button;
@@ -26,8 +26,8 @@ input[type="submit"] {
 
 .btn {
 	&.btn-read-more-arrow {
-		width: 2.625em;
-		height: 2.625em;
+		width: 34px;
+		height: 34px;
 		border-radius: 3.125em;
 		background-color: $color__black;
 		transition: 800ms ease-in-out color;
@@ -36,8 +36,11 @@ input[type="submit"] {
 			background-color: $color__danger;
 		}
 
-		svg{
+		i{
 			color: $color__white;
+			transform: rotate(320deg);
+			transition: 0.3s ease;
+			font-size: 14px;
 		}
 
 		@include flex-center;
