@@ -3,6 +3,26 @@
 	div.product {
 		position: relative;
 
+		h1{
+			&.product_title{
+				font-size: 3em;
+			}
+		}
+
+		.onsale{
+			&.huda-onsale-card{
+				position: absolute;
+				top: 1em;
+				left: 1em;
+				font-size: 0.875em;
+				padding: 0.25em 0.75em;
+				color: $color__white;
+				background: $color__danger;
+				border-radius: $rounded__full;
+				z-index: 99;
+			}
+		}
+
 		.woocommerce-product-gallery {
 			position: relative;
 			float: left;
@@ -11,6 +31,7 @@
 			.wp-post-image{
 				width: 100%;
 				height: 100%;
+				border-radius: $rounded;
 			}
 
 			.woocommerce-product-gallery__trigger {
@@ -78,6 +99,24 @@
 			float: left;
 			width: 50%;
 			padding-left: 2em;
+
+			.cart{
+				@include flex-start;
+				align-items: center;
+				gap: 1em;
+	
+				.quantity{
+					input{
+						width: 110px;
+						padding: 12px 12px;
+					}
+				}
+			}
+
+			.product_meta{
+				margin-top: 1em;
+			}
+			
 		}
 	}
 }

@@ -49,8 +49,8 @@
                                         <i class="fas fa-shopping-cart"></i>
                                     </a>
                                     <?php 
-                                        if ( function_exists( 'huda_woocommerce_cart_count' ) ) {
-                                            huda_woocommerce_cart_count();
+                                        if ( function_exists( 'huda_woocommerce_header_cart' ) ) {
+                                            huda_woocommerce_header_cart();
                                         }
                                     ?>
                                 </div>

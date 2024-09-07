@@ -6,7 +6,7 @@
  */
 ?>
 
-<div class="<?php echo is_home() && is_category() ? 'col-lg-4 col-md-6 col-12' : 'col-lg-12 col-md-12 col-12'; ?>">
+<div class="<?php echo is_home() ? 'col-lg-4 col-md-6 col-12' : 'col-lg-12 col-md-12 col-12'; ?>">
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<div class="<?php echo is_home() ? 'thumbnail-wrapper' : 'position-relative'; ?>">
 			<?php huda_post_thumbnail('medium'); ?>

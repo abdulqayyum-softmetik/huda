@@ -4,7 +4,7 @@
  * Template part for displaying posts full width
  *
  */
-
+print_r(is_home())
 ?>
 
 <div class="<?php echo is_home() ? 'col-lg-4 col-md-6 col-12' : 'col-lg-12 col-md-12 col-12'; ?>">

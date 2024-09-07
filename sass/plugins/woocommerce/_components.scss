@@ -24,6 +24,32 @@
 	display: none;
 }
 
+/**
+ * Woocommerce mini cart widget
+ */
+.woocommerce-mini-cart-item {
+	&.mini_cart_item{
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		a{
+			display: flex;
+			align-items: center;
+			justify-content: space-between;	
+		}
+
+		.woocommerce-mini-cart__total{
+			margin-top: 1em;
+		}
+
+		img{
+			max-width: 230px;
+			min-height: 23px;
+		}
+	}
+} 
+
 
 /**
  * Star rating
@@ -169,7 +195,7 @@ p.stars {
 				color: $color__black;
 			}
 
-			&.active{
+			.active{
 				a{
 					font-weight: 500;
 				}
@@ -297,19 +323,36 @@ p.no-comments {
 
 		.widget_shopping_cart {
 			position: absolute;
-			top: 100%;
-			width: 100%;
-			z-index: 999999;
+			width: 320px;
+			top: 110%;
 			left: -999em;
 			display: block;
+			padding: 12px 18px;
+			background-color: $color__white;
 			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+			border-radius: $rounded;
+			z-index: 999999;
+
+			.buttons{
+				display: flex;
+				gap: 1em;
+
+				.button{
+					&.wc-forward{
+						color: $color__white;
+						padding: 0.4em 1em;
+						background-color: $color__black;
+					}
+				}
+			}
+
 		}
 
 		&:hover,
 		&.focus {
 
 			.widget_shopping_cart {
-				left: 0;
+				left: -6em;
 				display: block;
 			}
 		}

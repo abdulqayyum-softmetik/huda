@@ -284,8 +284,8 @@ if ( ! function_exists( 'huda_comment_form_fields' ) ) :
 		$comment_field = $fields['comment'];
 		$author_field = $fields['author'];
 		$email_field = $fields['email'];
-		$url_field = $fields['url'];
-		$cookies_field = $fields['cookies'];
+		$url_field = isset($fields['url']) ? $fields['url'] : '';
+		$cookies_field = isset($fields['cookies']) ? $fields['cookies'] : '';
 		unset( $fields['comment'] );
 		unset( $fields['author'] );
 		unset( $fields['email'] );
@@ -294,9 +294,17 @@ if ( ! function_exists( 'huda_comment_form_fields' ) ) :
 		// the order of fields is the order below, change it as needed:
 		$fields['author'] = $author_field;
 		$fields['email'] = $email_field;
-		$fields['url'] = $url_field;
 		$fields['comment'] = $comment_field;
-		$fields['cookies'] = $cookies_field;
+
+		if( !empty($cookies_field) ) {
+			$fields['cookies'] = $cookies_field;
+		}
+
+
+		if( !empty($url_field) ) {
+			$fields['url'] = $url_field;
+		}
+
 		// done ordering, now return the fields:
 		return $fields;
 	}

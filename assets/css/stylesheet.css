@@ -259,7 +259,7 @@ a {
   text-decoration: none;
 }
 a:visited {
-  color: inherit;
+  color: currentColor;
 }
 a:hover, a:focus, a:active {
   color: #191970;
@@ -279,7 +279,7 @@ input[type=reset],
 input[type=submit] {
   border: 1px solid;
   line-height: normal;
-  padding: 16px 35px;
+  padding: 12px 28px;
   font-weight: 600;
   color: #FFFFFE;
   border-color: #ccc #ccc #bbb;

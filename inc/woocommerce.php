@@ -218,23 +218,6 @@ if ( ! function_exists( 'huda_woocommerce_cart_link' ) ) {
 		</a>
 		<?php
 	}
-
-	function huda_woocommerce_cart_count() {
-		?>
-			<a class="cart-contents" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php esc_attr_e( '', 'huda' ); ?>">
-				<?php
-					$item_count = sprintf(
-						/* translators: number of items in the mini cart. */
-						_n( '%d', '%d', WC()->cart->get_cart_contents_count(), 'huda' ),
-						WC()->cart->get_cart_contents_count()
-					);
-				?>
-				<span class="count">
-					<?php echo esc_html( $item_count ); ?>
-				</span>
-			</a>
-		<?php
-	}
 }
 
 if ( ! function_exists( 'huda_woocommerce_header_cart' ) ) {
