@@ -125,7 +125,7 @@ function huda_custom_woocommerce_sale_flash($html, $post, $product) {
     $custom_class = 'huda-onsale-card';
 
     // Modify the HTML to include the custom classes
-    $html = '<span class="onsale ' . esc_attr($custom_class) . '">' . esc_html__('Sale!', 'woocommerce') . '</span>';
+    $html = '<span class="onsale ' . esc_attr($custom_class) . '">' . esc_html__('Sale!', 'huda') . '</span>';
 
     return $html;
 }

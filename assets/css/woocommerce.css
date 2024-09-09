@@ -602,7 +602,7 @@ p.no-comments {
     background-color: #0F0E17;
   }
   .site-header-cart:hover .widget_shopping_cart, .site-header-cart.focus .widget_shopping_cart {
-    left: -6em;
+    left: -8em;
     display: block;
   }
 }

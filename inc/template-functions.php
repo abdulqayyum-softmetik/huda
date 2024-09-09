@@ -92,20 +92,26 @@ if ( have_comments() ) :
             $huda_comment_count = get_comments_number();
             if ( '1' === $huda_comment_count ) {
                 printf(
-                    /* translators: 1: title. */
-                    esc_html__( 'Comments %1$s', $huda_comment_count, 'huda' ),
-                    '<span>' . $huda_comment_count . '</span>'
+                    /* translators: %s: comment count number */
+                    esc_html__( '1 Comment', 'huda' )
                 );
             } else {
-                printf( 
-                    /* translators: 1: comment count number, 2: title. */
-                    esc_html( _nx( '%1$s comments %2$s', '%1$s comments %2$s', $huda_comment_count, 'comments title', 'huda' ) ),
-                    number_format_i18n( $huda_comment_count ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-                    '<span>' . '' . '</span>'
+                printf(
+                    /* translators: %s: comment count number */
+                    esc_html(
+                        _nx(
+                            '%1$s Comment',
+                            '%1$s Comments',
+                            $huda_comment_count,
+                            'comments title',
+                            'huda'
+                        )
+                    ),
+                    number_format_i18n( $huda_comment_count ) // format the number
                 );
             }
-            ?>
-        </h2><!-- .comments-title -->
+        ?>
+    </h2><!-- .comments-title -->
 
         <?php the_comments_navigation(); ?>
 

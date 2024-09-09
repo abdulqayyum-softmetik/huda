@@ -96,18 +96,33 @@ function huda_register_required_plugins() {
 			'slug'      => 'elementor',
 			'required'  => false,
 		),
-
+		array(
+			'name'        => 'WooCommerce',
+			'slug'        => 'woocommerce',
+			'required'  => false,
+		),
+		array(
+			'name'        => 'Xpro Elementor Addons',
+			'slug'        => 'xpro-elementor-addons',
+			'required'  => false,
+		),
+		array(
+			'name'        => 'Xpro Theme Builder',
+			'slug'        => 'xpro-theme-builder',
+			'required'  => false,
+		),
+		array(
+			'name'        => 'Kirki Customizer Framework',
+			'slug'        => 'kirki',
+			'required'  => false,
+		),
 		// This is an example of the use of 'is_callable' functionality. A user could - for instance -
 		// have WPSEO installed *or* WPSEO Premium. The slug would in that last case be different, i.e.
 		// 'wordpress-seo-premium'.
 		// By setting 'is_callable' to either a function from that plugin or a class method
 		// `array( 'class', 'method' )` similar to how you hook in to actions and filters, TGMPA can still
 		// recognize the plugin as being installed.
-		array(
-			'name'        => 'Kirki Customizer Framework',
-			'slug'        => 'kirki',
-			'required'  => false,
-		),
+		
 
 	);
 

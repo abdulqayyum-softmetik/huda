@@ -104,10 +104,18 @@ function huda_setup() {
 	add_theme_support('elementor');
 
 	// Add support for Gutenberg
-    add_theme_support('align-wide');
-    add_theme_support('wp-block-styles');
-    add_theme_support('editor-styles');
-    add_editor_style('style-editor.css');
+    add_theme_support( 'align-wide' );
+    add_theme_support( 'wp-block-styles' );
+    add_theme_support( 'editor-styles' );
+	add_theme_support( 'custom-spacing' );
+	add_theme_support( 'responsive-embeds' );
+	add_theme_support( 'custom-line-height' );
+	add_theme_support( 'custom-units', array() );
+	add_theme_support( 'appearance-tools' );
+	add_theme_support( 'border' );
+	add_theme_support( 'link-color' );
+	add_theme_support( 'block-template-parts' );
+
 }
 add_action( 'after_setup_theme', 'huda_setup' );
 
@@ -128,6 +136,15 @@ add_action( 'after_setup_theme', 'huda_content_width', 0 );
  */
 require get_template_directory() . '/inc/widgets.php';
 
+/**
+ * Include block styles.
+ */
+require get_template_directory() . '/inc/block-styles.php';
+
+/**
+ * Include block patterns.
+ */
+require get_template_directory() . '/inc/block-patterns.php';
 
 /**
  * Enqueue scripts and styles.
@@ -183,16 +200,12 @@ require get_template_directory() . '/inc/core/theme-hooks.php';
  */
 
 if( class_exists( 'kirki' ) ){
-	locate_template('customizer', true, true);
+	require get_template_directory() . '/inc/customizer.php';
 }
-require get_template_directory() . '/inc/customizer.php';
-
 
 /**
  * Tgmpa Plugin activations.
  */
 require get_template_directory() . '/inc/tgm/plugins.php';
-
-
 
 ?>

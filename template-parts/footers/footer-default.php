@@ -5,8 +5,7 @@
 
             <span class="sep"> | </span>
                 <?php
-                /* translators: 1: Theme name, 2: Theme author. */
-                printf( esc_html__( '%1$s by %2$s.', 'huda' ), 'Huda Wordpress Theme', '<a href="https://softmetik.com/wphuda">softmetik</a>' );
+                    dynamic_sidebar( 'footer-copyright' );
                 ?>
         </div><!-- .site-info -->
     </div>

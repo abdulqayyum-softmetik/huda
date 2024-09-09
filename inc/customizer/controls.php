@@ -447,7 +447,7 @@ new \Kirki\Field\Color(
 new \Kirki\Field\Radio_Image(
 	[
 		'settings'    => 'blog__container__setting',
-		'label'       => esc_html__( 'Container Layout', 'kirki' ),
+		'label'       => esc_html__( 'Container Layout', 'huda' ),
 		'section'     => 'huda_blog_layouts_section',
 		'default'     => 'container',
 		'tab'         => 'general',
@@ -462,7 +462,7 @@ new \Kirki\Field\Radio_Image(
 new \Kirki\Field\Radio_Image(
 	[
 		'settings'    => 'blog__sidebar_layout__setting',
-		'label'       => esc_html__( 'Sidebar Layout', 'kirki' ),
+		'label'       => esc_html__( 'Sidebar Layout', 'huda' ),
 		'section'     => 'huda_blog_layouts_section',
 		'default'     => 'sidebar',
 		'tab'         => 'general',

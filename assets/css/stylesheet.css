@@ -169,6 +169,10 @@ big {
 
 /* Elements
 --------------------------------------------- */
+html, body {
+  overflow-x: hidden;
+}
+
 body {
   background: #F4F4F4;
 }
@@ -384,6 +388,11 @@ textarea {
 header.header-main {
   padding: 1em;
   background-color: #0F0E17;
+}
+header.header-main .site-title {
+  font-size: 2em;
+  font-weight: 500;
+  text-transform: capitalize;
 }
 header.header-main nav a.custom-logo-link img {
   max-width: 10em;

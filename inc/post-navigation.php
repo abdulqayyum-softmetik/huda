@@ -8,7 +8,7 @@
                 <?php echo get_the_post_thumbnail( $prev_post->ID, array( 100, 100 ) );?>
             </div>
             <a href="<?php echo get_permalink( $prev_post->ID ); ?>" class="link">
-                <?php echo $prev_post->post_title; ?>
+                <?php echo esc_html($prev_post->post_title); ?>
                 <div class="d-flex align-items-center gap-2">
                     <i class="fas fa-arrow-left"></i>
                     <span>Previous Post</span>
@@ -26,7 +26,7 @@
             </div>
 
             <a href="<?php echo get_permalink( $next_post->ID ); ?>" class="link">
-                <?php echo $next_post->post_title; ?>
+                <?php echo esc_html($next_post->post_title); ?>
                 <div class="d-flex align-items-center gap-2">
                     <span>Next Post</span>
                     <i class="fas fa-arrow-right"></i>
