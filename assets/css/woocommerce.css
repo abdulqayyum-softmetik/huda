@@ -20,6 +20,10 @@ WooCommerce styles override
   content: "\f185";
   color: #0F0E17;
 }
+[data-bs-theme=dark] body input, [data-bs-theme=dark] body textarea {
+  color: #0F0E17;
+  background-color: #F4F4F4;
+}
 
 /**
  * Shop tables

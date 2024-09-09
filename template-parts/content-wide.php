@@ -11,8 +11,7 @@ print_r(is_home())
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<div class="<?php echo is_home() ? 'thumbnail-wrapper' : 'position-relative'; ?>">
 			<?php huda_post_thumbnail('medium'); ?>
-
-			<header class="entry-header">
+			<header class="entry-header <?php if ( has_post_thumbnail() == '' ) echo 'no-thumbnail'; ?>">
 				<?php
 				if ( is_singular() ) :
 					the_title( '<h1 class="entry-title">', '</h1>' );
@@ -80,7 +79,7 @@ print_r(is_home())
 						<?php 
 							esc_html( huda_social_share() );
 						?>
-					</div>
+					</div> 
 				<?php endif; ?>
 					<?php 
 						if( is_singular() ) :

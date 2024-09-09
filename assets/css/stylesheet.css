@@ -65,6 +65,10 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
   content: "\f185";
   color: #0F0E17;
 }
+[data-bs-theme=dark] body input, [data-bs-theme=dark] body textarea {
+  color: #0F0E17;
+  background-color: #F4F4F4;
+}
 
 /*--------------------------------------------------------------
 # Generic
@@ -280,7 +284,8 @@ a:hover, a:active {
 button,
 input[type=button],
 input[type=reset],
-input[type=submit] {
+input[type=submit],
+.wp-block-search__button {
   border: 1px solid;
   line-height: normal;
   padding: 12px 28px;
@@ -294,7 +299,8 @@ input[type=submit] {
 button:hover,
 input[type=button]:hover,
 input[type=reset]:hover,
-input[type=submit]:hover {
+input[type=submit]:hover,
+.wp-block-search__button:hover {
   color: #0F0E17;
   background: #FFFFFE;
   border-color: #ccc #bbb #aaa;
@@ -305,7 +311,9 @@ input[type=button]:focus,
 input[type=reset]:active,
 input[type=reset]:focus,
 input[type=submit]:active,
-input[type=submit]:focus {
+input[type=submit]:focus,
+.wp-block-search__button:active,
+.wp-block-search__button:focus {
   border-color: #aaa #bbb #bbb;
 }
 
@@ -313,6 +321,7 @@ input[type=submit]:focus {
   width: 34px;
   height: 34px;
   border-radius: 3.125em;
+  border-color: #0F0E17;
   background-color: #0F0E17;
   transition: 800ms ease-in-out color;
   display: flex;
@@ -320,6 +329,7 @@ input[type=submit]:focus {
   justify-content: center;
 }
 .btn.btn-read-more-arrow:hover {
+  border-color: #F25F4C;
   background-color: #F25F4C;
 }
 .btn.btn-read-more-arrow i {
@@ -347,8 +357,8 @@ input[type=color],
 textarea {
   color: #666;
   border: 1px solid #ccc;
-  border-radius: 3px;
-  padding: 3px;
+  border-radius: 0.375em;
+  padding: 0.375em 0.75em;
 }
 input[type=text]:focus,
 input[type=email]:focus,
@@ -375,6 +385,10 @@ select {
 
 textarea {
   width: 100%;
+}
+
+.wp-block-search__label {
+  margin-bottom: 0.6em;
 }
 
 /*--------------------------------------------------------------
@@ -585,7 +599,8 @@ nav.previous-post a.link, nav.next-post a.link {
 
 .blog article,
 .archive article,
-.category article {
+.category article,
+.search article {
   width: 100%;
   height: 100%;
   padding: 1em 1.2em;
@@ -597,7 +612,8 @@ nav.previous-post a.link, nav.next-post a.link {
 }
 .blog article header,
 .archive article header,
-.category article header {
+.category article header,
+.search article header {
   padding-bottom: 0.8em;
 }
 .blog article header.entry-header h3.entry-title,
@@ -608,10 +624,26 @@ nav.previous-post a.link, nav.next-post a.link {
 .archive article header.entry-header .h2.entry-title,
 .category article header.entry-header h3.entry-title,
 .category article header.entry-header h2.entry-title,
-.category article header.entry-header .h2.entry-title {
+.category article header.entry-header .h2.entry-title,
+.search article header.entry-header h3.entry-title,
+.search article header.entry-header h2.entry-title,
+.search article header.entry-header .h2.entry-title {
+  display: inline-block;
+}
+.blog article header.entry-header h3.entry-title a,
+.blog article header.entry-header h2.entry-title a,
+.blog article header.entry-header .h2.entry-title a,
+.archive article header.entry-header h3.entry-title a,
+.archive article header.entry-header h2.entry-title a,
+.archive article header.entry-header .h2.entry-title a,
+.category article header.entry-header h3.entry-title a,
+.category article header.entry-header h2.entry-title a,
+.category article header.entry-header .h2.entry-title a,
+.search article header.entry-header h3.entry-title a,
+.search article header.entry-header h2.entry-title a,
+.search article header.entry-header .h2.entry-title a {
   font-size: 1.25em;
   color: #0F0E17;
-  display: inline-block;
 }
 .blog article header.entry-header h3.entry-title ::after,
 .blog article header.entry-header h2.entry-title ::after,
@@ -621,7 +653,10 @@ nav.previous-post a.link, nav.next-post a.link {
 .archive article header.entry-header .h2.entry-title ::after,
 .category article header.entry-header h3.entry-title ::after,
 .category article header.entry-header h2.entry-title ::after,
-.category article header.entry-header .h2.entry-title ::after {
+.category article header.entry-header .h2.entry-title ::after,
+.search article header.entry-header h3.entry-title ::after,
+.search article header.entry-header h2.entry-title ::after,
+.search article header.entry-header .h2.entry-title ::after {
   content: "";
   display: block;
   width: 0;
@@ -638,17 +673,37 @@ nav.previous-post a.link, nav.next-post a.link {
 .archive article header.entry-header .h2.entry-title :hover::after,
 .category article header.entry-header h3.entry-title :hover::after,
 .category article header.entry-header h2.entry-title :hover::after,
-.category article header.entry-header .h2.entry-title :hover::after {
+.category article header.entry-header .h2.entry-title :hover::after,
+.search article header.entry-header h3.entry-title :hover::after,
+.search article header.entry-header h2.entry-title :hover::after,
+.search article header.entry-header .h2.entry-title :hover::after {
   width: 100%;
 }
 .blog article header .entry-meta .posted-on,
 .archive article header .entry-meta .posted-on,
-.category article header .entry-meta .posted-on {
+.category article header .entry-meta .posted-on,
+.search article header .entry-meta .posted-on {
   font-size: 14px;
 }
-.blog article a.post-thumbnail img,
-.archive article a.post-thumbnail img,
-.category article a.post-thumbnail img {
+.blog article header .entry-meta .posted-on a, .blog article header .entry-meta .posted-on i,
+.archive article header .entry-meta .posted-on a,
+.archive article header .entry-meta .posted-on i,
+.category article header .entry-meta .posted-on a,
+.category article header .entry-meta .posted-on i,
+.search article header .entry-meta .posted-on a,
+.search article header .entry-meta .posted-on i {
+  color: #0F0E17;
+}
+.blog article .read-time,
+.archive article .read-time,
+.category article .read-time,
+.search article .read-time {
+  color: #0F0E17 !important;
+}
+.blog article a img,
+.archive article a img,
+.category article a img,
+.search article a img {
   width: 100%;
   max-height: 11em;
   border-radius: 1.375em;
@@ -699,6 +754,29 @@ nav.previous-post a.link, nav.next-post a.link {
     color: #0F0E17;
   }
 }
+.single main article header.entry-header.no-thumbnail {
+  position: static;
+  transform: initial;
+  top: initial;
+  left: initial;
+}
+.single main article header.entry-header.no-thumbnail h1.entry-title {
+  color: #0F0E17;
+  text-align: left;
+  margin-bottom: 0;
+}
+.single main article header.entry-header.no-thumbnail .entry-meta {
+  text-align: left;
+  color: #0F0E17;
+  margin-bottom: 0.8em;
+}
+.single main article header.entry-header.no-thumbnail .entry-meta a {
+  color: #0F0E17;
+}
+.single main article .author-title a {
+  text-transform: capitalize;
+  color: #0F0E17;
+}
 .single main article .post-thumbnail {
   width: 100%;
   height: 520px;
@@ -740,6 +818,9 @@ nav.previous-post a.link, nav.next-post a.link {
   align-items: center;
   justify-content: space-between;
 }
+.social-share-box .h3 {
+  color: #0F0E17;
+}
 @media (max-width: 576px) {
   .social-share-box .h3 {
     font-size: 14px;
@@ -776,6 +857,17 @@ nav.previous-post a.link, nav.next-post a.link {
 .page-links {
   clear: both;
   margin: 0 0 1.5em;
+}
+
+body.search header.page-header h1.page-title {
+  font-size: 3em;
+  text-align: center;
+}
+body.search form.search-form {
+  text-align: center;
+}
+body.search form.search-form input {
+  padding: 12px 28px;
 }
 
 /* Comments
@@ -939,6 +1031,11 @@ aside.widget-area .widget_tag_cloud a.tag-cloud-link span.tags_count {
   text-align: center;
 }
 
+.wp-block-search__inside-wrapper {
+  display: flex;
+  gap: 0.6em;
+}
+
 /* Media
 --------------------------------------------- */
 .page-content .wp-smiley,
@@ -1049,6 +1146,8 @@ img.author-avatar {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+  border-radius: 3.125em;
+  background-color: #F25F4C !important;
 }
 .toggle-switch label {
   cursor: pointer;

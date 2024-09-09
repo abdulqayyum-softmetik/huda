@@ -102,7 +102,7 @@ function huda_setup() {
 
 	// Add support for Elementor
 	add_theme_support('elementor');
-
+	
 	// Add support for Gutenberg
     add_theme_support( 'align-wide' );
     add_theme_support( 'wp-block-styles' );

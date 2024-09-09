@@ -54,6 +54,11 @@ $color__danger: #F25F4C;
                 }
             }
         }
+
+        input, textarea{
+            color: $color__black;
+            background-color: $color__background-body;
+        }
     }
     
 }

@@ -23,8 +23,7 @@
 		<?php if ( 'post' === get_post_type() ) : ?>
 			<div class="entry-meta">
 				<?php
-				huda_posted_on();
-				huda_posted_by();
+					huda_posted_on();
 				?>
 			</div><!-- .entry-meta -->
 		<?php endif; ?>
@@ -35,6 +34,13 @@
 	</div><!-- .entry-summary -->
 
 	<footer class="entry-footer">
-		<?php huda_entry_footer(); ?>
+		<div class="d-flex align-items-center justify-content-between">
+			<div class="read-time">
+				<?php echo esc_html( huda_post_read_time( get_the_ID() ) ) ; ?>
+			</div>
+			<div>
+				<?php huda_read_more(); ?>
+			</div>
+		</div>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

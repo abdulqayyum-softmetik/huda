@@ -1,7 +1,8 @@
 button,
 input[type="button"],
 input[type="reset"],
-input[type="submit"] {
+input[type="submit"],
+.wp-block-search__button {
 	border: 1px solid;
 	line-height: normal;
 	padding: 12px 28px;
@@ -29,10 +30,12 @@ input[type="submit"] {
 		width: 34px;
 		height: 34px;
 		border-radius: 3.125em;
+		border-color: $color__black;
 		background-color: $color__black;
 		transition: 800ms ease-in-out color;
 
 		&:hover{
+			border-color: $color__danger;
 			background-color: $color__danger;
 		}
 
