@@ -45,9 +45,11 @@
                         <div class="d-flex align-items-center justify-content-end gap-3">
                             <div>
                                 <div class="huda-header-icons-wrapper d-flex align-items-center gap-1">
-                                    <a href="<?php echo esc_url( wc_get_cart_url() ); ?>">
-                                        <i class="fas fa-shopping-cart"></i>
-                                    </a>
+                                    <?php if( class_exists( 'WooCommerce' ) ) : ?>
+                                        <a href="<?php echo esc_url( wc_get_cart_url() ); ?>">
+                                            <i class="fas fa-shopping-cart"></i>
+                                        </a>
+                                    <?php endif; ?>
                                     <?php 
                                         if ( function_exists( 'huda_woocommerce_header_cart' ) ) {
                                             huda_woocommerce_header_cart();

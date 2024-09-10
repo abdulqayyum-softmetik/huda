@@ -6,6 +6,10 @@ header.header-main{
         font-size: 2em;
         font-weight: 500;
         text-transform: capitalize;
+
+        a{
+            color: $color__white;
+        }
     }
 
     nav{
@@ -95,6 +99,16 @@ header.header-main{
         i, svg, span, 
         .fa-shopping-cart{
             color: $color__black;
+        }
+
+        .site-title{
+            font-size: 2em;
+            font-weight: 500;
+            text-transform: capitalize;
+    
+            a{
+                color: $color__black;
+            }
         }
     }
 }

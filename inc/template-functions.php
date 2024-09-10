@@ -80,38 +80,38 @@ add_action( 'wp_head', 'huda_pingback_header' );
     ?>
         <div id="comments" class="comments-area">
 
-<?php
-// You can start editing here -- including this comment!
-if ( have_comments() ) :
-    ?>
-
-    <?php comment_form(); ?>
-    
-    <h2 class="comments-title">
-        <?php
-            $huda_comment_count = get_comments_number();
-            if ( '1' === $huda_comment_count ) {
-                printf(
-                    /* translators: %s: comment count number */
-                    esc_html__( '1 Comment', 'huda' )
-                );
-            } else {
-                printf(
-                    /* translators: %s: comment count number */
-                    esc_html(
-                        _nx(
-                            '%1$s Comment',
-                            '%1$s Comments',
-                            $huda_comment_count,
-                            'comments title',
-                            'huda'
-                        )
-                    ),
-                    number_format_i18n( $huda_comment_count ) // format the number
-                );
-            }
+    <?php
+    // You can start editing here -- including this comment!
+    if ( have_comments() ) :
         ?>
-    </h2><!-- .comments-title -->
+
+        <?php comment_form(); ?>
+        
+        <h2 class="comments-title">
+            <?php
+                $huda_comment_count = get_comments_number();
+                if ( '1' === $huda_comment_count ) {
+                    printf(
+                        /* translators: %s: comment count number */
+                        esc_html__( '1 Comment', 'huda' )
+                    );
+                } else {
+                    printf(
+                        /* translators: %s: comment count number */
+                        esc_html(
+                            _nx(
+                                '%1$s Comment',
+                                '%1$s Comments',
+                                $huda_comment_count,
+                                'comments title',
+                                'huda'
+                            )
+                        ),
+                        number_format_i18n( $huda_comment_count ) // format the number
+                    );
+                }
+            ?>
+        </h2><!-- .comments-title -->
 
         <?php the_comments_navigation(); ?>
 
@@ -144,3 +144,26 @@ if ( have_comments() ) :
     }
     // Adding the function into a custom hook
     add_action('huda_comments','huda_comments_content');
+
+
+    function huda_page_content(){
+        ?>
+            <main id="primary" class="huda-site-main container">
+                <?php
+                while ( have_posts() ) :
+                    the_post();
+
+                    get_template_part( 'template-parts/content', 'page' );
+
+                    // If comments are open or we have at least one comment, load up the comment template.
+                    if ( comments_open() || get_comments_number() ) :
+                        comments_template();
+                    endif;
+
+                endwhile; // End of the loop.
+                ?>
+
+            </main><!-- #main -->
+        <?php
+    }
+    add_action('huda_page','huda_page_content');

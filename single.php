@@ -10,21 +10,16 @@
 get_header();
 ?>
 
-	<?php 
-		// Before the content
-		do_action('huda_content_before');
-	?>
-	
-	
-	<?php 
-		// Single page layout
-		do_action('huda_single_page_layout');
-	?>
+<?php 
+	// Before the content
+	do_action('huda_content_before');
 
-	<?php 
-		// After the content
-		do_action('huda_content_after'); 
-	?>
+	// Single page layout
+	do_action('huda_single_page_layout');
+
+	// After the content
+	do_action('huda_content_after'); 
+?>
 
 <?php
 get_footer();

@@ -4,9 +4,12 @@
             &copy; <?php echo date('Y'); ?>
 
             <span class="sep"> | </span>
-                <?php
-                    dynamic_sidebar( 'footer-copyright' );
-                ?>
+                
+            <?php esc_html( bloginfo('title') ); ?>
+
+            <?php
+                dynamic_sidebar( 'footer-copyright' );
+            ?>
         </div><!-- .site-info -->
     </div>
 </footer>
