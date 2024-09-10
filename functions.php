@@ -49,7 +49,7 @@ function huda_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
-			'menu-1' => esc_html__( 'Primary', 'huda' ),
+			'main-menu' => esc_html__( 'Primary', 'huda' ),
 		)
 	);
 
@@ -99,6 +99,23 @@ function huda_setup() {
 			'flex-height' => true,
 		)
 	);
+
+	// Add support for Elementor
+	add_theme_support('elementor');
+	
+	// Add support for Gutenberg
+    add_theme_support( 'align-wide' );
+    add_theme_support( 'wp-block-styles' );
+    add_theme_support( 'editor-styles' );
+	add_theme_support( 'custom-spacing' );
+	add_theme_support( 'responsive-embeds' );
+	add_theme_support( 'custom-line-height' );
+	add_theme_support( 'custom-units', array() );
+	add_theme_support( 'appearance-tools' );
+	add_theme_support( 'border' );
+	add_theme_support( 'link-color' );
+	add_theme_support( 'block-template-parts' );
+
 }
 add_action( 'after_setup_theme', 'huda_setup' );
 
@@ -115,24 +132,19 @@ function huda_content_width() {
 add_action( 'after_setup_theme', 'huda_content_width', 0 );
 
 /**
- * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
+ * Include widget area.
  */
-function huda_widgets_init() {
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'Sidebar', 'huda' ),
-			'id'            => 'sidebar-1',
-			'description'   => esc_html__( 'Add widgets here.', 'huda' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
-}
-add_action( 'widgets_init', 'huda_widgets_init' );
+require get_template_directory() . '/inc/widgets.php';
+
+/**
+ * Include block styles.
+ */
+require get_template_directory() . '/inc/block-styles.php';
+
+/**
+ * Include block patterns.
+ */
+require get_template_directory() . '/inc/block-patterns.php';
 
 /**
  * Enqueue scripts and styles.
@@ -140,92 +152,19 @@ add_action( 'widgets_init', 'huda_widgets_init' );
 require get_template_directory() . '/inc/theme-scripts.php';
 
 /**
- *  Enable svg mime type support
+ * Bootstrap 5 Nav Walker.
  */
-if(!function_exists('huda_svg_support')){
-	function huda_svg_support($mimes){
-		$mimes['svg'] = 'image/svg+xml';
-		return $mimes;
-	}
-	add_filter('upload_mimes', 'huda_svg_support');
-}
-
-
-// Ensure this is within PHP tags
-if (!function_exists('get_svg_icons')) {
-    function get_svg_icons() {
-        $json_path = get_template_directory() . '/assets/svg/icons.json';
-        
-        // Check if the file exists
-        if (!file_exists($json_path)) {
-            error_log('Icons JSON file not found: ' . $json_path);
-            return [];
-        }
-
-        // Get the contents of the file
-        $json = file_get_contents($json_path);
-        if ($json === false) {
-            error_log('Error reading Icons JSON file: ' . $json_path);
-            return [];
-        }
-
-        // Decode the JSON
-        $icons = json_decode($json, true);
-        if (json_last_error() !== JSON_ERROR_NONE) {
-            error_log('Error decoding JSON: ' . json_last_error_msg());
-            return [];
-        }
-
-        return $icons;
-    }
-}
-
-if (!function_exists('display_svg_icon')) {
-    function display_svg_icon($menu_icon) {
-        $icons = get_svg_icons();
-        if (array_key_exists($menu_icon, $icons)) {
-            echo $icons[$menu_icon];
-        } else {
-            echo 'Icon not found: ' . $menu_icon;
-        }
-    }
-}
+require get_template_directory() . '/inc/bootstrap-navigation.php';
 
 /**
- * Implement footer copyright text.
+ * Ajax live serach.
  */
-
-// Function to generate dynamic copyright text
-function huda_dynamic_copyright() {
-    $start_year = 2024; // Replace with the year you started your website
-    $current_year = date('Y');
-    if ($start_year == $current_year) {
-        $year = $current_year;
-    } else {
-        $year = $start_year . ' - ' . $current_year;
-    }
-    return 'Copyright &copy; ' . $year . '';
-}
-
-// Shortcode to display the dynamic copyright text
-function huda_copyright_shortcode() {
-    return huda_dynamic_copyright();
-}
-add_shortcode('huda_copyright', 'huda_copyright_shortcode');
+require get_template_directory() . '/inc/live-search.php';
 
 /**
- * Filter the excerpt length to 20 words.
- *
- * @param int $length Excerpt length.
- * @return int (Maybe) modified excerpt length.
+ * Excerpt Length.
  */
-add_filter( 'excerpt_length', function( $length ) { return 9; } );
-add_filter('excerpt_more', '__return_false');
-
-/**
- * Implement the Custom Header feature.
- */
-require get_template_directory() . '/inc/custom-header.php';
+require get_template_directory() . '/inc/excerpt.php';
 
 /**
  * Custom template tags for this theme.
@@ -236,11 +175,6 @@ require get_template_directory() . '/inc/template-tags.php';
  * Functions which enhance the theme by hooking into WordPress.
  */
 require get_template_directory() . '/inc/template-functions.php';
-
-/**
- * Customizer additions.
- */
-require get_template_directory() . '/inc/customizer.php';
 
 /**
  * Load Jetpack compatibility file.
@@ -255,5 +189,23 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
+
+/**
+ * Implement the Custom Hooks.
+ */
+require get_template_directory() . '/inc/core/theme-hooks.php';
+
+/**
+ * Kirki Customizer Adavnced Options.
+ */
+
+if( class_exists( 'kirki' ) ){
+	require get_template_directory() . '/inc/customizer.php';
+}
+
+/**
+ * Tgmpa Plugin activations.
+ */
+require get_template_directory() . '/inc/tgm/plugins.php';
 
 ?>

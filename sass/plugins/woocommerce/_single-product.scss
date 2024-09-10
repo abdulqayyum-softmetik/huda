@@ -1,0 +1,137 @@
+.single-product {
+
+	div.product {
+		position: relative;
+
+		h1{
+			&.product_title{
+				font-size: 3em;
+			}
+		}
+
+		.onsale{
+			&.huda-onsale-card{
+				position: absolute;
+				top: 1em;
+				left: 1em;
+				font-size: 0.875em;
+				padding: 0.25em 0.75em;
+				color: $color__white;
+				background: $color__danger;
+				border-radius: $rounded__full;
+				z-index: 99;
+			}
+		}
+
+		.woocommerce-product-gallery {
+			position: relative;
+			float: left;
+			width: 50%;
+
+			.wp-post-image{
+				width: 100%;
+				height: 100%;
+				border-radius: $rounded;
+			}
+
+			.woocommerce-product-gallery__trigger {
+				position: absolute;
+				top: 2em;
+				right: 1em;
+				display: block;
+				z-index: 99;
+			}
+
+			.flex-viewport {
+				margin-bottom: 1em;
+			}
+
+			.flex-control-thumbs {
+				margin: 0;
+				padding: 0;
+
+				li {
+					list-style: none;
+					cursor: pointer;
+					float: left;
+
+					img {
+						opacity: 0.5;
+
+						&.flex-active {
+							opacity: 1;
+						}
+					}
+
+					&:hover {
+
+						img {
+							opacity: 1;
+						}
+					}
+				}
+			}
+
+			@for $i from 2 through 5 {
+
+				&.woocommerce-product-gallery--columns-#{$i} {
+
+					.flex-control-thumbs {
+
+						li {
+
+							@include column-width($i);
+
+							&:nth-child(#{$i}n) {
+								margin-right: 0;
+							}
+
+							&:nth-child(#{$i}n+1) {
+								clear: both;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.entry-summary{
+			float: left;
+			width: 50%;
+			padding-left: 2em;
+
+			.cart{
+				@include flex-start;
+				align-items: center;
+				gap: 1em;
+	
+				.quantity{
+					input{
+						width: 110px;
+						padding: 12px 12px;
+					}
+				}
+			}
+
+			.product_meta{
+				margin-top: 1em;
+			}
+			
+		}
+	}
+}
+
+.stock {
+
+	&:empty::before {
+		display: none;
+	}
+
+	&.in-stock {
+		color: $woocommerce__color-success;
+	}
+
+	&.out-of-stock {
+		color: $woocommerce__color-error;
+	}
+}
