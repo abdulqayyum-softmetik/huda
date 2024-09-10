@@ -16,7 +16,7 @@ get_header();
 ?>
 
 	<main id="primary" class="site-main container">
-		<div class="row">
+		<div class="row gy-4">
 			<?php
 			if ( have_posts() ) :
 
@@ -41,7 +41,7 @@ get_header();
 
 				endwhile;
 
-				the_posts_navigation();
+				huda_pagination();
 
 			else :
 

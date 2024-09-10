@@ -1,0 +1,119 @@
+.comment-content a {
+	word-wrap: break-word;
+}
+
+.bypostauthor {
+	display: block;
+}
+
+
+.comments-area {
+	ol {
+		&.comment-list {
+			li {
+				&.comment {
+
+					display: flex;
+					flex-direction: column;
+					gap: 3em;
+
+					article {
+						&.comment-body {
+							padding: 1.8em 1.6em;
+							border-radius: 20px;
+							background-color: $color__white;
+
+							.comment-content{
+								p{
+									margin-bottom: 0.5em
+								}
+							}
+
+							.reply{
+								a{
+									color: $color__black;
+									position: relative;
+
+									&::before{
+										content: '\f3e5';
+										font-family: "Font Awesome 5 Free";
+										font-weight: 900;
+										margin-right: 0.4em
+									}
+								}
+							}
+
+							footer{	
+								&.comment-meta{
+									@include flex-column;
+									gap: 0.4em;
+
+									.comment-author{
+										&.vcard{
+											img{
+												border-radius: 50px;
+											}
+
+											b{
+												&.fn{
+													a{
+														text-transform: capitalize;
+													}
+												}
+											}
+										}
+									} 
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	h2{
+		&.comments-title{
+			margin-bottom: 0.8em;
+		}
+	}
+
+	.comment-respond{
+		margin: 1.8em 0;
+		border-radius: 20px;
+		padding: 60px;
+		background-color: $color__white;
+
+		form{
+			&.comment-form{
+				.comment-form-author,
+				.comment-form-email,
+				.comment-form-url{
+					width: 48%;
+					float: left;
+					@include flex-column;
+
+					label{
+						color: $color__label;
+						margin-bottom: 12px;
+					}
+
+					input{
+						padding: 10px 30px;
+						border-radius: 50px;
+						border: 1px solid $color__border-abbr;
+					}
+				}
+
+				.comment-form-email{
+					float: right;
+				}
+
+				.comment-form-url{
+					width: 100%;
+				}
+			}
+		}
+	}
+	
+}

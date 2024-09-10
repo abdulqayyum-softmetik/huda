@@ -1,0 +1,114 @@
+header.header-main{
+    padding: 1em;
+    background-color: $color__black;
+
+    .site-title{
+        font-size: 2em;
+        font-weight: 500;
+        text-transform: capitalize;
+
+        a{
+            color: $color__white;
+        }
+    }
+
+    nav{
+
+        a{
+            &.custom-logo-link{
+                img{
+                    max-width: 10em;
+
+                    @media(max-width: 576px){
+                        max-width: 7.5em;
+                    }
+                }
+            }
+        }
+
+        ul{
+            li{
+
+                a {
+                    &.nav-link {
+                        color: $color__white;
+                        transition: 0.3s ease;
+                    
+                        &:hover, &:focus{
+                            color: $color__danger !important;
+                        }
+
+                        &:disabled{
+                            opacity: 0.9;
+                        }
+
+                        &.dropdown-toggle {
+                            &::after {
+                                margin-left: 0.40em;
+                            }
+                        }
+
+                        &.active {
+                            font-weight: 500;
+                            color: $color__danger;
+                        }
+                    }
+                }
+
+                ul.dropdown-menu{
+                    li {
+                        a.dropdown-item{
+                            text-align: left;
+                            color: $color__black;
+                        }
+                    }
+                }
+
+            }
+        }
+
+        .dropdown {
+            &:hover {
+                .dropdown-menu {
+                    display: block;
+                    margin-top: 0;
+                }
+            }
+        }
+        
+
+        i, svg, span, 
+        .fa-shopping-cart{
+            color: $color__white;
+        }
+    }
+
+    &.header-pages{
+        background-color: $color__white;
+
+        nav{
+            ul{
+                li{
+                    a{
+                        color: $color__black;
+                    }
+                }
+            }
+        }
+
+        i, svg, span, 
+        .fa-shopping-cart{
+            color: $color__black;
+        }
+
+        .site-title{
+            font-size: 2em;
+            font-weight: 500;
+            text-transform: capitalize;
+    
+            a{
+                color: $color__black;
+            }
+        }
+    }
+}

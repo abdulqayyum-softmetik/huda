@@ -1,0 +1,30 @@
+/* Customizer
+-------------------------- */
+.customize-control-label .customize-control-title,
+.customizer-text{
+    width: 290px;
+    color: #0f0e17;
+    font-weight: 700;
+    margin-left: -1em;
+    padding: 0.6em 0.8em;
+    text-transform: uppercase;
+    background: #fffffe;
+    border-bottom: 2px solid #e2e8f0;
+    margin-bottom: 1.2em;
+}
+
+.customize-control-title{
+    margin-bottom: 0;
+}
+
+.customize-control-kirki-radio-image>.image{
+    justify-content: space-between;
+}
+
+.customize-control-kirki-radio-image input + label img{
+    border: 6px solid #e2e8f0;
+}
+
+.customize-control-kirki-radio-image input:checked+label img{
+    border: 6px solid #9095fd;
+}
