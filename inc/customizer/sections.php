@@ -62,3 +62,22 @@ new \Kirki\Section(
 		],
 	]
 );
+
+/* 
+* Huda Blog Layout Section
+*/
+new \Kirki\Section(
+	'huda_blog_layouts_section',
+	[
+		'title' => esc_html__( 'Single Post', 'huda' ),
+		'panel' => 'huda_blog_options',
+		'tabs'  => [
+			'general' => [
+				'label' => esc_html__( 'GENERAL', 'huda' ),
+			],
+			'design'  => [
+				'label' => esc_html__( 'DESIGN', 'huda' ),
+			],
+		],
+	]
+);

@@ -1,0 +1,113 @@
+.widget {
+	margin: 0 0 1.5em;
+
+	// Make sure select elements fit in widgets.
+	select {
+		max-width: 100%;
+	}
+}
+
+aside{
+    &.widget-area{
+        ul {
+
+            &.wp-block-categories-list{
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+				gap: 0.80em;
+
+                li{
+                    &.cat-item{
+						padding: 8px 16px;
+						border-radius: 50px;
+                        background-color: $color__white;
+
+                        a{
+                            color: $color__black;
+                        }
+
+						#text{
+							background-color: $color__danger;
+						}
+                    }
+                }
+            }
+
+            li{
+                display: flex;
+                align-items: start;
+                justify-content: start;
+                margin-bottom: 1em;
+                border-bottom: 1px solid $color__border-abbr;
+                padding-bottom: 1em;
+                gap: 0.60em;
+
+                span{
+                    &.post_count{
+                        width: 22px;
+                        height: 22px;
+                        font-size: 14px;
+                        color: $color__white;
+                        border-radius: $rounded__full;
+                        background: $color__danger;
+                        text-align: center;
+                    }
+                }
+
+
+                a{
+                    &.wp-block-latest-posts__post-title{    
+                        font-weight: 600;
+                        color: $color__black;
+                    }
+                }
+
+                img{
+                    border-radius: 4px;
+                }
+            }
+        }
+
+        .widget_tag_cloud{
+            p{
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: 0.80em;
+            }
+
+            a{
+                &.tag-cloud-link{
+                    font-size: 1em !important;
+                    color: $color__black;
+                    padding: 8px 16px;
+                    border-radius: 50px;
+                    background-color: $color__white; 
+                    @include flex-center;
+                    gap: 0.4em;
+
+                    span{
+                        &.tags_count{
+                            width: 22px;
+                            height: 22px;
+                            font-size: 14px;
+                            color: $color__white;
+                            border-radius: $rounded__full;
+                            background: $color__danger;
+                            text-align: center;
+                        }
+                    }
+
+                }
+                
+
+            }
+        }
+    }
+}
+
+.wp-block-search__inside-wrapper{
+    display: flex;
+    gap: 0.6em;
+}

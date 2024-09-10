@@ -14,24 +14,15 @@
 
 get_header();
 ?>
+	<?php 
+		// Before the content
+		do_action('huda_content_before');
 
-	<main id="primary" class="huda-site-main container">
+		// Page content
+		do_action('huda_page');
 
-		<?php
-		while ( have_posts() ) :
-			the_post();
-
-			get_template_part( 'template-parts/content', 'page' );
-
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
-
-		endwhile; // End of the loop.
-		?>
-
-	</main><!-- #main -->
-
+		// After the content
+		do_action('huda_content_after'); 
+	?>
 <?php
 get_footer();

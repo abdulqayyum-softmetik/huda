@@ -6,6 +6,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
+ * 
  * @package Huda
  */
 ?>
@@ -23,38 +24,22 @@
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?> data-bs-theme="light">
 <?php wp_body_open(); ?>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'huda' ); ?></a>
 
-	<header id="masthead" class="huda-primary-header">
-		<div class="d-flex align-items-center justify-content-between container">
-			<div class="huda-site-title-wrapper">
-				<?php 
-					if(  function_exists('the_custom_logo') && has_custom_logo() ) : 
-						the_custom_logo();
-					else :
-						?>
-							<div class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></div>
-							<p><?php bloginfo( 'description' ); ?></p>
-						<?php
-					endif;
-				?>
-					
-					
-			</div><!-- .site-branding -->
+	<?php 
+		// Before the header
+		do_action('huda_header_before');
+  	?>
 
-			<nav id="huda-site-navigation" class="huda-main-navigation">
-				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( display_svg_icon('menu_icon'), 'huda' ); ?><?php display_svg_icon('menu_icon'); ?></button>
-				<?php
-				wp_nav_menu(
-					array(
-						'theme_location' => 'menu-1',
-						'menu_id'        => 'primary-menu',
-					)
-				);
-				?>
-			</nav><!-- #site-navigation -->
-		</div>
-	</header><!-- #masthead -->
+	<?php 
+		// Header Default Content
+		get_template_part( 'template-parts/headers/header', 'default' );  
+	?>
+
+	<?php 
+		// After the header
+		do_action('huda_header_after'); 
+  	?>

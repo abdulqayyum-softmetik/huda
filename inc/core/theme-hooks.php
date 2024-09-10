@@ -82,7 +82,7 @@ add_theme_support( 'huda_hooks', array(
  * Example:
  * <code>
  * 		if ( current_theme_supports( 'huda_hooks', 'header' ) )
- * 	  		add_action( 'tha_head_top', 'prefix_header_top' );
+ * 	  		add_action( 'huda_head_top', 'prefix_header_top' );
  * </code>
  *
  * @param bool $bool true
@@ -91,174 +91,174 @@ add_theme_support( 'huda_hooks', array(
  *
  * @return bool
  */
-function tha_current_theme_supports( $bool, $args, $registered ) {
+function huda_current_theme_supports( $bool, $args, $registered ) {
 	return in_array( $args[0], $registered[0] ) || in_array( 'all', $registered[0] );
 }
-add_filter( 'current_theme_supports-huda_hooks', 'tha_current_theme_supports', 10, 3 );
+add_filter( 'current_theme_supports-huda_hooks', 'huda_current_theme_supports', 10, 3 );
 
 /**
  * HTML <html> hook
  * Special case, useful for <DOCTYPE>, etc.
- * $tha_supports[] = 'html;
+ * $huda_supports[] = 'html;
  */
-function tha_html_before() {
-	do_action( 'tha_html_before' );
+function huda_html_before() {
+	do_action( 'huda_html_before' );
 }
 /**
  * HTML <body> hooks
- * $tha_supports[] = 'body';
+ * $huda_supports[] = 'body';
  */
-function tha_body_top() {
-	do_action( 'tha_body_top' );
+function huda_body_top() {
+	do_action( 'huda_body_top' );
 }
 
-function tha_body_bottom() {
-	do_action( 'tha_body_bottom' );
+function huda_body_bottom() {
+	do_action( 'huda_body_bottom' );
 }
 
 /**
  * HTML <head> hooks
  *
- * $tha_supports[] = 'head';
+ * $huda_supports[] = 'head';
  */
-function tha_head_top() {
-	do_action( 'tha_head_top' );
+function huda_head_top() {
+	do_action( 'huda_head_top' );
 }
 
-function tha_head_bottom() {
-	do_action( 'tha_head_bottom' );
+function huda_head_bottom() {
+	do_action( 'huda_head_bottom' );
 }
 
 /**
  * Semantic <header> hooks
  *
- * $tha_supports[] = 'header';
+ * $huda_supports[] = 'header';
  */
-function tha_header_before() {
-	do_action( 'tha_header_before' );
+function huda_header_before() {
+	do_action( 'huda_header_before' );
 }
 
-function tha_header_after() {
-	do_action( 'tha_header_after' );
+function huda_header_after() {
+	do_action( 'huda_header_after' );
 }
 
-function tha_header_top() {
-	do_action( 'tha_header_top' );
+function huda_header_top() {
+	do_action( 'huda_header_top' );
 }
 
-function tha_header_bottom() {
-	do_action( 'tha_header_bottom' );
+function huda_header_bottom() {
+	do_action( 'huda_header_bottom' );
 }
 
 /**
  * Semantic <content> hooks
  *
- * $tha_supports[] = 'content';
+ * $huda_supports[] = 'content';
  */
-function tha_content_before() {
-	do_action( 'tha_content_before' );
+function huda_content_before() {
+	do_action( 'huda_content_before' );
 }
 
-function tha_content_after() {
-	do_action( 'tha_content_after' );
+function huda_content_after() {
+	do_action( 'huda_content_after' );
 }
 
-function tha_content_top() {
-	do_action( 'tha_content_top' );
+function huda_content_top() {
+	do_action( 'huda_content_top' );
 }
 
-function tha_content_bottom() {
-	do_action( 'tha_content_bottom' );
+function huda_content_bottom() {
+	do_action( 'huda_content_bottom' );
 }
 
-function tha_content_while_before() {
-	do_action( 'tha_content_while_before' );
+function huda_content_while_before() {
+	do_action( 'huda_content_while_before' );
 }
 
-function tha_content_while_after() {
-	do_action( 'tha_content_while_after' );
+function huda_content_while_after() {
+	do_action( 'huda_content_while_after' );
 }
 
 /**
  * Semantic <entry> hooks
  *
- * $tha_supports[] = 'entry';
+ * $huda_supports[] = 'entry';
  */
-function tha_entry_before() {
-	do_action( 'tha_entry_before' );
+function huda_entry_before() {
+	do_action( 'huda_entry_before' );
 }
 
-function tha_entry_after() {
-	do_action( 'tha_entry_after' );
+function huda_entry_after() {
+	do_action( 'huda_entry_after' );
 }
 
-function tha_entry_content_before() {
-	do_action( 'tha_entry_content_before' );
+function huda_entry_content_before() {
+	do_action( 'huda_entry_content_before' );
 }
 
-function tha_entry_content_after() {
-	do_action( 'tha_entry_content_after' );
+function huda_entry_content_after() {
+	do_action( 'huda_entry_content_after' );
 }
 
-function tha_entry_top() {
-	do_action( 'tha_entry_top' );
+function huda_entry_top() {
+	do_action( 'huda_entry_top' );
 }
 
-function tha_entry_bottom() {
-	do_action( 'tha_entry_bottom' );
+function huda_entry_bottom() {
+	do_action( 'huda_entry_bottom' );
 }
 
 /**
  * Comments block hooks
  *
- * $tha_supports[] = 'comments';
+ * $huda_supports[] = 'comments';
  */
-function tha_comments_before() {
-	do_action( 'tha_comments_before' );
+function huda_comments_before() {
+	do_action( 'huda_comments_before' );
 }
 
-function tha_comments_after() {
-	do_action( 'tha_comments_after' );
+function huda_comments_after() {
+	do_action( 'huda_comments_after' );
 }
 
 /**
  * Semantic <sidebar> hooks
  *
- * $tha_supports[] = 'sidebar';
+ * $huda_supports[] = 'sidebar';
  */
-function tha_sidebars_before() {
-	do_action( 'tha_sidebars_before' );
+function huda_sidebars_before() {
+	do_action( 'huda_sidebars_before' );
 }
 
-function tha_sidebars_after() {
-	do_action( 'tha_sidebars_after' );
+function huda_sidebars_after() {
+	do_action( 'huda_sidebars_after' );
 }
 
-function tha_sidebar_top() {
-	do_action( 'tha_sidebar_top' );
+function huda_sidebar_top() {
+	do_action( 'huda_sidebar_top' );
 }
 
-function tha_sidebar_bottom() {
-	do_action( 'tha_sidebar_bottom' );
+function huda_sidebar_bottom() {
+	do_action( 'huda_sidebar_bottom' );
 }
 
 /**
  * Semantic <footer> hooks
  *
- * $tha_supports[] = 'footer';
+ * $huda_supports[] = 'footer';
  */
-function tha_footer_before() {
-	do_action( 'tha_footer_before' );
+function huda_footer_before() {
+	do_action( 'huda_footer_before' );
 }
 
-function tha_footer_after() {
-	do_action( 'tha_footer_after' );
+function huda_footer_after() {
+	do_action( 'huda_footer_after' );
 }
 
-function tha_footer_top() {
-	do_action( 'tha_footer_top' );
+function huda_footer_top() {
+	do_action( 'huda_footer_top' );
 }
 
-function tha_footer_bottom() {
-	do_action( 'tha_footer_bottom' );
+function huda_footer_bottom() {
+	do_action( 'huda_footer_bottom' );
 }

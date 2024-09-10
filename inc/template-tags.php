@@ -12,15 +12,17 @@ if ( ! function_exists( 'huda_posted_on' ) ) :
 	 * Prints HTML with meta information for the current post-date/time.
 	 */
 	function huda_posted_on() {
+
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-		if ( get_the_time( 'U' )) {
+
+		if ( get_the_time( 'U' ) ) {
 			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
 		}
 
 		$time_string = sprintf(
 			$time_string,
-			esc_attr( get_the_date( DATE_W3C ) ),
-			esc_html( get_the_date() ),
+			esc_attr( get_the_date( DATE_W3C ) . 'T' . get_the_time('H:i:s')),
+			esc_html( get_the_date() . ' ' . get_the_time() ),
 		);
 
 		$posted_on = sprintf(
@@ -29,8 +31,7 @@ if ( ! function_exists( 'huda_posted_on' ) ) :
 			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 		);
 
-		echo '<span class="posted-on">' . $posted_on . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-
+		echo '<span class="posted-on"> <i class="far fa-clock"></i> ' . $posted_on . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 endif;
 
@@ -39,10 +40,12 @@ if ( ! function_exists( 'huda_posted_by' ) ) :
 	 * Prints HTML with meta information for the current author.
 	 */
 	function huda_posted_by() {
+		$author_avatar_url = esc_url( get_avatar_url( get_the_author_meta( 'ID' ), array('size' => 26) ) ); 
 		$byline = sprintf(
 			/* translators: %s: post author. */
-			esc_html_x( '- %s', 'post author', 'huda' ),
-			'<span class="author-title"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
+			esc_html_x( '%s', 'post author', 'huda' ),
+			'<img class="author-avatar" src="' . $author_avatar_url . '"></img> <span class="author-title"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>',
+			
 		);
 
 		echo '<span class="byline"> ' . $byline . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -160,4 +163,174 @@ if ( ! function_exists( 'wp_body_open' ) ) :
 	function wp_body_open() {
 		do_action( 'wp_body_open' );
 	}
+endif;
+
+if ( ! function_exists( 'huda_comment_count' ) ) :
+	/**
+	 * Prints post comment counts.
+	 */
+	function huda_comment_count(){
+		
+		$arg = get_comments_number(get_the_ID());
+		
+		echo '<span class="comment-count">' . $arg . '</span>';
+	}
+endif;
+
+if ( ! function_exists( 'huda_pagination' ) ) :
+	/**
+	 * Display numeric pagination.
+	 */
+	function huda_pagination(){
+		the_posts_pagination( array(
+			'mid_size'  => 2,
+			'prev_text' => __( '<i class="fas fa-arrow-left"></i> Previous', 'huda' ),
+			'next_text' => __( 'Next <i class="fas fa-arrow-right"></i>', 'huda' ),
+		) );
+	}
+endif;
+
+if ( ! function_exists( 'huda_read_more' ) ) :
+	/**
+	 * Display numeric pagination.
+	 */
+	function huda_read_more(){
+		?>
+			<a class="btn btn-read-more-arrow"data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Read More" href="<?php echo esc_url( get_permalink() ); ?>">
+				<i class="fas fa-arrow-right"></i>
+			</a>
+		<?php
+	}
+endif;
+
+if ( ! function_exists( 'huda_social_share' ) ) :
+	/**
+	 * Share post on social media
+	 */
+	function huda_social_share() {
+		?>
+			<div class="d-flex align-items-center justify-content-between gap-3">
+				<div>
+					<a class="dropdown-item" href="https://www.facebook.com/sharer.php?u=<?php echo esc_url( get_permalink() ); ?>" target="_blank">
+						<i class="fab fa-facebook-f"></i>
+					</a>
+				</div>
+				<div>
+					<a class="dropdown-item" href="https://twitter.com/intent/tweet?url=<?php echo get_permalink(); ?>" target="_blank">
+						<i class="fab fa-twitter"></i>
+					</a>
+				</div>
+				<div>
+					<a class="dropdown-item" href="https://www.linkedin.com/shareArticle?url=<?php echo get_permalink(); ?>&title=<?php echo esc_html( get_the_title() ); ?>" target="_blank">
+					<i class="fab fa-linkedin-in"></i>
+					</a>
+				</div>
+				<div>
+					<a class="dropdown-item" href="https://api.whatsapp.com/send?text=<?php echo esc_html( get_the_title() ); ?> <?php echo esc_url( get_permalink() ); ?>" target="_blank">
+						<i class="fab fa-whatsapp"></i>
+					</a>
+				</div>
+			</div>
+		<?php
+	}
+endif;
+
+
+if ( ! function_exists( 'huda_post_read_time' ) ) :
+	/**
+	 * Display post read time.
+	 */
+	function huda_post_read_time( $post_id ) {
+		// Get the post content based on the post ID
+		$post_content = get_post_field( 'post_content', $post_id );
+	
+		// Debug: Check if post content is retrieved properly
+		if ( empty( $post_content ) ) {
+			return 'No content available';
+		}
+	
+		// Remove shortcodes and HTML tags
+		$clean_content = wp_strip_all_tags( strip_shortcodes( $post_content ) );
+	
+		// Normalize whitespace (replace multiple spaces with a single space)
+		$clean_content = preg_replace( '/\s+/', ' ', trim( $clean_content ) );
+	
+		// Count words
+		$word_count = str_word_count( $clean_content );
+	
+		// Debug: Log the word count for testing
+		error_log( 'Word count: ' . $word_count );
+	
+		// Estimate read time (250 words per minute)
+		$read_time = ceil( $word_count / 250 );
+	
+		// Debug: Log the calculated read time for testing
+		error_log( 'Calculated read time: ' . $read_time );
+	
+		// Determine the correct label based on the read time
+		$label = ( $read_time == 1 ) ? " Minute Read" : " Minutes Read";
+	
+		// Return the formatted string
+		echo wp_kses_post( '<i class="fas fa-book-reader"></i> ' . $read_time . $label );
+	}	
+	
+endif;
+
+if ( ! function_exists( 'huda_comment_form_fields' ) ) :
+	/**
+	 * Comment Field Order
+	 */
+	function huda_comment_form_fields( $fields ) {
+		$comment_field = $fields['comment'];
+		$author_field = $fields['author'];
+		$email_field = $fields['email'];
+		$url_field = isset($fields['url']) ? $fields['url'] : '';
+		$cookies_field = isset($fields['cookies']) ? $fields['cookies'] : '';
+		unset( $fields['comment'] );
+		unset( $fields['author'] );
+		unset( $fields['email'] );
+		unset( $fields['url'] );
+		unset( $fields['cookies'] );
+		// the order of fields is the order below, change it as needed:
+		$fields['author'] = $author_field;
+		$fields['email'] = $email_field;
+		$fields['comment'] = $comment_field;
+
+		if( !empty($cookies_field) ) {
+			$fields['cookies'] = $cookies_field;
+		}
+
+
+		if( !empty($url_field) ) {
+			$fields['url'] = $url_field;
+		}
+
+		// done ordering, now return the fields:
+		return $fields;
+	}
+	add_filter( 'comment_form_fields', 'huda_comment_form_fields' );
+endif;
+
+if ( ! function_exists( 'huda_tagcloud_postcount_filter' ) ) :
+	/**
+	 * Filter parentheses from tags cloud
+	 */
+	function huda_tagcloud_postcount_filter ($tags_count) {
+		$tags_count = str_replace('<span class="tag-link-count"> (', ' <span class="tags_count"> ', $tags_count);
+		$tags_count = str_replace(')</span>', '</span>', $tags_count);
+		return $tags_count;
+	}
+	add_filter('wp_tag_cloud','huda_tagcloud_postcount_filter');
+endif;
+
+if ( ! function_exists( 'huda_categories_postcount_filter' ) ) :
+	/**
+	 * Filter parentheses from cpost count
+	 */
+	function huda_categories_postcount_filter ($categories_post_count) {
+		$categories_post_count = str_replace('(', '<span class="post_count"> ', $categories_post_count);
+		$categories_post_count = str_replace(')', ' </span>', $categories_post_count);
+		return $categories_post_count;
+	}
+	add_filter('wp_list_categories','huda_categories_postcount_filter');
 endif;

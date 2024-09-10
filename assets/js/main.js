@@ -1,11 +1,11 @@
 /**
- * File navigation.js.
+ * File main.js.
  *
  * Handles toggling the navigation menu for small screens and enables TAB key
  * navigation support for dropdown menus.
  */
 ( function() {
-	const siteNavigation = document.getElementById( 'huda-site-navigation' );
+	const siteNavigation = document.getElementById( 'site-navigation' );
 
 	// Return early if the navigation doesn't exist.
 	if ( ! siteNavigation ) {
@@ -22,15 +22,7 @@
 	const menu = siteNavigation.getElementsByTagName( 'ul' )[ 0 ];
 
 	// Hide menu toggle button if menu is empty and return early.
-	if ( 'undefined' === typeof menu ) {document.addEventListener("DOMContentLoaded", function() {
-        const lazyImages = document.querySelectorAll('img[loading="lazy"]');
-        
-        lazyImages.forEach(img => {
-            img.addEventListener('load', () => {
-                img.classList.add('lazyloaded');
-            });
-        });
-    });
+	if ( 'undefined' === typeof menu ) {
 		button.style.display = 'none';
 		return;
 	}
@@ -105,3 +97,86 @@
 		}
 	}
 }() );
+
+/**
+* Utility Function to Determine the Current Theme Setting:
+* First, check if there is a value stored in local storage.
+* If not, default to the system's theme preference.
+* If neither is available, default to light mode.
+*/
+document.addEventListener("DOMContentLoaded", () => {
+	function calculateSettingAsThemeString({ localStorageTheme, systemSettingDark }) {
+		if (localStorageTheme !== null) {
+		  return localStorageTheme;
+		}
+	  
+		if (systemSettingDark.matches) {
+		  return "dark";
+		}
+	  
+		return "light";
+	  }
+	  
+	  /**
+	  * Utility function to update the button text and aria-label.
+	  */
+	  function updateButton({ buttonEl, isDark }) {
+		const newCta = isDark ? "" : "";
+		// use an aria-label if you are omitting text on the button
+		// and using a sun/moon icon, for example
+		buttonEl.setAttribute("aria-label", newCta);
+		buttonEl.innerText = newCta;
+	  }
+	  
+	  /**
+	  * Utility function to update the theme setting on the html tag
+	  */
+	  function updateThemeOnHtmlEl({ theme }) {
+		document.querySelector("html").setAttribute("data-bs-theme", theme);
+	  }
+	  
+	  
+	  /**
+	  * On page load:
+	  */
+	  
+	  /**
+	  * 1. Grab what we need from the DOM and system settings on page load
+	  */
+	  const button = document.querySelector("[data-theme-toggle]");
+	  const localStorageTheme = localStorage.getItem("theme");
+	  const systemSettingDark = window.matchMedia("(prefers-color-scheme: dark)");
+	  
+	  /**
+	  * 2. Work out the current site settings
+	  */
+	  let currentThemeSetting = calculateSettingAsThemeString({ localStorageTheme, systemSettingDark });
+	  
+	  /**
+	  * 3. Update the theme setting and button text accoridng to current settings
+	  */
+	  updateButton({ buttonEl: button, isDark: currentThemeSetting === "dark" });
+	  updateThemeOnHtmlEl({ theme: currentThemeSetting });
+	  
+	  /**
+	  * 4. Add an event listener to toggle the theme
+	  */
+	  button.addEventListener("click", (event) => {
+		const newTheme = currentThemeSetting === "dark" ? "light" : "dark";
+	  
+		localStorage.setItem("theme", newTheme);
+		updateButton({ buttonEl: button, isDark: newTheme === "dark" });
+		updateThemeOnHtmlEl({ theme: newTheme });
+	  
+		currentThemeSetting = newTheme;
+	  }); 
+
+	  /**
+	  * Enable Bootstrap Tooltip:
+	  */
+	  const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+	  const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+});
+
+
+

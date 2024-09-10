@@ -7,6 +7,39 @@
 
 
 /*
+* Logo 
+*/
+new \Kirki\Field\Image(
+	[
+		'settings'    => 'logo_light_setting_url',
+		'label'       => esc_html__( 'Logo Light', 'huda' ),
+		'description' => esc_html__( 'Logo for light scheme', 'huda' ),
+		'section'     => 'title_tagline',
+		'default'     => '',
+	]
+);
+
+new \Kirki\Field\Dimension(
+	[
+		'settings'    => 'logo_light_dimension_setting',
+		'label'       => esc_html__( 'Logo Light Width', 'huda' ),
+		'description' => esc_html__( '', 'huda' ),
+		'section'     => 'title_tagline',
+		'default'     => '120px',
+		'choices'     => [
+			'accept_unitless' => true,
+		],
+		'output'      => [
+			[
+				'element' => '.logo-light',
+				'property' => 'width',
+			],
+		],
+	]
+);
+
+
+/*
 * Typography
 */
 new \Kirki\Field\Typography(
@@ -21,7 +54,7 @@ new \Kirki\Field\Typography(
 			'font-family'     => 'Roboto',
 			'variant'         => 'regular',
 			'font-style'      => 'normal',
-			'color'           => '#333333',
+			'color'           => 'currentColor',
 			'font-size'       => '14px',
 			'line-height'     => '1.5',
 			'letter-spacing'  => '0',
@@ -49,7 +82,7 @@ new \Kirki\Field\Typography(
 			'font-family'     => 'Roboto',
 			'variant'         => 'regular',
 			'font-style'      => 'normal',
-			'color'           => '#333333',
+			'color'           => 'currentColor',
 			'font-size'       => '14px',
 			'line-height'     => '1.5',
 			'letter-spacing'  => '0',
@@ -77,7 +110,7 @@ new \Kirki\Field\Typography(
 			'font-family'     => 'Roboto',
 			'variant'         => 'regular',
 			'font-style'      => 'normal',
-			'color'           => '#333333',
+			'color'           => 'currentColor',
 			'font-size'       => '14px',
 			'line-height'     => '1.5',
 			'letter-spacing'  => '0',
@@ -105,7 +138,7 @@ new \Kirki\Field\Typography(
 			'font-family'     => 'Roboto',
 			'variant'         => 'regular',
 			'font-style'      => 'normal',
-			'color'           => '#333333',
+			'color'           => 'currentColor',
 			'font-size'       => '14px',
 			'line-height'     => '1.5',
 			'letter-spacing'  => '0',
@@ -133,7 +166,7 @@ new \Kirki\Field\Typography(
 			'font-family'     => 'Roboto',
 			'variant'         => 'regular',
 			'font-style'      => 'normal',
-			'color'           => '#333333',
+			'color'           => 'currentColor',
 			'font-size'       => '14px',
 			'line-height'     => '1.5',
 			'letter-spacing'  => '0',
@@ -161,7 +194,7 @@ new \Kirki\Field\Typography(
 			'font-family'     => 'Roboto',
 			'variant'         => 'regular',
 			'font-style'      => 'normal',
-			'color'           => '#333333',
+			'color'           => 'currentColor',
 			'font-size'       => '14px',
 			'line-height'     => '1.5',
 			'letter-spacing'  => '0',
@@ -189,7 +222,7 @@ new \Kirki\Field\Typography(
 			'font-family'     => 'Roboto',
 			'variant'         => 'regular',
 			'font-style'      => 'normal',
-			'color'           => '#333333',
+			'color'           => 'currentColor',
 			'font-size'       => '14px',
 			'line-height'     => '1.5',
 			'letter-spacing'  => '0',
@@ -217,7 +250,7 @@ new \Kirki\Field\Typography(
 			'font-family'     => 'Roboto',
 			'variant'         => 'regular',
 			'font-style'      => 'normal',
-			'color'           => '#333333',
+			'color'           => 'currentColor',
 			'font-size'       => '14px',
 			'line-height'     => '1.5',
 			'letter-spacing'  => '0',
@@ -303,25 +336,6 @@ new \Kirki\Field\Color(
 	]
 );
 
-new \Kirki\Field\Color(
-	[
-		'settings'    => 'huda_color_setting_body_background_color_setting_rgba',
-		'label'       => __( 'Body Background Color', 'huda' ),
-		'description' => esc_html__( '', 'huda' ),
-		'section'     => 'huda_colors_section',
-		'default'     => '#fffffe',
-		'output' => array(
-			array(
-				'element'  => 'body',
-				'property' => 'background-color',
-			)
-		),
-		'choices'     => [
-			'alpha' => true,
-		],
-	]
-);
-
 /*
 * RTL Control
 */
@@ -339,35 +353,9 @@ new \Kirki\Field\Checkbox_Switch(
 	]
 );
 
-
-
 /*
 * Buttons Control
 */
-// new \Kirki\Pro\Field\Padding(
-// 	[
-// 		'settings'    => 'huda_buttons_padding',
-// 		'label'       => esc_html__( 'Padding Control', 'huda' ),
-// 		'description' => '',
-// 		'section'     => 'huda_buttons_section',
-// 		'tab'        => 'general',
-// 		'default'     => [
-// 			'top'    => 2,
-// 			'bottom' => 2,
-// 		],
-// 		// 'transport'   => 'postMessage',
-// 		// 'tooltip'     => esc_html__( 'Buttons padding', 'huda' ),
-// 		'choices'     => [
-// 			'unit' => 'px',
-// 		],
-// 		'output'      => [
-// 			[
-// 				'element' => '.btn, .button, button',
-// 			],
-// 		],
-// 	]
-// );
-
 new \Kirki\Field\Typography(
 	[
 		'settings'    => 'huda_buttons_typography_setting',
@@ -378,10 +366,10 @@ new \Kirki\Field\Typography(
 		'priority'    => 10,
 		'transport'   => 'auto',
 		'default'     => [
-			'font-family'     => 'Roboto',
+			'font-family'     => 'Poppins',
 			'variant'         => 'regular',
 			'font-style'      => 'normal',
-			'color'           => '#fffffe',
+			'color'           => 'inherit',
 			'font-size'       => '14px',
 			'line-height'     => '1.5',
 			'letter-spacing'  => '0',
@@ -404,7 +392,7 @@ new \Kirki\Field\Color(
 		'description' => esc_html__( '', 'huda' ),
 		'section'     => 'huda_buttons_section',
 		'tab'         => 'design',
-		'default'     => '#fffffe',
+		'default'     => 'inherit',
 		'output' => array(
 			array(
 				'element'  => '.btn, .button, button',
@@ -448,5 +436,40 @@ new \Kirki\Field\Color(
 				'property' => 'border-color',
 			)
 		),
+	]
+);
+
+
+
+/*
+* Blog Control
+*/
+new \Kirki\Field\Radio_Image(
+	[
+		'settings'    => 'blog__container__setting',
+		'label'       => esc_html__( 'Container Layout', 'huda' ),
+		'section'     => 'huda_blog_layouts_section',
+		'default'     => 'container',
+		'tab'         => 'general',
+		'priority'    => 10,
+		'choices'     => [
+			'container' => get_template_directory_uri() . '/assets/images/narrow-width.png',
+			'container-fluid'   => get_template_directory_uri() . '/assets/images/full-width.png',
+		],
+	]
+);
+
+new \Kirki\Field\Radio_Image(
+	[
+		'settings'    => 'blog__sidebar_layout__setting',
+		'label'       => esc_html__( 'Sidebar Layout', 'huda' ),
+		'section'     => 'huda_blog_layouts_section',
+		'default'     => 'sidebar',
+		'tab'         => 'general',
+		'priority'    => 10,
+		'choices'     => [
+			'no-sidebar' => get_template_directory_uri() . '/assets/images/no-sidebar.png',
+			'sidebar'   => get_template_directory_uri() . '/assets/images/sidebar.png',
+		],
 	]
 );

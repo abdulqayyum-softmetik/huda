@@ -1,0 +1,62 @@
+.toggle-switch {
+	position: relative;
+	width: 5.125em;
+	height: 2.375em;
+	border-radius: 3.125em;
+	background-color: $color__danger;
+
+    @media(max-width:576px) {
+        display: none;
+    }
+
+	input{
+        position: absolute;
+        width: 5.125em;
+	    height: 2.375em;
+        appearance: none;
+	    border-radius: 3.125em;
+        background-color:  $color__danger !important;
+    }
+
+    label {
+        cursor: pointer;
+        .toggle-wrapper {
+            .toggle {
+                position: absolute;
+                top: 50%;
+                left: 0.25em;
+                width: 1.886em;
+                height: 1.886em;
+                border-radius: 3.125em;
+                background-color: $color__white;
+                transform: translate(10%, -50%);
+                transition: 200ms  ease-in-out left;
+
+                &::before {
+                    content: "\f185";
+                    font-family: "Font Awesome 5 Free";
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    transition: 200ms ease-in-out color;
+                }
+                
+            }
+        }
+    }
+
+    input {
+        &:checked {
+            & ~ label {
+                .toggle {
+                    left: calc(50% + 0.25em);
+                    &::before {
+                        content: "\f186" !important;
+                    }
+                }
+            }
+        }
+    }
+
+}
