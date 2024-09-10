@@ -25,4 +25,5 @@ get_header();
 		do_action('huda_content_after'); 
 	?>
 <?php
-get_footer();
+	get_footer();
+?>

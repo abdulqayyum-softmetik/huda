@@ -12,6 +12,14 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 }
 ?>
 
-<aside id="secondary" class="widget-area">
-	<?php dynamic_sidebar( 'sidebar-1' ); ?>
-</aside><!-- #secondary -->
+<?php	
+	// Sidebar content before
+	do_action( 'huda_sidebars_before' );
+
+	// Sidebar content
+	do_action('huda_sidebar');
+
+	// Sidebar content after
+	do_action( 'huda_sidebars_after' );
+?>
+
