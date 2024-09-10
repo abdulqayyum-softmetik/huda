@@ -76,7 +76,6 @@ add_action( 'wp_head', 'huda_pingback_header' );
 
     // Display coomments.php content inside the function
     function huda_comments_content(){
-        $container_width = huda_get_container_width(); 
     ?>
         <div id="comments" class="comments-area">
 
@@ -147,8 +146,16 @@ add_action( 'wp_head', 'huda_pingback_header' );
 
 
     function huda_page_content(){
+         // Check if Kirki and get_theme_mod() functions exist
+        if ( function_exists('get_theme_mod') ) {
+            // Function to get container width
+            function huda_get_page_container_width() {
+                return get_theme_mod('page__container__setting', 'container'); // container is default value
+            }
+        }
+        $page_container_width = huda_get_page_container_width(); 
         ?>
-            <main id="primary" class="huda-site-main container">
+            <main id="primary" class="huda-site-main <?php echo esc_attr( $page_container_width ); ?>">
                 <?php
                 while ( have_posts() ) :
                     the_post();

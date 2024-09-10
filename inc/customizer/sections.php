@@ -6,7 +6,21 @@
 */
 
 /* 
-* Huda Global Options Section 
+* Huda Global Site Container Section 
+*/
+new \Kirki\Section(
+	'huda_site_container_section',
+	[
+		'title'       => esc_html__( 'Site Container', 'huda' ),
+		'description' => esc_html__( '', 'huda' ),
+		'panel'       => 'huda_global_options',
+		'priority'    => 160,
+	]
+);
+
+
+/* 
+* Huda Global Typography Section 
 */
 new \Kirki\Section(
 	'huda_topography_section',
@@ -71,13 +85,5 @@ new \Kirki\Section(
 	[
 		'title' => esc_html__( 'Single Post', 'huda' ),
 		'panel' => 'huda_blog_options',
-		'tabs'  => [
-			'general' => [
-				'label' => esc_html__( 'GENERAL', 'huda' ),
-			],
-			'design'  => [
-				'label' => esc_html__( 'DESIGN', 'huda' ),
-			],
-		],
 	]
 );

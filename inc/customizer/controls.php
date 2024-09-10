@@ -7,13 +7,39 @@
 
 
 /*
-* Logo 
+* Logo Controls
 */
+new \Kirki\Field\Dimension(
+	[
+		'settings'    => 'logo_default_dimension_setting',
+		'label'       => esc_html__( 'Logo Default Width', 'huda' ),
+		'description' => esc_html__( '', 'huda' ),
+		'section'     => 'title_tagline',
+		'responsive' => true,
+		'default'    => [
+			'desktop' => '160px',
+			'tablet'  => '120px',
+			'mobile'  => '95px',
+		],
+		'output'     => [
+			[
+				'element'     => '.custom-logo',
+				'property'    => 'width',
+				'media_query' => [
+					'desktop' => '@media (min-width: 1024px)',
+					'tablet'  => '@media (min-width: 768px) and (max-width: 1023px)',
+					'mobile'  => '@media (max-width: 767px)',
+				],
+			],
+		],
+	]
+);
+
 new \Kirki\Field\Image(
 	[
-		'settings'    => 'logo_light_setting_url',
-		'label'       => esc_html__( 'Logo Light', 'huda' ),
-		'description' => esc_html__( 'Logo for light scheme', 'huda' ),
+		'settings'    => 'logo_secondary_setting_url',
+		'label'       => esc_html__( 'Logo Secondary Width', 'huda' ),
+		'description' => esc_html__( 'Logo for subpages', 'huda' ),
 		'section'     => 'title_tagline',
 		'default'     => '',
 	]
@@ -21,18 +47,25 @@ new \Kirki\Field\Image(
 
 new \Kirki\Field\Dimension(
 	[
-		'settings'    => 'logo_light_dimension_setting',
-		'label'       => esc_html__( 'Logo Light Width', 'huda' ),
+		'settings'    => 'logo_secondary_dimension_setting',
+		'label'       => esc_html__( 'Logo Secondary Width', 'huda' ),
 		'description' => esc_html__( '', 'huda' ),
 		'section'     => 'title_tagline',
-		'default'     => '120px',
-		'choices'     => [
-			'accept_unitless' => true,
+		'responsive' => true,
+		'default'    => [
+			'desktop' => '160px',
+			'tablet'  => '120px',
+			'mobile'  => '95px',
 		],
-		'output'      => [
+		'output'     => [
 			[
-				'element' => '.logo-light',
-				'property' => 'width',
+				'element'     => '.logo-secondary',
+				'property'    => 'width',
+				'media_query' => [
+					'desktop' => '@media (min-width: 1024px)',
+					'tablet'  => '@media (min-width: 768px) and (max-width: 1023px)',
+					'mobile'  => '@media (max-width: 767px)',
+				],
 			],
 		],
 	]
@@ -54,7 +87,6 @@ new \Kirki\Field\Typography(
 			'font-family'     => 'Roboto',
 			'variant'         => 'regular',
 			'font-style'      => 'normal',
-			'color'           => 'currentColor',
 			'font-size'       => '14px',
 			'line-height'     => '1.5',
 			'letter-spacing'  => '0',
@@ -82,7 +114,6 @@ new \Kirki\Field\Typography(
 			'font-family'     => 'Roboto',
 			'variant'         => 'regular',
 			'font-style'      => 'normal',
-			'color'           => 'currentColor',
 			'font-size'       => '14px',
 			'line-height'     => '1.5',
 			'letter-spacing'  => '0',
@@ -110,7 +141,6 @@ new \Kirki\Field\Typography(
 			'font-family'     => 'Roboto',
 			'variant'         => 'regular',
 			'font-style'      => 'normal',
-			'color'           => 'currentColor',
 			'font-size'       => '14px',
 			'line-height'     => '1.5',
 			'letter-spacing'  => '0',
@@ -138,7 +168,6 @@ new \Kirki\Field\Typography(
 			'font-family'     => 'Roboto',
 			'variant'         => 'regular',
 			'font-style'      => 'normal',
-			'color'           => 'currentColor',
 			'font-size'       => '14px',
 			'line-height'     => '1.5',
 			'letter-spacing'  => '0',
@@ -166,7 +195,6 @@ new \Kirki\Field\Typography(
 			'font-family'     => 'Roboto',
 			'variant'         => 'regular',
 			'font-style'      => 'normal',
-			'color'           => 'currentColor',
 			'font-size'       => '14px',
 			'line-height'     => '1.5',
 			'letter-spacing'  => '0',
@@ -194,7 +222,6 @@ new \Kirki\Field\Typography(
 			'font-family'     => 'Roboto',
 			'variant'         => 'regular',
 			'font-style'      => 'normal',
-			'color'           => 'currentColor',
 			'font-size'       => '14px',
 			'line-height'     => '1.5',
 			'letter-spacing'  => '0',
@@ -222,7 +249,6 @@ new \Kirki\Field\Typography(
 			'font-family'     => 'Roboto',
 			'variant'         => 'regular',
 			'font-style'      => 'normal',
-			'color'           => 'currentColor',
 			'font-size'       => '14px',
 			'line-height'     => '1.5',
 			'letter-spacing'  => '0',
@@ -250,7 +276,6 @@ new \Kirki\Field\Typography(
 			'font-family'     => 'Roboto',
 			'variant'         => 'regular',
 			'font-style'      => 'normal',
-			'color'           => 'currentColor',
 			'font-size'       => '14px',
 			'line-height'     => '1.5',
 			'letter-spacing'  => '0',
@@ -320,13 +345,13 @@ new \Kirki\Field\Color(
 new \Kirki\Field\Color(
 	[
 		'settings'    => 'huda_sticky_post_color_setting_rgba',
-		'label'       => __( 'Sticky Post Background Color', 'huda' ),
+		'label'       => __( 'Body background color', 'huda' ),
 		'description' => esc_html__( '', 'huda' ),
 		'section'     => 'huda_colors_section',
-		'default'     => 'rgba(144, 149, 252, 0.14)',
+		'default'     => '#F4F4F4',
 		'output' => array(
 			array(
-				'element'  => '.home article.sticky',
+				'element'  => 'body',
 				'property' => 'background-color',
 			)
 		),
@@ -343,7 +368,7 @@ new \Kirki\Field\Checkbox_Switch(
 	[
 		'settings'    => 'huda_rtl_switch_setting',
 		'label'       => esc_html__( 'RTL VESRION', 'huda' ),
-		'description' => esc_html__( 'Right To initial version', 'huda' ),
+		'description' => esc_html__( '', 'huda' ),
 		'section'     => 'huda_rtl_section',
 		'default'     => 'off',
 		'choices'     => [
@@ -369,7 +394,6 @@ new \Kirki\Field\Typography(
 			'font-family'     => 'Poppins',
 			'variant'         => 'regular',
 			'font-style'      => 'normal',
-			'color'           => 'inherit',
 			'font-size'       => '14px',
 			'line-height'     => '1.5',
 			'letter-spacing'  => '0',
@@ -384,6 +408,111 @@ new \Kirki\Field\Typography(
 		],
 	]
 );
+
+new \Kirki\Field\Dimension(
+	[
+		'settings'   => 'huda_buttons_padding_setting_top',
+		'label'      => __( 'Padding Top', 'huda' ),
+		'section'    => 'huda_buttons_section',
+		'responsive' => true,
+		'tab'        => 'design',
+		'default'    => [
+			'desktop' => '20px',
+			'tablet'  => '15px',
+			'mobile'  => '10px',
+		],
+		'output'     => [
+			[
+				'element'     => 'button, .submit, .wp-block-search__button',
+				'property'    => 'padding-top',
+				'media_query' => [
+					'desktop' => '@media (min-width: 1024px)',
+					'tablet'  => '@media (min-width: 768px) and (max-width: 1023px)',
+					'mobile'  => '@media (max-width: 767px)',
+				],
+			],
+		],
+	]
+);
+
+new \Kirki\Field\Dimension(
+	[
+		'settings'   => 'huda_buttons_padding_setting_right',
+		'label'      => __( 'Padding Right', 'huda' ),
+		'section'    => 'huda_buttons_section',
+		'responsive' => true,
+		'tab'        => 'design',
+		'default'    => [
+			'desktop' => '20px',
+			'tablet'  => '15px',
+			'mobile'  => '10px',
+		],
+		'output'     => [
+			[
+				'element'     => 'button, .submit, .wp-block-search__button',
+				'property'    => 'padding-right',
+				'media_query' => [
+					'desktop' => '@media (min-width: 1024px)',
+					'tablet'  => '@media (min-width: 768px) and (max-width: 1023px)',
+					'mobile'  => '@media (max-width: 767px)',
+				],
+			],
+		],
+	]
+);
+
+new \Kirki\Field\Dimension(
+	[
+		'settings'   => 'huda_buttons_padding_setting_bottom',
+		'label'      => __( 'Padding Bottom', 'huda' ),
+		'section'    => 'huda_buttons_section',
+		'responsive' => true,
+		'tab'        => 'design',
+		'default'    => [
+			'desktop' => '20px',
+			'tablet'  => '15px',
+			'mobile'  => '10px',
+		],
+		'output'     => [
+			[
+				'element'     => 'button, .submit, .wp-block-search__button',
+				'property'    => 'padding-bottom',
+				'media_query' => [
+					'desktop' => '@media (min-width: 1024px)',
+					'tablet'  => '@media (min-width: 768px) and (max-width: 1023px)',
+					'mobile'  => '@media (max-width: 767px)',
+				],
+			],
+		],
+	]
+);
+
+new \Kirki\Field\Dimension(
+	[
+		'settings'   => 'huda_buttons_padding_setting_left',
+		'label'      => __( 'Padding Left', 'huda' ),
+		'section'    => 'huda_buttons_section',
+		'responsive' => true,
+		'tab'        => 'design',
+		'default'    => [
+			'desktop' => '20px',
+			'tablet'  => '15px',
+			'mobile'  => '10px',
+		],
+		'output'     => [
+			[
+				'element'     => 'button, .submit, .wp-block-search__button',
+				'property'    => 'padding-left',
+				'media_query' => [
+					'desktop' => '@media (min-width: 1024px)',
+					'tablet'  => '@media (min-width: 768px) and (max-width: 1023px)',
+					'mobile'  => '@media (max-width: 767px)',
+				],
+			],
+		],
+	]
+);
+
 
 new \Kirki\Field\Color(
 	[
@@ -448,9 +577,9 @@ new \Kirki\Field\Radio_Image(
 	[
 		'settings'    => 'blog__container__setting',
 		'label'       => esc_html__( 'Container Layout', 'huda' ),
+		'description' => esc_html__( 'Select single page container layout default is narrow width', 'huda' ),
 		'section'     => 'huda_blog_layouts_section',
 		'default'     => 'container',
-		'tab'         => 'general',
 		'priority'    => 10,
 		'choices'     => [
 			'container' => get_template_directory_uri() . '/assets/images/narrow-width.png',
@@ -463,13 +592,32 @@ new \Kirki\Field\Radio_Image(
 	[
 		'settings'    => 'blog__sidebar_layout__setting',
 		'label'       => esc_html__( 'Sidebar Layout', 'huda' ),
+		'description' => esc_html__( 'Select sidebar layout default is sidebar', 'huda' ),
 		'section'     => 'huda_blog_layouts_section',
 		'default'     => 'sidebar',
-		'tab'         => 'general',
 		'priority'    => 10,
 		'choices'     => [
 			'no-sidebar' => get_template_directory_uri() . '/assets/images/no-sidebar.png',
 			'sidebar'   => get_template_directory_uri() . '/assets/images/sidebar.png',
+		],
+	]
+);
+
+
+/*
+* Container Control
+*/
+new \Kirki\Field\Radio_Image(
+	[
+		'settings'    => 'page__container__setting',
+		'label'       => esc_html__( 'Container Layout Page', 'huda' ),
+		'description' => esc_html__( 'Select page container layout default is narrow width', 'huda' ),
+		'section'     => 'huda_site_container_section',
+		'default'     => 'container',
+		'priority'    => 10,
+		'choices'     => [
+			'container' => get_template_directory_uri() . '/assets/images/narrow-width.png',
+			'container-fluid'   => get_template_directory_uri() . '/assets/images/full-width.png',
 		],
 	]
 );

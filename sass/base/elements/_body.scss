@@ -10,7 +10,7 @@ body {
 	.site{
 		display: flex;
 		flex-direction: column;
-		min-height: 96.6vh;
+		height: calc(100vh - 32px);
 		margin: 0;
 
 		main,

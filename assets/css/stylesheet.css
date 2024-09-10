@@ -184,7 +184,7 @@ body {
 body .site {
   display: flex;
   flex-direction: column;
-  min-height: 96.6vh;
+  height: calc(100vh - 32px);
   margin: 0;
 }
 body .site main,
@@ -289,7 +289,6 @@ input[type=submit],
 .wp-block-search__button {
   border: 1px solid;
   line-height: normal;
-  padding: 12px 28px;
   font-weight: 600;
   color: #FFFFFE;
   border-color: #ccc #ccc #bbb;
@@ -411,14 +410,6 @@ header.header-main .site-title {
 }
 header.header-main .site-title a {
   color: #FFFFFE;
-}
-header.header-main nav a.custom-logo-link img {
-  max-width: 10em;
-}
-@media (max-width: 576px) {
-  header.header-main nav a.custom-logo-link img {
-    max-width: 7.5em;
-  }
 }
 header.header-main nav ul li a.nav-link {
   color: #FFFFFE;

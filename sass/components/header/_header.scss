@@ -14,18 +14,6 @@ header.header-main{
 
     nav{
 
-        a{
-            &.custom-logo-link{
-                img{
-                    max-width: 10em;
-
-                    @media(max-width: 576px){
-                        max-width: 7.5em;
-                    }
-                }
-            }
-        }
-
         ul{
             li{
 

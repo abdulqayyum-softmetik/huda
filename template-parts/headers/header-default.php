@@ -2,7 +2,7 @@
 	// Check if Kirki and get_theme_mod() functions exist
     if ( function_exists('get_theme_mod') ) {
 		// Sidebar layout variable
-		$logo_light = get_theme_mod('logo_light_setting_url', ''); 
+		$logo_light = get_theme_mod('logo_secondary_setting_url', ''); 
     }
 ?>
 
@@ -28,7 +28,7 @@
                                     if($logo_light):
                                         ?>
                                             <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-                                                <img class="logo-light" src="<?php echo esc_url( $logo_light ); ?>" alt="">
+                                                <img class="logo-secondary" src="<?php echo esc_url( $logo_light ); ?>" alt="">
                                             </a>
                                         <?php
                                     else:
