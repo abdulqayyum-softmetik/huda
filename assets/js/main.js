@@ -98,13 +98,40 @@
 	}
 }() );
 
-/**
-* Utility Function to Determine the Current Theme Setting:
-* First, check if there is a value stored in local storage.
-* If not, default to the system's theme preference.
-* If neither is available, default to light mode.
-*/
 document.addEventListener("DOMContentLoaded", () => {
+
+
+	// On page scroll sticky element
+	const targetElement = document.querySelector('.single-post-navigation-wrapper');
+	const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+
+	// Function to add class on scroll
+	window.addEventListener('scroll', function() {
+		if (window.scrollY > scrollTop) {  // Change '100' to the scroll position where you want to add the class
+			targetElement.classList.add('stikcy-element');
+		} else {
+			targetElement.classList.remove('stikcy-element');
+		}
+	});
+
+	// Function to update progress bar
+	function updateProgressBar() {
+		const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+		const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+		const progress = (scrollTop / scrollHeight) * 100;
+		document.getElementById('progress-bar').style.width = progress + '%';
+	}
+	
+	// Add event listener for scroll event
+	window.addEventListener('scroll', updateProgressBar);
+  
+	/**
+	* Utility Function to Determine the Current Theme Setting:
+	* First, check if there is a value stored in local storage.
+	* If not, default to the system's theme preference.
+	* If neither is available, default to light mode.
+	*/
+
 	function calculateSettingAsThemeString({ localStorageTheme, systemSettingDark }) {
 		if (localStorageTheme !== null) {
 		  return localStorageTheme;

@@ -35,3 +35,6 @@
         <?php endif; ?>
     </nav>
 </div>
+<div id="progress-bar-container">
+  <div id="progress-bar"></div>
+</div>

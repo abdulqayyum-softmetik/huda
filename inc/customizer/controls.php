@@ -17,9 +17,9 @@ new \Kirki\Field\Dimension(
 		'section'     => 'title_tagline',
 		'responsive' => true,
 		'default'    => [
-			'desktop' => '160px',
-			'tablet'  => '120px',
-			'mobile'  => '95px',
+			'desktop' => '122px',
+			'tablet'  => '100px',
+			'mobile'  => '70px',
 		],
 		'output'     => [
 			[
@@ -53,9 +53,9 @@ new \Kirki\Field\Dimension(
 		'section'     => 'title_tagline',
 		'responsive' => true,
 		'default'    => [
-			'desktop' => '160px',
-			'tablet'  => '120px',
-			'mobile'  => '95px',
+			'desktop' => '122px',
+			'tablet'  => '100px',
+			'mobile'  => '70px',
 		],
 		'output'     => [
 			[
@@ -403,7 +403,7 @@ new \Kirki\Field\Typography(
 		],
 		'output'      => [
 			[
-				'element' => '.btn, .button, button',
+				'element' => 'button, .button, .button, .submit, .wp-block-search__button',
 			],
 		],
 	]
@@ -423,7 +423,7 @@ new \Kirki\Field\Dimension(
 		],
 		'output'     => [
 			[
-				'element'     => 'button, .submit, .wp-block-search__button',
+				'element'     => 'button, .button, .button, .submit, .wp-block-search__button',
 				'property'    => 'padding-top',
 				'media_query' => [
 					'desktop' => '@media (min-width: 1024px)',
@@ -449,7 +449,7 @@ new \Kirki\Field\Dimension(
 		],
 		'output'     => [
 			[
-				'element'     => 'button, .submit, .wp-block-search__button',
+				'element'     => 'button, .button, .button, .submit, .wp-block-search__button',
 				'property'    => 'padding-right',
 				'media_query' => [
 					'desktop' => '@media (min-width: 1024px)',
@@ -475,7 +475,7 @@ new \Kirki\Field\Dimension(
 		],
 		'output'     => [
 			[
-				'element'     => 'button, .submit, .wp-block-search__button',
+				'element'     => 'button, .button, .submit, .wp-block-search__button',
 				'property'    => 'padding-bottom',
 				'media_query' => [
 					'desktop' => '@media (min-width: 1024px)',
@@ -501,7 +501,7 @@ new \Kirki\Field\Dimension(
 		],
 		'output'     => [
 			[
-				'element'     => 'button, .submit, .wp-block-search__button',
+				'element'     => 'button, .button, .submit, .wp-block-search__button',
 				'property'    => 'padding-left',
 				'media_query' => [
 					'desktop' => '@media (min-width: 1024px)',

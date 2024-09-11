@@ -152,6 +152,11 @@ require get_template_directory() . '/inc/block-patterns.php';
 require get_template_directory() . '/inc/theme-scripts.php';
 
 /**
+ * Enqueue scripts and styles.
+ */
+require get_template_directory() . '/inc/live-search.php';
+
+/**
  * Bootstrap 5 Nav Walker.
  */
 require get_template_directory() . '/inc/bootstrap-navigation.php';

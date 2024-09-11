@@ -13,9 +13,9 @@
 .search {
 	article{
 		width: 100%;
-		height: 100%;
-		padding: 1em 1.2em;
-		border-radius: 1.25em;
+		height: auto;
+		padding: 0.8em;
+		border-radius: 0;
 		background-color: $color__white;
 		@include flex-column;
 
@@ -29,7 +29,7 @@
 						display: inline-block;
 
 						a{
-							font-size: 1.25em;
+							font-size: 1em;
 							color: $color__black;
 						}
 
@@ -72,7 +72,7 @@
 				img {
 					width: 100%;
 					max-height: 11em;
-					border-radius: 1.375em;
+					border-radius: 0;
 					margin-bottom: 1em;
 					object-fit: cover;
 				}
@@ -86,46 +86,25 @@
 	main{
 		article{
 			width: auto;
+			padding-right: 1em;
+			border-right: 1px solid $color__border-abbr;
 
 			header{
 				&.entry-header{
-					position: absolute;
-					top: 50%;
-					left: 50%;
-					transform: translate(-50%, -50%);
-					z-index: 99;
-
-					@media (max-width: 576px) {
-						position: static;
-						transform: initial;
-						padding-bottom: 1em;
-						margin-bottom: 1em;
-						border-bottom: 1px solid $color__border-abbr;
-					}
-					
+				
 					h1{
 						&.entry-title{
 							font-size: 52px;
 							font-weight: 700;
-							color: $color__white;
-							text-align: center;
+							color: $color__black;
+							text-align: left;
 
-							@media(max-width: 576px){
-								font-size: 34px;
-								text-align: left;
-								color: $color__black;
-							}
+							
 						}
 					}
 
 					.entry-meta{
-						text-align: center;
-						color: $color__white;
-
-						@media(max-width: 576px){
-							text-align: left;
-							color: $color__black;
-						}
+						color: $color__black;
 					}
 
 					&.no-thumbnail{
@@ -168,13 +147,13 @@
 				margin-bottom: 1em;
 				
 				overflow: hidden;
-				border-radius: 20px;
+				border-radius: 0;
 
 				img{
 					width: 100%;
 					height: 520px;
 					object-fit: cover;
-					border-radius: 20px;
+					border-radius: 0;
 					position: relative;
 					display: block;
 					
@@ -203,7 +182,7 @@
 .social-share-box{
 	margin: 1em 0 1.8em 0;
 	padding: 1em 1.4em;
-	border-radius: 12px;
+	border-radius: 0;
 	background-color: $color__white;
 	@include flex-between;
 

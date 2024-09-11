@@ -1,8 +1,8 @@
 .toggle-switch {
 	position: relative;
 	width: 5.125em;
-	height: 2.375em;
-	border-radius: 3.125em;
+	height: 30px;
+	border-radius: 0;
 	background-color: $color__danger;
 
     @media(max-width:576px) {
@@ -14,7 +14,7 @@
         width: 5.125em;
 	    height: 2.375em;
         appearance: none;
-	    border-radius: 3.125em;
+	    border-radius: 0;
         background-color:  $color__danger !important;
     }
 
@@ -24,12 +24,12 @@
             .toggle {
                 position: absolute;
                 top: 50%;
-                left: 0.25em;
-                width: 1.886em;
-                height: 1.886em;
-                border-radius: 3.125em;
+                left: 0;
+                width: 30px;
+                height: 30px;
+                border-radius: 0;
                 background-color: $color__white;
-                transform: translate(10%, -50%);
+                transform: translate(10%, -38%);
                 transition: 200ms  ease-in-out left;
 
                 &::before {
@@ -50,7 +50,7 @@
         &:checked {
             & ~ label {
                 .toggle {
-                    left: calc(50% + 0.25em);
+                    left: calc(50% + -0px);
                     &::before {
                         content: "\f186" !important;
                     }

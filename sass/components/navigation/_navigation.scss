@@ -87,10 +87,19 @@
 }
 
 .single-post-navigation-wrapper{
-
 	@include flex-between;
 	flex-wrap: wrap;
 	gap: 1em;
+
+	&.stikcy-element{
+		position: fixed;
+		width: 100%;
+		left: 0;
+		top: 0;
+		padding: 2em;
+		background-color: $color__white;
+		z-index: 99;
+	}
 }
 
 nav {
@@ -134,7 +143,7 @@ nav {
 			img{
 				max-width: 60px;
 				height: auto;
-				border-radius: $rounded__full;
+				border-radius: 0;
 			}
 		}
 
@@ -172,3 +181,19 @@ nav {
 		flex: 1 0 50%;
 	}
 }
+
+
+#progress-bar-container {
+    position: fixed;
+    top: calc(100% - 87.20%);
+    left: 0;
+    width: 100%;
+    height: 2px; 
+    z-index: 9999; 
+  }
+
+  #progress-bar {
+    height: 100%;
+    width: 0;
+    background-color: $color__danger;
+  }

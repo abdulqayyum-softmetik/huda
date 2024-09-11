@@ -252,6 +252,16 @@ if ( ! function_exists( 'huda_woocommerce_header_cart' ) ) {
 	}
 }
 
+if ( ! function_exists( 'count_item_in_cart' ) ){
+	function count_item_in_cart() {
+		$count = 0;
+		foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
+			$count++;
+		}
+		return $count;
+	}
+}
+
 if ( ! function_exists( 'huda_woocommerce_product_content_wrap' ) ) {
 	/**
 	 *

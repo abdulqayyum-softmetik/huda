@@ -26,6 +26,8 @@ function huda_body_classes( $classes ) {
 }
 add_filter( 'body_class', 'huda_body_classes' );
 
+
+
 /**
  * Add a pingback url auto-discovery header for single posts, pages, or attachments.
  */
@@ -43,30 +45,91 @@ add_action( 'wp_head', 'huda_pingback_header' );
         function huda_get_container_width() {
             return get_theme_mod('blog__container__setting', 'container'); // container is default value
         }
+
+        function huda_get_sidebar() {
+            return get_theme_mod('blog__sidebar_layout__setting', 'sidebar');  // container is default value
+        }
+
     }
 
     
     // Display single.php content inside the function
     function huda_single_post_content(){
         $container_width = huda_get_container_width(); 
+        $sidebar_layout = huda_get_sidebar(); 
     ?>
         <main id="primary" class="site-main <?php echo esc_attr( $container_width ); ?>">
             <div class="row">
-                <div class="col-md-12">
-                    <?php
-                        while ( have_posts() ) :
-                            the_post();
+                <?php while ( have_posts() ) : the_post(); ?>
 
-                            get_template_part( 'template-parts/content', get_post_type() );
+                    <div class="<?php echo $sidebar_layout == "sidebar" ? 'col-lg-8' : 'col-lg-12 col-md-12 col-12'  ?>">
+                        <?php
+                            get_template_part( 'template-parts/content', get_post_type() ); 
+                        ?>
+                    </div>
 
-                            // If comments are open or we have at least one comment, load up the comment template.
-                            if ( comments_open() || get_comments_number() ) :
-                                comments_template();
+                    <div class="<?php echo $sidebar_layout == "sidebar" ? 'col-lg-4' : ''  ?>">
+                        <?php
+                            if( $sidebar_layout == "sidebar" ) :
+                                ?>
+                                    <?php get_sidebar(); ?>	
+                                <?php
                             endif;
+                        ?>
+                    </div>
 
-                        endwhile; // End of the loop.
+                    <?php
+                // Fetch the current post ID
+                $current_post_id = get_the_ID();
+
+                // Get categories of the current post
+                $categories = wp_get_post_categories($current_post_id);
+
+                if ($categories) {
+                    // Define arguments for WP_Query
+                    $args = array(
+                        'category__in'   => $categories, // Fetch posts in the same categories
+                        'post__not_in'   => array($current_post_id), // Exclude the current post
+                        'posts_per_page' => 4, // Number of related posts to display
+                        'ignore_sticky_posts' => 1 // Ignore sticky posts
+                    );
+
+                    // Create a new query
+                    $related_posts_query = new WP_Query($args);
+
+                    // Check if there are any related posts
+                    if ($related_posts_query->have_posts()) {
+                        echo '<div class="related-posts">';
+                        echo '<h3>Related Posts</h3>';
+                        echo '<ul>';
+
+                        // Loop through related posts
+                        while ($related_posts_query->have_posts()) {
+                            $related_posts_query->the_post();
+                            ?>
+                            <li>
+                                <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                            </li>
+                            <?php
+                        }
+
+                        echo '</ul>';
+                        echo '</div>';
+                    }
+
+                    // Restore original post data
+                    wp_reset_postdata();
+                        }
                     ?>
-                </div>
+
+
+                    <?php
+                        if ( comments_open() || get_comments_number() ) :
+                            comments_template();
+                        endif;
+                    ?>
+
+                <?PHP endwhile; // End of the loop. ?>
             </div>
         </main><!-- #main -->
     <?php
@@ -200,7 +263,7 @@ add_action( 'wp_head', 'huda_pingback_header' );
                         </h1>
                     </header><!-- .page-header -->
 
-                    <div class="row">
+                    <div class="row gy-4">
                         <?php while ( have_posts() ) : the_post(); ?>
                             <div class="col-lg-3 col-md-3 col-12">
                                 <?php

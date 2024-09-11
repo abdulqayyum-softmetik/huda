@@ -20,7 +20,7 @@
 					article {
 						&.comment-body {
 							padding: 1.8em 1.6em;
-							border-radius: 20px;
+							border-radius: 0;
 							background-color: $color__white;
 
 							.comment-content{
@@ -80,7 +80,7 @@
 
 	.comment-respond{
 		margin: 1.8em 0;
-		border-radius: 20px;
+		border-radius: 0;
 		padding: 60px;
 		background-color: $color__white;
 
@@ -100,7 +100,7 @@
 
 					input{
 						padding: 10px 30px;
-						border-radius: 50px;
+						border-radius: 0px;
 						border: 1px solid $color__border-abbr;
 					}
 				}
