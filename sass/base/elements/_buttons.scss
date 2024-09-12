@@ -34,8 +34,8 @@ input[type="submit"],
 		transition: 800ms ease-in-out color;
 
 		&:hover{
-			border-color: $color__danger;
-			background-color: $color__danger;
+			border-color: $color__accent;
+			background-color: $color__accent;
 		}
 
 		i{

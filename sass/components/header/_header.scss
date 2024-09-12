@@ -1,6 +1,7 @@
 header.header-main{
+    width: 100%;
     padding: 1em;
-    background-color: $color__black;
+    background-color: $color__white;
 
     .site-title{
         font-size: 2em;
@@ -8,7 +9,7 @@ header.header-main{
         text-transform: capitalize;
 
         a{
-            color: $color__white;
+            color: $color__black;
         }
     }
 
@@ -19,11 +20,11 @@ header.header-main{
 
                 a {
                     &.nav-link {
-                        color: $color__white;
+                        color: $color__black;
                         transition: 0.3s ease;
                     
                         &:hover, &:focus{
-                            color: $color__danger !important;
+                            color: $color__accent !important;
                         }
 
                         &:disabled{
@@ -38,7 +39,7 @@ header.header-main{
 
                         &.active {
                             font-weight: 500;
-                            color: $color__danger;
+                            color: $color__accent;
                         }
                     }
                 }
@@ -68,7 +69,7 @@ header.header-main{
         i, svg, span, 
         .fa-shopping-cart{
             font-size: 20px;
-            color: $color__white;
+            color: $color__black;
         }
     }
 
@@ -78,5 +79,8 @@ header.header-main{
         font-size: 10px;
         line-height: 14px;
         text-align: center;
+        left: 8px !important;
+        color: $color__white;
+        background: $color__accent;
     }
 }

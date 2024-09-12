@@ -53,7 +53,7 @@
                                         <a href="<?php echo esc_url( wc_get_cart_url() ); ?>">
                                             <i class="fas fa-shopping-cart"></i>
                                         </a>
-                                        <span class="woo-cart-count position-absolute top-0 end-0 translate-middle bg-danger rounded-circle">
+                                        <span class="woo-cart-count position-absolute top-0 translate-middle rounded-circle">
                                             <?php echo esc_attr( count_item_in_cart() ); ?>
                                         </span>
                                     <?php endif; ?>

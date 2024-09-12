@@ -21,9 +21,12 @@ $color__border-button-focus: #aaa #bbb #bbb;
 $color__border-input: #ccc;
 $color__border-abbr: rgba(102, 112, 133, 0.3);
 
+$color__gradient: linear-gradient(92.52deg, #1F5EFF -2.63%, #5081FF 86.95%, #5081FF 95.81%);
+
 $color__black: #0F0E17;
 $color__white: #FFFFFE;
 $color__danger: #F25F4C;
+$color__accent: #5081FF;
 
 [data-bs-theme=dark]{
 
@@ -31,26 +34,81 @@ $color__danger: #F25F4C;
         color: $color__white;
         background: $color__black;
 
+        header{
+            &.header-main{
+                background: $color__black;
+
+                nav{
+
+                    ul{
+                        li{
+            
+                            a {
+                                &.nav-link {
+                                    color: $color__white;
+                                    transition: 0.3s ease;
+                                    opacity: 0.8;
+                                
+                                    &:hover, &:focus{
+                                        color: $color__accent !important;
+                                    }
+            
+                                    &:disabled{
+                                        opacity: 0.9;
+                                    }
+            
+                                    &.dropdown-toggle {
+                                        &::after {
+                                            margin-left: 0.40em;
+                                        }
+                                    }
+            
+                                    &.active {
+                                        font-weight: 500;
+                                        color: $color__accent;
+                                    }
+                                }
+                            }
+            
+                            ul.dropdown-menu{
+                                li {
+                                    a.dropdown-item{
+                                        text-align: left;
+                                        color: $color__black;
+                                    }
+                                }
+                            }
+            
+                        }
+                    }
+            
+                    .fa-shopping-cart, .fa-search, svg{
+                        color: $color__white;
+                    }
+                }
+            }
+        }
+
+        .posted-on{
+            color: $color__black;
+
+            a{
+                color: $color__black;
+            }
+        }
 
         a{
             color: $color__danger;
-        }
-
-        p{
-            color: $color__white;
         }
 
         label {
             cursor: pointer;
             .toggle-wrapper {
                 .toggle {
-                   
-    
                     &::before {
                         content: "\f185";
                         color: $color__black;
                     }
-                    
                 }
             }
         }
@@ -59,6 +117,10 @@ $color__danger: #F25F4C;
             color: $color__black;
             background-color: $color__background-body;
         }
+    }
+
+    .border-top, .border{
+        opacity: 0.4;
     }
     
 }

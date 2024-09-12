@@ -8,6 +8,12 @@
 }
 
 aside{
+
+    width: 100%;
+    height: 100%;
+    padding-left: 1em;
+	border-left: 1px solid $color__border-abbr;
+
     &.widget-area{
         position: sticky;
         top: 0;

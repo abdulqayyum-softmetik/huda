@@ -52,11 +52,42 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
   color: #FFFFFE;
   background: #0F0E17;
 }
+[data-bs-theme=dark] body header.header-main {
+  background: #0F0E17;
+}
+[data-bs-theme=dark] body header.header-main nav ul li a.nav-link {
+  color: #FFFFFE;
+  transition: 0.3s ease;
+  opacity: 0.8;
+}
+[data-bs-theme=dark] body header.header-main nav ul li a.nav-link:hover, [data-bs-theme=dark] body header.header-main nav ul li a.nav-link:focus {
+  color: #5081FF !important;
+}
+[data-bs-theme=dark] body header.header-main nav ul li a.nav-link:disabled {
+  opacity: 0.9;
+}
+[data-bs-theme=dark] body header.header-main nav ul li a.nav-link.dropdown-toggle::after {
+  margin-left: 0.4em;
+}
+[data-bs-theme=dark] body header.header-main nav ul li a.nav-link.active {
+  font-weight: 500;
+  color: #5081FF;
+}
+[data-bs-theme=dark] body header.header-main nav ul li ul.dropdown-menu li a.dropdown-item {
+  text-align: left;
+  color: #0F0E17;
+}
+[data-bs-theme=dark] body header.header-main nav .fa-shopping-cart, [data-bs-theme=dark] body header.header-main nav .fa-search, [data-bs-theme=dark] body header.header-main nav svg {
+  color: #FFFFFE;
+}
+[data-bs-theme=dark] body .posted-on {
+  color: #0F0E17;
+}
+[data-bs-theme=dark] body .posted-on a {
+  color: #0F0E17;
+}
 [data-bs-theme=dark] body a {
   color: #F25F4C;
-}
-[data-bs-theme=dark] body p {
-  color: #FFFFFE;
 }
 [data-bs-theme=dark] body label {
   cursor: pointer;
@@ -68,6 +99,9 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 [data-bs-theme=dark] body input, [data-bs-theme=dark] body textarea {
   color: #0F0E17;
   background-color: #F4F4F4;
+}
+[data-bs-theme=dark] .border-top, [data-bs-theme=dark] .border {
+  opacity: 0.4;
 }
 
 /*--------------------------------------------------------------
@@ -179,6 +213,7 @@ html {
 }
 
 body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   background: #F4F4F4;
 }
 body .site {
@@ -238,6 +273,13 @@ dt {
 
 dd {
   margin: 0 1.5em 1.5em;
+}
+
+.wp-block-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  margin-bottom: 1em;
 }
 
 /* Make sure embeds and iframes fit their containers. */
@@ -329,8 +371,8 @@ input[type=submit]:focus,
   justify-content: center;
 }
 .btn.btn-read-more-arrow:hover {
-  border-color: #F25F4C;
-  background-color: #F25F4C;
+  border-color: #5081FF;
+  background-color: #5081FF;
 }
 .btn.btn-read-more-arrow i {
   color: #FFFFFE;
@@ -356,9 +398,10 @@ input[type=datetime-local],
 input[type=color],
 textarea {
   color: #666;
-  border: 1px solid #ccc;
   border-radius: 0.375em;
   padding: 0.375em 0.75em;
+  border: 1px solid #ccc;
+  border-radius: 0;
 }
 input[type=text]:focus,
 input[type=email]:focus,
@@ -400,8 +443,9 @@ textarea {
 /* Navigation
 --------------------------------------------- */
 header.header-main {
+  width: 100%;
   padding: 1em;
-  background-color: #0F0E17;
+  background-color: #FFFFFE;
 }
 header.header-main .site-title {
   font-size: 2em;
@@ -409,14 +453,14 @@ header.header-main .site-title {
   text-transform: capitalize;
 }
 header.header-main .site-title a {
-  color: #FFFFFE;
+  color: #0F0E17;
 }
 header.header-main nav ul li a.nav-link {
-  color: #FFFFFE;
+  color: #0F0E17;
   transition: 0.3s ease;
 }
 header.header-main nav ul li a.nav-link:hover, header.header-main nav ul li a.nav-link:focus {
-  color: #F25F4C !important;
+  color: #5081FF !important;
 }
 header.header-main nav ul li a.nav-link:disabled {
   opacity: 0.9;
@@ -426,7 +470,7 @@ header.header-main nav ul li a.nav-link.dropdown-toggle::after {
 }
 header.header-main nav ul li a.nav-link.active {
   font-weight: 500;
-  color: #F25F4C;
+  color: #5081FF;
 }
 header.header-main nav ul li ul.dropdown-menu li a.dropdown-item {
   text-align: left;
@@ -439,7 +483,7 @@ header.header-main nav .dropdown:hover .dropdown-menu {
 header.header-main nav i, header.header-main nav svg, header.header-main nav span,
 header.header-main nav .fa-shopping-cart {
   font-size: 20px;
-  color: #FFFFFE;
+  color: #0F0E17;
 }
 header.header-main .woo-cart-count {
   width: 14px;
@@ -447,6 +491,9 @@ header.header-main .woo-cart-count {
   font-size: 10px;
   line-height: 14px;
   text-align: center;
+  left: 8px !important;
+  color: #FFFFFE;
+  background: #5081FF;
 }
 
 /* Navigation
@@ -731,8 +778,6 @@ nav.previous-post a.link, nav.next-post a.link {
 
 .single main article {
   width: auto;
-  padding-right: 1em;
-  border-right: 1px solid rgba(102, 112, 133, 0.3);
 }
 .single main article header.entry-header h1.entry-title {
   font-size: 52px;
@@ -951,6 +996,12 @@ body.search form.search-form input {
   max-width: 100%;
 }
 
+aside {
+  width: 100%;
+  height: 100%;
+  padding-left: 1em;
+  border-left: 1px solid rgba(102, 112, 133, 0.3);
+}
 aside.widget-area {
   position: sticky;
   top: 0;
@@ -1180,7 +1231,7 @@ img.author-avatar {
      -moz-appearance: none;
           appearance: none;
   border-radius: 0;
-  background-color: #F25F4C !important;
+  background: linear-gradient(92.52deg, #1F5EFF -2.63%, #5081FF 86.95%, #5081FF 95.81%) !important;
 }
 .toggle-switch label {
   cursor: pointer;
