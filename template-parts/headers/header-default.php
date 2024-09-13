@@ -51,7 +51,7 @@
                                 <div class="huda-header-icons-wrapper position-relative d-flex align-items-center gap-1">
                                     <?php if( class_exists( 'WooCommerce' ) ) : ?>
                                         <a href="<?php echo esc_url( wc_get_cart_url() ); ?>">
-                                            <i class="fas fa-shopping-cart"></i>
+                                            <i class="ri-shopping-bag-4-line"></i>
                                         </a>
                                         <span class="woo-cart-count position-absolute top-0 translate-middle rounded-circle">
                                             <?php echo esc_attr( count_item_in_cart() ); ?>
@@ -60,13 +60,8 @@
                                 </div>
                             </div> 
                             
-                            <div class="toggle-switch d-xl-block d-lg-block d-md-block d-none">
-                                <input type="checkbox" name="" id="switch">
-                                <label for="switch">
-                                    <div class="toggle-wrapper">
-                                        <div class="toggle" data-theme-toggle></div>
-                                    </div>
-                                </label>
+                            <div class="d-xl-block d-lg-block d-md-block d-none">
+                            <a href="" class="buy-button">Buy Huda</a>
                             </div>
 
                         </div>

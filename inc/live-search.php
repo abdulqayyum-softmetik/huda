@@ -3,7 +3,6 @@
 // The AJAX function
 add_action('wp_ajax_data_fetch', 'data_fetch');
 add_action('wp_ajax_nopriv_data_fetch', 'data_fetch');
-
 // Check if function already exists to avoid redeclaration error
 if ( !function_exists('data_fetch') ) {
     function data_fetch() {
@@ -17,7 +16,9 @@ if ( !function_exists('data_fetch') ) {
             while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 
                 <article class="search">
-                     <?php huda_post_thumbnail('medium'); ?>
+                    <a href="<?php echo esc_url( get_permalink() ); ?>">
+                        <?php huda_post_thumbnail('medium'); ?>
+                    </a>
                     <div class="d-flex flex-column">
                         <a href="<?php echo esc_url( get_permalink() ); ?>"> 
                             <?php the_title(); ?> 
@@ -45,23 +46,23 @@ add_action('wp_footer', 'ajax_fetch');
 if ( !function_exists('ajax_fetch') ) {
     function ajax_fetch() {
         ?>
-        <script type="text/javascript">
-        function fetchResults() {
-            var keyword = jQuery('#searchInput').val();
-            if ( keyword == "" ) {
-                jQuery('#datafetch').html("");
-            } else {
-                jQuery.ajax({
-                    url: '<?php echo admin_url('admin-ajax.php'); ?>',
-                    type: 'post',
-                    data: { action: 'data_fetch', keyword: keyword },
-                    success: function(data) {
-                        jQuery('#datafetch').html(data);
+            <script type="text/javascript">
+                function fetchResults() {
+                    var keyword = jQuery('#searchInput').val();
+                    if ( keyword == "" ) {
+                        jQuery('#datafetch').html("");
+                    } else {
+                        jQuery.ajax({
+                            url: '<?php echo admin_url('admin-ajax.php'); ?>',
+                            type: 'post',
+                            data: { action: 'data_fetch', keyword: keyword },
+                            success: function(data) {
+                                jQuery('#datafetch').html(data);
+                            }
+                        });
                     }
-                });
-            }
-        }
-        </script>
+                }
+            </script>
         <?php
     }
 }

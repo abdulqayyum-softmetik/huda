@@ -166,3 +166,27 @@ aside{
     }
 }
 
+body{
+	&.search{
+		header{
+			&.page-header{
+				h1{
+					&.page-title{
+						font-size: 3em;
+						text-align: center;
+					}
+				}
+			}
+		}
+
+		form{
+			&.search-form{
+				text-align: center;
+
+				input{
+					padding: 12px 28px;
+				}
+			}
+		}
+	}
+}

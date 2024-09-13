@@ -7,6 +7,17 @@
  * @package Huda
  */
 
+
+ /**
+ * Filter the excerpt length to 20 words.
+ *
+ * @param int $length Excerpt length.
+ * @return int (Maybe) modified excerpt length.
+ */
+add_filter( 'excerpt_length', function( $length ) { return 9; } );
+add_filter('excerpt_more', '__return_false');
+
+
 if ( ! function_exists( 'huda_posted_on' ) ) :
 	/**
 	 * Prints HTML with meta information for the current post-date/time.
@@ -21,8 +32,8 @@ if ( ! function_exists( 'huda_posted_on' ) ) :
 
 		$time_string = sprintf(
 			$time_string,
-			esc_attr( get_the_date( DATE_W3C ) . 'T' . get_the_time('H:i:s')),
-			esc_html( get_the_date() . ' ' . get_the_time() ),
+			esc_attr( get_the_date( 'Y-m-d' ) . 'T' . get_the_time('H:i:s')),
+			esc_html( get_the_date( 'M j, Y' ) . ' ' . get_the_time() ),
 		);
 
 		$posted_on = sprintf(
@@ -31,7 +42,7 @@ if ( ! function_exists( 'huda_posted_on' ) ) :
 			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 		);
 
-		echo '<span class="posted-on"> <i class="far fa-clock"></i> ' . $posted_on . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo '<span class="posted-on"> <i class="ri-time-line"></i> ' . $posted_on . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 endif;
 
@@ -197,7 +208,7 @@ if ( ! function_exists( 'huda_read_more' ) ) :
 	function huda_read_more(){
 		?>
 			<a class="btn btn-read-more-arrow"data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Read More" href="<?php echo esc_url( get_permalink() ); ?>">
-				<i class="fas fa-arrow-right"></i>
+				<i class="ri-arrow-right-up-line"></i>
 			</a>
 		<?php
 	}
@@ -271,7 +282,7 @@ if ( ! function_exists( 'huda_post_read_time' ) ) :
 		$label = ( $read_time == 1 ) ? " Minute Read" : " Minutes Read";
 	
 		// Return the formatted string
-		echo wp_kses_post( '<i class="fas fa-book-reader"></i> ' . $read_time . $label );
+		echo wp_kses_post( '<i class="ri-book-open-line"></i> ' . $read_time . $label );
 	}	
 	
 endif;
@@ -311,6 +322,65 @@ if ( ! function_exists( 'huda_comment_form_fields' ) ) :
 	add_filter( 'comment_form_fields', 'huda_comment_form_fields' );
 endif;
 
+if( ! function_exists( 'related_articles' ) ) {
+	function related_articles(){
+        /**
+         * Display related articles
+         *
+         */
+            // Fetch the current post ID
+            $current_post_id = get_the_ID();
+                
+            // Get categories of the current post
+            $categories = wp_get_post_categories( $current_post_id );
+
+            if ( $categories ) {
+                // Define arguments for WP_Query
+                $args = array(
+                    'category__in'   => $categories, // Fetch posts in the same categories
+                    'post__not_in'   => array( $current_post_id ), // Exclude the current post
+                    'posts_per_page' => 4, // Number of related posts to display
+                    'ignore_sticky_posts' => 1 // Ignore sticky posts
+                );
+
+                // Create a new query
+                $related_posts_query = new WP_Query( $args );
+
+                // Check if there are any related posts
+                if ( $related_posts_query->have_posts() ) {
+                    echo '<div class="related-posts">';
+                        echo '<h3>Related Posts</h3>';
+                            echo '<div class="row">';
+                                // Loop through related posts
+                                while ( $related_posts_query->have_posts() ) {
+                                    $related_posts_query->the_post();
+                                    ?>
+										<div class="col-lg-4 col-md-4 col-12">
+											<article>
+												<a class="post-thumbnail" href="<?php echo esc_url( get_permalink() ); ?>">
+													<?php huda_post_thumbnail('medium'); ?>
+												</a>
+												<?php
+													huda_posted_on();
+												?>
+												<div class="d-flex flex-column">
+													<a href="<?php echo esc_url( get_permalink() ); ?>"> 
+														<?php the_title(); ?> 
+													</a>
+												</div>
+											</article>
+										</div>
+                                    <?php
+                                }
+                            echo '</div>';
+                    echo '</div>';
+                }
+                // Restore original post data
+                wp_reset_postdata();
+            }
+    }
+}
+
 if ( ! function_exists( 'huda_tagcloud_postcount_filter' ) ) :
 	/**
 	 * Filter parentheses from tags cloud
@@ -334,3 +404,4 @@ if ( ! function_exists( 'huda_categories_postcount_filter' ) ) :
 	}
 	add_filter('wp_list_categories','huda_categories_postcount_filter');
 endif;
+

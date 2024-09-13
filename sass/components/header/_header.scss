@@ -73,6 +73,13 @@ header.header-main{
         }
     }
 
+
+    .buy-button{
+        padding: 0.4em 1em;
+        color: $color__white;
+        background: $color__gradient;
+    }
+
     .woo-cart-count{
         width: 14px;
         height: 14px;

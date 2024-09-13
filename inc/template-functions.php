@@ -39,6 +39,77 @@ function huda_pingback_header() {
 add_action( 'wp_head', 'huda_pingback_header' );
 
 
+  // Display coomments.php content inside the function
+  function huda_comments_content(){
+    ?>
+        <div id="comments" class="comments-area">
+
+            <?php
+            // You can start editing here -- including this comment!
+            if ( have_comments() ) :
+                ?>
+
+                <?php comment_form(); ?>
+                
+                <h2 class="comments-title">
+                    <?php
+                        $huda_comment_count = get_comments_number();
+                        if ( '1' === $huda_comment_count ) {
+                            printf(
+                                /* translators: %s: comment count number */
+                                esc_html__( '1 Comment', 'huda' )
+                            );
+                        } else {
+                            printf(
+                                /* translators: %s: comment count number */
+                                esc_html(
+                                    _nx(
+                                        '%1$s Comment',
+                                        '%1$s Comments',
+                                        $huda_comment_count,
+                                        'comments title',
+                                        'huda'
+                                    )
+                                ),
+                                number_format_i18n( $huda_comment_count ) // format the number
+                            );
+                        }
+                    ?>
+                </h2><!-- .comments-title -->
+
+                <?php the_comments_navigation(); ?>
+
+                <ol class="comment-list">
+                    <?php
+                    wp_list_comments(
+                        array(
+                            'style'      => 'ol',
+                            'short_ping' => true,
+                        )
+                    );
+                    ?>
+                </ol><!-- .comment-list -->
+
+                <?php
+                the_comments_navigation();
+
+                // If comments are closed and there are comments, let's leave a little note, shall we?
+                if ( ! comments_open() ) :
+                    ?>
+                    <p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'huda' ); ?></p>
+                    <?php
+                endif;
+
+            endif; // Check for have_comments().
+            ?>
+
+            </div><!-- #comments -->
+    <?php
+}
+// Adding the function into a custom hook
+add_action('huda_comments','huda_comments_content');
+
+
     // Check if Kirki and get_theme_mod() functions exist
     if ( function_exists('get_theme_mod') ) {
         // Function to get container width
@@ -52,7 +123,6 @@ add_action( 'wp_head', 'huda_pingback_header' );
 
     }
 
-    
     // Display single.php content inside the function
     function huda_single_post_content(){
         $container_width = huda_get_container_width(); 
@@ -64,7 +134,16 @@ add_action( 'wp_head', 'huda_pingback_header' );
 
                     <div class="<?php echo $sidebar_layout == "sidebar" ? 'col-lg-8' : 'col-lg-12 col-md-12 col-12'  ?>">
                         <?php
+                            // Display single post content
                             get_template_part( 'template-parts/content', get_post_type() ); 
+
+                            // related articles
+                            related_articles();
+                        ?>
+                        <?php
+                            if ( comments_open() ) :
+                                comments_template();
+                            endif;
                         ?>
                     </div>
 
@@ -78,135 +157,15 @@ add_action( 'wp_head', 'huda_pingback_header' );
                         ?>
                     </div>
 
-                    <?php
-                        // Fetch the current post ID
-                        $current_post_id = get_the_ID();
+                    
 
-                        // Get categories of the current post
-                        $categories = wp_get_post_categories($current_post_id);
-
-                        if ($categories) {
-                            // Define arguments for WP_Query
-                            $args = array(
-                                'category__in'   => $categories, // Fetch posts in the same categories
-                                'post__not_in'   => array($current_post_id), // Exclude the current post
-                                'posts_per_page' => 4, // Number of related posts to display
-                                'ignore_sticky_posts' => 1 // Ignore sticky posts
-                            );
-
-                            // Create a new query
-                            $related_posts_query = new WP_Query($args);
-
-                            // Check if there are any related posts
-                            if ($related_posts_query->have_posts()) {
-                                echo '<div class="related-posts">';
-                                    echo '<h3>Related Posts</h3>';
-                                        echo '<ul>';
-
-                                            // Loop through related posts
-                                            while ($related_posts_query->have_posts()) {
-                                                $related_posts_query->the_post();
-                                                ?>
-                                                    <li>
-                                                        <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                                                    </li>
-                                                <?php
-                                            }
-
-                                        echo '</ul>';
-                                echo '</div>';
-                            }
-
-                            // Restore original post data
-                            wp_reset_postdata();
-                        }
-                    ?>
-
-
-                    <?php
-                        if ( comments_open() || get_comments_number() ) :
-                            comments_template();
-                        endif;
-                    ?>
-
-                <?PHP endwhile; // End of the loop. ?>
+                <?php endwhile; // End of the loop. ?>
             </div>
         </main><!-- #main -->
     <?php
     }
     // Adding the function into a custom hook
     add_action('huda_single_page_layout','huda_single_post_content');
-
-    // Display coomments.php content inside the function
-    function huda_comments_content(){
-    ?>
-        <div id="comments" class="comments-area">
-
-    <?php
-    // You can start editing here -- including this comment!
-    if ( have_comments() ) :
-        ?>
-
-        <?php comment_form(); ?>
-        
-        <h2 class="comments-title">
-            <?php
-                $huda_comment_count = get_comments_number();
-                if ( '1' === $huda_comment_count ) {
-                    printf(
-                        /* translators: %s: comment count number */
-                        esc_html__( '1 Comment', 'huda' )
-                    );
-                } else {
-                    printf(
-                        /* translators: %s: comment count number */
-                        esc_html(
-                            _nx(
-                                '%1$s Comment',
-                                '%1$s Comments',
-                                $huda_comment_count,
-                                'comments title',
-                                'huda'
-                            )
-                        ),
-                        number_format_i18n( $huda_comment_count ) // format the number
-                    );
-                }
-            ?>
-        </h2><!-- .comments-title -->
-
-        <?php the_comments_navigation(); ?>
-
-        <ol class="comment-list">
-            <?php
-            wp_list_comments(
-                array(
-                    'style'      => 'ol',
-                    'short_ping' => true,
-                )
-            );
-            ?>
-        </ol><!-- .comment-list -->
-
-        <?php
-        the_comments_navigation();
-
-        // If comments are closed and there are comments, let's leave a little note, shall we?
-        if ( ! comments_open() ) :
-            ?>
-            <p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'huda' ); ?></p>
-            <?php
-        endif;
-
-    endif; // Check for have_comments().
-    ?>
-
-    </div><!-- #comments -->
-    <?php
-    }
-    // Adding the function into a custom hook
-    add_action('huda_comments','huda_comments_content');
-
 
     function huda_page_content(){
          // Check if Kirki and get_theme_mod() functions exist
@@ -390,10 +349,17 @@ add_action( 'wp_head', 'huda_pingback_header' );
     }
     add_action('huda_404','huda_404_content');
 
-
-
    
-
-
-   
-   
+    function huda_post_categories() {
+        // Get categories for the current post
+        $categories = get_the_category();
+        
+        // Check if there are any categories
+        if ( ! empty( $categories ) ) {
+            echo '<div class="post-categories">';
+            foreach ( $categories as $category ) {
+                echo '<span class="category"><a href="' . esc_url( get_category_link( $category->term_id ) ) . '">' . esc_html( $category->name ) . '</a></span>';
+            }
+            echo '</div>';
+        }
+    }

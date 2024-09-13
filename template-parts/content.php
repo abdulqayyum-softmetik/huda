@@ -6,6 +6,7 @@
  *
  * @package Huda
  */
+
 ?>
 
 <div class="<?php echo is_home() ? 'col-lg-4 col-md-6 col-12' : 'article-single'; ?>">
@@ -37,26 +38,36 @@
 					);
 					?>
 			
-				<div class="d-flex align-items-center justify-content-start gap-3 mb-2">
-					<p class="post-read-time mb-0"><?php echo esc_html( huda_post_read_time( get_the_ID() ) ) ; ?></p>
-					<?php 
-						if( is_singular() ) :
-							huda_posted_by();
-						endif;
-					?>
-				</div>
-			<?php endif;?>
-			<?php huda_post_thumbnail('medium'); ?>
-			<?php
-			if ( 'post' === get_post_type() ) :
-					?>
-					<div class="entry-meta">
+
+					<div class="entry-meta d-flex align-items-center justify-content-start flex-wrap gap-3 mb-3">
+						<?php  
+							huda_post_categories();
+						?>
+						<p class="post-read-time mb-0"><?php echo esc_html( huda_post_read_time( get_the_ID() ) ) ; ?></p>
+						<?php 
+							if( is_singular() ) :
+								huda_posted_by();
+							endif;
+						?>
 						<?php
 							huda_posted_on();
 						?>
 					</div><!-- .entry-meta -->
 					
-				<?php endif; ?>
+			<?php endif;?>
+			<?php huda_post_thumbnail('medium'); ?>
+			<?php
+			if ( 'post' === get_post_type() && !is_single() ) :
+					?>
+					<div class="entry-meta d-flex align-items-center gap-2">
+						<?php  
+							huda_post_categories();
+						?>
+						<?php
+							huda_posted_on();
+						?>
+					</div><!-- .entry-meta -->
+			<?php endif; ?>
 			<header class="entry-header <?php if ( has_post_thumbnail() == '' ) echo 'no-thumbnail'; ?>">
 				<?php
 				if ( is_singular() ) :

@@ -320,9 +320,8 @@ input[type=submit]:focus,
 }
 .btn.btn-read-more-arrow i {
   color: #FFFFFE;
-  transform: rotate(320deg);
   transition: 0.3s ease;
-  font-size: 14px;
+  font-size: 18px;
 }
 
 input[type=text],
@@ -429,6 +428,11 @@ header.header-main nav .fa-shopping-cart {
   font-size: 20px;
   color: #0F0E17;
 }
+header.header-main .buy-button {
+  padding: 0.4em 1em;
+  color: #FFFFFE;
+  background: linear-gradient(92.52deg, #1F5EFF -2.63%, #5081FF 86.95%, #5081FF 95.81%);
+}
 header.header-main .woo-cart-count {
   width: 14px;
   height: 14px;
@@ -500,8 +504,12 @@ header.header-main .woo-cart-count {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
   gap: 1em;
+}
+@media (max-width: 576px) {
+  .single-post-navigation-wrapper {
+    flex-wrap: wrap;
+  }
 }
 .single-post-navigation-wrapper.stikcy-element {
   position: fixed;
@@ -552,7 +560,7 @@ nav.next-post .prevoius-post-image img {
 nav.previous-post a.link, nav.next-post a.link {
   font-family: "Cormorant";
   font-weight: 600;
-  font-size: 1.2em;
+  font-size: 0.98em;
 }
 
 .site-main .comment-navigation,
@@ -606,7 +614,8 @@ nav.previous-post a.link, nav.next-post a.link {
 .blog article,
 .archive article,
 .category article,
-.search article {
+.search article,
+.related-posts article {
   width: 100%;
   height: auto;
   padding: 0.8em;
@@ -619,7 +628,8 @@ nav.previous-post a.link, nav.next-post a.link {
 .blog article header,
 .archive article header,
 .category article header,
-.search article header {
+.search article header,
+.related-posts article header {
   padding-bottom: 0.8em;
 }
 .blog article header.entry-header h3.entry-title,
@@ -633,7 +643,10 @@ nav.previous-post a.link, nav.next-post a.link {
 .category article header.entry-header .h2.entry-title,
 .search article header.entry-header h3.entry-title,
 .search article header.entry-header h2.entry-title,
-.search article header.entry-header .h2.entry-title {
+.search article header.entry-header .h2.entry-title,
+.related-posts article header.entry-header h3.entry-title,
+.related-posts article header.entry-header h2.entry-title,
+.related-posts article header.entry-header .h2.entry-title {
   display: inline-block;
 }
 .blog article header.entry-header h3.entry-title a,
@@ -647,7 +660,10 @@ nav.previous-post a.link, nav.next-post a.link {
 .category article header.entry-header .h2.entry-title a,
 .search article header.entry-header h3.entry-title a,
 .search article header.entry-header h2.entry-title a,
-.search article header.entry-header .h2.entry-title a {
+.search article header.entry-header .h2.entry-title a,
+.related-posts article header.entry-header h3.entry-title a,
+.related-posts article header.entry-header h2.entry-title a,
+.related-posts article header.entry-header .h2.entry-title a {
   font-size: 1em;
   color: #0F0E17;
 }
@@ -662,7 +678,10 @@ nav.previous-post a.link, nav.next-post a.link {
 .category article header.entry-header .h2.entry-title ::after,
 .search article header.entry-header h3.entry-title ::after,
 .search article header.entry-header h2.entry-title ::after,
-.search article header.entry-header .h2.entry-title ::after {
+.search article header.entry-header .h2.entry-title ::after,
+.related-posts article header.entry-header h3.entry-title ::after,
+.related-posts article header.entry-header h2.entry-title ::after,
+.related-posts article header.entry-header .h2.entry-title ::after {
   content: "";
   display: block;
   width: 0;
@@ -682,34 +701,49 @@ nav.previous-post a.link, nav.next-post a.link {
 .category article header.entry-header .h2.entry-title :hover::after,
 .search article header.entry-header h3.entry-title :hover::after,
 .search article header.entry-header h2.entry-title :hover::after,
-.search article header.entry-header .h2.entry-title :hover::after {
+.search article header.entry-header .h2.entry-title :hover::after,
+.related-posts article header.entry-header h3.entry-title :hover::after,
+.related-posts article header.entry-header h2.entry-title :hover::after,
+.related-posts article header.entry-header .h2.entry-title :hover::after {
   width: 100%;
 }
-.blog article header .entry-meta .posted-on,
-.archive article header .entry-meta .posted-on,
-.category article header .entry-meta .posted-on,
-.search article header .entry-meta .posted-on {
+.blog article .entry-meta,
+.archive article .entry-meta,
+.category article .entry-meta,
+.search article .entry-meta,
+.related-posts article .entry-meta {
+  margin-bottom: 0.4em;
+}
+.blog article .entry-meta .posted-on,
+.archive article .entry-meta .posted-on,
+.category article .entry-meta .posted-on,
+.search article .entry-meta .posted-on,
+.related-posts article .entry-meta .posted-on {
   font-size: 14px;
 }
-.blog article header .entry-meta .posted-on a, .blog article header .entry-meta .posted-on i,
-.archive article header .entry-meta .posted-on a,
-.archive article header .entry-meta .posted-on i,
-.category article header .entry-meta .posted-on a,
-.category article header .entry-meta .posted-on i,
-.search article header .entry-meta .posted-on a,
-.search article header .entry-meta .posted-on i {
+.blog article .entry-meta .posted-on a, .blog article .entry-meta .posted-on i,
+.archive article .entry-meta .posted-on a,
+.archive article .entry-meta .posted-on i,
+.category article .entry-meta .posted-on a,
+.category article .entry-meta .posted-on i,
+.search article .entry-meta .posted-on a,
+.search article .entry-meta .posted-on i,
+.related-posts article .entry-meta .posted-on a,
+.related-posts article .entry-meta .posted-on i {
   color: #0F0E17;
 }
 .blog article .read-time,
 .archive article .read-time,
 .category article .read-time,
-.search article .read-time {
+.search article .read-time,
+.related-posts article .read-time {
   color: #0F0E17 !important;
 }
 .blog article a img,
 .archive article a img,
 .category article a img,
-.search article a img {
+.search article a img,
+.related-posts article a img {
   width: 100%;
   max-height: 11em;
   border-radius: 0;
@@ -800,6 +834,13 @@ article.search a.post-thumbnail img {
 .related-posts {
   margin-top: 2em;
 }
+.related-posts h3 {
+  margin-bottom: 0.6em;
+}
+.related-posts article .post-thumbnail {
+  margin-bottom: 0 !important;
+  height: 100% !important;
+}
 
 .social-share-box {
   margin: 1em 0 1.8em 0;
@@ -851,15 +892,20 @@ article.search a.post-thumbnail img {
   margin: 0 0 1.5em;
 }
 
-body.search header.page-header h1.page-title {
-  font-size: 3em;
-  text-align: center;
+.posted-on {
+  font-size: 14px;
 }
-body.search form.search-form {
-  text-align: center;
+
+.post-categories {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6em;
 }
-body.search form.search-form input {
-  padding: 12px 28px;
+.post-categories span.category {
+  color: #5081FF;
+  padding: 0 0.4em;
+  background: #F4F4F4;
 }
 
 /* Comments
@@ -907,8 +953,11 @@ body.search form.search-form input {
 .comments-area ol.comment-list li.comment article.comment-body footer.comment-meta .comment-author.vcard b.fn a {
   text-transform: capitalize;
 }
+.comments-area ol.comment-list li.comment article.comment-body footer.comment-meta .comment-metadata {
+  margin-bottom: 1em;
+}
 .comments-area h2.comments-title {
-  margin-bottom: 0.8em;
+  margin: 0.8em 0;
 }
 .comments-area .comment-respond {
   margin: 1.8em 0;
@@ -1072,6 +1121,17 @@ aside.widget-area .widget_tag_cloud a.tag-cloud-link span.tags_count {
 }
 .offcanvas .search-result-wrapper #datafetch .posted-on, .offcanvas .search-result-wrapper #datafetch i {
   color: #0F0E17;
+}
+
+body.search header.page-header h1.page-title {
+  font-size: 3em;
+  text-align: center;
+}
+body.search form.search-form {
+  text-align: center;
+}
+body.search form.search-form input {
+  padding: 12px 28px;
 }
 
 /* Media

@@ -1,5 +1,5 @@
-<a class="" data-bs-toggle="offcanvas" href="#offcanvasSearch" role="button" aria-controls="offcanvasSearch">
-  <i class="fas fa-search"></i>
+<a class="float-end" data-bs-toggle="offcanvas" href="#offcanvasSearch" role="button" aria-controls="offcanvasSearch">
+  <i class="ri-search-line"></i>
 </a>
 
 <div class="offcanvas offcanvas-top search-wrapper" tabindex="-1" id="offcanvasSearch" aria-labelledby="offcanvasSearchLabel">

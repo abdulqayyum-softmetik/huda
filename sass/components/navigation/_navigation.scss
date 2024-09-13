@@ -88,8 +88,11 @@
 
 .single-post-navigation-wrapper{
 	@include flex-between;
-	flex-wrap: wrap;
 	gap: 1em;
+
+	@media(max-width: 576px){
+		flex-wrap: wrap;
+	}
 
 	&.stikcy-element{
 		position: fixed;
@@ -151,7 +154,7 @@ nav {
 			&.link{
 				font-family: 'Cormorant';
 				font-weight: 600;
-				font-size: 1.2em;
+				font-size: 0.98em;
 			}
 		}
 	}

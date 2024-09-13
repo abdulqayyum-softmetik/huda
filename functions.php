@@ -167,11 +167,6 @@ require get_template_directory() . '/inc/bootstrap-navigation.php';
 require get_template_directory() . '/inc/live-search.php';
 
 /**
- * Excerpt Length.
- */
-require get_template_directory() . '/inc/excerpt.php';
-
-/**
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/template-tags.php';
@@ -204,7 +199,7 @@ require get_template_directory() . '/inc/core/theme-hooks.php';
  * Kirki Customizer Adavnced Options.
  */
 
-if( class_exists( 'kirki' ) ){
+if ( class_exists( 'kirki' ) ){
 	require get_template_directory() . '/inc/customizer.php';
 }
 
