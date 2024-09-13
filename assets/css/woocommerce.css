@@ -3,62 +3,6 @@ Theme Name: Huda
 
 WooCommerce styles override
 */
-[data-bs-theme=dark] body {
-  color: #FFFFFE;
-  background: #0F0E17;
-}
-[data-bs-theme=dark] body header.header-main {
-  background: #0F0E17;
-}
-[data-bs-theme=dark] body header.header-main nav ul li a.nav-link {
-  color: #FFFFFE;
-  transition: 0.3s ease;
-  opacity: 0.8;
-}
-[data-bs-theme=dark] body header.header-main nav ul li a.nav-link:hover, [data-bs-theme=dark] body header.header-main nav ul li a.nav-link:focus {
-  color: #5081FF !important;
-}
-[data-bs-theme=dark] body header.header-main nav ul li a.nav-link:disabled {
-  opacity: 0.9;
-}
-[data-bs-theme=dark] body header.header-main nav ul li a.nav-link.dropdown-toggle::after {
-  margin-left: 0.4em;
-}
-[data-bs-theme=dark] body header.header-main nav ul li a.nav-link.active {
-  font-weight: 500;
-  color: #5081FF;
-}
-[data-bs-theme=dark] body header.header-main nav ul li ul.dropdown-menu li a.dropdown-item {
-  text-align: left;
-  color: #0F0E17;
-}
-[data-bs-theme=dark] body header.header-main nav .fa-shopping-cart, [data-bs-theme=dark] body header.header-main nav .fa-search, [data-bs-theme=dark] body header.header-main nav svg {
-  color: #FFFFFE;
-}
-[data-bs-theme=dark] body .posted-on {
-  color: #0F0E17;
-}
-[data-bs-theme=dark] body .posted-on a {
-  color: #0F0E17;
-}
-[data-bs-theme=dark] body a {
-  color: #F25F4C;
-}
-[data-bs-theme=dark] body label {
-  cursor: pointer;
-}
-[data-bs-theme=dark] body label .toggle-wrapper .toggle::before {
-  content: "\f185";
-  color: #0F0E17;
-}
-[data-bs-theme=dark] body input, [data-bs-theme=dark] body textarea {
-  color: #0F0E17;
-  background-color: #F4F4F4;
-}
-[data-bs-theme=dark] .border-top, [data-bs-theme=dark] .border {
-  opacity: 0.4;
-}
-
 /**
  * Shop tables
  */

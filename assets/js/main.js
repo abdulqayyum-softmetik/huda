@@ -102,17 +102,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 	// On page scroll sticky element
-	const targetElement = document.querySelector('.single-post-navigation-wrapper');
-	const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+	// const targetElement = document.querySelector('.single-post-navigation-wrapper');
+	// const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
 
-	// Function to add class on scroll
-	window.addEventListener('scroll', function() {
-		if (window.scrollY > scrollTop) {  // Change '100' to the scroll position where you want to add the class
-			targetElement.classList.add('stikcy-element');
-		} else {
-			targetElement.classList.remove('stikcy-element');
-		}
-	});
+	// // Function to add class on scroll
+	// window.addEventListener('scroll', function() {
+	// 	if (window.scrollY > scrollTop) {  // Change '100' to the scroll position where you want to add the class
+	// 		targetElement.classList.add('stikcy-element');
+	// 	} else {
+	// 		targetElement.classList.remove('stikcy-element');
+	// 	}
+	// });
 
 	// Function to update progress bar
 	function updateProgressBar() {

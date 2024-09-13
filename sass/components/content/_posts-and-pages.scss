@@ -177,6 +177,29 @@
 	}
 }
 
+article{
+	&.search{
+		width: 33.33%;
+		max-height: 400px;
+		padding: 1em;
+		background: $color__background-body;
+
+		a{
+            &.post-thumbnail{
+                img{
+                    max-width: 100%;
+                    height: 11em;
+                    border-radius: 6px;
+                }
+            }
+        }
+	}
+}
+
+.related-posts{
+	margin-top: 2em;
+}
+
 .social-share-box{
 	margin: 1em 0 1.8em 0;
 	padding: 1em 1.4em;

@@ -48,62 +48,6 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	- Alignments
 
 --------------------------------------------------------------*/
-[data-bs-theme=dark] body {
-  color: #FFFFFE;
-  background: #0F0E17;
-}
-[data-bs-theme=dark] body header.header-main {
-  background: #0F0E17;
-}
-[data-bs-theme=dark] body header.header-main nav ul li a.nav-link {
-  color: #FFFFFE;
-  transition: 0.3s ease;
-  opacity: 0.8;
-}
-[data-bs-theme=dark] body header.header-main nav ul li a.nav-link:hover, [data-bs-theme=dark] body header.header-main nav ul li a.nav-link:focus {
-  color: #5081FF !important;
-}
-[data-bs-theme=dark] body header.header-main nav ul li a.nav-link:disabled {
-  opacity: 0.9;
-}
-[data-bs-theme=dark] body header.header-main nav ul li a.nav-link.dropdown-toggle::after {
-  margin-left: 0.4em;
-}
-[data-bs-theme=dark] body header.header-main nav ul li a.nav-link.active {
-  font-weight: 500;
-  color: #5081FF;
-}
-[data-bs-theme=dark] body header.header-main nav ul li ul.dropdown-menu li a.dropdown-item {
-  text-align: left;
-  color: #0F0E17;
-}
-[data-bs-theme=dark] body header.header-main nav .fa-shopping-cart, [data-bs-theme=dark] body header.header-main nav .fa-search, [data-bs-theme=dark] body header.header-main nav svg {
-  color: #FFFFFE;
-}
-[data-bs-theme=dark] body .posted-on {
-  color: #0F0E17;
-}
-[data-bs-theme=dark] body .posted-on a {
-  color: #0F0E17;
-}
-[data-bs-theme=dark] body a {
-  color: #F25F4C;
-}
-[data-bs-theme=dark] body label {
-  cursor: pointer;
-}
-[data-bs-theme=dark] body label .toggle-wrapper .toggle::before {
-  content: "\f185";
-  color: #0F0E17;
-}
-[data-bs-theme=dark] body input, [data-bs-theme=dark] body textarea {
-  color: #0F0E17;
-  background-color: #F4F4F4;
-}
-[data-bs-theme=dark] .border-top, [data-bs-theme=dark] .border {
-  opacity: 0.4;
-}
-
 /*--------------------------------------------------------------
 # Generic
 --------------------------------------------------------------*/
@@ -635,19 +579,17 @@ nav.previous-post a.link, nav.next-post a.link {
   flex: 1 0 50%;
 }
 
-#progress-bar-container {
-  position: fixed;
-  top: 12.8%;
-  left: 0;
+.single-post-navigation-wrapper {
   width: 100%;
-  height: 2px;
-  z-index: 9999;
-}
-
-#progress-bar {
   height: 100%;
-  width: 0;
-  background-color: #F25F4C;
+  padding: 1em;
+  background-color: #FFFFFE;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.single-post-navigation-wrapper a {
+  color: #0F0E17 !important;
 }
 
 /* Posts and pages
@@ -841,6 +783,22 @@ nav.previous-post a.link, nav.next-post a.link {
 }
 .single main .nav-previous {
   text-align: left;
+}
+
+article.search {
+  width: 33.33%;
+  max-height: 400px;
+  padding: 1em;
+  background: #F4F4F4;
+}
+article.search a.post-thumbnail img {
+  max-width: 100%;
+  height: 11em;
+  border-radius: 6px;
+}
+
+.related-posts {
+  margin-top: 2em;
 }
 
 .social-share-box {
@@ -1102,22 +1060,18 @@ aside.widget-area .widget_tag_cloud a.tag-cloud-link span.tags_count {
 }
 .offcanvas .search-result-wrapper {
   width: 100%;
-  max-width: 800px;
+  max-width: 860px;
   margin: 0 auto;
 }
 .offcanvas .search-result-wrapper #datafetch {
-  margin-top: 1em;
   display: flex;
   align-items: start;
-  gap: 0.8em;
+  flex-wrap: wrap;
+  margin-top: 1em;
+  gap: 0.6em;
 }
 .offcanvas .search-result-wrapper #datafetch .posted-on, .offcanvas .search-result-wrapper #datafetch i {
   color: #0F0E17;
-}
-.offcanvas .search-result-wrapper a.post-thumbnail img {
-  max-width: 60px;
-  height: 60px;
-  border-radius: 6px;
 }
 
 /* Media

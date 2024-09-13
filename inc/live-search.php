@@ -16,17 +16,18 @@ if ( !function_exists('data_fetch') ) {
         if ( $the_query->have_posts() ) :
             while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 
-                <?php huda_post_thumbnail('medium'); ?>
+                <article class="search">
+                     <?php huda_post_thumbnail('medium'); ?>
+                    <div class="d-flex flex-column">
+                        <a href="<?php echo esc_url( get_permalink() ); ?>"> 
+                            <?php the_title(); ?> 
+                        </a>
 
-                <div class="d-flex flex-column">
-                    <a href="<?php echo esc_url( get_permalink() ); ?>"> 
-                        <?php the_title(); ?> 
-                    </a>
-
-                    <?php
-                        huda_posted_on();
-                    ?>
-                </div>
+                        <?php
+                            huda_posted_on();
+                        ?>
+                    </div>
+                </article>
 
             <?php endwhile;
             wp_reset_postdata();

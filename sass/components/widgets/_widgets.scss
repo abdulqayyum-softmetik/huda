@@ -8,7 +8,6 @@
 }
 
 aside{
-
     width: 100%;
     height: 100%;
     padding-left: 1em;
@@ -150,27 +149,18 @@ aside{
 
     .search-result-wrapper{
         width: 100%;
-        max-width: 800px;
+        max-width: 860px;
         margin: 0 auto;
 
         #datafetch{
-            margin-top: 1em;
             display: flex;
             align-items: start;
-            gap: 0.8em;
+            flex-wrap: wrap;
+            margin-top: 1em;
+            gap: 0.6em;
 
             .posted-on,i{
                 color: $color__black;
-            }
-        }
-
-        a{
-            &.post-thumbnail{
-                img{
-                    max-width: 60px;
-                    height: 60px;
-                    border-radius: 6px;
-                }
             }
         }
     }
