@@ -13,6 +13,45 @@ if ( ! defined( '_S_VERSION' ) ) {
 }
 
 /**
+ * 
+ * Sets up theme update sdk freemius.
+ *
+ */
+if ( ! function_exists( 'hud_fs' ) ) {
+    // Create a helper function for easy SDK access.
+    function hud_fs() {
+        global $hud_fs;
+
+        if ( ! isset( $hud_fs ) ) {
+            // Include Freemius SDK.
+            require_once dirname(__FILE__) . '/freemius/start.php';
+
+            $hud_fs = fs_dynamic_init( array(
+                'id'                  => '16493',
+                'slug'                => 'huda',
+                'type'                => 'theme',
+                'public_key'          => 'pk_d9bab27ad377f851a8da489b3064b',
+                'is_premium'          => false,
+                'has_addons'          => false,
+                'has_paid_plans'      => false,
+                'menu'                => array(
+                    'slug'           => 'toplevel_page_wp-huda',
+                    'account'        => false,
+                    'support'        => false,
+                ),
+            ) );
+        }
+
+        return $hud_fs;
+    }
+
+    // Init Freemius.
+    hud_fs();
+    // Signal that SDK was initiated.
+    do_action( 'hud_fs_loaded' );
+}
+
+/**
  * Sets up theme defaults and registers support for various WordPress features.
  *
  * Note that this function is hooked into the after_setup_theme hook, which
@@ -146,10 +185,16 @@ require get_template_directory() . '/inc/block-styles.php';
  */
 require get_template_directory() . '/inc/block-patterns.php';
 
+
 /**
  * Enqueue scripts and styles.
  */
 require get_template_directory() . '/inc/theme-scripts.php';
+
+/**
+ * Admin page for huda
+ */
+require get_template_directory() . '/inc/admin/admin.php';
 
 /**
  * Enqueue scripts and styles.

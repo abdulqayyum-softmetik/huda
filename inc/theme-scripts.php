@@ -1,7 +1,7 @@
 <?php
 
 function huda_scripts() {
-	wp_enqueue_style( 'bootstrap', get_stylesheet_uri(), array(), _S_VERSION );
+	wp_enqueue_style( 'huda', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.min.css', array(), '5.2.3' );
 	wp_enqueue_style( 'bootstrap-rtl', get_template_directory_uri() . '/assets/css/bootstrap.rtl.min.css', array(), '5.2.3' );
 	wp_enqueue_style( 'huda-stylesheet', get_template_directory_uri() . '/assets/css/stylesheet.css', array(), _S_VERSION ); 
@@ -23,3 +23,17 @@ function huda_customizer_scripts() {
 	wp_enqueue_style( 'huda-customizer-style', get_template_directory_uri() . '/assets/css/customizer.css', array(), _S_VERSION );
 }
 add_action('customize_controls_enqueue_scripts', 'huda_customizer_scripts');
+
+function huda_admin_bootstrap_enqueue() {
+	$screen = get_current_screen();
+    if ($screen->id === 'toplevel_page_wp-huda') {
+        // Enqueue Bootstrap CSS for admin
+		wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.min.css', array(), '5.2.3' );
+		wp_enqueue_style( 'remixicon', get_template_directory_uri() . '/assets/css/remixicon.css', array(), '4.3.0' ); 
+
+		// Enqueue Bootstrap JS for admin
+		wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/assets/js/bootstrap.bundle.min.js', array(), '5.2.3', true );
+    }
+}
+add_action('admin_enqueue_scripts', 'huda_admin_bootstrap_enqueue');
+
