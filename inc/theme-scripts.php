@@ -30,6 +30,7 @@ function huda_admin_bootstrap_enqueue() {
         // Enqueue Bootstrap CSS for admin
 		wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.min.css', array(), '5.2.3' );
 		wp_enqueue_style( 'remixicon', get_template_directory_uri() . '/assets/css/remixicon.css', array(), '4.3.0' ); 
+		wp_enqueue_style( 'huda-admin-styles', get_template_directory_uri() . '/assets/css/admin-style.css', array(), '1.0.0' ); 
 
 		// Enqueue Bootstrap JS for admin
 		wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/assets/js/bootstrap.bundle.min.js', array(), '5.2.3', true );

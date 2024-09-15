@@ -83,41 +83,6 @@ function wp_huda_admin_page_callback() {
 
     <?php
 
-function huda_admin_page_styles($hook) {
-    // Ensure the hook matches the actual screen ID
-    if ( $hook != 'toplevel_page_wp-huda' ) {
-        return;
-    }
-
-    // Output the styles
-    echo '<style>
-        #wpcontent {
-            padding-left: 0;
-        }
-        #adminmenu .wp-menu-image img {
-            padding: 6px 0 0 !important;
-            opacity: .6;
-            max-width: 16px !important;
-        }
-        .custom-cards-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        .custom-cards-container .card {
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 20px;
-            width: 30%;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        .custom-cards-container .card h2 {
-            margin-top: 0;
-        }
-    </style>';
-}
-add_action('admin_head', 'huda_admin_page_styles');
 
 
     }
