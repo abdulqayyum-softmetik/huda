@@ -172,6 +172,15 @@
 		.nav-previous{
 			text-align: left;
 		}
+
+		.post-categories{
+	
+			span{
+				&.category{
+					background: $color__white;
+				}
+			}
+		}
 	}
 }
 

@@ -195,8 +195,8 @@ if ( ! function_exists( 'huda_pagination' ) ) :
 	function huda_pagination(){
 		the_posts_pagination( array(
 			'mid_size'  => 2,
-			'prev_text' => __( '<i class="fas fa-arrow-left"></i> Previous', 'huda' ),
-			'next_text' => __( 'Next <i class="fas fa-arrow-right"></i>', 'huda' ),
+			'prev_text' => __( '<i class="ri-arrow-left-up-line"></i> Previous', 'huda' ),
+			'next_text' => __( 'Next <i class="ri-arrow-right-up-line"></i>', 'huda' ),
 		) );
 	}
 endif;

@@ -10,7 +10,7 @@
             <a href="<?php echo get_permalink( $prev_post->ID ); ?>" class="link">
                 <?php echo esc_html($prev_post->post_title); ?>
                 <div class="d-flex align-items-center gap-2">
-                    <i class="fas fa-arrow-left"></i>
+                    <i class="ri-arrow-left-up-line"></i>
                     <span>Previous Post</span>
                 </div>
             </a>
@@ -29,7 +29,7 @@
                 <?php echo esc_html($next_post->post_title); ?>
                 <div class="d-flex align-items-center gap-2">
                     <span>Next Post</span>
-                    <i class="fas fa-arrow-right"></i>
+                    <i class="ri-arrow-right-up-line"></i>
                 </div>
             </a>
         <?php endif; ?>

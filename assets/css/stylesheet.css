@@ -542,7 +542,7 @@ nav.navigation.pagination .nav-links .page-numbers.current {
   align-items: center;
   justify-content: center;
   color: #FFFFFE;
-  background-color: #F25F4C;
+  background-color: #5081FF;
 }
 nav.navigation.pagination .nav-links .fa-arrow-right {
   transform: rotate(320deg);
@@ -818,6 +818,9 @@ nav.previous-post a.link, nav.next-post a.link {
 .single main .nav-previous {
   text-align: left;
 }
+.single main .post-categories span.category {
+  background: #FFFFFE;
+}
 
 article.search {
   width: 33.33%;
@@ -936,10 +939,10 @@ article.search a.post-thumbnail img {
   position: relative;
 }
 .comments-area ol.comment-list li.comment article.comment-body .reply a::before {
-  content: "\f3e5";
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-  margin-right: 0.4em;
+  content: "\f07a";
+  font-family: "remixicon";
+  font-size: 20px;
+  margin-right: 0.1em;
 }
 .comments-area ol.comment-list li.comment article.comment-body footer.comment-meta {
   display: flex;

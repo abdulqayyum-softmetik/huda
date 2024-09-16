@@ -14,7 +14,6 @@ if ( !function_exists('data_fetch') ) {
 
         if ( $the_query->have_posts() ) :
             while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-
                 <article class="search">
                     <a href="<?php echo esc_url( get_permalink() ); ?>">
                         <?php huda_post_thumbnail('medium'); ?>
@@ -29,7 +28,6 @@ if ( !function_exists('data_fetch') ) {
                         ?>
                     </div>
                 </article>
-
             <?php endwhile;
             wp_reset_postdata();
         else :
