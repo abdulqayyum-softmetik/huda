@@ -38,8 +38,8 @@ new \Kirki\Field\Dimension(
 new \Kirki\Field\Image(
 	[
 		'settings'    => 'logo_secondary_setting_url',
-		'label'       => esc_html__( 'Logo Secondary Width', 'huda' ),
-		'description' => esc_html__( 'Logo for subpages', 'huda' ),
+		'label'       => esc_html__( 'Logo Secondary', 'huda' ),
+		'description' => esc_html__( 'Logo Secondary - Light Logo', 'huda' ),
 		'section'     => 'title_tagline',
 		'default'     => '',
 	]
@@ -568,8 +568,6 @@ new \Kirki\Field\Color(
 	]
 );
 
-
-
 /*
 * Blog Control
 */
@@ -618,6 +616,23 @@ new \Kirki\Field\Radio_Image(
 		'choices'     => [
 			'container' => get_template_directory_uri() . '/assets/images/narrow-width.png',
 			'container-fluid'   => get_template_directory_uri() . '/assets/images/full-width.png',
+		],
+	]
+);
+
+/*
+* Pages Control
+*/
+new \Kirki\Field\Checkbox_Switch(
+	[
+		'settings'    => 'huda_page_title_setting',
+		'label'       => esc_html__( 'Page Title', 'huda' ),
+		'description' => esc_html__( '', 'huda' ),
+		'section'     => 'huda_page_section',
+		'default'     => 'off',
+		'choices'     => [
+			'on'  => esc_html__( 'Show Title', 'huda' ),
+			'off' => esc_html__( 'Hide Title', 'huda' ),
 		],
 	]
 );

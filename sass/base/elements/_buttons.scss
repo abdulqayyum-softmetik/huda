@@ -24,6 +24,14 @@ input[type="submit"],
 	}
 }
 
+.btn-close{
+	
+	&:hover{
+		opacity: 100%;
+		background: $color__accent;
+	}
+}
+
 .btn {
 	&.btn-read-more-arrow {
 		width: 34px;

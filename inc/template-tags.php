@@ -405,3 +405,18 @@ if ( ! function_exists( 'huda_categories_postcount_filter' ) ) :
 	add_filter('wp_list_categories','huda_categories_postcount_filter');
 endif;
 
+if ( ! function_exists( 'huda_post_categories' ) ) :
+	function huda_post_categories() {
+		// Get categories for the current post
+		$categories = get_the_category();
+		
+		// Check if there are any categories
+		if ( ! empty( $categories ) ) {
+			echo '<div class="post-categories">';
+			foreach ( $categories as $category ) {
+				echo '<span class="category"><a href="' . esc_url( get_category_link( $category->term_id ) ) . '">' . esc_html( $category->name ) . '</a></span>';
+			}
+			echo '</div>';
+		}
+	}
+endif;

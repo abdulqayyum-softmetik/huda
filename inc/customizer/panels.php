@@ -24,3 +24,13 @@ new \Kirki\Panel(
 		'description' => esc_html__( '', 'huda' ),
 	]
 );
+
+/* Page Options Panel */
+new \Kirki\Panel(
+	'huda_page_options',
+	[
+		'priority'    => 10,
+		'title'       => esc_html__( 'Page', 'huda' ),
+		'description' => esc_html__( '', 'huda' ),
+	]
+);

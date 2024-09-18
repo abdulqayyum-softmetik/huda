@@ -1,6 +1,62 @@
-footer.footer-main{
-    .footer-copyright{
-        padding: 1.2em 0;
+footer{
+    &.footer-main{
+        padding: 2.8em 0 1.2em 0;
+        color: $color__white;
         background-color: $color__black;
+
+        .footer-content{
+            padding-bottom: 2.8em;
+
+            a{
+                &:hover{
+                    color: $color__accent;
+                }
+            }
+
+            p{
+                color: $color__white;
+                padding-top: 0.8em;
+            }
+
+            p,a{
+                opacity: 0.8;
+
+                &:hover{
+                    opacity: 100%;
+                }
+            }
+
+            .wpcf7-form{
+                p{
+                    position: relative;
+
+                    .wpcf7-submit{
+                        position: absolute;
+                        top: 38%;
+                        right: 0;
+                        transform: translate(-50%, -44%);
+                    }
+                }
+            }
+        }
+
+        .footer-copyright{
+            @include flex-center;
+            text-transform: capitalize;
+            border-top: 1px solid rgba(255,255,255, 0.2);
+            padding: 0.60em 0 0 0;
+            
+            gap: 0.2em;
+
+            span{
+                font-weight: 300;
+            }
+
+            a{
+                &:hover{
+                    color: $color__accent;
+                }
+            }
+        }
     }
 }

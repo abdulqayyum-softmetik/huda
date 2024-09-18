@@ -26,7 +26,12 @@ function huda_body_classes( $classes ) {
 }
 add_filter( 'body_class', 'huda_body_classes' );
 
+function huda_include_custom_functions() {
 
+    require get_template_directory() . '/inc/customizer/customizer-functions.php';
+
+}
+add_action( 'after_setup_theme', 'huda_include_custom_functions' );
 
 /**
  * Add a pingback url auto-discovery header for single posts, pages, or attachments.
@@ -109,20 +114,6 @@ add_action( 'wp_head', 'huda_pingback_header' );
 // Adding the function into a custom hook
 add_action('huda_comments','huda_comments_content');
 
-
-    // Check if Kirki and get_theme_mod() functions exist
-    if ( function_exists('get_theme_mod') ) {
-        // Function to get container width
-        function huda_get_container_width() {
-            return get_theme_mod('blog__container__setting', 'container'); // container is default value
-        }
-
-        function huda_get_sidebar() {
-            return get_theme_mod('blog__sidebar_layout__setting', 'sidebar');  // container is default value
-        }
-
-    }
-
     // Display single.php content inside the function
     function huda_single_post_content(){
         $container_width = huda_get_container_width(); 
@@ -168,14 +159,7 @@ add_action('huda_comments','huda_comments_content');
     add_action('huda_single_page_layout','huda_single_post_content');
 
     function huda_page_content(){
-         // Check if Kirki and get_theme_mod() functions exist
-        if ( function_exists('get_theme_mod') ) {
-            // Function to get container width
-            function huda_get_page_container_width() {
-                return get_theme_mod('page__container__setting', 'container'); // container is default value
-            }
-        }
-        $page_container_width = huda_get_page_container_width(); 
+        $page_container_width = huda_get_page_container_width();
         ?>
             <main id="primary" class="huda-site-main <?php echo esc_attr( $page_container_width ); ?>">
                 <?php
@@ -348,18 +332,3 @@ add_action('huda_comments','huda_comments_content');
         <?php
     }
     add_action('huda_404','huda_404_content');
-
-   
-    function huda_post_categories() {
-        // Get categories for the current post
-        $categories = get_the_category();
-        
-        // Check if there are any categories
-        if ( ! empty( $categories ) ) {
-            echo '<div class="post-categories">';
-            foreach ( $categories as $category ) {
-                echo '<span class="category"><a href="' . esc_url( get_category_link( $category->term_id ) ) . '">' . esc_html( $category->name ) . '</a></span>';
-            }
-            echo '</div>';
-        }
-    }

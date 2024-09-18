@@ -18,7 +18,7 @@ if ( !function_exists('data_fetch') ) {
                     <a href="<?php echo esc_url( get_permalink() ); ?>">
                         <?php huda_post_thumbnail('medium'); ?>
                     </a>
-                    <div class="d-flex flex-column">
+                    <div class="post-content d-flex flex-column">
                         <a href="<?php echo esc_url( get_permalink() ); ?>"> 
                             <?php the_title(); ?> 
                         </a>

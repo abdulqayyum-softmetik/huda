@@ -71,7 +71,7 @@ new \Kirki\Section(
 				'label' => esc_html__( 'General', 'huda' ),
 			],
 			'design'  => [
-				'label' => esc_html__( 'Colors', 'huda' ),
+				'label' => esc_html__( 'Design', 'huda' ),
 			],
 		],
 	]
@@ -85,5 +85,16 @@ new \Kirki\Section(
 	[
 		'title' => esc_html__( 'Single Post', 'huda' ),
 		'panel' => 'huda_blog_options',
+	]
+);
+
+/* 
+* Huda Page Section
+*/
+new \Kirki\Section(
+	'huda_page_section',
+	[
+		'title' => esc_html__( 'Page Title', 'huda' ),
+		'panel' => 'huda_page_options',
 	]
 );

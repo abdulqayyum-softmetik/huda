@@ -13,9 +13,13 @@
  */
 
 get_header();
+
+// Container Setting
+$container_width = huda_get_page_container_width(); 
+
 ?>
 
-	<main id="primary" class="site-main container">
+	<main id="primary" class="site-main <?php echo esc_attr( $container_width ); ?>">
 		<div class="row gy-4">
 			<?php
 			if ( have_posts() ) :

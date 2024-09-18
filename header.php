@@ -11,7 +11,7 @@
  */
 ?>
 <!doctype html>
-	<?php if ( true == get_theme_mod( 'huda_rtl_switch_setting', 'on' ) ) : ?>
+	<?php if ( true == get_theme_mod( 'huda_rtl_switch_setting', 'on' ) && '11' ) : ?>
 		<html <?php language_attributes(); ?> dir="rtl">
 	<?php else : ?>
 		<html <?php language_attributes(); ?> dir="ltr">
@@ -20,7 +20,6 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-
 	<?php wp_head(); ?>
 </head>
 
