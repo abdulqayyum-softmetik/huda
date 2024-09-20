@@ -8,6 +8,8 @@ footer{
             padding-bottom: 2.8em;
 
             a{
+                color: $color__white;
+
                 &:hover{
                     color: $color__accent;
                 }
@@ -26,15 +28,93 @@ footer{
                 }
             }
 
-            .wpcf7-form{
-                p{
-                    position: relative;
+            ul{
+                @include flex-column;
+                gap: 0.80em;
 
-                    .wpcf7-submit{
-                        position: absolute;
-                        top: 38%;
-                        right: 0;
-                        transform: translate(-50%, -44%);
+                li{
+                    &.current-cat{
+                        a{
+                            color: $color__accent;
+                        }
+                    }
+                }
+            }
+
+            .widget{
+                &.widget_ninja_forms_widget{
+                    @media (max-width: 575px){
+                        margin-top: 1.8em;
+                    }
+                }
+            } 
+
+            .nf-form-content{
+                padding: 0;
+            }
+
+            nf-fields-wrap{
+                position: relative;
+
+                .submit-container{
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+
+                    .nf-field-element{
+                        position: relative;
+                        
+                        &::before{
+                            content: '';
+                            position: absolute;
+                            left: 0;
+                            top: 50%;
+                            transform: translate(-50%, -50%);
+                            width: 0.90px;
+                            height: 18px;
+                            background-color: $color__border-abbr;
+                        }
+
+                        input{
+                            color: $color__accent;
+                            background-color: inherit;
+                        }
+                    }
+
+                   
+                }
+               
+            }
+
+            .nf-form-wrap {
+                height: 54px;
+            }
+
+            .nf-field-container {
+                .nf-field-label{
+                    display: none;
+                    @media (max-width: 575px){
+                        width: auto;
+                    }
+                }
+            } 
+
+            nf-errors{
+                .nf-error-field-errors{
+                    display: none;
+                }
+            }
+
+            .nf-response-msg{
+                p{
+                    color: $color__success;
+                }
+            }
+
+            span{
+                &.nf-form-title{
+                    h3{
+                        color: $color__white;
                     }
                 }
             }

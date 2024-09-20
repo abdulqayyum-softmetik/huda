@@ -268,10 +268,18 @@ p.stars {
 .woocommerce-ordering{
 	float: right;
 
+	@media(max-width: 575px){
+		width: 100%;
+	}
+
 	select{
 		border: 0;
 		padding: 0.625em 0.75em;
 		border-right: 10px solid transparent;
+
+		@media(max-width: 575px){
+			width: 100%;
+		}
 	}
 }
 
@@ -338,6 +346,18 @@ p.no-comments {
 		color: $color__accent;
 	}
 }
+
+.woocommerce{
+	h2{
+		text-align: center;
+	}
+	form{
+		&.woocommerce-form-login{
+			background-color: $color__white;
+		}
+	}
+}
+
 
 @media screen and (min-width: 48em) {
 

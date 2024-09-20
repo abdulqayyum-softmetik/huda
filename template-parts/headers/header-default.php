@@ -1,17 +1,9 @@
-<?php 
-	// Check if Kirki and get_theme_mod() functions exist
-    if ( function_exists('get_theme_mod') ) {
-		// Sidebar layout variable
-		$logo_light = get_theme_mod('logo_secondary_setting_url', ''); 
-    }
-?>
-
 <header class="header-main">
     <nav>
         <div class="container-fluid">
             <div class="position-relative gap-4" id="main-menu">
-                <div class="row">
-                    <div class="col-lg-10 col-md-10 col-12">
+                <div class="row justify-content-between">
+                    <div class="col-lg-9 col-md-8 col-6">
                         <div class="d-flex align-items-center gap-3">
                             <?php get_template_part( 'template-parts/components/offcanvas', 'main' ); ?>
                             <?php 
@@ -42,7 +34,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-md-2 col-2">
+                    <div class="col-lg-3 col-md-4 col-4">
                         <div class="d-flex align-items-center justify-content-end gap-3">
                             <div>
                                 <?php get_template_part( 'template-parts/components/offcanvas', 'search' ); ?>

@@ -117,8 +117,8 @@ function huda_register_required_plugins() {
 			'required'  => false,
 		),
 		array(
-			'name'        => 'Contact Form 7',
-			'slug'        => 'contact-form-7',
+			'name'        => 'Ninja Forms',
+			'slug'        => 'ninja-forms',
 			'required'  => false,
 		),
 		// This is an example of the use of 'is_callable' functionality. A user could - for instance -

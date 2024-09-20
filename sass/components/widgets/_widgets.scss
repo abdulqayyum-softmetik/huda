@@ -1,10 +1,29 @@
 .widget {
-	margin: 0 0 1.5em;
+	margin: 0 0 0;
 
 	// Make sure select elements fit in widgets.
 	select {
 		max-width: 100%;
 	}
+
+    &.widget_text{
+        a{
+            color: $color__accent !important;
+        }
+    }
+}
+
+.offcanvas{
+    &.main{
+        .offcanvas-header{
+            border-bottom: 1px solid $color__border-abbr;
+        }
+
+        .offcanvas-footer{
+            padding: 1em;
+            border-top: 1px solid $color__border-abbr;
+        }
+    }
 }
 
 aside{

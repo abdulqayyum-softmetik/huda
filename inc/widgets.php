@@ -16,17 +16,7 @@ function huda_widgets_init() {
 			'after_title'   => '</h2>',
 		)
 	);
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'Footer Copyright', 'huda' ),
-			'id'            => 'footer-copyright',
-			'description'   => esc_html__( 'Add widgets here.', 'huda' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
+	
 	register_sidebar(
 		array(
 			'name'          => esc_html__( 'Footer Branding Widget', 'huda' ),
@@ -109,6 +99,29 @@ function huda_widgets_init() {
 			'name'          => esc_html__( 'Footer Newsletter Widget', 'huda' ),
 			'id'            => 'footer-widget-8',
 			'description'   => esc_html__( '', 'huda' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Copyright', 'huda' ),
+			'id'            => 'copyright',
+			'description'   => esc_html__( 'Add widgets here.', 'huda' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Social Accounts', 'huda' ),
+			'id'            => 'social-widget',
+			'description'   => esc_html__( 'Add widgets here.', 'huda' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',

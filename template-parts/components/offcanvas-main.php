@@ -2,24 +2,48 @@
   <i class="ri-menu-2-line"></i>
 </a>
 
-<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasSidebar" aria-labelledby="offcanvasSidebarLabel">
+<div class="offcanvas main offcanvas-end" tabindex="-1" id="offcanvasSidebar" aria-labelledby="offcanvasSidebarLabel">
   <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasSidebarLabel">What are you looking</h5>
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    <h5 class="offcanvas-title" id="offcanvasSidebarLabel">
+        <?php 
+          if( function_exists('the_custom_logo') && has_custom_logo() ) : 
+              the_custom_logo();
+
+              else:
+                ?>
+                    <div class="site-title">
+                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+                    </div>
+                    <p><?php bloginfo( 'description' ); ?></p>
+                <?php
+          endif;
+        ?>
+    </h5>
+    <div type="button" class="btn-close m-0" data-bs-dismiss="offcanvas" aria-label="Close"></div>
+    
   </div>
   <div class="offcanvas-body">
-    <div>
-      Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
-    </div>
-    <div class="dropdown mt-3">
-      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-        Dropdown button
-      </button>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Action</a></li>
-        <li><a class="dropdown-item" href="#">Another action</a></li>
-        <li><a class="dropdown-item" href="#">Something else here</a></li>
-      </ul>
+      <div class="">
+          <?php
+              wp_nav_menu(array(
+                  'theme_location' => 'main-menu',
+                  'container' => false,
+                  'menu_class' => '',
+                  'fallback_cb' => '__return_false',
+                  'items_wrap' => '<ul id="%1$s" class="d-flex flex-column justify-content-start me-0 pe-0 gap-3 %2$s">%3$s</ul>',
+                  'depth' => 2,
+                  'walker' => new bootstrap_5_wp_nav_menu_walker()
+              ));
+          ?>
+      </div>
+
+      
+
+  </div>
+  <div class="offcanvas-footer">
+    <div class="d-flex align-items-center justify-content-between">
+      <?php dynamic_sidebar( 'social-widget' ); ?>
+      <?php dynamic_sidebar( 'copyright ' ); ?>
     </div>
   </div>
 </div>
