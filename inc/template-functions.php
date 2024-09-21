@@ -123,7 +123,7 @@ add_action('huda_comments','huda_comments_content');
             <div class="row">
                 <?php while ( have_posts() ) : the_post(); ?>
 
-                    <div class="<?php echo $sidebar_layout == "sidebar" ? 'col-lg-8' : 'col-lg-12 col-md-12 col-12'  ?>">
+                    <div class="<?php echo esc_attr( $sidebar_layout == "sidebar" ? 'col-lg-8' : 'col-lg-12 col-md-12 col-12' )  ?>">
                         <?php
                             // Display single post content
                             get_template_part( 'template-parts/content', get_post_type() ); 
@@ -138,7 +138,7 @@ add_action('huda_comments','huda_comments_content');
                         ?>
                     </div>
 
-                    <div class="<?php echo $sidebar_layout == "sidebar" ? 'col-lg-4' : ''  ?>">
+                    <div class="<?php echo esc_attr( $sidebar_layout == "sidebar" ? 'col-lg-4' : '' ) ?>">
                         <?php
                             if( $sidebar_layout == "sidebar" ) :
                                 ?>

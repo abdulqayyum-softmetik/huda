@@ -254,7 +254,7 @@ a {
   text-decoration: none;
 }
 a:visited {
-  color: currentColor;
+  color: inherit;
 }
 a:hover, a:focus, a:active {
   color: #191970;
@@ -506,7 +506,7 @@ header.header-main .woo-cart-count {
 }
 .single-post-navigation-wrapper {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 1em;
 }
@@ -597,7 +597,7 @@ nav.previous-post a.link, nav.next-post a.link {
   padding: 1em;
   background-color: #FFFFFE;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
 }
 .single-post-navigation-wrapper a {
@@ -627,7 +627,6 @@ nav.previous-post a.link, nav.next-post a.link {
   background-color: #FFFFFE;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 .blog article header,
 .archive article header,
@@ -864,7 +863,7 @@ article.search .post-content {
   border-radius: 0;
   background-color: #FFFFFE;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
 }
 .social-share-box .h3 {
@@ -960,7 +959,6 @@ article.search .post-content {
 .comments-area ol.comment-list li.comment article.comment-body footer.comment-meta {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   gap: 0.4em;
 }
 .comments-area ol.comment-list li.comment article.comment-body footer.comment-meta .comment-author.vcard img {
@@ -988,7 +986,6 @@ article.search .post-content {
   float: left;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 .comments-area .comment-respond form.comment-form .comment-form-author label,
 .comments-area .comment-respond form.comment-form .comment-form-email label,
@@ -1035,6 +1032,9 @@ aside {
   height: 100%;
   padding-left: 1em;
   border-left: 1px solid rgba(102, 112, 133, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
 }
 aside.widget-area {
   position: sticky;
@@ -1279,7 +1279,6 @@ footer.footer-main .footer-content p:hover, footer.footer-main .footer-content a
 footer.footer-main .footer-content ul {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   gap: 0.8em;
 }
 footer.footer-main .footer-content ul li.current-cat a {

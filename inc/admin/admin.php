@@ -8,7 +8,7 @@ function huda_admin_page() {
         'manage_options',  
         'wp-huda', 
         'wp_huda_admin_page_callback',
-        get_template_directory_uri() . '/assets/images/admin-images/huda_icon.svg',
+        get_template_directory_uri() . '/assets/images/admin-images/admin_logo.svg',
         2 
     );
 }
@@ -24,7 +24,7 @@ function wp_huda_admin_page_callback() {
     <nav class="navbar navbar-expand-lg bg-blue border-bottom">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/admin-images/huda_admin_logo.svg" alt="Huda Image">
+                <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/admin-images/huda_admin_logo.svg" alt="Huda Image">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>

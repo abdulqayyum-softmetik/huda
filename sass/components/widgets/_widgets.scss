@@ -31,6 +31,8 @@ aside{
     height: 100%;
     padding-left: 1em;
 	border-left: 1px solid $color__border-abbr;
+    @include flex-column;
+    gap: 1em;
 
     &.widget-area{
         position: sticky;

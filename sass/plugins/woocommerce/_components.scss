@@ -29,14 +29,11 @@
  */
 .woocommerce-mini-cart-item {
 	&.mini_cart_item{
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
+	
+		@include flex-between;
 
 		a{
-			display: flex;
-			align-items: center;
-			justify-content: space-between;	
+			@include flex-between;
 		}
 
 		.woocommerce-mini-cart__total{
@@ -347,16 +344,90 @@ p.no-comments {
 	}
 }
 
-.woocommerce{
-	h2{
-		text-align: center;
-	}
-	form{
-		&.woocommerce-form-login{
-			background-color: $color__white;
+/**
+* My Account
+*/
+.woocommerce-page{
+	.woocommerce{
+		@include flex-start;
+		gap: 2.2em;
+	
+		form{
+			&.woocommerce-form-login{
+				background-color: $color__white;
+			}
+		}
+	
+		nav{
+			&.woocommerce-MyAccount-navigation{
+				width: 22%;
+				background: $color__white;
+	
+				ul{
+					@include flex-column;
+					gap: 1em;
+	
+					li{
+						padding: 0.6em 1em;
+	
+						&.is-active{
+							font-weight: 500;
+							color: $color__accent;
+							border-bottom: 1px solid $color__border-abbr;
+						}
+					}
+				}
+			}
+		}
+	
+		.woocommerce-MyAccount-content{
+			width: 100%;
+			padding: 0 1.4em;
+	
+			form{
+				p{
+					&.woocommerce-form-row{
+						float: left;
+						@include flex-column;
+					}
+					
+				}
+	
+				fieldset{
+					width: 100%;
+	
+					input{
+						width: 100%;
+					}
+				}
+			}
+	
+			.woocommerce-info{
+				width: 100%;
+				padding: 1em;
+				@include flex-between;
+				align-items: center;
+				background: $color__white;
+				border-top: 2px solid $color__black;
+	
+				a{
+					&.woocommerce-Button,
+					&.wc-forward{
+						color: $color__white;
+						border: 1px solid $color__black;
+	
+						&:hover{
+							color: $color__black;
+							background: $color__white;
+						}
+					}
+				}
+				
+			}
 		}
 	}
 }
+
 
 
 @media screen and (min-width: 48em) {

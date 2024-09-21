@@ -2,9 +2,8 @@
     padding-left: 0;
 }
 #adminmenu .wp-menu-image img {
-    padding: 6px 0 0 !important;
-    opacity: .6;
-    max-width: 16px !important;
+    max-width: 18px;
+    opacity: 100%;
 }
 .custom-cards-container {
     display: flex;
