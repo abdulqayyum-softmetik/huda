@@ -50,23 +50,22 @@ add_action( 'wp_head', 'huda_pingback_header' );
         <div id="comments" class="comments-area">
 
             <?php
-            // You can start editing here -- including this comment!
+            // Always display the comment form
+            comment_form();
+
+            // Check if there are comments
             if ( have_comments() ) :
                 ?>
 
-                <?php comment_form(); ?>
-                
                 <h2 class="comments-title">
                     <?php
                         $huda_comment_count = get_comments_number();
                         if ( '1' === $huda_comment_count ) {
                             printf(
-                                /* translators: %s: comment count number */
                                 esc_html__( '1 Comment', 'huda' )
                             );
                         } else {
                             printf(
-                                /* translators: %s: comment count number */
                                 esc_html(
                                     _nx(
                                         '%1$s Comment',
@@ -95,20 +94,19 @@ add_action( 'wp_head', 'huda_pingback_header' );
                     ?>
                 </ol><!-- .comment-list -->
 
-                <?php
-                the_comments_navigation();
+                <?php the_comments_navigation(); ?>
 
-                // If comments are closed and there are comments, let's leave a little note, shall we?
-                if ( ! comments_open() ) :
+            <?php endif; // Check for have_comments() ?>
+
+            <?php
+                // If comments are closed and there are no comments, display a "comments closed" message
+                if ( ! comments_open() && ! have_comments() ) :
                     ?>
                     <p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'huda' ); ?></p>
                     <?php
                 endif;
-
-            endif; // Check for have_comments().
             ?>
-
-            </div><!-- #comments -->
+        </div><!-- .comments-area -->
     <?php
 }
 // Adding the function into a custom hook
@@ -332,3 +330,14 @@ add_action('huda_comments','huda_comments_content');
         <?php
     }
     add_action('huda_404','huda_404_content');
+
+
+    function huda_customize_remove_panels( $wp_customize ) {
+        // Remove the default "Colors" panel
+        $wp_customize->remove_section( 'colors' );
+    
+        // You can also remove individual controls if needed:
+        $wp_customize->remove_section( 'background_image' ); // Example for background color control
+    }
+    add_action( 'customize_register', 'huda_customize_remove_panels', 20 );
+    

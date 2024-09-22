@@ -5,6 +5,26 @@
 *======================
 */
 
+/* Header Options Panel */
+new \Kirki\Panel(
+	'huda_header_options',
+	[
+		'priority'    => 10,
+		'title'       => esc_html__( 'Header', 'huda' ),
+		'description' => esc_html__( '', 'huda' ),
+	]
+);
+
+/* Header Options Panel */
+new \Kirki\Panel(
+	'huda_footer_options',
+	[
+		'priority'    => 10,
+		'title'       => esc_html__( 'Footer', 'huda' ),
+		'description' => esc_html__( '', 'huda' ),
+	]
+);
+
 /* Global Options Panel */
 new \Kirki\Panel(
 	'huda_global_options',

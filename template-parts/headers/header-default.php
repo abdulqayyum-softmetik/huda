@@ -1,6 +1,13 @@
+<?php 
+/**
+ * Header Default
+ *
+ */
+$container_width = huda_get_header_container_width(); 
+?>
 <header class="header-main">
     <nav>
-        <div class="container-fluid">
+        <div class="<?php echo esc_attr( $container_width ); ?>">
             <div class="position-relative gap-4" id="main-menu">
                 <div class="row justify-content-between">
                     <div class="col-lg-9 col-md-8 col-6">

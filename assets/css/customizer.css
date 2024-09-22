@@ -50,3 +50,11 @@
     border-radius: 2px;
     border: 1px dashed #849EEC;
 }
+
+.customize-control-kirki-react-colorful .kirki-control-form *{
+    font-weight: bold;
+}
+
+.customize-control-kirki-react-colorful .kirki-control-cols {
+    align-items: center;
+}

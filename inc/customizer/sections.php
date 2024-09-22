@@ -6,6 +6,45 @@
 */
 
 /* 
+* Huda Header Layout Section
+*/
+new \Kirki\Section(
+	'huda_header_section',
+	[
+		'title' => esc_html__( 'Header Options', 'huda' ),
+		'panel' => 'huda_header_options',
+		'tabs'  => [
+			'general' => [
+				'label' => esc_html__( 'General', 'huda' ),
+			],
+			'design'  => [
+				'label' => esc_html__( 'Design', 'huda' ),
+			],
+		],
+	]
+);
+
+
+/* 
+* Huda Footer Layout Section
+*/
+new \Kirki\Section(
+	'huda_footer_section',
+	[
+		'title' => esc_html__( 'Footer Options', 'huda' ),
+		'panel' => 'huda_footer_options',
+		'tabs'  => [
+			'general' => [
+				'label' => esc_html__( 'General', 'huda' ),
+			],
+			'design'  => [
+				'label' => esc_html__( 'Design', 'huda' ),
+			],
+		],
+	]
+);
+
+/* 
 * Huda Global Site Container Section 
 */
 new \Kirki\Section(
