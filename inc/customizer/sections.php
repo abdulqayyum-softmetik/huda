@@ -127,6 +127,15 @@ new \Kirki\Section(
 	]
 );
 
+new \Kirki\Section(
+	'huda_blog_post_card_section',
+	[
+		'title' => esc_html__( 'Article Card', 'huda' ),
+		'panel' => 'huda_blog_options',
+	]
+);
+
+
 /* 
 * Huda Page Section
 */

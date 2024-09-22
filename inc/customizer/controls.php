@@ -878,6 +878,110 @@ new \Kirki\Field\Radio_Image(
 	]
 );
 
+new \Kirki\Pro\Field\Padding(
+	[
+		'settings'   => 'huda_blog_article_card_padding',
+		'label'      => esc_html__( 'Article Card Padding', 'huda' ),
+		'section'    => 'huda_blog_post_card_section',
+		'tab' => 'design',
+		'responsive' => true,
+		'default'     => [
+            'desktop' => [
+                'top'    => '12',
+                'right'  => '12',
+                'bottom' => '12',
+                'left'   => '12',
+            ],
+            'tablet'  => [
+                'top'    => '12',
+                'right'  => '12',
+                'bottom' => '12',
+                'left'   => '12',
+            ],
+            'mobile'  => [
+                'top'    => '12',
+                'right'  => '12',
+                'bottom' => '12',
+                'left'   => '12',
+            ],
+        ],
+		'transport'   => 'postMessage',
+		'tooltip'     => esc_html__( 'Article Card Padding', 'huda' ),
+		'choices'     => [
+			'unit' => 'px',
+		],
+		'output' => [
+			[
+				'element'     => '.blog article, .archive article, .category article, .search article, .related-posts article',
+				'media_query' => [
+					'desktop' => '@media (min-width: 1024px)',
+					'tablet'  => '@media (min-width: 768px) and (max-width: 1023px)',
+					'mobile'  => '@media (max-width: 767px)',
+				],
+			],
+		],
+		'transport'   => 'auto',
+	]
+);
+
+new \Kirki\Field\Color(
+	[
+		'settings'    => 'blog_card_bg_color',
+		'label'       => __( 'Article card background color', 'huda' ),
+		'description' => esc_html__( '', 'huda' ),
+		'section'     => 'huda_blog_post_card_section',
+		'default'     => '#FFFFFE',
+		'choices'     => [
+			'alpha' => true,
+		],
+		'output' => array(
+			array(
+				'element'  => '.blog article, .archive article, .category article, .search article, .related-posts article',
+				'property' => 'background-color',
+			)
+		),
+	]
+);
+
+new \Kirki\Field\Color(
+	[
+		'settings'    => 'blog__card_read_more_bg_color',
+		'label'       => __( 'Read More background color', 'huda' ),
+		'description' => esc_html__( '', 'huda' ),
+		'section'     => 'huda_blog_post_card_section',
+		'default'     => '#0F0E17',
+		'choices'     => [
+			'alpha' => true,
+		],
+		'output' => array(
+			array(
+				'element'  => '.btn.btn-read-more-arrow',
+				'property' => 'background-color',
+			)
+		),
+	]
+);
+
+new \Kirki\Field\Color(
+	[
+		'settings'    => 'blog__card_read_more_bg_color_hover',
+		'label'       => __( 'Read More background color hover', 'huda' ),
+		'description' => esc_html__( '', 'huda' ),
+		'section'     => 'huda_blog_post_card_section',
+		'default'     => '#5081FF',
+		'choices'     => [
+			'alpha' => true,
+		],
+		'output' => array(
+			array(
+				'element'  => '.btn.btn-read-more-arrow:hover',
+				'property' => 'background-color',
+			)
+		),
+	]
+);
+
+
 new \Kirki\Field\Radio_Image(
 	[
 		'settings'    => 'blog__sidebar_layout__setting',
