@@ -105,7 +105,6 @@ i {
 blockquote {
   margin: 0 1.5em;
   padding: 1em;
-  border-radius: 12px;
   background: #FFFFFE;
 }
 blockquote p {
@@ -419,9 +418,12 @@ header.header-main nav ul li a.nav-link.active {
   font-weight: 500;
   color: #5081FF;
 }
-header.header-main nav ul li ul.dropdown-menu li a.dropdown-item {
+header.header-main nav ul li ul.dropdown-menu li a {
   text-align: left;
-  color: #0F0E17;
+}
+header.header-main nav ul li ul.dropdown-menu li a.active {
+  color: #FFFFFE;
+  background-color: #5081FF;
 }
 header.header-main nav .dropdown:hover .dropdown-menu {
   display: block;
@@ -429,7 +431,7 @@ header.header-main nav .dropdown:hover .dropdown-menu {
 }
 header.header-main nav i, header.header-main nav svg, header.header-main nav span,
 header.header-main nav .fa-shopping-cart {
-  font-size: 20px;
+  font-size: 1.25em;
   color: #0F0E17;
 }
 header.header-main .buy-button {
@@ -815,7 +817,7 @@ nav.previous-post a.link, nav.next-post a.link {
   height: 520px;
   background-color: rgba(0, 0, 0, 0.9);
   z-index: 2;
-  border-radius: 20px;
+  border-radius: 1.25em;
   pointer-events: none;
 }
 .single main .nav-previous {
@@ -923,6 +925,16 @@ article.search .post-content {
   background: #F4F4F4;
 }
 
+body.search form.huda-search-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+}
+body.search form.huda-search-form input {
+  padding: 0.5em 1.5em;
+}
+
 /* Comments
 --------------------------------------------- */
 .comment-content a {
@@ -953,7 +965,7 @@ article.search .post-content {
 .comments-area ol.comment-list li.comment article.comment-body .reply a::before {
   content: "\f07a";
   font-family: "remixicon";
-  font-size: 20px;
+  font-size: 1.25em;
   margin-right: 0.1em;
 }
 .comments-area ol.comment-list li.comment article.comment-body footer.comment-meta {
@@ -1005,6 +1017,10 @@ article.search .post-content {
 }
 .comments-area .comment-respond form.comment-form .comment-form-url {
   width: 100%;
+}
+
+footer.entry-footer {
+  margin-top: 1em;
 }
 
 /* Widgets

@@ -114,7 +114,11 @@
 			
 			<?php 
 				if( is_singular() ) :
-				get_template_part( 'inc/post', 'navigation' );
+					?>
+						<div class="single-post-navigation-wrapper">
+							<?php get_template_part( 'inc/post', 'navigation' ); ?>
+						</div>
+					<?php
 			?>
 			<?php else : ?>
 				<footer class="entry-footer">

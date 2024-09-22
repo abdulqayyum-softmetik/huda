@@ -29,10 +29,6 @@
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<div class="entry-summary">
-		<?php the_excerpt(); ?>
-	</div><!-- .entry-summary -->
-
 	<footer class="entry-footer">
 		<div class="d-flex align-items-center justify-content-between">
 			<div class="read-time">

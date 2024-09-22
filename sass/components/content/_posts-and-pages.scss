@@ -162,7 +162,7 @@
 						height: 520px;
 						background-color: rgba(0, 0, 0, 0.9);
 						z-index: 2;
-						border-radius: 20px;
+						border-radius: 1.25em;
 						pointer-events: none;
 					}
 				}
@@ -295,3 +295,19 @@ article{
 		}
 	}
 }
+
+body{
+	&.search {
+		form{
+			&.huda-search-form{
+				@include flex-center;
+				gap: 1em;
+
+				input{
+					padding: 0.5em 1.5em;
+				}
+			}
+		}
+	}
+}
+

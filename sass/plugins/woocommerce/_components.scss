@@ -351,29 +351,33 @@ p.no-comments {
 	.woocommerce{
 		@include flex-start;
 		gap: 2.2em;
-	
-		form{
-			&.woocommerce-form-login{
-				background-color: $color__white;
-			}
+
+		@media (max-width: $breakpoint-xlarge){
+			flex-wrap: wrap;
 		}
 	
 		nav{
 			&.woocommerce-MyAccount-navigation{
-				width: 22%;
+				width: 25%;
+				height: 100%;
+				padding: 0.6em 1em;
 				background: $color__white;
+
+				@media (max-width: $breakpoint-xlarge){
+					width: 100%;
+				}
 	
 				ul{
 					@include flex-column;
-					gap: 1em;
+					gap: 0.60em;
 	
 					li{
-						padding: 0.6em 1em;
+						padding: 0.6em 1em 0.6em 0;
 	
 						&.is-active{
 							font-weight: 500;
 							color: $color__accent;
-							border-bottom: 1px solid $color__border-abbr;
+							border-bottom: 1px solid $color__accent;
 						}
 					}
 				}
@@ -383,23 +387,83 @@ p.no-comments {
 		.woocommerce-MyAccount-content{
 			width: 100%;
 			padding: 0 1.4em;
+
+			.addresses{
+				.col-1, .col-2{
+					width: 100%;
+				}
+			}
 	
 			form{
 				p{
 					&.woocommerce-form-row{
 						float: left;
+						width: 50%;
 						@include flex-column;
+						gap: 0.8em;
+
+						input{
+							width: 96%;
+						}
 					}
 					
 				}
 	
 				fieldset{
 					width: 100%;
-	
-					input{
-						width: 100%;
+				}
+
+				.woocommerce-address-fields__field-wrapper{
+					.form-row{
+						@include flex-column;
+						align-items: flex-start;
+						float: left;
+						width: 50%;
+						gap: 0.4em;
+
+						&#billing_address_1_field,
+						&#billing_address_2_field,
+						&#billing_postcode_field{
+							width: 100%;
+
+							input{
+								width: 100%;
+							}
+						}
+
+						span{
+							&.woocommerce-input-wrapper,input{
+								width: 96%;
+							}
+						}
+
+						select{
+							padding: 0.375em 0.75em;
+						}
+
+						.select2-container{
+							width: 96% !important;
+
+						}
+
+						.select2-container--default{
+							.select2-selection--single{
+								height: 2.375em !important;
+								border-radius: 0 !important;
+								border: 1px solid $color__border-abbr !important;
+
+								.select2-selection__rendered{
+									line-height: 2.375em !important;
+								}
+
+								.select2-selection__arrow{
+									height: 2.375em !important;
+								}
+							}
+						} 
 					}
 				}
+
 			}
 	
 			.woocommerce-info{
@@ -425,9 +489,142 @@ p.no-comments {
 				
 			}
 		}
+
+		.woocommerce-MyAccount-navigation-link--customer-logout{
+			@include flex-center;
+			margin-top: 1em;
+			cursor: pointer;
+			background: $color__black;
+			border: 1px solid $color__black;
+			transition: 0.3s ease-in;
+
+			&:hover{
+				background: $color__white;
+
+				a{
+					color: $color__black;
+				}
+
+				&::before{
+					color: $color__black;
+				}
+			}
+
+			a{
+				color: $color__white;
+			}
+
+			&::before{
+				content: "\EED8";
+				font-family: "remixicon";
+				font-size: 1.25em;
+				color: $color__white;
+				margin-right: 0.3em;
+
+				
+			}
+		}
+
+		.woocommerce-login-wrapper{
+			width: 100%;
+			max-width: 50%;
+			margin: 0 auto;
+			@include flex-column;
+			align-items: center;
+			justify-content: space-between;
+			background-color: $color__white;
+			padding: 1.6em 4em;
+
+			@media (max-width: $breakpoint-large){
+				max-width: 100%;
+			}
+
+			h2{	
+				width: 100%;
+				text-align: center;
+				padding-bottom: 0.8em;
+				border-bottom: 1px solid $color__border-abbr;
+			}
+
+			form{
+				width: 100%;
+				padding-top: 2em;
+
+				p{
+					&.woocommerce-form-row{
+						@include flex-column;
+						width: 100%;
+
+						input{
+							width: 100%;
+						}
+					}
+				}
+
+				.form-row{
+					@include flex-column;
+					flex-direction: column-reverse;
+					gap: 1em;
+
+					button{
+						width: max-content;
+						margin: auto;
+					}
+				}
+			}
+		}
+
+		a{
+			&.edit{
+				&::before{
+					content: "\ECDB";
+					font-family: "remixicon";
+					font-size: 1.25em;
+					margin-right: 0.1em;
+				}
+			}
+		}
+
+		
 	}
 }
 
+body{
+
+	&.woocommerce-lost-password{
+		article{
+			width: 100%;
+			max-width: 50%;
+			margin: 0 auto;
+			@include flex-column;
+			align-items: center;
+			justify-content: space-between;
+			background-color: $color__white;
+			padding: 1.6em 4em;
+
+			@media (max-width: $breakpoint-large){
+				max-width: 100%;
+			}
+
+			form{
+
+				p{
+					text-align: left;
+				}
+
+				.woocommerce-form-row{
+					@include flex-column;
+					gap: 0.4em;
+				}
+				
+				button{
+					width: max-content;
+					margin: 0 auto;
+				}
+			}
+		}
+	}
+}
 
 
 @media screen and (min-width: 48em) {

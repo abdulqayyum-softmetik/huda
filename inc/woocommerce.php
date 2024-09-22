@@ -109,6 +109,20 @@ remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wr
 remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
 
 /**
+ * Adding wrapper inside login form.
+ */
+function huda_woocommerce_login_wrapper_start() {
+    echo '<div class="woocommerce-login-wrapper">';
+}
+add_action( 'woocommerce_before_customer_login_form', 'huda_woocommerce_login_wrapper_start' );
+
+function huda_woocommerce_login_wrapper_end() {
+    echo '</div><!-- End of custom login wrapper -->';
+}
+add_action( 'woocommerce_after_customer_login_form', 'huda_woocommerce_login_wrapper_end' );
+
+
+/**
  * Remove default WooCommerce Sidebar.
  */
 remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );

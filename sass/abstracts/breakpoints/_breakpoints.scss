@@ -1,0 +1,40 @@
+$breakpoint-small: 576px;
+$breakpoint-medium: 768px;
+$breakpoint-large: 992px;
+$breakpoint-xlarge: 1200px;
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == small {
+    @media (max-width: $breakpoint-small) { @content; }
+  }
+  @else if $breakpoint == medium {
+    @media (max-width: $breakpoint-medium) { @content; }
+  }
+  @else if $breakpoint == large {
+    @media (min-width: $breakpoint-large) { @content; }
+  }
+  @else if $breakpoint == xlarge {
+    @media (min-width: $breakpoint-xlarge) { @content; }
+  }
+}
+
+// .container {
+//   width: 100%;
+//   padding: 20px;
+
+//   @include respond-to(small) {
+//     padding: 10px;
+//   }
+
+//   @include respond-to(medium) {
+//     padding: 15px;
+//   }
+
+//   @include respond-to(large) {
+//     padding: 30px;
+//   }
+
+//   @include respond-to(xlarge) {
+//     padding: 40px;
+//   }
+// }

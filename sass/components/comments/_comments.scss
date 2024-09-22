@@ -37,7 +37,7 @@
 									&::before{
 										content: '\F07A';
 										font-family: "remixicon";
-										font-size: 20px;
+										font-size: 1.25em;
 										margin-right: 0.1em;
 									}
 								}
@@ -120,4 +120,10 @@
 		}
 	}
 	
+}
+
+footer{
+	&.entry-footer{
+		margin-top: 1em;
+	}
 }

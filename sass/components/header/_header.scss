@@ -46,9 +46,12 @@ header.header-main{
 
                 ul.dropdown-menu{
                     li {
-                        a.dropdown-item{
+                        a{
                             text-align: left;
-                            color: $color__black;
+                            &.active{
+                                color: $color__white;
+                                background-color: $color__accent;
+                            }
                         }
                     }
                 }
@@ -68,7 +71,7 @@ header.header-main{
 
         i, svg, span, 
         .fa-shopping-cart{
-            font-size: 20px;
+            font-size: 1.25em;
             color: $color__black;
         }
     }
