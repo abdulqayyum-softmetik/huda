@@ -92,7 +92,7 @@ new \Kirki\Field\Checkbox_Switch(
 new \Kirki\Field\URL(
 	[
 		'settings' => 'header_button_url_setting',
-		'label'    => esc_html__( 'Header button url', 'kirki' ),
+		'label'    => esc_html__( 'Header button url', 'huda' ),
 		'section'  => 'huda_header_section',
 		'default'  => '/',
 		'priority' => 10,
