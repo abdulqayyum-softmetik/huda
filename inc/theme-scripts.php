@@ -36,8 +36,9 @@ function huda_admin_enqueue() {
 	$screen = get_current_screen();
     if ( $screen->id === 'toplevel_page_wp-huda' ) {
         // Enqueue Bootstrap CSS for admin
-		wp_enqueue_style( 'remixicon', get_template_directory_uri() . '/assets/css/remixicon.css', array(), '4.3.0' ); 
 		wp_enqueue_style( 'huda-admin-styles', get_template_directory_uri() . '/assets/css/admin-style.css', array(), '1.0.0' ); 
+		wp_enqueue_script( 'huda-js', get_template_directory_uri() . '/assets/js/huda-admin.js', array(), _S_VERSION, true );
+
     }
 }
 add_action('admin_enqueue_scripts', 'huda_admin_enqueue');
