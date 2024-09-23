@@ -2,6 +2,8 @@ header.header-main{
     width: 100%;
     padding: 1em;
     background-color: $color__white;
+    z-index: 999;
+    transition: 0.3s all;
 
     .site-title{
         font-size: 2em;

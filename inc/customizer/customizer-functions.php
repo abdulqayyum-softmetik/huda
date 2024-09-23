@@ -43,5 +43,27 @@
                 return get_theme_mod('logo_secondary_setting_url', ''); 
             }
         }
+
+         // Function to get sidebar setting
+         if ( ! function_exists('huda_post_thumbnail') ) {
+            function huda_post_thumbnail() {
+                return get_theme_mod( 'huda_post_thumbnail_setting', 'on' );
+            }
+        }
+
+         // Function to get sidebar setting
+         if ( ! function_exists('huda_header_sticky_setting') ) {
+            function huda_header_sticky_setting() {
+                return get_theme_mod( 'huda_header_sticky', 'relative' );
+            }
+        }
+
+        // Function to get footer logo url setting
+        if ( ! function_exists('huda_header_button_url') ) {
+            function huda_header_button_url() {
+                return get_theme_mod('header_button_url_setting', ''); 
+            }
+        }
+        
     }
 ?>

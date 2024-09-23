@@ -125,10 +125,14 @@ add_action('huda_comments','huda_comments_content');
                         <?php
                             // Display single post content
                             get_template_part( 'template-parts/content', get_post_type() ); 
-
-                            // related articles
-                            related_articles();
                         ?>
+
+                        <?php if ( true == get_theme_mod( 'huda_related_post_setting', 'on' ) ) : ?>
+                            <?php related_articles(); ?>
+                        <?php else : ?>
+                            <?php // silence is golden ?>
+                        <?php endif; ?>
+
                         <?php
                             if ( comments_open() ) :
                                 comments_template();

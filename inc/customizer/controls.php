@@ -74,6 +74,31 @@ new \Kirki\Field\Dimension(
 /*
 * Header Control
 */
+new \Kirki\Field\Checkbox_Switch(
+	[
+		'settings'    => 'huda_header_sticky',
+		'label'       => esc_html__( 'Header Sticky', 'huda' ),
+		'description' => esc_html__( '', 'huda' ),
+		'section'     => 'huda_header_section',
+		'default'     => 'off',
+		'tab' => 'general',
+		'choices'     => [
+			'on'  => esc_html__( 'Enable', 'huda' ),		
+			'off' => esc_html__( 'Disable', 'huda' ),
+		],
+	]
+);
+
+new \Kirki\Field\URL(
+	[
+		'settings' => 'header_button_url_setting',
+		'label'    => esc_html__( 'Header button url', 'kirki' ),
+		'section'  => 'huda_header_section',
+		'default'  => '/',
+		'priority' => 10,
+	]
+);
+
 new \Kirki\Field\Radio_Image(
 	[
 		'settings'    => 'header__container__setting',
@@ -155,6 +180,27 @@ new \Kirki\Field\Color(
 
 new \Kirki\Field\Color(
 	[
+		'settings'    => 'huda_buy_button_color_bg',
+		'label'       => __( 'Buy Now background color', 'huda' ),
+		'description' => esc_html__( 'Buy Button background color', 'huda' ),
+		'section'     => 'huda_header_section',
+		'tab' => 'design',
+		'default'     => '#5081FF',
+        'choices'     => [
+            'alpha' => true,
+        ],
+		'output'      => [
+			[
+				'element' => 'header.header-main a.buy-button',
+				'property' => 'background'
+			],
+		],
+	]
+);
+
+
+new \Kirki\Field\Color(
+	[
 		'settings'    => 'header_background_color_setting_hex',
 		'label'       => __( 'Header Background color', 'huda' ),
 		'description' => esc_html__( 'Header Background Color', 'huda' ),
@@ -172,6 +218,23 @@ new \Kirki\Field\Color(
 
 new \Kirki\Field\Color(
 	[
+		'settings'    => 'woocommerce_cart_count_bg_color',
+		'label'       => __( 'Cart Count Background color', 'huda' ),
+		'description' => esc_html__( 'Header Cart Count Background color', 'huda' ),
+		'section'     => 'huda_header_section',
+		'default'     => '#5081FF',
+		'tab' => 'design',
+		'output'      => [
+			[
+				'element' => 'header.header-main .woo-cart-count',
+				'property' => 'background',
+			],
+		],
+	]
+);
+
+new \Kirki\Field\Color(
+	[
 		'settings'    => 'header_icons_color_setting_hex',
 		'label'       => __( 'Header Icons Color', 'huda' ),
 		'description' => esc_html__( 'Header Icons Color', 'huda' ),
@@ -181,6 +244,35 @@ new \Kirki\Field\Color(
 		'output'      => [
 			[
 				'element' => 'header.header-main nav i',
+			],
+		],
+	]
+);
+
+new \Kirki\Field\Typography(
+	[
+		'settings'    => 'header_button_typography_setting',
+		'label'       => esc_html__( 'Header button typography', 'huda' ),
+		'description' => esc_html__( '', 'huda' ),
+		'section'     => 'huda_header_section',
+		'priority'    => 10,
+		'transport'   => 'auto',
+		'tab' => 'design',
+		'default'     => [
+			'font-family'     => 'Oswald',
+			'variant'         => 'regular',
+			'font-style'      => 'normal',
+			'color'           => '#FFFFFE',
+			'font-size'       => '14px',
+			'line-height'     => '1.5',
+			'letter-spacing'  => '0',
+			'text-transform'  => 'none',
+			'text-decoration' => 'none',
+			'text-align'      => 'initial',
+		],
+		'output'      => [
+			[
+				'element' => 'header.header-main a.buy-button',
 			],
 		],
 	]
@@ -874,6 +966,34 @@ new \Kirki\Field\Radio_Image(
 		'choices'     => [
 			'container' => get_template_directory_uri() . '/assets/images/narrow-width.png',
 			'container-fluid'   => get_template_directory_uri() . '/assets/images/full-width.png',
+		],
+	]
+);
+
+new \Kirki\Field\Checkbox_Switch(
+	[
+		'settings'    => 'huda_post_thumbnail_setting',
+		'label'       => esc_html__( 'Display Post Thumbnail', 'huda' ),
+		'description' => esc_html__( '', 'huda' ),
+		'section'     => 'huda_blog_post_card_section',
+		'default'     => 'on',
+		'choices'     => [
+			'on'  => esc_html__( 'Enable', 'huda' ),		
+			'off' => esc_html__( 'Disable', 'huda' ),
+		],
+	]
+);
+
+new \Kirki\Field\Checkbox_Switch(
+	[
+		'settings'    => 'huda_related_post_setting',
+		'label'       => esc_html__( 'Display Related Posts', 'huda' ),
+		'description' => esc_html__( '', 'huda' ),
+		'section'     => 'huda_blog_post_card_section',
+		'default'     => 'on',
+		'choices'     => [
+			'on'  => esc_html__( 'Enable', 'huda' ),		
+			'off' => esc_html__( 'Disable', 'huda' ),
 		],
 	]
 );

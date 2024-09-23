@@ -392,6 +392,8 @@ header.header-main {
   width: 100%;
   padding: 1em;
   background-color: #FFFFFE;
+  z-index: 999;
+  transition: 0.3s all;
 }
 header.header-main .site-title {
   font-size: 2em;
@@ -1175,6 +1177,15 @@ body.search form.search-form {
 }
 body.search form.search-form input {
   padding: 12px 28px;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+}
+
+.relative {
+  position: relative;
 }
 
 /* Media

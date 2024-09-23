@@ -55,7 +55,13 @@
 					</div><!-- .entry-meta -->
 					
 			<?php endif;?>
-			<?php huda_post_thumbnail('medium'); ?>
+			
+			<?php if ( true == get_theme_mod( 'huda_post_thumbnail_setting', 'on' ) ) : ?>
+				<?php huda_post_thumbnail('medium'); ?>
+			<?php else : ?>
+				<?php // silence is golden ?>
+			<?php endif; ?>
+			
 			<?php
 			if ( 'post' === get_post_type() && !is_single() ) :
 					?>

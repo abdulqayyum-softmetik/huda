@@ -4,8 +4,10 @@
  *
  */
 $container_width = huda_get_header_container_width(); 
+$sticky_header = huda_header_sticky_setting();
+$button_url = huda_header_button_url();
 ?>
-<header class="header-main">
+<header class="header-main <?php echo $sticky_header == "on" ? 'sticky' : 'relative'; ?>">
     <nav>
         <div class="<?php echo esc_attr( $container_width ); ?>">
             <div class="position-relative gap-4" id="main-menu">
@@ -71,7 +73,7 @@ $container_width = huda_get_header_container_width();
                             </div>
                             
                             <div class="d-xl-block d-lg-block d-md-block d-none">
-                                <a href="" class="buy-button">Buy Huda</a>
+                                <a href="<?php echo esc_url( $button_url ); ?>" target="_blank" rel="no-follow" class="buy-button">Buy Huda</a>
                             </div>
 
                         </div>

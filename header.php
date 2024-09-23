@@ -11,7 +11,7 @@
  */
 ?>
 <!doctype html>
-	<?php if ( true == get_theme_mod( 'huda_rtl_switch_setting', 'on' ) && '11' ) : ?>
+	<?php if ( true == get_theme_mod( 'huda_rtl_switch_setting', 'on' ) ) : ?>
 		<html <?php language_attributes(); ?> dir="rtl">
 	<?php else : ?>
 		<html <?php language_attributes(); ?> dir="ltr">
