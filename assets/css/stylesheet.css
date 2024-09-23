@@ -1188,6 +1188,21 @@ body.search form.search-form input {
   position: relative;
 }
 
+.backto-top {
+  position: fixed;
+  width: 2.375em;
+  height: 2.375em;
+  bottom: 1em;
+  right: 1em;
+  background: #FFFFFE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.backto-top i {
+  font-size: 1.25em;
+}
+
 /* Media
 --------------------------------------------- */
 .page-content .wp-smiley,

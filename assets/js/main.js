@@ -96,6 +96,14 @@
 			menuItem.classList.toggle( 'focus' );
 		}
 	}
+
+	
+
 }() );
 
-
+window.addEventListener("load", (event) => {
+	const btnScrollToTop = document.querySelector("#scrollTop");
+	window.addEventListener('scroll', e => {
+		btnScrollToTop.style.display = window.scrollY > 50 ? 'block' : 'none';
+	})
+});

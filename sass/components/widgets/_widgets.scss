@@ -221,3 +221,17 @@ body{
 .relative{
     position: relative;
 }
+
+.backto-top{
+    position: fixed;
+    width: 2.375em;
+    height: 2.375em;
+    bottom: 1em;
+    right: 1em;
+    background: $color__white;
+    @include flex-center;
+
+    i{
+        font-size: 1.25em;
+    }
+}

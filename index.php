@@ -54,7 +54,13 @@ $container_width = huda_get_page_container_width();
 			endif;
 			?>
 		</div>
-
+		
+		<?php if ( true == get_theme_mod( 'back_to_top_switch_setting', 'on' ) ) : ?>
+			<?php echo huda_scroll_top(); ?>
+		<?php else : ?>
+			<?php // ?>
+		<?php endif; ?>
+		
 	</main><!-- #main -->
 
 <?php

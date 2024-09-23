@@ -475,3 +475,16 @@ if ( ! function_exists( 'huda_post_categories' ) ) :
 		}
 	}
 endif;
+
+if ( ! function_exists( 'huda_scroll_top' ) ) :
+	function huda_scroll_top(){
+		$scrollTop = 'event.preventDefault(); window.scrollTo({top: 0, behavior: "smooth"});';
+		?>
+			<div id="scrollTop">
+				<a href="#" class="backto-top" onclick='<?php echo esc_js( $scrollTop ) ?>'>
+					<i class="ri-arrow-up-line"></i>
+				</a>
+			</div>
+		<?php
+	}	
+endif;

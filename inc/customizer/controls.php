@@ -596,7 +596,7 @@ new \Kirki\Field\Typography(
 		'priority'    => 10,
 		'transport'   => 'auto',
 		'default'     => [
-			'font-family'     => 'Roboto',
+			'font-family'     => 'Oswald',
 			'variant'         => 'regular',
 			'font-style'      => 'normal',
 			'font-size'       => '14px',
@@ -1132,6 +1132,62 @@ new \Kirki\Field\Radio_Image(
 		'choices'     => [
 			'container' => get_template_directory_uri() . '/assets/images/narrow-width.png',
 			'container-fluid'   => get_template_directory_uri() . '/assets/images/full-width.png',
+		],
+	]
+);
+
+/*
+* Back To Top Control
+*/
+new \Kirki\Field\Checkbox_Switch(
+	[
+		'settings'    => 'back_to_top_switch_setting',
+		'label'       => esc_html__( 'Back Top Top Setting', 'huda' ),
+		'description' => esc_html__( '', 'huda' ),
+		'section'     => 'huda_back_to_top_section',
+		'default'     => 'on',
+		'choices'     => [
+			'on'  => esc_html__( 'Enable', 'huda' ),		
+			'off' => esc_html__( 'Disable', 'huda' ),
+		],
+	]
+);
+
+new \Kirki\Field\Color(
+	[
+		'settings'    => 'huda_back_to_top_bg',
+		'label'       => __( 'Back to top background color', 'huda' ),
+		'description' => esc_html__( '', 'huda' ),
+		'section'     => 'huda_back_to_top_section',
+		'tab' => 'design',
+		'default'     => '#FFFFFE',
+        'choices'     => [
+            'alpha' => true,
+        ],
+		'output'      => [
+			[
+				'element' => '.backto-top',
+				'property' => 'background'
+			],
+		],
+	]
+);
+
+new \Kirki\Field\Color(
+	[
+		'settings'    => 'huda_back_to_top_icon_color',
+		'label'       => __( 'Back to top icon color', 'huda' ),
+		'description' => esc_html__( '', 'huda' ),
+		'section'     => 'huda_back_to_top_section',
+		'tab' => 'design',
+		'default'     => '#0F0E17',
+        'choices'     => [
+            'alpha' => true,
+        ],
+		'output'      => [
+			[
+				'element' => '.backto-top i',
+			],
 		],
 	]
 );

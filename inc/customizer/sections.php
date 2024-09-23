@@ -57,6 +57,18 @@ new \Kirki\Section(
 	]
 );
 
+/* 
+* back to top section
+*/
+new \Kirki\Section(
+	'huda_back_to_top_section',
+	[
+		'title'       => esc_html__( 'Back To Top', 'huda' ),
+		'description' => esc_html__( '', 'huda' ),
+		'panel'       => 'huda_global_options',
+		'priority'    => 160,
+	]
+);
 
 /* 
 * Huda Global Typography Section 

@@ -15,6 +15,7 @@
 
 .customize-control-title{
     margin-bottom: 0;
+    line-height: normal;
 }
 
 #customize-controls .description{
@@ -57,4 +58,25 @@
 
 .customize-control-kirki-react-colorful .kirki-control-cols {
     align-items: center;
+}
+
+#customize-control-huda_back_to_top_bg,
+#customize-control-huda_back_to_top_icon_color,
+#customize-control-huda_buttons_text_color,
+#customize-control-huda_buttons_background_color_setting_rgba,
+#customize-control-huda_buttons_border_color,
+#customize-control-header_color_setting_hex,
+#customize-control-huda_buy_button_color_bg,
+#customize-control-header_background_color_setting_hex,
+#customize-control-woocommerce_cart_count_bg_color,
+#customize-control-header_icons_color_setting_hex,
+#customize-control-footer_background_color_setting_hex,
+#customize-control-footer_social_color_setting_hex,
+#customize-control-blog_card_bg_color,
+#customize-control-blog_card_bg_color,
+#customize-control-blog__card_read_more_bg_color,
+#customize-control-blog__card_read_more_bg_color_hover{
+    padding: 0.90em;
+    line-height: normal;
+    background-color: #fffffe;
 }
