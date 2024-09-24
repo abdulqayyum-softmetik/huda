@@ -2,8 +2,8 @@
 
 // Sample Config for single site (multiple zip).
 add_filter( 'sd/edi/importer/config', 'sd_edi_single_site_config' );
-
-/**
+if (!function_exists('sd_edi_single_site_config')) {
+    /**
  * Sample Config for single site (multiple zip).
  *
  * @return array
@@ -104,3 +104,6 @@ function sd_edi_single_site_config() {
         ],
     ];
 }
+}
+
+
