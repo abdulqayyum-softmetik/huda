@@ -121,9 +121,9 @@
 			<?php 
 				if( is_singular() ) :
 					?>
-						<div class="single-post-navigation-wrapper">
+						
 							<?php get_template_part( 'inc/post', 'navigation' ); ?>
-						</div>
+					
 					<?php
 			?>
 			<?php else : ?>

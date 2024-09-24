@@ -8,6 +8,7 @@ header.header-main{
     .site-title{
         font-size: 2em;
         font-weight: 500;
+        line-height: normal;
         text-transform: capitalize;
 
         a{
@@ -75,6 +76,17 @@ header.header-main{
         .fa-shopping-cart{
             font-size: 1.25em;
             color: $color__black;
+        }
+    }
+
+    .offcanvas{
+        &.main{
+            .offcanvas-title{
+                line-height: 0 !important;
+            }
+            span{
+                font-size: 14px;
+            }
         }
     }
 

@@ -26,13 +26,6 @@ function huda_body_classes( $classes ) {
 }
 add_filter( 'body_class', 'huda_body_classes' );
 
-function huda_include_custom_functions() {
-
-    require get_template_directory() . '/inc/customizer/customizer-functions.php';
-
-}
-add_action( 'after_setup_theme', 'huda_include_custom_functions' );
-
 /**
  * Add a pingback url auto-discovery header for single posts, pages, or attachments.
  */
@@ -132,6 +125,14 @@ function huda_single_post_content(){
                         <?php // silence is golden ?>
                     <?php endif; ?>
 
+                    <?php if ( true == get_theme_mod( 'huda_social_share_setting', 'on' ) ) : ?>
+                        <?php huda_social_share(); ?>
+                    <?php else : ?>
+                        <?php // silence is golden ?>
+                    <?php endif; ?>
+
+                    
+
                     <?php
                         if ( comments_open() ) :
                             comments_template();
@@ -230,7 +231,7 @@ add_action('huda_search','huda_search_content');
 
 function huda_category_content(){
     ?>
-            <div class="category-page">
+        <main class="category-page">
             <div class="content">
                 <div class="container">
                         <div class="breadcrumb">
@@ -260,7 +261,7 @@ function huda_category_content(){
                         <?php endif; ?>
                 </div>
             </div>
-        </div>
+        </main>
     <?php
 }
 add_action('huda_category','huda_category_content');

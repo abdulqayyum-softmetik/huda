@@ -101,9 +101,14 @@
 
 }() );
 
-window.addEventListener("load", (event) => {
-	const btnScrollToTop = document.querySelector("#scrollTop");
-	window.addEventListener('scroll', e => {
-		btnScrollToTop.style.display = window.scrollY > 50 ? 'block' : 'none';
-	})
+document.addEventListener("DOMContentLoaded", (event) => {
+	const btnScrollToTop = document.querySelector("#scrollToTop");
+
+	if ( btnScrollToTop) {
+		window.addEventListener('scroll', () => {
+			btnScrollToTop.style.display = window.scrollY > 160 ? 'block' : 'none';
+		});
+	} else {
+		console.warn("Scroll to top button not found.");
+	}
 });

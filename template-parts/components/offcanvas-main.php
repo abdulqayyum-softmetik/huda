@@ -42,8 +42,21 @@
   </div>
   <div class="offcanvas-footer">
     <div class="d-flex align-items-center justify-content-between">
-      <?php dynamic_sidebar( 'social-widget' ); ?>
-      <?php dynamic_sidebar( 'copyright ' ); ?>
+        <?php huda_social_links(); ?>
+
+      <p class="d-flex flex-wrap mb-0">
+            &copy; <?php echo date('Y'); ?>
+            
+            <?php esc_html( bloginfo('title') ); ?>
+    
+            <span class="sep"> - </span>
+    
+            <span> All Rights Reserved.</span>
+    
+            <?php
+                dynamic_sidebar( 'footer-copyright' );
+            ?>
+        </p>
     </div>
   </div>
 </div>

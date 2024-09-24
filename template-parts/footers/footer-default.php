@@ -3,7 +3,7 @@
  * Header Default
  *
  */
-$container_width = huda_get_footer_container_width(); 
+$container_width = huda_get_footer_container_width();
 ?>
 <footer class="footer-main">
     <div class="<?php echo esc_attr( $container_width ); ?>">
@@ -38,14 +38,14 @@ $container_width = huda_get_footer_container_width();
             
                     <span class="sep"> - </span>
             
-                    <span> All Rights Reserved.</span>
+                    <span class="text-sm"> All Rights Reserved.</span>
             
                     <?php
                         dynamic_sidebar( 'footer-copyright' );
                     ?>
                 </p>
                 <div>
-                    <?php dynamic_sidebar( 'footer-widget-7' ); ?>
+                    <?php huda_social_links(); ?>
                 </div>
             </div>
         </div>

@@ -385,6 +385,46 @@ new \Kirki\Field\Radio_Image(
 	]
 );
 
+new \Kirki\Field\URL(
+	[
+		'settings' => 'facebook_url_setting',
+		'label'    => esc_html__( 'Facebook Url', 'huda' ),
+		'section'  => 'huda_footer_section',
+		'default'  => '/',
+		'priority' => 10,
+	]
+);
+
+new \Kirki\Field\URL(
+	[
+		'settings' => 'twitter_url_setting',
+		'label'    => esc_html__( 'Twitter Url', 'huda' ),
+		'section'  => 'huda_footer_section',
+		'default'  => '/',
+		'priority' => 10,
+	]
+);
+
+new \Kirki\Field\URL(
+	[
+		'settings' => 'youtube_url_setting',
+		'label'    => esc_html__( 'Youtube Url', 'huda' ),
+		'section'  => 'huda_footer_section',
+		'default'  => '/',
+		'priority' => 10,
+	]
+);
+
+new \Kirki\Field\URL(
+	[
+		'settings' => 'whatsapp_url_setting',
+		'label'    => esc_html__( 'Whatsapp Url', 'huda' ),
+		'section'  => 'huda_footer_section',
+		'default'  => '/',
+		'priority' => 10,
+	]
+);
+
 new \Kirki\Pro\Field\Padding(
 	[
 		'settings'   => 'huda_footer_padding',
@@ -394,21 +434,21 @@ new \Kirki\Pro\Field\Padding(
 		'responsive' => true,
 		'default'     => [
             'desktop' => [
-                'top'    => '32',
+                'top'    => '50',
                 'right'  => '18',
-                'bottom' => '32',
+                'bottom' => '10',
                 'left'   => '18',
             ],
             'tablet'  => [
-                'top'    => '32',
+                'top'    => '20',
                 'right'  => '18',
-                'bottom' => '32',
+                'bottom' => '10',
                 'left'   => '18',
             ],
             'mobile'  => [
-               'top'    => '32',
+              'top'    => '20',
                 'right'  => '18',
-                'bottom' => '32',
+                'bottom' => '10',
                 'left'   => '18',
             ],
         ],
@@ -431,7 +471,6 @@ new \Kirki\Pro\Field\Padding(
 		'transport'   => 'auto',
 	]
 );
-
 
 new \Kirki\Field\Color(
 	[
@@ -483,13 +522,13 @@ new \Kirki\Field\Typography(
 			'font-size'       => '24px',
 			'line-height'     => '1.5',
 			'letter-spacing'  => '0',
-			'text-transform'  => 'none',
+			'text-transform'  => 'capitalize',
 			'text-decoration' => 'none',
 			'text-align'      => 'initial',
 		],
 		'output'  => [
 			[
-				'element' => 'wp-block-heading, h4',
+				'element' => 'wp-block-heading, .nf-form-title h4, h2.widget-title',
 			],
 		],
 	]
@@ -623,10 +662,10 @@ new \Kirki\Field\Typography(
 		'priority'    => 10,
 		'transport'   => 'auto',
 		'default'     => [
-			'font-family'     => 'Roboto',
-			'variant'         => 'regular',
+			'font-family'     => 'Oswald',
+			'variant'         => '500',
 			'font-style'      => 'normal',
-			'font-size'       => '14px',
+			'font-size'       => '40px',
 			'line-height'     => '1.5',
 			'letter-spacing'  => '0',
 			'text-transform'  => 'none',
@@ -650,10 +689,10 @@ new \Kirki\Field\Typography(
 		'priority'    => 10,
 		'transport'   => 'auto',
 		'default'     => [
-			'font-family'     => 'Roboto',
-			'variant'         => 'regular',
+			'font-family'     => 'Oswald',
+			'variant'         => '500',
 			'font-style'      => 'normal',
-			'font-size'       => '14px',
+			'font-size'       => '32px',
 			'line-height'     => '1.5',
 			'letter-spacing'  => '0',
 			'text-transform'  => 'none',
@@ -677,10 +716,10 @@ new \Kirki\Field\Typography(
 		'priority'    => 10,
 		'transport'   => 'auto',
 		'default'     => [
-			'font-family'     => 'Roboto',
-			'variant'         => 'regular',
+			'font-family'     => 'Oswald',
+			'variant'         => '500',
 			'font-style'      => 'normal',
-			'font-size'       => '14px',
+			'font-size'       => '28px',
 			'line-height'     => '1.5',
 			'letter-spacing'  => '0',
 			'text-transform'  => 'none',
@@ -704,10 +743,10 @@ new \Kirki\Field\Typography(
 		'priority'    => 10,
 		'transport'   => 'auto',
 		'default'     => [
-			'font-family'     => 'Roboto',
+			'font-family'     => 'Oswald',
 			'variant'         => 'regular',
 			'font-style'      => 'normal',
-			'font-size'       => '14px',
+			'font-size'       => '24px',
 			'line-height'     => '1.5',
 			'letter-spacing'  => '0',
 			'text-transform'  => 'none',
@@ -731,10 +770,10 @@ new \Kirki\Field\Typography(
 		'priority'    => 10,
 		'transport'   => 'auto',
 		'default'     => [
-			'font-family'     => 'Roboto',
-			'variant'         => 'regular',
+			'font-family'     => 'Oswald',
+			'variant'         => '500',
 			'font-style'      => 'normal',
-			'font-size'       => '14px',
+			'font-size'       => '20px',
 			'line-height'     => '1.5',
 			'letter-spacing'  => '0',
 			'text-transform'  => 'none',
@@ -758,10 +797,10 @@ new \Kirki\Field\Typography(
 		'priority'    => 10,
 		'transport'   => 'auto',
 		'default'     => [
-			'font-family'     => 'Roboto',
-			'variant'         => 'regular',
+			'font-family'     => 'Oswald',
+			'variant'         => '500',
 			'font-style'      => 'normal',
-			'font-size'       => '14px',
+			'font-size'       => '16px',
 			'line-height'     => '1.5',
 			'letter-spacing'  => '0',
 			'text-transform'  => 'none',
@@ -778,7 +817,7 @@ new \Kirki\Field\Typography(
 
 new \Kirki\Field\Typography(
 	[
-		'settings'    => 'typography_setting_heading_h6',
+		'settings'    => 'typography_setting_paragraph',
 		'label'       => esc_html__( 'PARAGRAPH FONT', 'huda' ),
 		'description' => esc_html__( '', 'huda' ),
 		'section'     => 'huda_topography_section',
@@ -955,6 +994,35 @@ new \Kirki\Field\Color(
 /*
 * Blog Control
 */
+new \Kirki\Field\Checkbox_Switch(
+	[
+		'settings'    => 'huda_social_share_setting',
+		'label'       => esc_html__( 'Display Social Share', 'huda' ),
+		'description' => esc_html__( '', 'huda' ),
+		'section'     => 'huda_blog_layouts_section',
+		'default'     => 'on',
+		'tab' => 'general',
+		'choices'     => [
+			'on'  => esc_html__( 'Enable', 'huda' ),		
+			'off' => esc_html__( 'Disable', 'huda' ),
+		],
+	]
+);
+
+new \Kirki\Field\Checkbox_Switch(
+	[
+		'settings'    => 'huda_related_post_setting',
+		'label'       => esc_html__( 'Display Related Posts', 'huda' ),
+		'description' => esc_html__( '', 'huda' ),
+		'section'     => 'huda_blog_layouts_section',
+		'default'     => 'on',
+		'choices'     => [
+			'on'  => esc_html__( 'Enable', 'huda' ),		
+			'off' => esc_html__( 'Disable', 'huda' ),
+		],
+	]
+);
+
 new \Kirki\Field\Radio_Image(
 	[
 		'settings'    => 'blog__container__setting',
@@ -974,20 +1042,6 @@ new \Kirki\Field\Checkbox_Switch(
 	[
 		'settings'    => 'huda_post_thumbnail_setting',
 		'label'       => esc_html__( 'Display Post Thumbnail', 'huda' ),
-		'description' => esc_html__( '', 'huda' ),
-		'section'     => 'huda_blog_post_card_section',
-		'default'     => 'on',
-		'choices'     => [
-			'on'  => esc_html__( 'Enable', 'huda' ),		
-			'off' => esc_html__( 'Disable', 'huda' ),
-		],
-	]
-);
-
-new \Kirki\Field\Checkbox_Switch(
-	[
-		'settings'    => 'huda_related_post_setting',
-		'label'       => esc_html__( 'Display Related Posts', 'huda' ),
 		'description' => esc_html__( '', 'huda' ),
 		'section'     => 'huda_blog_post_card_section',
 		'default'     => 'on',
@@ -1041,6 +1095,34 @@ new \Kirki\Pro\Field\Padding(
 			],
 		],
 		'transport'   => 'auto',
+	]
+);
+
+new \Kirki\Field\Typography(
+	[
+		'settings'    => 'article_titile_typography_setting',
+		'label'       => esc_html__( 'Article Title Typography', 'huda' ),
+		'description' => esc_html__( '', 'huda' ),
+		'section'     => 'huda_blog_post_card_section',
+		'priority'    => 10,
+		'transport'   => 'auto',
+		'default'     => [
+			'font-family'     => 'Oswald',
+			'variant'         => '500',
+			'font-style'      => 'normal',
+			'color'           => '#0F0E17',
+			'font-size'       => '32px',
+			'line-height'     => '1.5',
+			'letter-spacing'  => '0',
+			'text-transform'  => 'none',
+			'text-decoration' => 'none',
+			'text-align'      => 'inherit',
+		],
+		'output'      => [
+			[
+				'element' => '.blog article header.entry-header h3.entry-title',
+			],
+		],
 	]
 );
 

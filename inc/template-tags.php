@@ -104,23 +104,6 @@ if ( ! function_exists( 'huda_entry_footer' ) ) :
 			);
 			echo '</span>';
 		}
-
-		edit_post_link(
-			sprintf(
-				wp_kses(
-					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Edit <span class="screen-reader-text">%s</span>', 'huda' ),
-					array(
-						'span' => array(
-							'class' => array(),
-						),
-					)
-				),
-				wp_kses_post( get_the_title() )
-			),
-			'<span class="edit-link">',
-			'</span>'
-		);
 	}
 endif;
 
@@ -207,21 +190,23 @@ if ( ! function_exists( 'huda_previous_post' ) ) :
 	 */
 	function huda_previous_post(){
 		?>
-			<nav class="previous-post d-flex align-items-center gap-2">
+			<nav class="previous-post">
 				<?php 
 				$prev_post = get_previous_post(); 
 
 				if ( ! empty( $prev_post ) ) : ?>
-					<div class="prevoius-post-image">
-						<?php echo get_the_post_thumbnail( $prev_post->ID, array( 100, 100 ) );?>
-					</div>
-					<a href="<?php echo get_permalink( $prev_post->ID ); ?>" class="link">
-						<?php echo esc_html($prev_post->post_title); ?>
-						<div class="d-flex align-items-center gap-2">
-							<i class="ri-arrow-left-up-line"></i>
-							<span>Previous Post</span>
+				    <div class="content d-flex align-items-center gap-2 mb-2">
+						<div class="prevoius-post-image">
+							<?php echo get_the_post_thumbnail( $prev_post->ID, array( 100, 100 ) );?>
 						</div>
-					</a>
+						<a href="<?php echo get_permalink( $prev_post->ID ); ?>" class="link">
+							<?php echo esc_html( $prev_post->post_title ); ?>
+							<div class="d-flex align-items-center gap-2">
+								<i class="ri-arrow-left-up-line"></i>
+								<span>Previous Post</span>
+							</div>		
+						</a>
+					</div>
 				<?php endif; ?>
 			</nav>
 		<?php
@@ -234,22 +219,24 @@ if ( ! function_exists( 'huda_next_post' ) ) :
 	 */
 	function huda_next_post(){
 		?>
-			<nav class="next-post d-flex align-items-center gap-2">
+			<nav class="next-post">
 				<?php 
 				$next_post = get_next_post(); 
 
 				if ( ! empty( $next_post ) ) : ?>
-					<div class="next-post-image">
-						<?php echo get_the_post_thumbnail( $next_post->ID, array( 100, 100 ) );?>
-					</div>
-
-					<a href="<?php echo get_permalink( $next_post->ID ); ?>" class="link">
-						<?php echo esc_html($next_post->post_title); ?>
-						<div class="d-flex align-items-center gap-2">
-							<span>Next Post</span>
-							<i class="ri-arrow-right-up-line"></i>
+					<div class="content d-flex align-items-center gap-2 mb-2">
+						<div class="next-post-image">
+							<?php echo get_the_post_thumbnail( $next_post->ID, array( 100, 100 ) );?>
 						</div>
-					</a>
+
+						<a href="<?php echo get_permalink( $next_post->ID ); ?>" class="link">
+							<?php echo esc_html( $next_post->post_title ); ?>
+							<div class="d-flex align-items-center gap-2">
+								<span>Next Post</span>
+								<i class="ri-arrow-right-up-line"></i>
+							</div>
+						</a>
+					</div>
 				<?php endif; ?>
 			</nav>
 		<?php
@@ -275,26 +262,29 @@ if ( ! function_exists( 'huda_social_share' ) ) :
 	 */
 	function huda_social_share() {
 		?>
-			<div class="d-flex align-items-center justify-content-between gap-3">
-				<div>
-					<a class="dropdown-item" href="https://www.facebook.com/sharer.php?u=<?php echo esc_url( get_permalink() ); ?>" target="_blank">
-						<i class="fab fa-facebook-f"></i>
-					</a>
-				</div>
-				<div>
-					<a class="dropdown-item" href="https://twitter.com/intent/tweet?url=<?php echo get_permalink(); ?>" target="_blank">
-						<i class="fab fa-twitter"></i>
-					</a>
-				</div>
-				<div>
-					<a class="dropdown-item" href="https://www.linkedin.com/shareArticle?url=<?php echo get_permalink(); ?>&title=<?php echo esc_html( get_the_title() ); ?>" target="_blank">
-					<i class="fab fa-linkedin-in"></i>
-					</a>
-				</div>
-				<div>
-					<a class="dropdown-item" href="https://api.whatsapp.com/send?text=<?php echo esc_html( get_the_title() ); ?> <?php echo esc_url( get_permalink() ); ?>" target="_blank">
-						<i class="fab fa-whatsapp"></i>
-					</a>
+			<div class="social-share d-flex flex-wrap align-items-center justify-content-between gap-3">
+				<h3 class="h4">Share with your followers</h3>
+				<div class="d-flex align-items-center justify-content-between gap-3">
+					<div>
+						<a class="" href="https://www.facebook.com/sharer.php?u=<?php echo esc_url( get_permalink() ); ?>" target="_blank">
+							<i class="ri-facebook-fill"></i>
+						</a>
+					</div>
+					<div>
+						<a class="" href="https://twitter.com/intent/tweet?url=<?php echo get_permalink(); ?>" target="_blank">
+							<i class="ri-twitter-x-line"></i>
+						</a>
+					</div>
+					<div>
+						<a class="" href="https://www.linkedin.com/shareArticle?url=<?php echo get_permalink(); ?>&title=<?php echo esc_html( get_the_title() ); ?>" target="_blank">
+							<i class="ri-linkedin-fill"></i>
+						</a>
+					</div>
+					<div>
+						<a class="" href="https://api.whatsapp.com/send?text=<?php echo esc_html( get_the_title() ); ?> <?php echo esc_url( get_permalink() ); ?>" target="_blank">
+							<i class="ri-whatsapp-line"></i>
+						</a>
+					</div>
 				</div>
 			</div>
 		<?php
@@ -478,13 +468,38 @@ endif;
 
 if ( ! function_exists( 'huda_scroll_top' ) ) :
 	function huda_scroll_top(){
-		$scrollTop = 'event.preventDefault(); window.scrollTo({top: 0, behavior: "smooth"});';
+		$scrollTopV = 'event.preventDefault(); window.scrollTo({top: 0, behavior: "smooth"});';
 		?>
-			<div id="scrollTop">
-				<a href="#" class="backto-top" onclick='<?php echo esc_js( $scrollTop ) ?>'>
+			<div id="scrollToTop">
+				<a href="#" class="backto-top" onclick='<?php echo esc_js( $scrollTopV ) ?>'>
 					<i class="ri-arrow-up-line"></i>
 				</a>
 			</div>
 		<?php
 	}	
+endif;
+
+if( ! function_exists( 'huda_social_links' ) ) :
+	function huda_social_links(){
+		$facebook_url = huda_facebook_url(); 
+		$twitter_url = huda_twitter_url(); 
+		$youtube_url = huda_youtube_url(); 
+		$instagram_url = huda_whatsapp_url(); 
+		?>
+			<ul class="social-icons d-flex justify-content-between align-items-center gap-3">
+				<li>
+					<a href="<?php echo esc_attr( $facebook_url ); ?>" target="_blank" rel="no-follow"><i class="ri-facebook-fill"></i></a>
+				</li>
+				<li>
+					<a href="<?php echo esc_attr( $twitter_url ); ?>" target="_blank" rel="no-follow"><i class="ri-twitter-x-line"></i></a>
+				</li>
+				<li>
+					<a href="<?php echo esc_attr( $youtube_url ); ?>" target="_blank" rel="no-follow"><i class="ri-youtube-line"></i></a>
+				</li>
+				<li>
+					<a href="<?php echo esc_attr( $facebook_url ); ?>" target="_blank" rel="no-follow"><i class="ri-instagram-line"></i></a>
+				</li>
+			</ul>
+		<?php
+	}
 endif;

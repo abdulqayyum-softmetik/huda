@@ -14,11 +14,12 @@
 .related-posts{
 	article{
 		width: 100%;
-		height: auto;
+		height: 100%;
 		padding: 0.8em;
 		border-radius: 0;
 		background-color: $color__white;
 		@include flex-column;
+		justify-content: space-between;
 
 		header {
 			padding-bottom: 0.8em;
@@ -27,6 +28,8 @@
 				h2,
 				.h2{
 					&.entry-title {
+						font-weight: 500;
+						font-size: 2em;
 						display: inline-block;
 
 						a{
@@ -216,7 +219,7 @@ article{
 }
 
 .related-posts{
-	margin-top: 2em;
+	margin: 2em 0;
 
 	h3{
 		margin-bottom: 0.6em;
@@ -311,3 +314,17 @@ body{
 	}
 }
 
+.social-share{
+	padding: 1.4em 1.2em;
+	background: $color__white;
+	a{
+		cursor: pointer;
+		i{	
+			font-size: 18px;
+			padding: 0.4em;
+			color: $color__black;
+			border-radius: 50px;
+			background: $color__background-body;
+		}
+	}
+}

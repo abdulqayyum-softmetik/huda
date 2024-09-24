@@ -92,33 +92,8 @@ function huda_register_required_plugins() {
 
 		// This is an example of how to include a plugin from the WordPress Plugin Repository.
 		array(
-			'name'      => 'elementor',
-			'slug'      => 'elementor',
-			'required'  => false,
-		),
-		array(
-			'name'        => 'WooCommerce',
-			'slug'        => 'woocommerce',
-			'required'  => false,
-		),
-		array(
-			'name'        => 'Xpro Elementor Addons',
-			'slug'        => 'xpro-elementor-addons',
-			'required'  => false,
-		),
-		array(
-			'name'        => 'Xpro Theme Builder',
-			'slug'        => 'xpro-theme-builder',
-			'required'  => false,
-		),
-		array(
-			'name'        => 'Kirki Customizer Framework',
-			'slug'        => 'kirki',
-			'required'  => false,
-		),
-		array(
-			'name'        => 'Ninja Forms',
-			'slug'        => 'ninja-forms',
+			'name'      => 'Easy Demo Importer',
+			'slug'      => 'easy-demo-importer',
 			'required'  => false,
 		),
 		// This is an example of the use of 'is_callable' functionality. A user could - for instance -

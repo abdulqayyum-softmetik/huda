@@ -12,7 +12,7 @@ get_header();
 
 	<?php 
 		// 404 content
-		do_action('huda_404')
+		do_action('huda_404');
 	?>
 
 <?php

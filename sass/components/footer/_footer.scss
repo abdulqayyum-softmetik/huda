@@ -137,6 +137,11 @@ footer{
                     color: $color__accent;
                 }
             }
+
+            .social-icons{
+                @include flex-center;
+                gap: 1em;
+            }
         }
     }
 }

@@ -8,6 +8,10 @@ body {
 	font-family: $font__main;
 	background: $color__background-body; // Fallback for when there is no custom background color defined.
 
+	.container-fluid{
+		padding: 0;
+	}
+
 	.site{
 		display: flex;
 		flex-direction: column;

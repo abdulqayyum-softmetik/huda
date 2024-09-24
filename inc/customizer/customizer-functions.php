@@ -64,6 +64,33 @@
                 return get_theme_mod('header_button_url_setting', ''); 
             }
         }
+
+         // Function to get footer logo url setting
+         if ( ! function_exists('huda_facebook_url') ) {
+            function huda_facebook_url() {
+                return get_theme_mod('facebook_url_setting', ''); 
+            }
+        }
         
+         // Function to get footer logo url setting
+         if ( ! function_exists('huda_twitter_url') ) {
+            function huda_twitter_url() {
+                return get_theme_mod('twitter_url_setting', ''); 
+            }
+        }
+
+        // Function to get footer logo url setting
+        if ( ! function_exists('huda_youtube_url') ) {
+            function huda_youtube_url() {
+                return get_theme_mod('youtube_url_setting', ''); 
+            }
+        }
+
+         // Function to get footer logo url setting
+         if ( ! function_exists('huda_whatsapp_url') ) {
+            function huda_whatsapp_url() {
+                return get_theme_mod('whatsapp_url_setting', ''); 
+            }
+        }
     }
 ?>
