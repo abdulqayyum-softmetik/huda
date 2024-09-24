@@ -14,7 +14,7 @@
 		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'huda' ); ?></h1>
 	</header><!-- .page-header -->
 
-	<div class="page-content">
+	<div class="page-content text-center">
 		<?php
 		if ( is_home() && current_user_can( 'publish_posts' ) ) :
 
@@ -35,14 +35,16 @@
 			?>
 
 			<p class="text-center"><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'huda' ); ?></p>
-			<?php esc_html( get_search_form() );
+			<div class="text-center">
+				<?php esc_html( get_search_form() ); ?>
+			</div>
 
 		else :
 			?>
 
 			<p class="text-center"><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'huda' ); ?></p>
-			<?php
-			esc_html( get_search_form() );
+		
+			<?php esc_html( get_search_form() );
 
 		endif;
 		?>
