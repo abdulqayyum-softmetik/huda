@@ -160,9 +160,9 @@ function wp_huda_admin_page_callback() {
       <div id="tab2" class="tab-pane">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Install Elementor</h5>
+                <h5 class="card-title">Starter Templates</h5>
                 <p class="card-text">Enhance your design capabilities with Elementor page builder.</p>
-                <a href="<?php echo admin_url('plugin-install.php?s=elementor&tab=search&type=term'); ?>" class="btn btn-primary">Install Elementor</a>
+                <a href="<?php echo admin_url('/themes.php?page=sd-easy-demo-importer'); ?>" class="btn btn-primary">Install Starter Sites</a>
             </div>
         </div>
        

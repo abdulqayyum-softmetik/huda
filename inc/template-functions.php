@@ -283,46 +283,24 @@ add_action('huda_author','huda_author_content');
 
 
 function huda_404_content(){
+    $page_container = huda_get_page_container_width();
     ?>
-        <main id="primary" class="huda-site-main">
+        <main id="primary" class="huda-site-main <?php echo esc_attr( $page_container ); ?>">
             <section class="error-404 not-found">
                 <header class="page-header">
                     <h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'huda' ); ?></h1>
                 </header><!-- .page-header -->
 
+                <div class="nothing-found-img-wrapper">
+                    <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/404.svg" alt="Huda Image">
+                </div>
+
                 <div class="page-content">
                     <p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'huda' ); ?></p>
 
-                        <?php
-                        get_search_form();
-
-                        the_widget( 'WP_Widget_Recent_Posts' );
-                        ?>
-
-                        <div class="widget widget_categories">
-                            <h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'huda' ); ?></h2>
-                            <ul>
-                                <?php
-                                wp_list_categories(
-                                    array(
-                                        'orderby'    => 'count',
-                                        'order'      => 'DESC',
-                                        'show_count' => 1,
-                                        'title_li'   => '',
-                                        'number'     => 10,
-                                    )
-                                );
-                                ?>
-                            </ul>
-                        </div><!-- .widget -->
-
-                        <?php
-                        /* translators: %1$s: smiley */
-                        $huda_archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'huda' ), convert_smilies( ':)' ) ) . '</p>';
-                        the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$huda_archive_content" );
-
-                        the_widget( 'WP_Widget_Tag_Cloud' );
-                        ?>
+                    <a href="/" class="d-flex justify-content-center">
+                        <button class="btn-outline">Go Back</button>
+                    </a>
 
                 </div><!-- .page-content -->
             </section><!-- .error-404 -->

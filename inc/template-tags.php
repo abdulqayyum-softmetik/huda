@@ -503,3 +503,17 @@ if( ! function_exists( 'huda_social_links' ) ) :
 		<?php
 	}
 endif;
+
+if ( ! function_exists( 'huda_scroll_top' ) ) :
+	function huda_scroll_top(){
+		?>
+			<?php 
+				if ( true == get_theme_mod( 'back_to_top_switch_setting', 'on' ) ) : 
+				 echo huda_scroll_top(); 
+				else :
+					// Sillence is golden
+				endif; 
+			?>
+		<?php
+	}
+endif;

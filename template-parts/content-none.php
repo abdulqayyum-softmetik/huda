@@ -14,6 +14,10 @@
 		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'huda' ); ?></h1>
 	</header><!-- .page-header -->
 
+	<div class="nothing-found-img-wrapper">
+		<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/404.svg" alt="Huda Image">
+	</div>
+
 	<div class="page-content text-center">
 		<?php
 		if ( is_home() && current_user_can( 'publish_posts' ) ) :

@@ -761,7 +761,7 @@ nav.previous-post a.link, nav.next-post a.link {
 .search article a img,
 .related-posts article a img {
   width: 100%;
-  max-height: 11em;
+  max-height: 16em;
   border-radius: 0;
   margin-bottom: 1em;
   -o-object-fit: cover;
@@ -959,6 +959,31 @@ body.search form.huda-search-form input {
   color: #0F0E17;
   border-radius: 50px;
   background: #F4F4F4;
+}
+
+section.no-results h1, section.no-results p, section.error-404 h1, section.error-404 p {
+  text-align: center;
+}
+section.no-results a, section.error-404 a {
+  color: #5081FF;
+}
+section.no-results .nothing-found-img-wrapper, section.error-404 .nothing-found-img-wrapper {
+  text-align: center;
+}
+section.no-results .nothing-found-img-wrapper img, section.error-404 .nothing-found-img-wrapper img {
+  width: 100%;
+  max-width: 36%;
+  margin: 1.2em auto;
+}
+section.no-results button.btn-outline, section.error-404 button.btn-outline {
+  color: #0F0E17;
+  background-color: #FFFFFE;
+  border-color: rgba(102, 112, 133, 0.3);
+}
+section.no-results button.btn-outline:hover, section.error-404 button.btn-outline:hover {
+  color: #FFFFFE;
+  border-color: #5081FF;
+  background-color: #5081FF;
 }
 
 /* Comments
