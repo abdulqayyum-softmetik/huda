@@ -1,26 +1,13 @@
-<a class="" data-bs-toggle="offcanvas" href="#offcanvasSidebar" role="button" aria-controls="offcanvasSidebar">
+<a class="" data-bs-toggle="offcanvas" href="#Offcanvasidebar" role="button" aria-controls="Offcanvasidebar">
   <i class="ri-menu-2-line"></i>
 </a>
 
-<div class="offcanvas main offcanvas-end" tabindex="-1" id="offcanvasSidebar" aria-labelledby="offcanvasSidebarLabel">
+<div class="offcanvas main offcanvas-end" tabindex="-1" id="Offcanvasidebar" aria-labelledby="OffcanvasidebarLabel">
   <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasSidebarLabel">
-        <?php 
-          if( function_exists('the_custom_logo') && has_custom_logo() ) : 
-              the_custom_logo();
-
-              else:
-                ?>
-                    <div class="site-title">
-                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
-                    </div>
-                    <p><?php bloginfo( 'description' ); ?></p>
-                <?php
-          endif;
-        ?>
-    </h5>
+    <div class="offcanvas-title">
+      <?php dynamic_sidebar( 'logo-widget' ); ?>
+    </div>
     <div type="button" class="btn-close m-0" data-bs-dismiss="offcanvas" aria-label="Close"></div>
-    
   </div>
   <div class="offcanvas-body">
       <div class="">
@@ -36,13 +23,10 @@
               ));
           ?>
       </div>
-
-      
-
   </div>
   <div class="offcanvas-footer">
     <div class="d-flex align-items-center justify-content-between">
-        <?php huda_social_links(); ?>
+      <?php huda_social_links(); ?>
 
       <p class="d-flex flex-wrap mb-0">
             &copy; <?php echo date('Y'); ?>

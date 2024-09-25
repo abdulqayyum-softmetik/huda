@@ -539,6 +539,12 @@ header.header-main .woo-cart-count {
   z-index: 99;
 }
 
+@media (max-width: 768px) {
+  .posts-navigation {
+    flex-wrap: wrap;
+  }
+}
+
 nav.navigation.pagination {
   justify-content: center;
 }
@@ -570,7 +576,7 @@ nav.navigation.pagination .nav-links .fa-arrow-left {
 }
 nav.previous-post .content, nav.next-post .content {
   width: 100%;
-  height: 100%;
+  height: auto;
   padding: 1em;
   background-color: #FFFFFE;
 }
@@ -1042,6 +1048,11 @@ section.no-results button.btn-outline:hover, section.error-404 button.btn-outlin
   padding: 60px;
   background-color: #FFFFFE;
 }
+@media (max-width: 576px) {
+  .comments-area .comment-respond {
+    padding: 1em;
+  }
+}
 .comments-area .comment-respond form.comment-form .comment-form-author,
 .comments-area .comment-respond form.comment-form .comment-form-email,
 .comments-area .comment-respond form.comment-form .comment-form-url {
@@ -1088,6 +1099,9 @@ footer.entry-footer {
 
 .offcanvas.main .offcanvas-header {
   border-bottom: 1px solid rgba(102, 112, 133, 0.3);
+}
+.offcanvas.main .offcanvas-header .wp-block-image {
+  margin-bottom: 0;
 }
 .offcanvas.main .offcanvas-footer {
   padding: 1em;

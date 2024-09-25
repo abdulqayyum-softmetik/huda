@@ -88,6 +88,10 @@
 		padding: 60px;
 		background-color: $color__white;
 
+		@media (max-width: $breakpoint-small){
+			padding: 1em;
+		}
+
 		form{
 			&.comment-form{
 				.comment-form-author,

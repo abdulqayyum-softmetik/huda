@@ -17,7 +17,12 @@
     &.main{
         .offcanvas-header{
             border-bottom: 1px solid $color__border-abbr;
+            .wp-block-image{
+                margin-bottom: 0;
+            }
         }
+
+        
 
         .offcanvas-footer{
             padding: 1em;

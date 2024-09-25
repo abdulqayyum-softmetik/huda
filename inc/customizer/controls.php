@@ -165,22 +165,6 @@ new \Kirki\Pro\Field\Padding(
 
 new \Kirki\Field\Color(
 	[
-		'settings'    => 'header_color_setting_hex',
-		'label'       => __( 'Menu link color', 'huda' ),
-		'description' => esc_html__( 'Navigation link color', 'huda' ),
-		'section'     => 'huda_header_section',
-		'default'     => '#5081FF',
-		'tab' => 'design',
-		'output'      => [
-			[
-				'element' => 'header.header-main nav ul li a.nav-link.active',
-			],
-		],
-	]
-);
-
-new \Kirki\Field\Color(
-	[
 		'settings'    => 'huda_buy_button_color_bg',
 		'label'       => __( 'Buy Now background color', 'huda' ),
 		'description' => esc_html__( 'Buy Button background color', 'huda' ),
@@ -1287,6 +1271,80 @@ new \Kirki\Field\Checkbox_Switch(
 		'choices'     => [
 			'on'  => esc_html__( 'Show Title', 'huda' ),
 			'off' => esc_html__( 'Hide Title', 'huda' ),
+		],
+	]
+);
+
+
+/*
+* Offcanvas Control
+*/
+new \Kirki\Field\Color(
+	[
+		'settings'    => 'huda_Offcanvas_social_icons_color',
+		'label'       => __( 'social icons color', 'huda' ),
+		'description' => esc_html__( '', 'huda' ),
+		'section'     => 'huda_Offcanvas_section',
+		'tab' => 'design',
+		'default'     => '#0F0E17',
+        'choices'     => [
+            'alpha' => true,
+        ],
+		'output'      => [
+			[
+				'element' => '.offcanvas-footer i',
+				'suffix'   => '!important', // Adds !important to the generated CSS.
+			],
+		],
+	]
+);
+
+new \Kirki\Field\Color(
+	[
+		'settings'    => 'huda_Offcanvas_menu_active_color',
+		'label'       => __( 'Offcanvas Active color', 'huda' ),
+		'description' => esc_html__( '', 'huda' ),
+		'section'     => 'huda_Offcanvas_section',
+		'tab' => 'design',
+		'default'     => '#5081FF',
+        'choices'     => [
+            'alpha' => true,
+        ],
+		'output'      => [
+			[
+				'element' => '.offcanvas ul li a.nav-link.active',
+				'suffix'   => '!important', // Adds !important to the generated CSS.
+			],
+		],
+	]
+);
+
+
+new \Kirki\Field\Typography(
+	[
+		'settings'    => 'Offcanvas_menu_typography_setting',
+		'label'       => esc_html__( 'Offcanvas Menu Typography', 'huda' ),
+		'description' => esc_html__( '', 'huda' ),
+		'section'     => 'huda_Offcanvas_section',
+		'priority'    => 10,
+		'transport'   => 'auto',
+		'default'     => [
+			'font-family'     => 'Oswald',
+			'variant'         => 'regular',
+			'font-style'      => 'normal',
+			'color'           => '#0F0E17',
+			'font-size'       => '14px',
+			'line-height'     => '1.5',
+			'letter-spacing'  => '0',
+			'text-transform'  => 'none',
+			'text-decoration' => 'none',
+			'text-align'      => 'left',
+		],
+		'output'      => [
+			[
+				'element' => '.offcanvas-body ul li a.nav-link',
+				'suffix'   => '!important', // Adds !important to the generated CSS.
+			],
 		],
 	]
 );

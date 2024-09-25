@@ -1,8 +1,8 @@
-<div class="float-end" data-bs-toggle="offcanvas" href="#offcanvasSearch" role="button" aria-controls="offcanvasSearch">
+<div class="float-end" data-bs-toggle="offcanvas" href="#Offcanvasearch" role="button" aria-controls="Offcanvasearch">
   <i class="ri-search-line"></i>
 </div>
 
-<div class="offcanvas offcanvas-top search-wrapper" tabindex="-1" id="offcanvasSearch" aria-labelledby="offcanvasSearchLabel">
+<div class="offcanvas offcanvas-top search-wrapper" tabindex="-1" id="Offcanvasearch" aria-labelledby="OffcanvasearchLabel">
   <div class="offcanvas-header">
     <div type="button" class="btn-close start-0" data-bs-dismiss="offcanvas" aria-label="Close"></div>
   </div>

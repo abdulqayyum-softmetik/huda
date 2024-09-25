@@ -6,6 +6,20 @@
 */
 
 /* 
+* Huda Global Site Container Section 
+*/
+new \Kirki\Section(
+	'huda_site_container_section',
+	[
+		'title'       => esc_html__( 'Site Container', 'huda' ),
+		'description' => esc_html__( '', 'huda' ),
+		'panel'       => 'huda_global_options',
+		'priority'    => 160,
+	]
+);
+
+
+/* 
 * Huda Header Layout Section
 */
 new \Kirki\Section(
@@ -41,19 +55,6 @@ new \Kirki\Section(
 				'label' => esc_html__( 'Design', 'huda' ),
 			],
 		],
-	]
-);
-
-/* 
-* Huda Global Site Container Section 
-*/
-new \Kirki\Section(
-	'huda_site_container_section',
-	[
-		'title'       => esc_html__( 'Site Container', 'huda' ),
-		'description' => esc_html__( '', 'huda' ),
-		'panel'       => 'huda_global_options',
-		'priority'    => 160,
 	]
 );
 
@@ -158,3 +159,17 @@ new \Kirki\Section(
 		'panel' => 'huda_page_options',
 	]
 );
+
+/*
+* Offcanvas section
+*/
+new \Kirki\Section(
+	'huda_Offcanvas_section',
+	[
+		'title'       => esc_html__( 'Offcanvas Settings', 'huda' ),
+		'description' => esc_html__( '', 'huda' ),
+		'panel'       => 'huda_global_options',
+		'priority'    => 160,
+	]
+);
+
