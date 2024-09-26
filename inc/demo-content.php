@@ -19,9 +19,9 @@ function sd_edi_single_site_config() {
             // Treat individual array as a separate demo.
             'demo-site-1' => [
                 'name'         => esc_html__( 'Default Demo', 'huda' ),
-                'previewImage' => get_template_directory_uri() . '/assets/demo/site/1/blog-screenshot.jpg',
+                'previewImage' => 'https://softmetik.com/demo/blog-screenshot.jpg',
                 'previewUrl'   => 'https://wphuda.softmetik.com',
-                'demoZip'      => get_template_directory_uri() . '/assets/demo/site/1/demo-import.zip',
+                'demoZip'      => 'https://softmetik.com/demo/demo-import.zip',
                 'demo-import'  => 'default',
                 // Required plugins for this demo.
                 'plugins' => [
