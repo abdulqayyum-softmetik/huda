@@ -209,3 +209,7 @@ nav ul li a{
     padding-bottom: 1.6em;
     border-bottom: 1px solid #E1E0E7;
 }
+
+.appearance_page_sd-easy-demo-importer .edi-content .demo-card header>.ant-image img{
+    height: auto !important;
+}

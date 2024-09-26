@@ -18,18 +18,11 @@ function sd_edi_single_site_config() {
         'demoData'    => [
             // Treat individual array as a separate demo.
             'demo-site-1' => [
-                'name'         => esc_html__( 'Demo Site 1', 'huda' ),
+                'name'         => esc_html__( 'Default Demo', 'huda' ),
                 'previewImage' => get_template_directory_uri() . '/assets/demo/site/1/blog-screenshot.jpg',
                 'previewUrl'   => 'https://wphuda.softmetik.com',
                 'demoZip'      => get_template_directory_uri() . '/assets/demo/site/1/demo-import.zip',
-                'default-demo'     => 'blog',
-                // 'settingsJson' => [
-                //     'example-options.json',
-                //     'example-options-2.json',
-                // ],
-                'menus'        => [
-                    'main-menu' => 'Primary',
-                ],
+                'demo-import'  => 'default',
                 // Required plugins for this demo.
                 'plugins' => [
                     'woocommerce' => [
@@ -50,58 +43,44 @@ function sd_edi_single_site_config() {
                     // Add more required plugins as needed.
                 ],
             ],
-            // 'demo-site-2' => [
-            //     'name'         => esc_html__( 'Demo Site 2', 'huda' ),
-            //     'previewImage' => 'URL/of/demo/site/2/preview.jpg',
-            //     'previewUrl'   => 'URL/of/demo/site/2/preview/',
-            //     'demoZip'      => 'URL/of/the/demo/site/2/demo-import.zip',
-            //     'blogSlug'     => 'news',
-            //     'settingsJson' => [
-            //         'example-options-3.json',
-            //         'example-options-4.json',
-            //     ],
-            //     'menus'        => [
-            //         'primary' => 'Header Menu',
-            //         'footer'  => 'Social Menu',
-            //     ],
-            //     // Required plugins for this demo.
-            //     'plugins' => [
-            //        'elementor' => [
-            //             'name'     => 'Elementor Page Builder',
-            //             'source'   => 'wordpress',
-            //             'filePath' => 'elementor/elementor.php',
-            //         ],
-            //         'woocommerce' => [
-            //             'name'     => 'WooCommerce',
-            //             'source'   => 'wordpress',
-            //             'filePath' => 'woocommerce/woocommerce.php',
-            //         ],
-            //         'xpro-elementor-addons' => [
-            //             'name'     => 'Xpro Elementor Addons',
-            //             'source'   => 'wordpress',
-            //             'filePath' => 'xpro-elementor-addons/xpro-elementor-addons.php',
-            //         ],
-            //         'xpro-theme-builder' => [
-            //             'name'     => 'Xpro Theme Builder',
-            //             'source'   => 'wordpress',
-            //             'filePath' => 'xpro-theme-builder/xpro-theme-builder.php',
-            //         ],
-            //         'kirki' => [
-            //             'name'     => 'Kirki Customizer Framework',
-            //             'source'   => 'wordpress',
-            //             'filePath' => 'kirki/kirki.php',
-            //         ],
-            //         'ninja-forms' => [
-            //             'name'     => 'Ninja Forms',
-            //             'source'   => 'wordpress',
-            //             'filePath' => 'ninja-forms/ninja-forms.php',
-            //         ],
-            //         // Add more required plugins as needed.
-            //     ],
-            // ],
-            // Add more demo data as needed.
         ],
     ];
 }
 endif;
 add_filter( 'sd/edi/importer/config', 'sd_edi_single_site_config' );
+
+
+if ( ! function_exists( 'sd_edi_after_import_actions' ) ) :
+/**
+ * Executes operations after import.
+ *
+ * @param object $importer Import object.
+ *
+ * @return void
+ */
+function sd_edi_after_import_actions( $importer ) {
+    // Schedule the menu assignment to run 10 seconds later.
+    wp_schedule_single_event( time() + 10, 'sd_edi_set_menu_location' );
+}
+add_action( 'sd/edi/after_import', 'sd_edi_after_import_actions' );
+
+// The function that actually sets the menu.
+function sd_edi_set_menu_location() {
+    $main_menu = wp_get_nav_menu_object( 'Primary' ); // Check slug or name.
+    
+    if ( $main_menu ) {
+        set_theme_mod( 'nav_menu_locations', [
+            'main-menu' => $main_menu->term_id,
+        ] );
+    } else {
+        error_log( 'Menu not found: Primary' );
+    }
+}
+
+update_option( 'show_on_front', 'posts' );
+
+/**
+ * Hook into the importer after import hook to execute your codes above.
+ */
+add_action( 'sd/edi/after_import', 'sd_edi_after_import_actions' );
+endif;
