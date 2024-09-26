@@ -9,7 +9,7 @@
  * 
  * @package Huda
  */
-$rtl_switch = get_theme_mod( 'huda_rtl_switch_setting', 'off' ); // Set default to 'off' if no option exists
+	$rtl_switch = get_theme_mod( 'huda_rtl_switch_setting', 'off' ); // Set default to 'off' if no option exists
 ?>
 <!doctype html>
 	<html <?php language_attributes(); ?> dir="<?php echo $rtl_switch === 'on' ? 'rtl' : 'ltr'; ?>">
