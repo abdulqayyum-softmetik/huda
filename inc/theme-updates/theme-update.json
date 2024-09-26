@@ -1,0 +1,9 @@
+{
+    "version": "1.1",
+    "download_url": "https://srv1481-files.hstgr.io/006f26a5e576a379/files/public_html/updates/huda.zip", 
+    "details_url": "https://softmetik.com/updates/changelog", 
+    "requires": "5.0", 
+    "tested": "6.2",
+    "new_version": "1.1",
+    "package": "https://srv1481-files.hstgr.io/006f26a5e576a379/files/public_html/updates/huda.zip" 
+}
