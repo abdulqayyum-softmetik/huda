@@ -2,7 +2,7 @@
 /**
  * Check for theme updates from Hostinger.
  */
-function custom_theme_check_for_updates( $transient ) {
+function huda_theme_check_for_updates( $transient ) {
     if ( empty( $transient->checked ) ) {
         return $transient;
     }
@@ -35,5 +35,5 @@ function custom_theme_check_for_updates( $transient ) {
 
     return $transient;
 }
-add_filter( 'site_transient_update_themes', 'custom_theme_check_for_updates' );
+add_filter( 'site_transient_update_themes', 'huda_theme_check_for_updates' );
 
