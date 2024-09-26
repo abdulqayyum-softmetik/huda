@@ -2,29 +2,25 @@
 /**
  * Check for theme updates from Hostinger.
  */
-function huda_theme_check_for_updates( $transient ) {
+function custom_theme_check_for_updates( $transient ) {
     if ( empty( $transient->checked ) ) {
         return $transient;
     }
 
-    // Theme slug (folder name)
-    $theme_slug = 'huda';
-    
-    // Get the current version of the theme
-    $theme = wp_get_theme( $theme_slug );
-    $current_version = $theme->get( 'Version' );
+    // Use the theme's slug to identify it
+    $theme_slug = wp_get_theme()->get_stylesheet();
+    $current_version = wp_get_theme()->get( 'Version' );
 
-    // URL to the theme-update.json file on Hostinger
-    $remote_version_file = 'https://srv1481-files.hstgr.io/006f26a5e576a379/files/public_html/updates/theme-update.json';
+    // URL where your JSON file is located
+    $remote_version_file = 'https://softmetik.com/updates/theme-update.json';
 
-    // Fetch the remote version data
+    // Fetch the update information
     $remote_version_info = wp_remote_get( $remote_version_file );
 
     if ( ! is_wp_error( $remote_version_info ) && wp_remote_retrieve_response_code( $remote_version_info ) === 200 ) {
         $remote_version_data = json_decode( wp_remote_retrieve_body( $remote_version_info ), true );
 
-        // Compare the versions
-        if ( version_compare( $current_version, $remote_version_data['new_version'], '<' ) ) {
+        if ( isset( $remote_version_data['new_version'] ) && version_compare( $current_version, $remote_version_data['new_version'], '<' ) ) {
             $theme_data = array(
                 'theme'       => $theme_slug,
                 'new_version' => $remote_version_data['new_version'],
@@ -32,11 +28,12 @@ function huda_theme_check_for_updates( $transient ) {
                 'package'     => $remote_version_data['package'],
             );
 
-            // Add the update to the transient response
+            // Add the update information to the transient
             $transient->response[ $theme_slug ] = $theme_data;
         }
     }
 
     return $transient;
 }
-add_filter( 'site_transient_update_themes', 'huda_theme_check_for_updates' );
+add_filter( 'site_transient_update_themes', 'custom_theme_check_for_updates' );
+
