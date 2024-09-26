@@ -132,6 +132,11 @@ function huda_content_width() {
 add_action( 'after_setup_theme', 'huda_content_width', 0 );
 
 /**
+ * Theme updates.
+ */
+require get_template_directory() . '/inc/theme-updates/updates.php';
+
+/**
  * Include widget area.
  */
 require get_template_directory() . '/inc/widgets.php';
