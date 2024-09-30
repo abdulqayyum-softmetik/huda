@@ -1375,10 +1375,10 @@ footer.footer-main .footer-content p {
   color: #FFFFFE;
   padding-top: 0.8em;
 }
-footer.footer-main .footer-content p, footer.footer-main .footer-content a {
+footer.footer-main .footer-content p, footer.footer-main .footer-content a, footer.footer-main .footer-content span, footer.footer-main .footer-content i {
   opacity: 0.8;
 }
-footer.footer-main .footer-content p:hover, footer.footer-main .footer-content a:hover {
+footer.footer-main .footer-content p:hover, footer.footer-main .footer-content a:hover, footer.footer-main .footer-content span:hover, footer.footer-main .footer-content i:hover {
   opacity: 100%;
 }
 footer.footer-main .footer-content ul {

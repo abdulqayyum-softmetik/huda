@@ -19,9 +19,9 @@ function sd_edi_single_site_config() {
             // Treat individual array as a separate demo.
             'demo-site-1' => [
                 'name'         => esc_html__( 'Default Demo', 'huda' ),
-                'previewImage' => 'https://softmetik.com/demo/blog-screenshot.jpg',
+                'previewImage' => 'https://softmetik.com/demos/wphuda-demos/demo-1-default/screenshot.jpg',
                 'previewUrl'   => 'https://wphuda.softmetik.com',
-                'demoZip'      => 'https://softmetik.com/demo/demo-import.zip',
+                'demoZip'      => 'https://softmetik.com/demos/wphuda-demos/demo-1-default/demo-import.zip',
                 'demo-import'  => 'default',
                 // Required plugins for this demo.
                 'plugins' => [
@@ -34,11 +34,6 @@ function sd_edi_single_site_config() {
                         'name'     => 'Kirki Customizer Framework',
                         'source'   => 'wordpress',
                         'filePath' => 'kirki/kirki.php',
-                    ],
-                    'ninja-forms' => [
-                        'name'     => 'Ninja Forms',
-                        'source'   => 'wordpress',
-                        'filePath' => 'ninja-forms/ninja-forms.php',
                     ],
                     // Add more required plugins as needed.
                 ],
