@@ -72,7 +72,20 @@ function sd_edi_set_menu_location() {
     }
 }
 
-update_option( 'show_on_front', 'posts' );
+// set frontpage after demo import
+function sd_update_front_page_setting() {
+
+    $current_show_on_front = get_option( 'show_on_front' );
+
+    if ( $current_show_on_front !== 'posts' ) {
+
+        update_option( 'show_on_front', 'posts' );
+        error_log( 'show_on_front updated to posts' );
+        
+    } else {
+        error_log( 'show_on_front already set to posts' );
+    }
+}
 
 /**
  * Hook into the importer after import hook to execute your codes above.
