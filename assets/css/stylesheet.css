@@ -164,6 +164,9 @@ body {
 body .container-fluid {
   padding: 0;
 }
+body main {
+  padding: 1.8em 2em;
+}
 body .site, body .single {
   display: flex;
   flex-direction: column;

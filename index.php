@@ -20,7 +20,7 @@ $container_width = huda_get_page_container_width();
 ?>
 
 	<main id="primary" class="site-main <?php echo esc_attr( $container_width ); ?>">
-		<div class="row gy-4">
+		<div class="row">
 			<?php
 			if ( have_posts() ) :
 
