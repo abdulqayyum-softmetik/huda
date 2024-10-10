@@ -39,7 +39,7 @@
 					?>
 			
 
-					<div class="entry-meta d-flex align-items-center justify-content-start flex-wrap gap-3 mb-3">
+					<div class="entry-meta d-flex align-items-center justify-content-start flex-wrap gap-3 my-3">
 						<?php  
 							huda_post_categories();
 						?>

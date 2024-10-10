@@ -12,10 +12,14 @@ body {
 		padding: 0;
 	}
 
-	.site{
+	main{
+		padding: 1.8em 2em;
+	}
+
+	.site, .single{
 		display: flex;
 		flex-direction: column;
-		height: calc(100vh - 32px);
+		height: calc( 100vh - 32px );
 		margin: 0;
 
 		main,

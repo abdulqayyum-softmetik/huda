@@ -547,66 +547,6 @@ new \Kirki\Field\Typography(
 	]
 );
 
-new \Kirki\Field\Typography(
-	[
-		'settings'    => 'footer_paragraph_title_typography_setting',
-		'label'       => esc_html__( 'Footer paragraph typography', 'huda' ),
-		'description' => esc_html__( '', 'huda' ),
-		'section'     => 'huda_footer_section',
-		'priority'    => 10,
-		'transport'   => 'auto',
-		'tab' => 'design',
-		'default'     => [
-			'font-family'     => 'Raleway',
-			'variant'         => '300',
-			'font-style'      => 'normal',
-			'color'           => '#FFFFFE',
-			'font-size'       => '16px',
-			'line-height'     => '1.5',
-			'letter-spacing'  => '0',
-			'text-transform'  => 'none',
-			'text-decoration' => 'none',
-			'text-align'      => 'initial',
-		],
-		'output'  => [
-			[
-				'element' => 'footer p',
-			],
-		],
-	]
-);
-
-
-new \Kirki\Field\Typography(
-	[
-		'settings'    => 'footer_widget_title_typography_setting',
-		'label'       => esc_html__( 'Footer widget title typography', 'huda' ),
-		'description' => esc_html__( '', 'huda' ),
-		'section'     => 'huda_footer_section',
-		'priority'    => 10,
-		'transport'   => 'auto',
-		'tab' => 'design',
-		'default'     => [
-			'font-family'     => 'Raleway',
-			'variant'         => '300',
-			'font-style'      => 'normal',
-			'color'           => '#FFFFFE',
-			'font-size'       => '16px',
-			'line-height'     => '1.5',
-			'letter-spacing'  => '0',
-			'text-transform'  => 'none',
-			'text-decoration' => 'none',
-			'text-align'      => 'initial',
-		],
-		'output'  => [
-			[
-				'element' => 'footer p',
-			],
-		],
-	]
-);
-
-
 /*
 * Typography
 */
