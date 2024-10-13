@@ -89,12 +89,10 @@ h4,
 h5,
 h6 {
   clear: both;
-  text-align: inherit !important;
 }
 
 p {
   margin-bottom: inherit;
-  text-align: inherit !important;
 }
 
 dfn,

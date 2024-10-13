@@ -281,7 +281,6 @@ new \Kirki\Field\Typography(
 			'letter-spacing'  => '0',
 			'text-transform'  => 'none',
 			'text-decoration' => 'none',
-			'text-align'      => 'initial',
 		],
 		'output'      => [
 			[
@@ -310,7 +309,6 @@ new \Kirki\Field\Typography(
 			'letter-spacing'  => '0',
 			'text-transform'  => 'none',
 			'text-decoration' => 'none',
-			'text-align'      => 'initial',
 		],
 		'output'      => [
 			[
@@ -340,7 +338,6 @@ new \Kirki\Field\Typography(
 			'letter-spacing'  => '0',
 			'text-transform'  => 'none',
 			'text-decoration' => 'none',
-			'text-align'      => 'initial',
 		],
 		'output'      => [
 			[
@@ -508,7 +505,6 @@ new \Kirki\Field\Typography(
 			'letter-spacing'  => '0',
 			'text-transform'  => 'capitalize',
 			'text-decoration' => 'none',
-			'text-align'      => 'initial',
 		],
 		'output'  => [
 			[
@@ -537,7 +533,6 @@ new \Kirki\Field\Typography(
 			'letter-spacing'  => '0',
 			'text-transform'  => 'none',
 			'text-decoration' => 'none',
-			'text-align'      => 'initial',
 		],
 		'output'  => [
 			[
@@ -567,7 +562,6 @@ new \Kirki\Field\Typography(
 			'letter-spacing'  => '0',
 			'text-transform'  => 'none',
 			'text-decoration' => 'none',
-			'text-align'      => 'initial',
 		],
 		'output'      => [
 			[
@@ -594,7 +588,6 @@ new \Kirki\Field\Typography(
 			'letter-spacing'  => '0',
 			'text-transform'  => 'none',
 			'text-decoration' => 'none',
-			'text-align'      => 'initial',
 		],
 		'output'      => [
 			[
@@ -621,7 +614,6 @@ new \Kirki\Field\Typography(
 			'letter-spacing'  => '0',
 			'text-transform'  => 'none',
 			'text-decoration' => 'none',
-			'text-align'      => 'initial',
 		],
 		'output'      => [
 			[
@@ -648,7 +640,6 @@ new \Kirki\Field\Typography(
 			'letter-spacing'  => '0',
 			'text-transform'  => 'none',
 			'text-decoration' => 'none',
-			'text-align'      => 'initial',
 		],
 		'output'      => [
 			[
@@ -675,7 +666,6 @@ new \Kirki\Field\Typography(
 			'letter-spacing'  => '0',
 			'text-transform'  => 'none',
 			'text-decoration' => 'none',
-			'text-align'      => 'initial',
 		],
 		'output'      => [
 			[
@@ -702,7 +692,6 @@ new \Kirki\Field\Typography(
 			'letter-spacing'  => '0',
 			'text-transform'  => 'none',
 			'text-decoration' => 'none',
-			'text-align'      => 'initial',
 		],
 		'output'      => [
 			[
@@ -729,7 +718,6 @@ new \Kirki\Field\Typography(
 			'letter-spacing'  => '0',
 			'text-transform'  => 'none',
 			'text-decoration' => 'none',
-			'text-align'      => 'initial',
 		],
 		'output'      => [
 			[
@@ -756,11 +744,10 @@ new \Kirki\Field\Typography(
 			'letter-spacing'  => '0',
 			'text-transform'  => 'none',
 			'text-decoration' => 'none',
-			'text-align'      => 'initial',
 		],
 		'output'      => [
 			[
-				'element' => 'p',
+				'element' => 'body article p',
 			],
 		],
 	]
@@ -804,7 +791,6 @@ new \Kirki\Field\Typography(
 			'letter-spacing'  => '0',
 			'text-transform'  => 'none',
 			'text-decoration' => 'none',
-			'text-align'      => 'initial',
 		],
 		'output'      => [
 			[
@@ -1040,7 +1026,6 @@ new \Kirki\Field\Typography(
 			'letter-spacing'  => '0',
 			'text-transform'  => 'none',
 			'text-decoration' => 'none',
-			'text-align'      => 'inherit',
 		],
 		'output'      => [
 			[
