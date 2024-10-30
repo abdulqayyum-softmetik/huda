@@ -19,6 +19,15 @@ $container_width = huda_get_page_container_width();
 
 ?>
 
+	<?php 
+		if ( is_home() ) :
+			?>
+					<?php get_template_part( 'template-parts/components/home', 'featured' ); ?>
+
+			<?php
+		endif;
+	?>
+
 	<main id="primary" class="site-main <?php echo esc_attr( $container_width ); ?>">
 		<div class="row">
 			<?php
@@ -54,9 +63,6 @@ $container_width = huda_get_page_container_width();
 			endif;
 			?>
 		</div>
-		
-		<?php huda_scroll_top(); ?>
-		
 	</main><!-- #main -->
 
 <?php

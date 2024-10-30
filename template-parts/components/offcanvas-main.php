@@ -1,4 +1,4 @@
-<a class="" data-bs-toggle="offcanvas" href="#Offcanvasidebar" role="button" aria-controls="Offcanvasidebar">
+<a data-bs-toggle="offcanvas" href="#Offcanvasidebar" role="button" aria-controls="Offcanvasidebar">
   <i class="ri-menu-2-line"></i>
 </a>
 
@@ -32,11 +32,7 @@
             &copy; <?php echo date('Y'); ?>
             
             <?php esc_html( bloginfo('title') ); ?>
-    
-            <span class="sep"> - </span>
-    
-            <span> All Rights Reserved.</span>
-    
+            
             <?php
                 dynamic_sidebar( 'footer-copyright' );
             ?>

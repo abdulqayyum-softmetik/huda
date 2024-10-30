@@ -109,7 +109,7 @@ function huda_single_post_content(){
     $container_width = huda_get_container_width(); 
     $sidebar_layout = huda_get_sidebar(); 
 ?>
-    <main id="primary" class="site-main <?php echo esc_attr( $container_width ); ?>">
+    <main id="primary" class="site-main <?php echo esc_attr( $sidebar_layout == "sidebar" ? 'sidebar-layout' : 'no-sidebar' )  ?> <?php echo esc_attr( $container_width ); ?>">
         <div class="row">
             <?php while ( have_posts() ) : the_post(); ?>
 
@@ -119,25 +119,25 @@ function huda_single_post_content(){
                         get_template_part( 'template-parts/content', get_post_type() ); 
                     ?>
 
-                    <?php if ( true == get_theme_mod( 'huda_related_post_setting', 'on' ) ) : ?>
-                        <?php related_articles(); ?>
-                    <?php else : ?>
-                        <?php // silence is golden ?>
-                    <?php endif; ?>
-
                     <?php if ( true == get_theme_mod( 'huda_social_share_setting', 'on' ) ) : ?>
                         <?php huda_social_share(); ?>
                     <?php else : ?>
                         <?php // silence is golden ?>
                     <?php endif; ?>
 
-                    
-
                     <?php
                         if ( comments_open() ) :
                             comments_template();
                         endif;
                     ?>
+
+                    <?php if ( true == get_theme_mod( 'huda_related_post_setting', 'on' ) ) : ?>
+                       <div class="">
+                        <?php related_articles(); ?>
+                       </div>
+                    <?php else : ?>
+                        <?php // silence is golden ?>
+                    <?php endif; ?>
                 </div>
 
                 <div class="<?php echo esc_attr( $sidebar_layout == "sidebar" ? 'col-lg-4' : '' ) ?>">
@@ -191,9 +191,10 @@ add_action('huda_sidebar','huda_sidebar_content');
 
 
 function huda_search_content(){
+    $page_container_width = huda_get_page_container_width();
     ?>
         <main id="primary" class="huda-site-main">
-            <div class="container">
+            <div class="<?php echo esc_attr( $page_container_width ); ?>">
                 <?php if ( have_posts() ) : ?>
 
                 <header class="page-header pb-4">
@@ -230,21 +231,37 @@ function huda_search_content(){
 add_action('huda_search','huda_search_content');
 
 function huda_category_content(){
+    $page_container_width = huda_get_page_container_width();
     ?>
         <main class="category-page">
+            <section class="page-hero-section">
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-12 col-md-12 col-12">
+                        <!-- Heading -->
+                        <h1 class="category-title">
+                        Category: <?php echo esc_html( single_cat_title()); // Display the category title ?>
+                    </h1>
+                    </div>
+
+                    <div class="col-lg-6 col-md-8 col-12">
+                        <!-- Paragraph -->
+                        <?php echo wp_kses_post( category_description() ); // Display the category description ?>
+                    </div>
+                    
+                    <div class="col-lg-12 col-md-12 col-12">
+                        <!-- Search -->
+                        <?php esc_html( get_search_form() ); ?>
+                    </div>
+                </div>
+ 
+            </section>
             <div class="content">
-                <div class="container">
-                        <div class="breadcrumb">
-                            <h1 class="category-title">
-                                Category: <?php echo esc_html( single_cat_title()); // Display the category title ?>
-                            </h1>
-                            <?php echo wp_kses_post( category_description() ); // Display the category description ?>
-                        </div>
-                        
+                <div class="<?php echo esc_attr( $page_container_width ); ?>">
                         <?php if ( have_posts() ) : ?>
                             <div class="row gy-4">
                                 <?php while ( have_posts() ) : the_post(); ?>
-                                    <div class="col-md-3">
+                                    <div class="col-lg-4 col-md-4 col-12">
                                         <?php get_template_part( 'template-parts/content', get_post_type() ); ?>
                                     </div>
                                 <?php endwhile; ?>
@@ -267,9 +284,10 @@ function huda_category_content(){
 add_action('huda_category','huda_category_content');
 
 function huda_author_content(){
+    $page_container_width = huda_get_page_container_width();
     ?>
             <div id="primary" class="content-area">
-            <main id="main" class="site-main container">
+            <main id="main" class="site-main <?php echo esc_attr( $page_container_width ); ?>">
 
             <?php 
                 get_template_part( 'template-parts/content', 'author' );
@@ -287,16 +305,13 @@ function huda_404_content(){
     ?>
         <main id="primary" class="huda-site-main <?php echo esc_attr( $page_container ); ?>">
             <section class="error-404 not-found">
-                <header class="page-header">
-                    <h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'huda' ); ?></h1>
-                </header><!-- .page-header -->
-
+            
                 <div class="nothing-found-img-wrapper">
                     <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/404.svg" alt="Huda Image">
                 </div>
 
-                <div class="page-content">
-                    <p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'huda' ); ?></p>
+                <div class="page-content mb-5">
+                    <p><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'huda' ); ?></p>
 
                     <a href="/" class="d-flex justify-content-center">
                         <button class="btn-outline">Go Back</button>
@@ -313,7 +328,6 @@ add_action('huda_404','huda_404_content');
 function huda_customize_remove_panels( $wp_customize ) {
     // Remove the default "Colors" panel
     $wp_customize->remove_section( 'colors' );
-
     // You can also remove individual controls if needed:
     $wp_customize->remove_section( 'background_image' ); 
     $wp_customize->remove_section( 'header_image' );

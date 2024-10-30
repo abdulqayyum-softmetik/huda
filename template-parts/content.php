@@ -15,44 +15,56 @@
 			<?php 
 				if( is_singular() ) :
 			?>
-			
-					<?php 
-						the_title( '<h1 class="post-title h1">', '</h1>' );
-					?>
-
-					<?php
-					
-					the_excerpt(
-						sprintf(
-							wp_kses(
-								/* translators: %s: Name of current post. Only visible to screen readers */
-								__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'huda' ),
-								array(
-									'span' => array(
-										'class' => array(),
-									),
-								)
-							),
-							wp_kses_post( get_the_title() )
-						)
-					);
-					?>
-			
-
-					<div class="entry-meta d-flex align-items-center justify-content-start flex-wrap gap-3 my-3">
-						<?php  
-							huda_post_categories();
-						?>
-						<p class="post-read-time mb-0"><?php echo esc_html( huda_post_read_time( get_the_ID() ) ) ; ?></p>
+			<div class="hero-section">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-12">
+						<!-- Heading -->
 						<?php 
-							if( is_singular() ) :
-								huda_posted_by();
-							endif;
+							the_title( '<h1 class="post-title h1">', '</h1>' );
 						?>
+					</div>
+
+					<div class="col-lg-8 col-md-8 col-12">
+						<!-- Paragraph -->
 						<?php
-							huda_posted_on();
+							the_excerpt(
+								sprintf(
+									wp_kses(
+										/* translators: %s: Name of current post. Only visible to screen readers */
+										__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'huda' ),
+										array(
+											'span' => array(
+												'class' => array(),
+											),
+										)
+									),
+									wp_kses_post( get_the_title() )
+								)
+							);
 						?>
-					</div><!-- .entry-meta -->
+					</div>
+					
+					<div class="col-lg-12 col-md-12 col-12">
+						<!-- Search -->
+						<div class="entry-meta d-flex align-items-center flex-wrap gap-3">
+							<?php  
+								huda_post_categories();
+							?>
+							<p class="post-read-time mb-0"><?php echo esc_html( huda_post_read_time( get_the_ID() ) ) ; ?></p>
+							<?php 
+								if( is_singular() ) :
+									huda_posted_by();
+								endif;
+							?>
+							<?php
+								huda_posted_on();
+							?>
+						</div><!-- .entry-meta -->
+					</div>
+				</div>
+			
+	
+			</div>
 					
 			<?php endif;?>
 			
@@ -68,9 +80,6 @@
 					<div class="entry-meta d-flex align-items-center gap-2">
 						<?php  
 							huda_post_categories();
-						?>
-						<?php
-							huda_posted_on();
 						?>
 					</div><!-- .entry-meta -->
 			<?php endif; ?>
@@ -121,20 +130,16 @@
 			<?php 
 				if( is_singular() ) :
 					?>
-						
-							<?php get_template_part( 'inc/post', 'navigation' ); ?>
-					
+						<?php get_template_part( 'inc/post', 'navigation' ); ?>
 					<?php
 			?>
 			<?php else : ?>
 				<footer class="entry-footer">
 					<div class="d-flex align-items-center justify-content-between">
 						<div class="read-time">
-							<?php echo esc_html( huda_post_read_time( get_the_ID() ) ) ; ?>
-						</div>
-						<div>
 							<?php huda_read_more(); ?>
 						</div>
+						
 					</div>
 				</footer><!-- .entry-footer -->
 			<?php endif;?>

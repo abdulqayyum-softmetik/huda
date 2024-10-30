@@ -16,6 +16,10 @@ header.header-main{
         }
     }
 
+    ul, ol{
+        list-style-type: none;
+    }
+
     nav{
 
         ul{
@@ -87,6 +91,14 @@ header.header-main{
             span{
                 font-size: 14px;
             }
+
+            .dropdown {
+                &:hover {
+                    .dropdown-menu {
+                        display: inherit;
+                    }
+                }
+            }
         }
     }
 
@@ -95,6 +107,7 @@ header.header-main{
         padding: 0.4em 1em;
         color: $color__white;
         background: $color__gradient;
+        border-radius: 3.125em;
     }
 
     .woo-cart-count{

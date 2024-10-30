@@ -37,11 +37,9 @@ function wp_huda_admin_page_callback() {
 
         <div>
             <ul>
-                <li>
-                    <a href="">Contact</a>
-                </li>
-                <li>
-                    <a href="">Support</a>
+                <li class="flex align-items-center gap-1">
+                    <img class="max-w-16" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/admin-images/customer-service-line.svg" alt="Support Icon">
+                    <a href="" class="text-color">Support</a>
                 </li>
             </ul>
         </div>
@@ -50,9 +48,9 @@ function wp_huda_admin_page_callback() {
 
     <div class="tab-content custom-cards-container">
       <div id="tab1" class="tab-pane active">
-        <div class="flex w-full justify-content-between flex-wrap">
+        <div class="flex w-full justify-content-between gap-4">
             <div class="customizer-wrapper">
-                <div class="panel-title">Customizer Settings</div>
+                <h5 class="panel-title">Customizer Settings</h5>
                 <div class="flex justify-content-between flex-wrap gap-3">
                     <div class="card">
                         <div class="card-body">
@@ -77,8 +75,6 @@ function wp_huda_admin_page_callback() {
                             <a href="<?php echo admin_url('customize.php?autofocus[section]=header_section'); ?>" class="btn btn-primary">Customize</a>
                         </div>
                     </div>
-                </div>
-                <div class="flex justify-content-between flex-wrap gap-3">
                     <div class="card">
                         <div class="card-body">
                             <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/admin-images/news-line.svg" alt="Huda Image">
@@ -104,76 +100,66 @@ function wp_huda_admin_page_callback() {
                     </div>
                 </div>
             </div>
-            <div class="plugin-wrapper">
-                <div class="panel-title">Plugins Integration</div>
-                <div class="plugins-content flex justify-content-between gap-1">
-                    <div class="flex gap-1">
-                        <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/admin-images/elementor-icon.svg" alt="Huda Image">
-                        <div>
-                            <h4>Elementor Website Builder</h4>
-                            <p class="card-text">#1 page builder for wordpress</p>
+            <div class="cards-wrapper">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="flex align-items-center gap-1">
+                            <img class="" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/admin-images/file-list-3-line.svg" alt="Support Icon">
+                            <h5 class="card-title">Documentation</h5>
                         </div>
-                    </div>
-                    <div>
-                        <a href="<?php echo admin_url('plugin-install.php?s=elementor&tab=search&type=term'); ?>" class="btn btn-primary">Install</a>
+                        <p>A complete guide to help users install and customize the theme easily, with clear instructions and visuals.</p>
+                        <a href="">Go To Documentation</a>
                     </div>
                 </div>
-                <div class="plugins-content flex justify-content-between gap-1">
-                    <div class="flex gap-1">
-                        <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/admin-images/xpro-icon.svg" alt="Huda Image">
-                        <div>
-                            <h4>Xpro Theme Builder</h4>
-                            <p class="card-text">header, footer theme builder</p>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="flex align-items-center gap-1">
+                            <img class="" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/admin-images/customer-service-2.svg" alt="Support Icon">
+                            <h5 class="card-title">Support</h5>
                         </div>
-                    </div>
-                    <div>
-                        <a href="<?php echo admin_url('plugin-install.php?s=xpro&tab=search&type=term'); ?>" class="btn btn-primary">Install</a>
+                        <p>Provides access to help with any theme-related issues, ensuring users have a smooth experience.</p>
+                        <a href="">Submit A Ticket</a>
                     </div>
                 </div>
-                <div class="plugins-content flex justify-content-between gap-1">
-                    <div class="flex gap-1">
-                        <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/admin-images/xpro-addons-icon.svg" alt="Huda Image">
-                        <div>
-                            <h4>Xpro Addons For Elementor Pro</h4>
-                            <p class="card-text">70+ premium widgets for elementor</p>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="flex align-items-center gap-1">
+                            <img class="" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/admin-images/service-line.svg" alt="Support Icon">
+                            <h5 class="card-title">Rate Us</h5>
                         </div>
-                    </div>
-                    <div>
-                        <a href="<?php echo admin_url('plugin-install.php?s=xpro&tab=search&type=term'); ?>" class="btn btn-primary">Install</a>
-                    </div>
-                </div>
-                <div class="plugins-content flex justify-content-between gap-1">
-                   <div class="flex gap-1">
-                        <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/admin-images/woocommerce-icon.svg" alt="Huda Image">
-                        <div>
-                            <h4>WooCommerce</h4>
-                            <p class="card-text">wordpress shop plugin</p>
-                        </div>
-                   </div>
-                    <div>
-                        <a href="<?php echo admin_url('plugin-install.php?s=woocommerce&tab=search&type=term'); ?>" class="btn btn-primary">Install</a>
+                        <p>Encourages users to rate the theme, supporting ongoing improvements and visibility.</p>
+                        <a href="">Write A Review</a>
                     </div>
                 </div>
             </div>
         </div>
       </div>
       <div id="tab2" class="tab-pane">
-        <div class="card">
+        <div class="card me-auto">
             <div class="card-body">
                 <h5 class="card-title">Starter Templates</h5>
-                <p class="card-text">Enhance your design capabilities with Elementor page builder.</p>
-                <a href="<?php echo admin_url('/themes.php?page=sd-easy-demo-importer'); ?>" class="btn btn-primary">Install Starter Sites</a>
+                <p class="card-text">Quick start with huda starter templates.</p>
+                <a href="<?php echo admin_url('/themes.php?page=sd-easy-demo-importer'); ?>" class="btn btn-primary">Import Demo</a>
             </div>
         </div>
        
       </div>
-      <div id="tab3" class="tab-pane card">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Customize Footer</h5>
-                <p class="card-text">Update the footer's design and layout.</p>
-                <a href="<?php echo admin_url('customize.php?autofocus[section]=footer_section'); ?>" class="btn btn-primary">Go to Customizer</a>
+      <div id="tab3" class="tab-pane">  
+        <div class="changelog-wrapper">
+            <h5 class="panel-title">Changelog Huda Theme</h5>
+
+            <div class="">
+                <h4>
+                    Huda Theme <span>Version 1.0.0 ( 01-12-2-2024 )</span>
+                </h4>
+                <ul>
+                    <li>
+                    
+                        <p>Initial Release <span>Version 1.0.0</span></p>
+                    </li>
+                </ul>
             </div>
+            
         </div>
       </div>
     </div>

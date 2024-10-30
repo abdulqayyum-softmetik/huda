@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 	if ( btnScrollToTop) {
 		window.addEventListener('scroll', () => {
-			btnScrollToTop.style.display = window.scrollY > 160 ? 'block' : 'none';
+			btnScrollToTop.style.display = window.scrollY > 120 ? 'block' : 'none';
 		});
 	} else {
 		console.warn("Scroll to top button not found.");

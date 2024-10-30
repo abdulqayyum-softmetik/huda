@@ -13,7 +13,7 @@
     }
 }
 
-.offcanvas{
+.offcanvas{     
     &.main{
         .offcanvas-header{
             border-bottom: 1px solid $color__border-abbr;
@@ -21,8 +21,6 @@
                 margin-bottom: 0;
             }
         }
-
-        
 
         .offcanvas-footer{
             padding: 1em;
@@ -146,27 +144,50 @@ aside{
 }
 
 .offcanvas {
-    &.search-wrapper{
-        height: 50vh !important;
-        overflow-y: hidden;
-        padding: 2em 0;
 
-        .content{
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
+    &.main {
+        .dropdown {
+            &:hover {
+                .dropdown-menu {
+                    display: block !important;
+                    margin-top: 0;
+                }
+            }
+        }
+    }
+
+   
+}
+
+.offcanvas{
+    &.search-wrapper{
+        height: 50vh;
+    }
+}
+
+.search-form-wrapper{
+    position: relative;
+
+    form{
+        margin-top: 2.5em;
+
+        @media screen and (max-width: $breakpoint-small) {
+           margin-top: 1em;
         }
 
-        form{
-            display: flex;
-            margin-top: 1.2em;
-            justify-content: space-between;
-            gap: 0.8em;
+        &.huda-search-form{
+            width: 100%;
+            text-align: center;
 
             input{
-                &#searchInput{
-                    width: 100%;
-                    padding: 10px 18px;
+                width: 29em;
+                padding: 0.75em 1.25em;
+                border-radius: 3.125em;
+                border: 1px solid $color__accent;
+                color: $color__accent;
+
+                @media screen and (max-width: $breakpoint-medium) {
+                    width: 90%;
                     margin: 0 auto;
                 }
             }
@@ -175,21 +196,41 @@ aside{
 
     .search-result-wrapper{
         width: 100%;
-        max-width: 860px;
-        margin: 0 auto;
+        position: absolute;
+        left: 50%;
+        top: 4em;
+        transform: translate(-50%, 0%);
 
         #datafetch{
             display: flex;
-            align-items: start;
-            flex-wrap: wrap;
-            margin-top: 1em;
-            gap: 0.6em;
+            justify-content: center;
+            background-color: $color__white;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+            border-radius: 1em;
 
-            .posted-on,i{
-                color: $color__black;
+            @media screen and (max-width: $breakpoint-small) {
+                flex-wrap: wrap;
+            }
+
+            h3{
+                margin: 1em 0;
+            }
+
+            article{
+                margin: 1em;
+
+                @media screen and (max-width: $breakpoint-medium) {
+                    width: 100%;
+                }
+
+                @media screen and (max-width: $breakpoint-small) {
+                    width: 100%;
+                    margin: 0;
+                    margin-top: 0.6em;
+                }
             }
         }
-    }
+    }	
 }
 
 body{
@@ -232,8 +273,10 @@ body{
     width: 2.375em;
     height: 2.375em;
     bottom: 1em;
-    right: 1em;
-    background: $color__white;
+    right: 2em;
+    background: $color__accent;
+    border-radius: 50px;
+
     @include flex-center;
 
     i{

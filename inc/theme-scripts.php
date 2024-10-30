@@ -20,18 +20,18 @@ function huda_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'huda_scripts' );
 
-function reorder_elementor_css() {
+// function reorder_elementor_css() {
 
-    if ( did_action( 'elementor/loaded' ) ) {
+//     if ( did_action( 'elementor/loaded' ) ) {
 
-        wp_dequeue_style( 'elementor-frontend' );
+//         wp_dequeue_style( 'elementor-frontend' );
 
-        wp_enqueue_style( 'elementor-frontend', plugins_url( 'elementor/assets/css/frontend.min.css' ), array(), ELEMENTOR_VERSION, 'all' );
-    }
+//         wp_enqueue_style( 'elementor-frontend', plugins_url( 'elementor/assets/css/frontend.min.css' ), array(), ELEMENTOR_VERSION, 'all' );
+//     }
 
-}
-// Use a higher priority to make sure it runs after Elementor has enqueued its styles
-add_action('wp_enqueue_scripts', 'reorder_elementor_css', 20);
+// }
+// // Use a higher priority to make sure it runs after Elementor has enqueued its styles
+// add_action('wp_enqueue_scripts', 'reorder_elementor_css', 20);
 
 
 function huda_customizer_scripts() {

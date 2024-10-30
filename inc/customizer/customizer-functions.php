@@ -33,7 +33,7 @@
         // Function to get sidebar setting
         if ( ! function_exists('huda_get_sidebar') ) {
             function huda_get_sidebar() {
-                return get_theme_mod('blog__sidebar_layout__setting', 'sidebar'); 
+                return get_theme_mod('blog__sidebar_layout__setting', 'no-sidebar'); 
             }
         }
 

@@ -127,21 +127,21 @@ new \Kirki\Pro\Field\Padding(
 		'default'     => [
             'desktop' => [
                 'top'    => '16',
-                'right'  => '16',
+                'right'  => '0',
                 'bottom' => '16',
-                'left'   => '16',
+                'left'   => '0',
             ],
             'tablet'  => [
                 'top'    => '14',
-                'right'  => '14',
+                'right'  => '0',
                 'bottom' => '14',
-                'left'   => '14',
+                'left'   => '0',
             ],
             'mobile'  => [
                 'top'    => '12',
-                'right'  => '12',
+                'right'  => '22',
                 'bottom' => '12',
-                'left'   => '12',
+                'left'   => '22',
             ],
         ],
 		'transport'   => 'postMessage',
@@ -167,10 +167,10 @@ new \Kirki\Field\Color(
 	[
 		'settings'    => 'huda_buy_button_color_bg',
 		'label'       => __( 'Buy Now background color', 'huda' ),
-		'description' => esc_html__( 'Buy Button background color', 'huda' ),
+		'description' => esc_html__( '', 'huda' ),
 		'section'     => 'huda_header_section',
 		'tab' => 'design',
-		'default'     => '#5081FF',
+		'default'     => '#22374B',
         'choices'     => [
             'alpha' => true,
         ],
@@ -188,7 +188,7 @@ new \Kirki\Field\Color(
 	[
 		'settings'    => 'header_background_color_setting_hex',
 		'label'       => __( 'Header Background color', 'huda' ),
-		'description' => esc_html__( 'Header Background Color', 'huda' ),
+		'description' => esc_html__( '', 'huda' ),
 		'section'     => 'huda_header_section',
 		'default'     => '#FFFFFE',
 		'tab' => 'design',
@@ -205,9 +205,9 @@ new \Kirki\Field\Color(
 	[
 		'settings'    => 'woocommerce_cart_count_bg_color',
 		'label'       => __( 'Cart Count Background color', 'huda' ),
-		'description' => esc_html__( 'Header Cart Count Background color', 'huda' ),
+		'description' => esc_html__( '', 'huda' ),
 		'section'     => 'huda_header_section',
-		'default'     => '#5081FF',
+		'default'     => '22374B',
 		'tab' => 'design',
 		'output'      => [
 			[
@@ -222,9 +222,9 @@ new \Kirki\Field\Color(
 	[
 		'settings'    => 'header_icons_color_setting_hex',
 		'label'       => __( 'Header Icons Color', 'huda' ),
-		'description' => esc_html__( 'Header Icons Color', 'huda' ),
+		'description' => esc_html__( '', 'huda' ),
 		'section'     => 'huda_header_section',
-		'default'     => '#0F0E17',
+		'default'     => '#22374b',
 		'tab' => 'design',
 		'output'      => [
 			[
@@ -244,7 +244,7 @@ new \Kirki\Field\Typography(
 		'transport'   => 'auto',
 		'tab' => 'design',
 		'default'     => [
-			'font-family'     => 'Oswald',
+			'font-family'     => 'Space Grotesk',
 			'variant'         => 'regular',
 			'font-style'      => 'normal',
 			'color'           => '#FFFFFE',
@@ -273,7 +273,7 @@ new \Kirki\Field\Typography(
 		'transport'   => 'auto',
 		'tab' => 'design',
 		'default'     => [
-			'font-family'     => 'Oswald',
+			'font-family'     => 'Space Grotesk',
 			'variant'         => 'regular',
 			'font-style'      => 'normal',
 			'font-size'       => '14px',
@@ -300,7 +300,7 @@ new \Kirki\Field\Typography(
 		'transport'   => 'auto',
 		'tab' => 'design',
 		'default'     => [
-			'font-family'     => 'Oswald',
+			'font-family'     => 'Space Grotesk',
 			'variant'         => 'regular',
 			'font-style'      => 'normal',
 			'color'           => '#0F0E17',
@@ -329,7 +329,7 @@ new \Kirki\Field\Typography(
 		'transport'   => 'auto',
 		'tab' => 'design',
 		'default'     => [
-			'font-family'     => 'Oswald',
+			'font-family'     => 'Space Grotesk',
 			'variant'         => 'regular',
 			'font-style'      => 'normal',
 			'color'           => '#0F0E17',
@@ -344,6 +344,112 @@ new \Kirki\Field\Typography(
 				'element' => 'header.header-main nav ul li ul.dropdown-menu li a',
 			],
 		],
+	]
+);
+
+/*
+* Hero Section Control
+*/
+new \Kirki\Field\Typography(
+	[
+		'settings'    => 'hero_title_typography_setting',
+		'label'       => esc_html__( 'Hero Section title typography', 'huda' ),
+		'description' => esc_html__( '', 'huda' ),
+		'section'     => 'huda_hero_section',
+		'priority'    => 10,
+		'transport'   => 'auto',
+		'tab' => 'general',
+		'default'     => [
+			'font-family'     => 'Space Grotesk',
+			'variant'         => '500',
+			'font-style'      => 'normal',
+			'color'           => '#05011C',
+			'font-size'       => '60px',
+			'line-height'     => '1.5',
+			'letter-spacing'  => '0',
+			'text-transform'  => 'capitalize',
+			'text-decoration' => 'none',
+		],
+		'output'  => [
+			[
+				'element' => 'section.featured-section h1, section.page-hero-section h1',
+			],
+		],
+	]
+);
+
+new \Kirki\Field\Typography(
+	[
+		'settings'    => 'hero_paragraph_typography_setting',
+		'label'       => esc_html__( 'Hero Section paragraph typography', 'huda' ),
+		'description' => esc_html__( '', 'huda' ),
+		'section'     => 'huda_hero_section',
+		'priority'    => 10,
+		'transport'   => 'auto',
+		'tab' => 'general',
+		'default'     => [
+			'font-family'     => 'Instrument Sans',
+			'variant'         => '400',
+			'font-style'      => 'normal',
+			'color'           => '#4E5666',
+			'font-size'       => '20px',
+			'line-height'     => '1.5',
+			'letter-spacing'  => '0',
+			'text-transform'  => 'capitalize',
+			'text-decoration' => 'none',
+		],
+		'output'  => [
+			[
+				'element' => 'section.featured-section p',
+			],
+		],
+	]
+);
+
+new \Kirki\Pro\Field\Padding(
+	[
+		'settings'   => 'huda_hero_padding',
+		'label'      => esc_html__( 'Hero Section Padding', 'huda' ),
+		'description' => esc_html__( '', 'huda' ),
+		'section'    => 'huda_hero_section',
+		'tab' => 'design',
+		'responsive' => true,
+		'default'     => [
+            'desktop' => [
+                'top'    => '6.5',
+                'right'  => '0',
+                'bottom' => '6.5',
+                'left'   => '0',
+            ],
+            'tablet'  => [
+                'top'    => '6.5',
+                'right'  => '0',
+                'bottom' => '5',
+                'left'   => '6.5',
+            ],
+            'mobile'  => [
+                'top'    => '3',
+                'right'  => '0.4',
+                'bottom' => '3',
+                'left'   => '0.4',
+            ],
+        ],
+		'transport'   => 'postMessage',
+		'tooltip'     => esc_html__( 'Hero Section Padding', 'huda' ),
+		'choices'     => [
+			'unit' => 'em',
+		],
+		'output' => [
+			[
+				'element'     => 'section.featured-section',
+				'media_query' => [
+					'desktop' => '@media (min-width: 1024px)',
+					'tablet'  => '@media (min-width: 768px) and (max-width: 1023px)',
+					'mobile'  => '@media (max-width: 767px)',
+				],
+			],
+		],
+		'transport'   => 'auto',
 	]
 );
 
@@ -363,46 +469,6 @@ new \Kirki\Field\Radio_Image(
 			'container' => get_template_directory_uri() . '/assets/images/narrow-width.png',
 			'container-fluid'   => get_template_directory_uri() . '/assets/images/full-width.png',
 		],
-	]
-);
-
-new \Kirki\Field\URL(
-	[
-		'settings' => 'facebook_url_setting',
-		'label'    => esc_html__( 'Facebook Url', 'huda' ),
-		'section'  => 'huda_footer_section',
-		'default'  => '/',
-		'priority' => 10,
-	]
-);
-
-new \Kirki\Field\URL(
-	[
-		'settings' => 'twitter_url_setting',
-		'label'    => esc_html__( 'Twitter Url', 'huda' ),
-		'section'  => 'huda_footer_section',
-		'default'  => '/',
-		'priority' => 10,
-	]
-);
-
-new \Kirki\Field\URL(
-	[
-		'settings' => 'youtube_url_setting',
-		'label'    => esc_html__( 'Youtube Url', 'huda' ),
-		'section'  => 'huda_footer_section',
-		'default'  => '/',
-		'priority' => 10,
-	]
-);
-
-new \Kirki\Field\URL(
-	[
-		'settings' => 'whatsapp_url_setting',
-		'label'    => esc_html__( 'Whatsapp Url', 'huda' ),
-		'section'  => 'huda_footer_section',
-		'default'  => '/',
-		'priority' => 10,
 	]
 );
 
@@ -453,13 +519,57 @@ new \Kirki\Pro\Field\Padding(
 	]
 );
 
+new \Kirki\Field\URL(
+	[
+		'settings' => 'facebook_url_setting',
+		'label'    => esc_html__( 'Facebook Url', 'huda' ),
+		'section'  => 'huda_footer_section',
+		'default'  => '/',
+		'priority' => 10,
+		'tab' => 'general',
+	]
+);
+
+new \Kirki\Field\URL(
+	[
+		'settings' => 'twitter_url_setting',
+		'label'    => esc_html__( 'Twitter Url', 'huda' ),
+		'section'  => 'huda_footer_section',
+		'default'  => '/',
+		'priority' => 10,
+		'tab' => 'general',
+	]
+);
+
+new \Kirki\Field\URL(
+	[
+		'settings' => 'youtube_url_setting',
+		'label'    => esc_html__( 'Youtube Url', 'huda' ),
+		'section'  => 'huda_footer_section',
+		'default'  => '/',
+		'priority' => 10,
+		'tab' => 'general',
+	]
+);
+
+new \Kirki\Field\URL(
+	[
+		'settings' => 'whatsapp_url_setting',
+		'label'    => esc_html__( 'Whatsapp Url', 'huda' ),
+		'section'  => 'huda_footer_section',
+		'default'  => '/',
+		'priority' => 10,
+		'tab' => 'general',
+	]
+);
+
 new \Kirki\Field\Color(
 	[
 		'settings'    => 'footer_background_color_setting_hex',
 		'label'       => __( 'Footer Background color', 'huda' ),
-		'description' => esc_html__( 'Footer Background Color', 'huda' ),
+		'description' => esc_html__( '', 'huda' ),
 		'section'     => 'huda_footer_section',
-		'default'     => '#0F0E17',
+		'default'     => '#ECF1ED',
 		'tab' => 'design',
 		'output'      => [
 			[
@@ -474,13 +584,13 @@ new \Kirki\Field\Color(
 	[
 		'settings'    => 'footer_social_color_setting_hex',
 		'label'       => __( 'Footer Social Media Icons color', 'huda' ),
-		'description' => esc_html__( 'Footer Social Media Icons color', 'huda' ),
+		'description' => esc_html__( '', 'huda' ),
 		'section'     => 'huda_footer_section',
-		'default'     => '#FFFFFE',
+		'default'     => '#4E5666',
 		'tab' => 'design',
 		'output'      => [
 			[
-				'element' => 'footer a i',
+				'element' => 'footer a i, footer i',
 			],
 		],
 	]
@@ -496,10 +606,10 @@ new \Kirki\Field\Typography(
 		'transport'   => 'auto',
 		'tab' => 'design',
 		'default'     => [
-			'font-family'     => 'Oswald',
+			'font-family'     => 'Space Grotesk',
 			'variant'         => '500',
 			'font-style'      => 'normal',
-			'color'           => '#FFFFFE',
+			'color'           => '#05011C',
 			'font-size'       => '24px',
 			'line-height'     => '1.5',
 			'letter-spacing'  => '0',
@@ -508,7 +618,7 @@ new \Kirki\Field\Typography(
 		],
 		'output'  => [
 			[
-				'element' => 'wp-block-heading, .nf-form-title h4, h2.widget-title',
+				'element' => '.wp-block-heading, .nf-form-title h4, h2.widget-title',
 			],
 		],
 	]
@@ -524,10 +634,10 @@ new \Kirki\Field\Typography(
 		'transport'   => 'auto',
 		'tab' => 'design',
 		'default'     => [
-			'font-family'     => 'Oswald',
+			'font-family'     => 'Space Grotesk',
 			'variant'         => '300',
 			'font-style'      => 'normal',
-			'color'           => '#FFFFFE',
+			'color'           => '#05011C',
 			'font-size'       => '16px',
 			'line-height'     => '1.5',
 			'letter-spacing'  => '0',
@@ -536,7 +646,7 @@ new \Kirki\Field\Typography(
 		],
 		'output'  => [
 			[
-				'element' => 'footer.footer-main .footer-content a',
+				'element' => 'footer.footer-main .footer-content a, footer.footer-main span',
 			],
 		],
 	]
@@ -554,7 +664,7 @@ new \Kirki\Field\Typography(
 		'priority'    => 10,
 		'transport'   => 'auto',
 		'default'     => [
-			'font-family'     => 'Oswald',
+			'font-family'     => 'Space Grotesk',
 			'variant'         => 'regular',
 			'font-style'      => 'normal',
 			'font-size'       => '14px',
@@ -580,7 +690,7 @@ new \Kirki\Field\Typography(
 		'priority'    => 10,
 		'transport'   => 'auto',
 		'default'     => [
-			'font-family'     => 'Oswald',
+			'font-family'     => 'Space Grotesk',
 			'variant'         => '500',
 			'font-style'      => 'normal',
 			'font-size'       => '40px',
@@ -606,7 +716,7 @@ new \Kirki\Field\Typography(
 		'priority'    => 10,
 		'transport'   => 'auto',
 		'default'     => [
-			'font-family'     => 'Oswald',
+			'font-family'     => 'Space Grotesk',
 			'variant'         => '500',
 			'font-style'      => 'normal',
 			'font-size'       => '32px',
@@ -632,7 +742,7 @@ new \Kirki\Field\Typography(
 		'priority'    => 10,
 		'transport'   => 'auto',
 		'default'     => [
-			'font-family'     => 'Oswald',
+			'font-family'     => 'Space Grotesk',
 			'variant'         => '500',
 			'font-style'      => 'normal',
 			'font-size'       => '28px',
@@ -658,7 +768,7 @@ new \Kirki\Field\Typography(
 		'priority'    => 10,
 		'transport'   => 'auto',
 		'default'     => [
-			'font-family'     => 'Oswald',
+			'font-family'     => 'Space Grotesk',
 			'variant'         => 'regular',
 			'font-style'      => 'normal',
 			'font-size'       => '24px',
@@ -684,7 +794,7 @@ new \Kirki\Field\Typography(
 		'priority'    => 10,
 		'transport'   => 'auto',
 		'default'     => [
-			'font-family'     => 'Oswald',
+			'font-family'     => 'Space Grotesk',
 			'variant'         => '500',
 			'font-style'      => 'normal',
 			'font-size'       => '20px',
@@ -710,7 +820,7 @@ new \Kirki\Field\Typography(
 		'priority'    => 10,
 		'transport'   => 'auto',
 		'default'     => [
-			'font-family'     => 'Oswald',
+			'font-family'     => 'Space Grotesk',
 			'variant'         => '500',
 			'font-style'      => 'normal',
 			'font-size'       => '16px',
@@ -736,10 +846,10 @@ new \Kirki\Field\Typography(
 		'priority'    => 10,
 		'transport'   => 'auto',
 		'default'     => [
-			'font-family'     => 'Roboto',
+			'font-family'     => 'Instrument Sans',
 			'variant'         => 'regular',
 			'font-style'      => 'normal',
-			'font-size'       => '14px',
+			'font-size'       => '16px',
 			'line-height'     => '1.5',
 			'letter-spacing'  => '0',
 			'text-transform'  => 'none',
@@ -783,13 +893,13 @@ new \Kirki\Field\Typography(
 		'priority'    => 10,
 		'transport'   => 'auto',
 		'default'     => [
-			'font-family'     => 'Poppins',
+			'font-family'     => 'Space Grotesk',
 			'variant'         => 'regular',
 			'font-style'      => 'normal',
 			'font-size'       => '14px',
 			'line-height'     => '1.5',
 			'letter-spacing'  => '0',
-			'text-transform'  => 'none',
+			'text-transform'  => 'Upercase',
 			'text-decoration' => 'none',
 		],
 		'output'      => [
@@ -871,7 +981,7 @@ new \Kirki\Field\Color(
 		'description' => esc_html__( '', 'huda' ),
 		'section'     => 'huda_buttons_section',
 		'tab'         => 'design',
-		'default'     => '#6168FC',
+		'default'     => '#22374b',
 		'output' => array(
 			array(
 				'element'  => '.btn, .button, button',
@@ -891,7 +1001,7 @@ new \Kirki\Field\Color(
 		'description' => esc_html__( '', 'huda' ),
 		'section'     => 'huda_buttons_section',
 		'tab'         => 'design',
-		'default'     => '#6168FC',
+		'default'     => '#22374b',
 		'output' => array(
 			array(
 				'element'  => '.btn, .button, button',
@@ -1008,33 +1118,6 @@ new \Kirki\Pro\Field\Padding(
 	]
 );
 
-new \Kirki\Field\Typography(
-	[
-		'settings'    => 'article_titile_typography_setting',
-		'label'       => esc_html__( 'Article Title Typography', 'huda' ),
-		'description' => esc_html__( '', 'huda' ),
-		'section'     => 'huda_blog_post_card_section',
-		'priority'    => 10,
-		'transport'   => 'auto',
-		'default'     => [
-			'font-family'     => 'Oswald',
-			'variant'         => '500',
-			'font-style'      => 'normal',
-			'color'           => '#0F0E17',
-			'font-size'       => '32px',
-			'line-height'     => '1.2',
-			'letter-spacing'  => '0',
-			'text-transform'  => 'none',
-			'text-decoration' => 'none',
-		],
-		'output'      => [
-			[
-				'element' => '.blog article header.entry-header h3.entry-title',
-			],
-		],
-	]
-);
-
 new \Kirki\Field\Color(
 	[
 		'settings'    => 'blog_card_bg_color',
@@ -1092,6 +1175,33 @@ new \Kirki\Field\Color(
 	]
 );
 
+new \Kirki\Field\Typography(
+	[
+		'settings'    => 'article_titile_typography_setting',
+		'label'       => esc_html__( 'Article Title Typography', 'huda' ),
+		'description' => esc_html__( '', 'huda' ),
+		'section'     => 'huda_blog_post_card_section',
+		'priority'    => 10,
+		'transport'   => 'auto',
+		'default'     => [
+			'font-family'     => 'Space Grotesk',
+			'variant'         => '500',
+			'font-style'      => 'normal',
+			'color'           => '#0F0E17',
+			'font-size'       => '32px',
+			'line-height'     => '1.2',
+			'letter-spacing'  => '0',
+			'text-transform'  => 'none',
+			'text-decoration' => 'none',
+		],
+		'output'      => [
+			[
+				'element' => '.blog article header.entry-header h3.entry-title',
+			],
+		],
+	]
+);
+
 
 new \Kirki\Field\Radio_Image(
 	[
@@ -1099,7 +1209,7 @@ new \Kirki\Field\Radio_Image(
 		'label'       => esc_html__( 'Sidebar Layout', 'huda' ),
 		'description' => esc_html__( 'Select sidebar layout default is sidebar', 'huda' ),
 		'section'     => 'huda_blog_layouts_section',
-		'default'     => 'sidebar',
+		'default'     => 'no-sidebar',
 		'priority'    => 10,
 		'choices'     => [
 			'no-sidebar' => get_template_directory_uri() . '/assets/images/no-sidebar.png',
@@ -1120,10 +1230,58 @@ new \Kirki\Field\Radio_Image(
 		'section'     => 'huda_site_container_section',
 		'default'     => 'container',
 		'priority'    => 10,
+		'tab'         => 'general',
 		'choices'     => [
 			'container' => get_template_directory_uri() . '/assets/images/narrow-width.png',
 			'container-fluid'   => get_template_directory_uri() . '/assets/images/full-width.png',
 		],
+	]
+);
+
+new \Kirki\Pro\Field\Padding(
+	[
+		'settings'   => 'huda_main_padding',
+		'label'      => esc_html__( 'Main Container Padding', 'huda' ),
+		'description' => esc_html__( '', 'huda' ),
+		'section'    => 'huda_site_container_section',
+		'tab' => 'design',
+		'responsive' => true,
+		'default'     => [
+            'desktop' => [
+                'top'    => '5',
+                'right'  => '0',
+                'bottom' => '5',
+                'left'   => '0',
+            ],
+            'tablet'  => [
+                'top'    => '5',
+                'right'  => '0',
+                'bottom' => '5',
+                'left'   => '0',
+            ],
+            'mobile'  => [
+                'top'    => '3',
+                'right'  => '0.4',
+                'bottom' => '3',
+                'left'   => '0.4',
+            ],
+        ],
+		'transport'   => 'postMessage',
+		'tooltip'     => esc_html__( 'Main Container Padding', 'huda' ),
+		'choices'     => [
+			'unit' => 'em',
+		],
+		'output' => [
+			[
+				'element'     => 'body .site main',
+				'media_query' => [
+					'desktop' => '@media (min-width: 1024px)',
+					'tablet'  => '@media (min-width: 768px) and (max-width: 1023px)',
+					'mobile'  => '@media (max-width: 767px)',
+				],
+			],
+		],
+		'transport'   => 'auto',
 	]
 );
 
@@ -1151,7 +1309,7 @@ new \Kirki\Field\Color(
 		'description' => esc_html__( '', 'huda' ),
 		'section'     => 'huda_back_to_top_section',
 		'tab' => 'design',
-		'default'     => '#FFFFFE',
+		'default'     => '#22374B',
         'choices'     => [
             'alpha' => true,
         ],
@@ -1159,6 +1317,26 @@ new \Kirki\Field\Color(
 			[
 				'element' => '.backto-top',
 				'property' => 'background'
+			],
+		],
+	]
+);
+
+new \Kirki\Field\Color(
+	[
+		'settings'    => 'huda_back_to_top_icon_color',
+		'label'       => __( 'Back to top icon color', 'huda' ),
+		'description' => esc_html__( '', 'huda' ),
+		'section'     => 'huda_back_to_top_section',
+		'tab' => 'design',
+		'default'     => '#FFFFFE',
+        'choices'     => [
+            'alpha' => true,
+        ],
+		'output'      => [
+			[
+				'element' => '.backto-top i',
+				'property' => 'color'
 			],
 		],
 	]
@@ -1231,7 +1409,7 @@ new \Kirki\Field\Color(
 		'description' => esc_html__( '', 'huda' ),
 		'section'     => 'huda_Offcanvas_section',
 		'tab' => 'design',
-		'default'     => '#5081FF',
+		'default'     => '#22374B',
         'choices'     => [
             'alpha' => true,
         ],
@@ -1254,14 +1432,14 @@ new \Kirki\Field\Typography(
 		'priority'    => 10,
 		'transport'   => 'auto',
 		'default'     => [
-			'font-family'     => 'Oswald',
+			'font-family'     => 'Space Grotesk',
 			'variant'         => 'regular',
 			'font-style'      => 'normal',
 			'color'           => '#0F0E17',
 			'font-size'       => '14px',
 			'line-height'     => '1.5',
 			'letter-spacing'  => '0',
-			'text-transform'  => 'none',
+			'text-transform'  => 'uppercase',
 			'text-decoration' => 'none',
 			'text-align'      => 'left',
 		],

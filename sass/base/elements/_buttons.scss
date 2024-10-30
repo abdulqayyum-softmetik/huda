@@ -8,8 +8,8 @@ input[type="submit"],
 	font-weight: 600;
 	color: $color__white;
 	border-color: $color__border-button;
-	border-radius: 0;
-	background: $color__background-button;
+	border-radius: 3.125em;
+	background: $color__accent;
 	transition: 0.3s ease-in;
 
 	&:hover {
@@ -31,26 +31,17 @@ input[type="submit"],
 	}
 }
 
-.btn {
-	&.btn-read-more-arrow {
-		width: 34px;
-		height: 34px;
-		border-radius: 3.125em;
-		border-color: $color__black;
-		background-color: $color__black;
-		transition: 800ms ease-in-out color;
-
-		&:hover{
-			border-color: $color__accent;
-			background-color: $color__accent;
-		}
-
-		i{
-			color: $color__white;
-			transition: 0.3s ease;
-			font-size: 18px;
-		}
-
+.read-time{
+	.btn-read-more-arrow {
+		font-size: 1em;
+		font-weight: 500;
+		text-transform: uppercase;
+		color: $color__accent;
 		@include flex-center;
+	}
+
+	i{
+		font-size: 1.2em;
+		color: $color__accent;
 	}
 }

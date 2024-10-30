@@ -2,48 +2,50 @@
 /**
  * Header Default
  *
- */
+ */ 
 $container_width = huda_get_footer_container_width();
 ?>
 <footer class="footer-main">
     <div class="<?php echo esc_attr( $container_width ); ?>">
        <div class="footer-content">
-            <div class="d-flex flex-wrap align-items-start justify-content-between gap-2">
-                <div class="col-lg-3 col-md-3 col-12">
+            <div class="d-flex align-items-start flex-wrap justify-content-between">
+                <div class="col-lg-3 col-md-6 col-12">
                     <?php dynamic_sidebar( 'footer-widget-1' ); ?>
                 </div>
-                <div>
-                    <?php dynamic_sidebar( 'footer-widget-2' ); ?>
+                <div class="col-lg-7">
+                    <div class="d-flex flex-wrap align-items-start justify-content-lg-between justify-content-md-between justify-content-start gap-0">
+                        <div class="col-lg-3 col-md-3 col-6">
+                            <?php dynamic_sidebar( 'footer-widget-2' ); ?>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-6">
+                            <?php dynamic_sidebar( 'footer-widget-3' ); ?>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-6">
+                            <?php dynamic_sidebar( 'footer-widget-4' ); ?>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-6">
+                            <?php dynamic_sidebar( 'footer-widget-5' ); ?>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <?php dynamic_sidebar( 'footer-widget-3' ); ?>
-                </div>
-                <div>
-                    <?php dynamic_sidebar( 'footer-widget-4' ); ?>
-                </div>
-                <div class="col-lg-3 col-12">
-                    <?php dynamic_sidebar( 'footer-widget-5' ); ?>
-                </div>
+                
             </div>
        </div>
-    </div>
-
-    <div class="footer-copyright">
-        <div class="<?php echo esc_attr( $container_width ); ?>">
-            <div class="d-flex flex-wrap justify-content-between">
-                <p class="d-flex flex-wrap mb-0">
+        <div class="footer-copyright">
+            <div class="d-flex w-100 flex-wrap justify-content-between">
+                <div class="d-flex flex-wrap mb-0">
                     &copy; <?php echo date('Y'); ?>
                     
                     <?php esc_html( bloginfo('title') ); ?>
             
-                    <span class="sep"> - </span>
+                    <div class="sep"> - </div>
             
-                    <span class="text-sm"> All Rights Reserved.</span>
+                    <div> All Rights Reserved.</div>
             
                     <?php
                         dynamic_sidebar( 'footer-copyright' );
                     ?>
-                </p>
+                </div>
                 <div>
                     <?php huda_social_links(); ?>
                 </div>

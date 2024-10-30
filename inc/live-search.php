@@ -7,7 +7,7 @@ add_action('wp_ajax_nopriv_data_fetch', 'data_fetch');
 if ( !function_exists('data_fetch') ) {
     function data_fetch() {
         $the_query = new WP_Query(array(
-            'posts_per_page' => 5,
+            'posts_per_page' => 4,
             's' => esc_attr( $_POST['keyword'] ),
             'post_type' => 'post'
         ));
@@ -22,10 +22,6 @@ if ( !function_exists('data_fetch') ) {
                         <a href="<?php echo esc_url( get_permalink() ); ?>"> 
                             <?php the_title(); ?> 
                         </a>
-
-                        <?php
-                            huda_posted_on();
-                        ?>
                     </div>
                 </article>
             <?php endwhile;

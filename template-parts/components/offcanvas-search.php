@@ -7,7 +7,7 @@
     <div type="button" class="btn-close start-0" data-bs-dismiss="offcanvas" aria-label="Close"></div>
   </div>
   <div class="offcanvas-body">
-    <div class="content">
+    <div class="content text-center">
       <h1 class="h1">Find Something?</h1>
       <?php esc_html( get_search_form() ); ?>
     </div>

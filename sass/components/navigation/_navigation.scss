@@ -150,8 +150,12 @@ nav {
 		.content{
 			width: 100%;
 			height: auto;
-			padding: 1em;
 			background-color: $color__white;
+
+			@media screen and (max-width: $breakpoint-medium) {
+				max-width: 100%;
+				padding: 0;
+			}	
 
 			a{
 				color: $color__black !important;
@@ -162,15 +166,19 @@ nav {
 			img{
 				max-width: 60px;
 				height: auto;
-				border-radius: 0;
+				border-radius: 1.5em;
 			}
 		}
 
 		a{
 			&.link{
-				font-family: 'Cormorant';
+				font-family: 'Space Grotesk';
 				font-weight: 600;
 				font-size: 0.98em;
+
+				span,i{
+					font-weight: 400;
+				}
 			}
 		}
 	}
@@ -183,6 +191,9 @@ nav {
 
 	.site-main & {
 		margin: 0 0 1.5em;
+		padding: 1em 0;
+		border-top: 1px solid $color__border-abbr;
+		border-bottom: 1px solid $color__border-abbr;
 	}
 
 	.nav-links {

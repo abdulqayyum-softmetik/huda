@@ -15,9 +15,35 @@ new \Kirki\Section(
 		'description' => esc_html__( '', 'huda' ),
 		'panel'       => 'huda_global_options',
 		'priority'    => 160,
+		'tabs'  => [
+			'general' => [
+				'label' => esc_html__( 'General', 'huda' ),
+			],
+			'design'  => [
+				'label' => esc_html__( 'Design', 'huda' ),
+			],
+		],
 	]
 );
 
+/* 
+* Huda Hero Section
+*/
+new \Kirki\Section(
+	'huda_hero_section',
+	[
+		'title' => esc_html__( 'Hero Section', 'huda' ),
+		'panel' => 'huda_global_options',
+		'tabs'  => [
+			'general' => [
+				'label' => esc_html__( 'General', 'huda' ),
+			],
+			'design'  => [
+				'label' => esc_html__( 'Design', 'huda' ),
+			],
+		],
+	]
+);
 
 /* 
 * Huda Header Layout Section

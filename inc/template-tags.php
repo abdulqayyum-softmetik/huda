@@ -249,9 +249,12 @@ if ( ! function_exists( 'huda_read_more' ) ) :
 	 */
 	function huda_read_more(){
 		?>
-			<a class="btn btn-read-more-arrow"data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Read More" href="<?php echo esc_url( get_permalink() ); ?>">
-				<i class="ri-arrow-right-up-line"></i>
-			</a>
+			<div class="d-flex align-items-center">
+				<a class="btn-read-more-arrow"data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Read More" href="<?php echo esc_url( get_permalink() ); ?>">
+					Learn more
+				</a>
+				<i class="ri-arrow-right-line"></i>
+			</div>
 		<?php
 	}
 endif;
@@ -394,7 +397,7 @@ if( ! function_exists( 'related_articles' ) ) {
                 // Check if there are any related posts
                 if ( $related_posts_query->have_posts() ) {
                     echo '<div class="related-posts">';
-                        echo '<h3>Related Posts</h3>';
+                        echo '<h3 class="">Read Similar Blogs</h3>';
                             echo '<div class="row">';
                                 // Loop through related posts
                                 while ( $related_posts_query->have_posts() ) {
@@ -410,7 +413,9 @@ if( ! function_exists( 'related_articles' ) ) {
 												?>
 												<div class="d-flex flex-column">
 													<a href="<?php echo esc_url( get_permalink() ); ?>"> 
-														<?php the_title(); ?> 
+														<h4>
+															<?php the_title(); ?> 
+														</h4>
 													</a>
 												</div>
 											</article>
@@ -466,20 +471,10 @@ if ( ! function_exists( 'huda_post_categories' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'huda_scroll_top' ) ) :
-	function huda_scroll_top(){
-		$scrollTopV = 'event.preventDefault(); window.scrollTo({top: 0, behavior: "smooth"});';
-		?>
-			<div id="scrollToTop">
-				<a href="#" class="backto-top" onclick='<?php echo esc_js( $scrollTopV ) ?>'>
-					<i class="ri-arrow-up-line"></i>
-				</a>
-			</div>
-		<?php
-	}	
-endif;
-
 if( ! function_exists( 'huda_social_links' ) ) :
+	/**
+	 * Social Sharing 
+	 */
 	function huda_social_links(){
 		$facebook_url = huda_facebook_url(); 
 		$twitter_url = huda_twitter_url(); 
@@ -504,12 +499,25 @@ if( ! function_exists( 'huda_social_links' ) ) :
 	}
 endif;
 
+add_action( 'wp_footer', 'huda_scroll_top' );
 if ( ! function_exists( 'huda_scroll_top' ) ) :
 	function huda_scroll_top(){
+		/**
+		 * Scroll to top 
+		 */
 		?>
 			<?php 
 				if ( true == get_theme_mod( 'back_to_top_switch_setting', 'on' ) ) : 
-				 echo huda_scroll_top(); 
+					
+						$scrollTopV = 'event.preventDefault(); window.scrollTo({top: 0, behavior: "smooth"});';
+						?>
+							<div id="scrollToTop">
+								<a href="#" class="backto-top" onclick='<?php echo esc_js( $scrollTopV ) ?>'>
+									<i class="ri-arrow-up-line"></i>
+								</a>
+							</div>
+						<?php
+					
 				else :
 					// Sillence is golden
 				endif; 

@@ -32,10 +32,10 @@
 	<footer class="entry-footer">
 		<div class="d-flex align-items-center justify-content-between">
 			<div class="read-time">
-				<?php echo esc_html( huda_post_read_time( get_the_ID() ) ) ; ?>
+				<?php huda_read_more(); ?>
 			</div>
 			<div>
-				<?php huda_read_more(); ?>
+				<?php echo esc_html( huda_post_read_time( get_the_ID() ) ) ; ?>
 			</div>
 		</div>
 	</footer><!-- .entry-footer -->

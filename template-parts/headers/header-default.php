@@ -12,7 +12,7 @@ $button_url = huda_header_button_url();
         <div class="<?php echo esc_attr( $container_width ); ?>">
             <div class="position-relative gap-4" id="main-menu">
                 <div class="row justify-content-between">
-                    <div class="col-lg-9 col-md-8 col-6">
+                    <div class="col-lg-9 col-md-8 col-6 px-0">
                         <div class="d-flex align-items-center gap-3">
                             <?php get_template_part( 'template-parts/components/offcanvas', 'main' ); ?>
                             <?php 
@@ -28,14 +28,14 @@ $button_url = huda_header_button_url();
                                         <?php
                                 endif;
                             ?>
-                            <div class="d-flex align-items-center justify-content-center d-xl-block d-lg-block d-md-block d-none">
+                            <div class="w-100 d-xl-block d-lg-block d-md-none d-none">
                                 <?php
                                     wp_nav_menu(array(
                                         'theme_location' => 'main-menu',
                                         'container' => false,
                                         'menu_class' => '',
                                         'fallback_cb' => '__return_false',
-                                        'items_wrap' => '<ul id="%1$s" class="d-flex flex-wrap align-items-center justify-content-center me-0 pe-0 gap-3 %2$s">%3$s</ul>',
+                                        'items_wrap' => '<ul id="%1$s" class="d-flex flex-wrap align-items-center justify-content-start me-0 pe-0 gap-lg-3 gap-md-2 gap-3 %2$s">%3$s</ul>',
                                         'depth' => 2,
                                         'walker' => new bootstrap_5_wp_nav_menu_walker()
                                     ));
@@ -43,11 +43,17 @@ $button_url = huda_header_button_url();
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-4 col-4">
-                        <div class="d-flex align-items-center justify-content-end gap-3">
-                            <div>
-                                <?php get_template_part( 'template-parts/components/offcanvas', 'search' ); ?>
-                            </div>
+                    <div class="col-lg-3 col-md-4 col-4 px-0">
+                        <div class="d-flex align-items-center justify-content-end gap-3"> 
+                            <?php 
+                                if ( is_singular() ) :
+                                    ?>
+                                        <div>
+                                            <?php get_template_part( 'template-parts/components/offcanvas', 'search' ); ?>
+                                        </div>
+                                    <?php
+                                endif;
+                            ?>
                             
                             <div>
                                 <div class="huda-header-icons-wrapper d-flex align-items-center gap-1">

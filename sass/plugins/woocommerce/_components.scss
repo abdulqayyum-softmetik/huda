@@ -305,10 +305,12 @@ p.no-comments {
 .woocommerce-info,
 .woocommerce-noreviews,
 p.no-comments {
+	color: $color__white;
 	background-color: $woocommerce__color-info;
 }
 
 .woocommerce-error {
+	color: $color__white;
 	background-color: $woocommerce__color-error;
 }
 
@@ -370,6 +372,7 @@ p.no-comments {
 				ul{
 					@include flex-column;
 					gap: 0.60em;
+					list-style-type: none;
 	
 					li{
 						padding: 0.6em 1em 0.6em 0;
@@ -395,12 +398,17 @@ p.no-comments {
 			}
 	
 			form{
+				label{
+					margin-bottom: 0 !important;
+				}
+
 				p{
 					&.woocommerce-form-row{
 						float: left;
 						width: 50%;
 						@include flex-column;
 						gap: 0.8em;
+						margin-top: 1em;
 
 						input{
 							width: 96%;
@@ -411,6 +419,7 @@ p.no-comments {
 	
 				fieldset{
 					width: 100%;
+					margin-bottom: 1em
 				}
 
 				.woocommerce-address-fields__field-wrapper{
@@ -420,6 +429,7 @@ p.no-comments {
 						float: left;
 						width: 50%;
 						gap: 0.4em;
+						margin-bottom: 1em;
 
 						&#billing_address_1_field,
 						&#billing_address_2_field,
@@ -443,13 +453,12 @@ p.no-comments {
 
 						.select2-container{
 							width: 96% !important;
-
 						}
 
 						.select2-container--default{
 							.select2-selection--single{
 								height: 2.375em !important;
-								border-radius: 0 !important;
+								border-radius: 0.5em !important;
 								border: 1px solid $color__border-abbr !important;
 
 								.select2-selection__rendered{
@@ -478,7 +487,7 @@ p.no-comments {
 					&.woocommerce-Button,
 					&.wc-forward{
 						color: $color__white;
-						border: 1px solid $color__black;
+						background-color: $color__accent;
 	
 						&:hover{
 							color: $color__black;
@@ -494,8 +503,8 @@ p.no-comments {
 			@include flex-center;
 			margin-top: 1em;
 			cursor: pointer;
-			background: $color__black;
-			border: 1px solid $color__black;
+			background: $color__accent;
+			border: 1px solid $color__accent;
 			transition: 0.3s ease-in;
 
 			&:hover{

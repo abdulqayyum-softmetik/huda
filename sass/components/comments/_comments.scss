@@ -8,6 +8,13 @@
 
 
 .comments-area {
+	padding: 5em 0;
+	background: $color__bg_2;
+
+	@media screen and (max-width: $breakpoint-medium) {
+		padding: 3em 2em;
+	}		
+
 	ol {
 		&.comment-list {
 			li {
@@ -19,9 +26,10 @@
 
 					article {
 						&.comment-body {
-							padding: 1.8em 1.6em;
-							border-radius: 0;
-							background-color: $color__white;
+							padding: 1.5em;
+							border-radius: 1.5em;
+							border: 1px solid $color__border-abbr;
+							background-color: transparent;
 
 							.comment-content{
 								p{
@@ -51,7 +59,7 @@
 									.comment-author{
 										&.vcard{
 											img{
-												border-radius: 50px;
+												border-radius: 3.125em;
 											}
 
 											b{
@@ -82,15 +90,31 @@
 		}
 	}
 
+	.comments-title, .comment-list{
+		width: 50%;
+		margin: 0 auto !important;
+
+		@media screen and (max-width: $breakpoint-medium) {
+			width: 100%;
+		}		
+	}
+
 	.comment-respond{
-		margin: 1.8em 0;
-		border-radius: 0;
-		padding: 60px;
+		width: 50%;
+		padding: 3.75em;
+		margin: 1.8em auto;
+		border-radius: 2em;
+		border: 0.25em solid $color__accent;
 		background-color: $color__white;
 
 		@media (max-width: $breakpoint-small){
 			padding: 1em;
 		}
+
+		@media screen and (max-width: $breakpoint-medium) {
+			width: 100%;
+			padding: 2.4em 2em;
+		}		
 
 		form{
 			&.comment-form{
@@ -103,14 +127,25 @@
 
 					label{
 						color: $color__label;
-						margin-bottom: 12px;
+						margin-bottom: 0.75em;
 					}
 
 					input{
-						padding: 10px 30px;
-						border-radius: 0px;
+						padding: 0.625em 1.875em;
 						border: 1px solid $color__border-abbr;
+						border-radius: 0.5em;
 					}
+				}
+
+				.submit{
+					width: 100%;
+					border-radius: 3.125em;
+					margin-top: 1.5em;
+					text-transform: uppercase;
+				}
+
+				textarea{
+					border-radius: 0.5em;
 				}
 
 				.comment-form-email{
@@ -121,6 +156,10 @@
 					width: 100%;
 				}
 			}
+
+			.comment-form-comment{
+				margin: 0.5em 0;
+			}
 		}
 	}
 	
@@ -128,6 +167,6 @@
 
 footer{
 	&.entry-footer{
-		margin-top: 1em;
+		margin-top: inherit;
 	}
 }
