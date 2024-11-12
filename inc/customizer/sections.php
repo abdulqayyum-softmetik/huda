@@ -94,6 +94,14 @@ new \Kirki\Section(
 		'description' => esc_html__( '', 'huda' ),
 		'panel'       => 'huda_global_options',
 		'priority'    => 160,
+		'tabs'  => [
+			'general' => [
+				'label' => esc_html__( 'General', 'huda' ),
+			],
+			'design'  => [
+				'label' => esc_html__( 'Design', 'huda' ),
+			],
+		],
 	]
 );
 

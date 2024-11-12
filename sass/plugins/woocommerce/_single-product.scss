@@ -6,6 +6,20 @@
 		h1{
 			&.product_title{
 				font-size: 3em;
+				font-weight: 600;
+				color: $color__black;
+
+				@media screen and (max-width: $breakpoint-medium) {
+					font-size: 2em;
+				}
+			}
+		}
+
+		p{
+			&.price{
+				font-size: 1.6em;
+				font-weight: 500;
+				color: $color__black;
 			}
 		}
 
@@ -27,6 +41,10 @@
 			position: relative;
 			float: left;
 			width: 50%;
+
+			@media screen and (max-width: $breakpoint-medium) {
+				width: 100%;
+			}
 
 			.wp-post-image{
 				width: 100%;
@@ -98,6 +116,11 @@
 			float: left;
 			width: 50%;
 			padding-left: 2em;
+
+			@media screen and (max-width: $breakpoint-medium) {
+				width: 100%;
+				padding-left: 0;
+			}
 
 			.cart{
 				@include flex-start;

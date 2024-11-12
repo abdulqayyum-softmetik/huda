@@ -33,14 +33,10 @@
 
 		elseif ( is_search() ) :
 			?>
-
 			<p class="text-center"><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'huda' ); ?></p>
 			<div class="text-center">
 				<?php esc_html( get_search_form() ); ?>
 			</div>
-
-
-		<? endif;
-		?>
+		<?php endif; ?>
 	</div><!-- .page-content -->
 </section><!-- .no-results -->

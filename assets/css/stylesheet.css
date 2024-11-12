@@ -464,7 +464,6 @@ header.header-main .buy-button {
   padding: 0.4em 1em;
   color: #FFFFFE;
   background: linear-gradient(92.52deg, #1F5EFF -2.63%, #5081FF 86.95%, #5081FF 95.81%);
-  border-radius: 3.125em;
 }
 header.header-main .woo-cart-count {
   width: 14px;
@@ -1489,7 +1488,7 @@ aside.widget-area .widget_tag_cloud a.tag-cloud-link span.tags_count {
 }
 
 .offcanvas.search-wrapper {
-  height: 50vh;
+  height: 56vh;
 }
 
 .search-form-wrapper {
@@ -1524,10 +1523,12 @@ aside.widget-area .widget_tag_cloud a.tag-cloud-link span.tags_count {
   width: 100%;
   position: absolute;
   left: 50%;
-  top: 4em;
+  top: 6em;
   transform: translate(-50%, 0%);
 }
 .search-form-wrapper .search-result-wrapper #datafetch {
+  width: 96%;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
   background-color: #FFFFFE;
@@ -1543,7 +1544,7 @@ aside.widget-area .widget_tag_cloud a.tag-cloud-link span.tags_count {
   margin: 1em 0;
 }
 .search-form-wrapper .search-result-wrapper #datafetch article {
-  margin: 1em;
+  margin: 2.4em;
 }
 @media screen and (max-width: 768px) {
   .search-form-wrapper .search-result-wrapper #datafetch article {

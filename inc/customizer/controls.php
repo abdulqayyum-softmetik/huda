@@ -904,7 +904,7 @@ new \Kirki\Field\Typography(
 		],
 		'output'      => [
 			[
-				'element' => 'button, .button, .button, .submit, .wp-block-search__button',
+				'element' => 'button, .button, .button, .submit, .wp-block-search__button, .buy-button',
 			],
 		],
 	]
@@ -944,7 +944,7 @@ new \Kirki\Pro\Field\Padding(
 		],
 		'output' => [
 			[
-				'element'     => 'button, .button, .button, .submit, .wp-block-search__button',
+				'element'     => 'button, .button, .button, .submit, .wp-block-search__button, .buy-button',
 				'media_query' => [
 					'desktop' => '@media (min-width: 1024px)',
 					'tablet'  => '@media (min-width: 768px) and (max-width: 1023px)',
@@ -954,6 +954,23 @@ new \Kirki\Pro\Field\Padding(
 			],
 		],
 		'transport'   => 'auto',
+	]
+);
+
+new \Kirki\Field\Dimension(
+	[
+		'settings'    => 'huda_buttons_border_radius',
+		'label'       => esc_html__( 'Buttons Border Radius', 'huda' ),
+		'description' => esc_html__( '', 'huda' ),
+		'section'     => 'huda_buttons_section',
+		'default'     => '50px',
+		'tab' => 'design',
+		'output'      => [
+			[
+				'element'  => 'button, .button, .button, .submit, .wp-block-search__button, .buy-button',
+				'property' => 'border-radius',
+			],
+		],
 	]
 );
 
@@ -967,7 +984,7 @@ new \Kirki\Field\Color(
 		'default'     => 'inherit',
 		'output' => array(
 			array(
-				'element'  => '.btn, .button, button',
+				'element'  => '.btn, .button, button, .buy-button',
 				'property' => 'color',
 			)
 		),
@@ -1254,9 +1271,9 @@ new \Kirki\Pro\Field\Padding(
                 'left'   => '0',
             ],
             'tablet'  => [
-                'top'    => '5',
+                'top'    => '30',
                 'right'  => '0',
-                'bottom' => '5',
+                'bottom' => '30',
                 'left'   => '0',
             ],
             'mobile'  => [
@@ -1295,9 +1312,27 @@ new \Kirki\Field\Checkbox_Switch(
 		'description' => esc_html__( '', 'huda' ),
 		'section'     => 'huda_back_to_top_section',
 		'default'     => 'on',
+		'tab' => 'general',
 		'choices'     => [
 			'on'  => esc_html__( 'Enable', 'huda' ),		
 			'off' => esc_html__( 'Disable', 'huda' ),
+		],
+	]
+);
+
+new \Kirki\Field\Dimension(
+	[
+		'settings'    => 'back_to_top_radius',
+		'label'       => esc_html__( 'Back To Top Border Radius', 'huda' ),
+		'description' => esc_html__( '', 'huda' ),
+		'section'     => 'huda_back_to_top_section',
+		'default'     => '50px',
+		'tab' => 'design',
+		'output'      => [
+			[
+				'element'  => '.backto-top',
+				'property' => 'border-radius',
+			],
 		],
 	]
 );
@@ -1378,7 +1413,6 @@ new \Kirki\Field\Checkbox_Switch(
 	]
 );
 
-
 /*
 * Offcanvas Control
 */
@@ -1422,7 +1456,6 @@ new \Kirki\Field\Color(
 	]
 );
 
-
 new \Kirki\Field\Typography(
 	[
 		'settings'    => 'Offcanvas_menu_typography_setting',
@@ -1448,6 +1481,49 @@ new \Kirki\Field\Typography(
 				'element' => '.offcanvas-body ul li a.nav-link',
 				'suffix'   => '!important', // Adds !important to the generated CSS.
 			],
+		],
+	]
+);
+
+/*
+* Wooocommerce product card border radius
+*/
+
+new \Kirki\Field\Dimension(
+	[
+		'settings'    => 'huda_wooocommerce_product_card_border_radius',
+		'label'       => esc_html__( 'Product Card Border Radius', 'huda' ),
+		'description' => esc_html__( '', 'huda' ),
+		'section'     => 'woocommerce_product_catalog',
+		'default'     => '32px',
+		'tab' => 'design',
+		'output'      => [
+			[
+				'element'  => '.huda-site-main ul.products li.product',
+				'property' => 'border-radius',
+			],
+		],
+	]
+);
+
+/*
+* Wooocommerce product card background color
+*/
+new \Kirki\Field\Color(
+	[
+		'settings'    => 'huda_wooocommerce_product_card_background',
+		'label'       => __( 'Product Card Background Color', 'huda' ),
+		'description' => esc_html__( '', 'huda' ),
+		'section'     => 'woocommerce_product_catalog',
+		'default'     => '#ECF1ED',
+		'output' => array(
+			array(
+				'element'  => '.huda-site-main ul.products li.product',
+				'property' => 'background-color',
+			)
+		),
+		'choices'     => [
+			'alpha' => true,
 		],
 	]
 );

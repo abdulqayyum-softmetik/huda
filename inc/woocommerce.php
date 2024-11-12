@@ -108,6 +108,19 @@ add_filter( 'woocommerce_output_related_products_args', 'huda_woocommerce_relate
 remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
 remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
 
+// Remove the default actions
+remove_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10);
+remove_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5);
+
+// Add the custom wrapper around price and rating
+add_action('woocommerce_after_shop_loop_item_title', 'price_rating_wrapper', 8);
+function price_rating_wrapper() {
+    echo '<div class="price-rating-wrapper">';
+		woocommerce_template_loop_price();
+		woocommerce_template_loop_rating();
+    echo '</div>';
+}
+
 /**
  * Adding wrapper inside login form.
  */

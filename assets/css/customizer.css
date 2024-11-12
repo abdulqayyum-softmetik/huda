@@ -14,7 +14,7 @@
 }
 
 .customize-control-title{
-    margin-bottom: 0;
+    margin-bottom: 0.8em;
     line-height: normal;
 }
 
@@ -31,7 +31,6 @@
 }
 
 .customize-control-kirki-radio-image input + label img{
-
     padding: 4px 6px;
     border-radius: 4px;
     border: 6px solid #e2e8f0;
@@ -46,9 +45,9 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background: white;
     padding: 4px;
     border-radius: 2px;
+    background: white;
     border: 1px dashed #849EEC;
 }
 
@@ -77,8 +76,25 @@
 #customize-control-blog__card_read_more_bg_color,
 #customize-control-blog__card_read_more_bg_color_hover,
 #customize-control-huda_Offcanvas_social_icons_color,
-#customize-control-huda_Offcanvas_menu_active_color{
+#customize-control-huda_Offcanvas_menu_active_color,
+#customize-control-huda_wooocommerce_product_card_background{
     padding: 0.90em;
     line-height: normal;
     background-color: #fffffe;
+}
+
+#customize-control-huda_wooocommerce_product_card_background{
+    margin-top: 0.6em;
+}
+
+#customize-control-back_to_top_radius{
+    padding: 1em;
+    background: white;
+    border: 1px dashed #849EEC;
+}
+
+#customize-control-back_to_top_radius .customize-control-title{
+    color: #0f0e17;
+    font-weight: 700;
+    margin-bottom: 0.8em;
 }
