@@ -73,20 +73,40 @@ function sd_edi_set_menu_location() {
 }
 
 // set frontpage after demo import
-function sd_update_front_page_setting() {
+// function sd_update_front_page_setting() {
 
-    $current_show_on_front = get_option( 'show_on_front' );
+//     $current_show_on_front = get_option( 'show_on_front' );
 
-    if ( $current_show_on_front !== 'posts' ) {
+//     if ( $current_show_on_front !== 'posts' ) {
 
-        update_option( 'show_on_front', 'posts' );
-        error_log( 'show_on_front updated to posts' );
+//         update_option( 'show_on_front', 'posts' );
+//         error_log( 'show_on_front updated to posts' );
         
+//     } else {
+//         error_log( 'show_on_front already set to posts' );
+//     }
+// }
+
+function sd_update_front_page_setting() {
+    // Check if a page is already set as the front page
+    $current_show_on_front = get_option( 'show_on_front' );
+    $current_front_page_id = get_option( 'page_on_front' );
+    
+    // Find a page titled 'Home' (or any suitable fallback)
+    $home_page = get_page_by_title( 'Home' );
+
+    if ( $home_page && $current_show_on_front !== 'page' ) {
+        // Set the home page as the front page if it's not already configured
+        update_option( 'show_on_front', 'page' );
+        update_option( 'page_on_front', $home_page->ID );
+
+        error_log( "Front page set to 'Home' with ID: {$home_page->ID}" );
+    } elseif ( $current_show_on_front === 'page' && $current_front_page_id == $home_page->ID ) {
+        error_log( 'Home page is already set as the front page.' );
     } else {
-        error_log( 'show_on_front already set to posts' );
+        error_log( 'No action taken. Front page settings unchanged.' );
     }
 }
-
 /**
  * Hook into the importer after import hook to execute your codes above.
  */
