@@ -220,9 +220,9 @@ if ( class_exists( 'kirki' ) ){
 }
 
 /**
- * Tgmpa Plugin activations.
+ * Demo Content.
  */
-require get_template_directory() . '/inc/demo-content.php';
+require_once get_template_directory() . '/inc/demo-content.php';
 
 /**
  * Tgmpa Plugin activations.

@@ -373,61 +373,63 @@ endif;
 if( ! function_exists( 'related_articles' ) ) {
 	function related_articles(){
         /**
+		 * 
          * Display related articles
          *
          */
-            // Fetch the current post ID
-            $current_post_id = get_the_ID();
-                
-            // Get categories of the current post
-            $categories = wp_get_post_categories( $current_post_id );
 
-            if ( $categories ) {
-                // Define arguments for WP_Query
-                $args = array(
-                    'category__in'   => $categories, // Fetch posts in the same categories
-                    'post__not_in'   => array( $current_post_id ), // Exclude the current post
-                    'posts_per_page' => 4, // Number of related posts to display
-                    'ignore_sticky_posts' => 1 // Ignore sticky posts
-                );
+		// Fetch the current post ID
+		$current_post_id = get_the_ID();
+			
+		// Get categories of the current post
+		$categories = wp_get_post_categories( $current_post_id );
 
-                // Create a new query
-                $related_posts_query = new WP_Query( $args );
+		if ( $categories ) {
+			// Define arguments for WP_Query
+			$args = array(
+				'category__in'   => $categories, // Fetch posts in the same categories
+				'post__not_in'   => array( $current_post_id ), // Exclude the current post
+				'posts_per_page' => 4, // Number of related posts to display
+				'ignore_sticky_posts' => 1 // Ignore sticky posts
+			);
 
-                // Check if there are any related posts
-                if ( $related_posts_query->have_posts() ) {
-                    echo '<div class="related-posts">';
-                        echo '<h3 class="">Read Similar Blogs</h3>';
-                            echo '<div class="row">';
-                                // Loop through related posts
-                                while ( $related_posts_query->have_posts() ) {
-                                    $related_posts_query->the_post();
-                                    ?>
-										<div class="col-lg-4 col-md-4 col-12">
-											<article>
-												<a class="post-thumbnail" href="<?php echo esc_url( get_permalink() ); ?>">
-													<?php huda_post_thumbnail('medium'); ?>
+			// Create a new query
+			$related_posts_query = new WP_Query( $args );
+
+			// Check if there are any related posts
+			if ( $related_posts_query->have_posts() ) {
+				echo '<div class="related-posts">';
+					echo '<h3 class="">Read Similar Blogs</h3>';
+						echo '<div class="row">';
+							// Loop through related posts
+							while ( $related_posts_query->have_posts() ) {
+								$related_posts_query->the_post();
+								?>
+									<div class="col-lg-4 col-md-4 col-12">
+										<article>
+											<a class="post-thumbnail" href="<?php echo esc_url( get_permalink() ); ?>">
+												<?php huda_post_thumbnail('medium'); ?>
+											</a>
+											<?php
+												huda_posted_on();
+											?>
+											<div class="d-flex flex-column">
+												<a href="<?php echo esc_url( get_permalink() ); ?>"> 
+													<h4>
+														<?php the_title(); ?> 
+													</h4>
 												</a>
-												<?php
-													huda_posted_on();
-												?>
-												<div class="d-flex flex-column">
-													<a href="<?php echo esc_url( get_permalink() ); ?>"> 
-														<h4>
-															<?php the_title(); ?> 
-														</h4>
-													</a>
-												</div>
-											</article>
-										</div>
-                                    <?php
-                                }
-                            echo '</div>';
-                    echo '</div>';
-                }
-                // Restore original post data
-                wp_reset_postdata();
-            }
+											</div>
+										</article>
+									</div>
+								<?php
+							}
+						echo '</div>';
+				echo '</div>';
+			}
+			// Restore original post data
+			wp_reset_postdata();
+		}
     }
 }
 

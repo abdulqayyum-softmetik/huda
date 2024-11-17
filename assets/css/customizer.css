@@ -1,5 +1,9 @@
 /* Customizer
 -------------------------- */
+.accordion-section{
+    overflow-x: hidden;
+}
+
 .customize-control-label .customize-control-title,
 .customizer-text{
     width: 290px;
