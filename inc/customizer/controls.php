@@ -1370,7 +1370,7 @@ new \Kirki\Field\Color(
         ],
 		'output'      => [
 			[
-				'element' => '.backto-top i',
+				'element' => '.backto-top a',
 				'property' => 'color'
 			],
 		],
