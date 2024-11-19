@@ -166,4 +166,3 @@ function wp_huda_admin_page_callback() {
 <?php
 
 }
-

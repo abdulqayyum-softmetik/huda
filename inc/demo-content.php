@@ -53,10 +53,10 @@ if ( ! function_exists( 'huda_import_config' ) ) {
 				 * be used to set the homepage.
 				 */
 				'blog' => [
-					'name'          => esc_html__( 'Default Demo', 'huda' ),
-					'previewImage'  => 'https://softmetik.com/demos/wphuda-demos/demo-1-default/screenshot.jpg',
+					'name'          => esc_html__( 'Blog', 'huda' ),
+					'previewImage'  => 'https://softmetik.com/demos/wphuda-demos/demo-1-blog/blog-thumbnail.jpg',
 					'previewUrl'    => 'https://wphuda.softmetik.com',
-					'demoZip'       => 'https://softmetik.com/demos/wphuda-demos/demo-1-default/demo-import.zip',
+					'demoZip'       => 'https://softmetik.com/demos/wphuda-demos/demo-1-blog/demo-import.zip',
 
 					/**
 					 * The 'frontPageBlog' key is a special setting used to designate
@@ -118,6 +118,90 @@ if ( ! function_exists( 'huda_import_config' ) ) {
 							'name'     => 'Kirki Customizer Framework',
 							'source'   => 'wordpress',
 							'filePath' => 'kirki/kirki.php',
+						],
+					],
+				],
+				'business-consulting' => [
+					'name'          => esc_html__( 'Business Consulting', 'huda' ),
+					'previewImage'  => 'https://softmetik.com/demos/wphuda-demos/demo-2-business-consulting/business-consulting-thumbnail.jpg',
+					'previewUrl'    => 'https://wphuda.softmetik.com/business-consulting/',
+					'demoZip'       => 'https://softmetik.com/demos/wphuda-demos/demo-2-business-consulting/business-consulting.zip',
+
+					'home' => [
+						'name' => esc_html__( 'Home', 'huda' ),
+					],
+
+					/**
+					 * The 'frontPageBlog' key is a special setting used to designate
+					 * the Posts page as the front page.
+					 *
+					 * If you want the Posts page (blog page) to appear as the front page after the demo import, set 'frontPageBlog' => true.
+					 *
+					 * If you do not require the Posts page to be the front page, simply
+					 * omit or discard this setting.
+					 *
+					 * Example:
+					 * 'frontPageBlog' => true, // Sets the Posts page as the front page.
+					 *
+					 * If this setting is not needed, you can leave it out entirely.
+					 */
+					'frontPageBlog' => false,
+
+					/**
+					 * Associative array of menu locations and their corresponding names. No other configuration is required.
+					 * Format: menu_location => Menu Name.
+					 *
+					 * Example:
+					 * 'menus' => [
+					 *     // Sets 'Main Menu' to the 'main-menu' location.
+					 *     'main-menu' => 'Main Menu',
+					 *
+					 *      // Sets 'Footer Menu' to the 'footer-menu' location.
+					 *     'footer-menu' => 'Footer Menu',
+					 *
+					 *      // Sets 'Social Links Menu' to the 'social-menu' location.
+					 *     'social-menu' => 'Social Links Menu',
+					 * ],
+					 */
+					'menus'         => [
+						'main-menu' => 'Main Menu',
+					],
+
+					/**
+					 * Slug for the blog page.
+					 *
+					 * This slug should correspond to a page that is designated to display
+					 * the blog posts. This ensures that the page with this slug is set as
+					 * the blog page.
+					 */
+					'blogSlug'      => 'blog',
+					/**
+					 * Array of plugins to install.
+					 * Some example plugins are included here.
+					 * The array key needs to be the same as plugin slug.
+					 * You can also include a bundled plugin here.
+					 */
+					'plugins'       => [
+						'elementor' => [
+							'name'     => 'Elementor Website Builder',
+							'source'   => 'wordpress',
+							'filePath' => 'elementor/elementor.php',
+						],
+						'xpro-theme-builder'       => [
+							'name'     => 'Xpro Theme Builder For Elementor',
+							'source'   => 'wordpress',
+							'filePath' => 'xpro-theme-builder/xpro-theme-builder.php',
+						],
+						'xpro-elementor-addons'       => [
+							'name'     => 'Xpro Addons For Elementor',
+							'source'   => 'wordpress',
+							'filePath' => 'xpro-elementor-addons/xpro-elementor-addons.php',
+						],
+						'xpro-elementor-addons-pro' => [
+							'name'     => 'Xpro Elementor Addons Pro',
+							'source'   => 'remote',
+							'filePath' => 'xpro-elementor-addons-pro/xpro-elementor-addons-pro.php',
+							'location' => 'https://softmetik.com/plugins/xpro-elementor-addons-pro-1.4.4.zip',
 						],
 					],
 				],
