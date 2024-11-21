@@ -1377,25 +1377,6 @@ new \Kirki\Field\Color(
 	]
 );
 
-new \Kirki\Field\Color(
-	[
-		'settings'    => 'huda_back_to_top_icon_color',
-		'label'       => __( 'Back to top icon color', 'huda' ),
-		'description' => esc_html__( '', 'huda' ),
-		'section'     => 'huda_back_to_top_section',
-		'tab' => 'design',
-		'default'     => '#0F0E17',
-        'choices'     => [
-            'alpha' => true,
-        ],
-		'output'      => [
-			[
-				'element' => '.backto-top i',
-			],
-		],
-	]
-);
-
 /*
 * Pages Control
 */
