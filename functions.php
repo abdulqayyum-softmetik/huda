@@ -239,4 +239,5 @@ require get_template_directory() . '/inc/demo-content.php';
  */
 require get_template_directory() . '/inc/theme-updates/updates.php';
 
+
 ?>

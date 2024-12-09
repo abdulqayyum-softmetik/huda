@@ -13,7 +13,7 @@ if ( ! function_exists( 'huda_theme_check_for_updates' ) ) :
         $current_version = wp_get_theme()->get( 'Version' );
 
         // URL where your JSON file is located
-        $remote_version_file = 'https://softmetik.com/updates/theme-update.json';
+        $remote_version_file = '    ';
 
         // Fetch the update information
         $remote_version_info = wp_remote_get( $remote_version_file );

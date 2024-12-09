@@ -11,7 +11,6 @@ function huda_scripts() {
 	wp_enqueue_script( 'jquery' );
 
 	wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/assets/js/bootstrap.bundle.min.js', array(), '5.2.3', true );
-	wp_enqueue_script( 'plugins-js', get_template_directory_uri() . '/assets/js/plugins.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'main-js', get_template_directory_uri() . '/assets/js/main.js', array(), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
