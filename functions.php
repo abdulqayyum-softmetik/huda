@@ -220,9 +220,9 @@ if ( class_exists( 'kirki' ) ){
 }
 
 /**
- * Demo Content.
+ * Elementor Addons.
  */
-require_once get_template_directory() . '/inc/demo-content.php';
+require get_template_directory() . '/inc/elementor-widgets/elementor-addons.php';
 
 /**
  * Tgmpa Plugin activations.
