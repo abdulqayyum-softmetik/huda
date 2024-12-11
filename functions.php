@@ -219,10 +219,6 @@ if ( class_exists( 'kirki' ) ){
 	require get_template_directory() . '/inc/customizer.php';
 }
 
-/**
- * Elementor Addons.
- */
-require get_template_directory() . '/inc/elementor-widgets/elementor-addons.php';
 
 /**
  * Tgmpa Plugin activations.
