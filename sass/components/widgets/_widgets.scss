@@ -15,6 +15,9 @@
 
 .offcanvas{     
     &.main{
+
+
+
         .offcanvas-header{
             border-bottom: 1px solid $color__border-abbr;
             .wp-block-image{
@@ -143,26 +146,27 @@ aside{
     gap: 0.6em;
 }
 
-.offcanvas {
-
-    &.main {
-        .dropdown {
-            &:hover {
-                .dropdown-menu {
-                    display: block !important;
-                    margin-top: 0;
-                }
-            }
-        }
-    }
-
-   
-}
-
 .offcanvas{
     &.search-wrapper{
         height: 56vh;
     }
+
+    .offcanvas-start {
+        transform: translateX(-100%);
+    }
+    
+    .offcanvas.show {
+        transform: translateX(0);
+    }
+    
+    .offcanvas-backdrop {
+     transition: opacity 0.5s ease-in-out;
+    }
+
+      &.search-wrapper, &.main{
+        transition: transform 0.5s ease-in-out, visibility 0.5s ease-in-out;
+
+      }
 }
 
 .search-form-wrapper{

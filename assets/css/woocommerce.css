@@ -570,7 +570,7 @@ p.stars.selected a:not(.active)::before {
 }
 .woocommerce-tabs ul.tabs li.active a {
   font-weight: 400;
-  color: #22374B;
+  color: #E93315;
 }
 .woocommerce-tabs ul.tabs li.active a::after {
   content: "";
@@ -579,7 +579,7 @@ p.stars.selected a:not(.active)::before {
   bottom: -1px;
   width: 100%;
   height: 1px;
-  background: #22374B;
+  background: #E93315;
 }
 .woocommerce-tabs ol li.review .comment_container {
   padding: 24px;
@@ -752,7 +752,7 @@ p.no-comments {
   background: #F4F4F4;
 }
 #coming-soon-footer-banner a {
-  color: #22374B;
+  color: #E93315;
 }
 
 #review_form {
@@ -804,8 +804,8 @@ p.no-comments {
 }
 .woocommerce-page .woocommerce nav.woocommerce-MyAccount-navigation ul li.is-active {
   font-weight: 500;
-  color: #22374B;
-  border-bottom: 1px solid #22374B;
+  color: #E93315;
+  border-bottom: 1px solid #E93315;
 }
 .woocommerce-page .woocommerce .woocommerce-MyAccount-content {
   width: 100%;
@@ -879,7 +879,7 @@ p.no-comments {
 }
 .woocommerce-page .woocommerce .woocommerce-MyAccount-content .woocommerce-info a.woocommerce-Button, .woocommerce-page .woocommerce .woocommerce-MyAccount-content .woocommerce-info a.wc-forward {
   color: #FFFFFE;
-  background-color: #22374B;
+  background-color: #E93315;
 }
 .woocommerce-page .woocommerce .woocommerce-MyAccount-content .woocommerce-info a.woocommerce-Button:hover, .woocommerce-page .woocommerce .woocommerce-MyAccount-content .woocommerce-info a.wc-forward:hover {
   color: #05011C;
@@ -891,8 +891,8 @@ p.no-comments {
   justify-content: center;
   margin-top: 1em;
   cursor: pointer;
-  background: #22374B;
-  border: 1px solid #22374B;
+  background: #E93315;
+  border: 1px solid #E93315;
   transition: 0.3s ease-in;
 }
 .woocommerce-page .woocommerce .woocommerce-MyAccount-navigation-link--customer-logout:hover {

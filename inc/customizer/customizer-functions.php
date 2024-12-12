@@ -12,7 +12,7 @@
          // Function to get container width for Header
          if ( ! function_exists('huda_get_header_container_width') ) {
             function huda_get_header_container_width() {
-                return get_theme_mod('header__container__setting', 'container-fluid'); 
+                return get_theme_mod('header__container__setting', 'container'); 
             }
         }
 

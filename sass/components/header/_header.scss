@@ -23,6 +23,8 @@ header.header-main{
     nav{
 
         ul{
+            padding-left: 3.75em;
+
             li{
 
                 a {
@@ -74,12 +76,20 @@ header.header-main{
                 }
             }
         }
+
+        button{
+            &.theme-toggle-btn{
+                border: unset;
+                background-color: transparent;
+                padding: 0 !important;
+            }
+        }
         
 
         i, svg, span, 
         .fa-shopping-cart{
-            font-size: 1.25em;
-            color: $color__black;
+            font-size: 2em;
+            color: $color__white;
         }
     }
 
@@ -104,7 +114,7 @@ header.header-main{
 
 
     .buy-button{
-        padding: 0.4em 1em;
+        padding: 0.75em 1.25em;
         color: $color__white;
         background: $color__gradient;
     }
