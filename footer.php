@@ -10,18 +10,27 @@
  */
 
 ?>
-		<?php 
-			// After the content
-			do_action('huda_content_after'); 
+
+
+		<?php
+		if (is_404()) {
+			render_footer_template('404');
+		} elseif (is_front_page()) {
+			render_footer_template('front_page');
+		} elseif (is_home()) {
+			render_footer_template('blog');
+		} elseif (is_archive()) {
+			render_footer_template('all_archives');
+		} elseif (is_singular()) {
+			render_footer_template('all_singulars');
+		} elseif (is_search()) {
+			render_footer_template('search');
+		} else {
+			render_footer_template('entire');
+		}
+
 		?>
-		<?php 
-			// Footer Default Content
-			get_template_part( 'template-parts/footers/footer', 'default' );  
-		?>
-		<?php 
-			// After the footer
-			do_action('huda_footer_after');  
-		?>
+	
 	</div><!-- #page -->
 
 	<?php wp_footer(); ?>
