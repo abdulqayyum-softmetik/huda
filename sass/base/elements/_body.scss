@@ -12,12 +12,6 @@ body {
 		padding: 0;
 	}
 
-	@media (min-width: 1400px) {
-		.container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
-			max-width: 1440px;
-		}
-	}
-
 	main{
 		padding: 1.8em 2em;
 

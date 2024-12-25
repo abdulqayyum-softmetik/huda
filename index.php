@@ -16,14 +16,6 @@ get_header();
 // Container Setting
 $container_width = huda_get_page_container_width(); 
 
-ob_start();
-render_archive_template();
-$custom_template_output = ob_get_clean();
-
-if (!empty($custom_template_output)) {
-	// If the custom template exists and renders content, output it
-	echo $custom_template_output;
-}else{
 ?>
 
 	<?php 
@@ -73,7 +65,7 @@ if (!empty($custom_template_output)) {
 			</main>
 
 <?php
-}
+
 
 get_footer();
 

@@ -13,21 +13,11 @@
 
 
 		<?php
-		if (is_404()) {
-			render_footer_template('404');
-		} elseif (is_front_page()) {
-			render_footer_template('front_page');
-		} elseif (is_home()) {
-			render_footer_template('blog');
-		} elseif (is_archive()) {
-			render_footer_template('all_archives');
-		} elseif (is_singular()) {
-			render_footer_template('all_singulars');
-		} elseif (is_search()) {
-			render_footer_template('search');
-		} else {
-			render_footer_template('entire');
-		}
+		
+
+		do_action('huda_content_after'); 
+		get_template_part( 'template-parts/footers/footer', 'default' ); 
+		do_action('huda_footer_after'); 
 
 		?>
 	

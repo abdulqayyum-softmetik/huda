@@ -29,23 +29,11 @@
 
 
 	<?php
-	if (is_page()) {
-		render_header_template('specific'); // Pass 'specific' as context
-	}elseif (is_404()) {
-		render_header_template('404');
-	} elseif (is_front_page()) {
-		render_header_template('front_page');
-	} elseif (is_home()) {
-		render_header_template('blog');
-	} elseif (is_archive()) {
-		render_header_template('all_archives');
-	} elseif (is_singular()) {
-		render_header_template('all_singulars');
-	} elseif (is_search()) {
-		render_header_template('search');
-	} else {
-		render_header_template('entire');
-	}
+	
+
+	    do_action('huda_header_before');
+        get_template_part('template-parts/headers/header', 'default');
+        do_action('huda_header_after');
 
 	?>
 

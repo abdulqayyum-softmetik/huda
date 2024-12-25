@@ -32,8 +32,8 @@ if ( ! function_exists( 'huda_posted_on' ) ) :
 
 		$time_string = sprintf(
 			$time_string,
-			esc_attr( get_the_date( 'Y-m-d' ) ),
-			esc_html( get_the_date( 'M j, Y' ) ),
+			esc_attr( get_the_date( 'Y-m-d' ) . 'T' . get_the_time('H:i:s')),
+			esc_html( get_the_date( 'M j, Y' ) . ' ' . get_the_time() ),
 		);
 
 		$posted_on = sprintf(
@@ -54,7 +54,7 @@ if ( ! function_exists( 'huda_posted_by' ) ) :
 		$author_avatar_url = esc_url( get_avatar_url( get_the_author_meta( 'ID' ), array('size' => 20) ) ); 
 		$byline = sprintf(
 			/* translators: %s: post author. */
-			esc_html_x( ' %s', 'post author', 'huda' ),
+			esc_html_x( ' by%s', 'post author', 'huda' ),
 			' <img class="author-avatar" src="' . $author_avatar_url . '"></img> <span class="author-title"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>',
 			
 		);

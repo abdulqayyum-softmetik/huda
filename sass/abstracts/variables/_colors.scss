@@ -24,15 +24,10 @@ $color__border-abbr: #E1E0E7;
 $color__gradient: linear-gradient(92.52deg, #1F5EFF -2.63%, #5081FF 86.95%, #5081FF 95.81%);
 
 $color__black: #05011C;
-$color_text: #4E5666;
 $color__white: #FFFFFE;
-$color__accent: #E93315;
+$color__danger: #F25F4C;
+$color__accent: #22374B;
 $color__yellow: #FEB952;
 $color__success: #22c55e;
-$color__danger: #F25F4C;
 $color__bg: #ECF1ED;
 $color__bg_2: #FFFAEC;
-
-:root, [data-bs-theme=dark]{
-    $color__background-body: #05011C;
-}

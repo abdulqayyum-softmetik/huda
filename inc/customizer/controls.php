@@ -106,7 +106,7 @@ new \Kirki\Field\Radio_Image(
 		'label'       => esc_html__( 'Header Container Layout', 'huda' ),
 		'description' => esc_html__( 'Select header container layout default is full width', 'huda' ),
 		'section'     => 'huda_header_section',
-		'default'     => 'container',
+		'default'     => 'container-fluid',
 		'priority'    => 10,
 		'tab' => 'general',
 		'choices'     => [
@@ -170,7 +170,7 @@ new \Kirki\Field\Color(
 		'description' => esc_html__( '', 'huda' ),
 		'section'     => 'huda_header_section',
 		'tab' => 'design',
-		'default'     => '#E93315',
+		'default'     => '#22374B',
         'choices'     => [
             'alpha' => true,
         ],
@@ -190,7 +190,7 @@ new \Kirki\Field\Color(
 		'label'       => __( 'Header Background color', 'huda' ),
 		'description' => esc_html__( '', 'huda' ),
 		'section'     => 'huda_header_section',
-		'default'     => '#1A0A03',
+		'default'     => '#FFFFFE',
 		'tab' => 'design',
 		'output'      => [
 			[
@@ -224,7 +224,7 @@ new \Kirki\Field\Color(
 		'label'       => __( 'Header Icons Color', 'huda' ),
 		'description' => esc_html__( '', 'huda' ),
 		'section'     => 'huda_header_section',
-		'default'     => '#ffffff',
+		'default'     => '#22374b',
 		'tab' => 'design',
 		'output'      => [
 			[
@@ -276,11 +276,10 @@ new \Kirki\Field\Typography(
 			'font-family'     => 'Space Grotesk',
 			'variant'         => 'regular',
 			'font-style'      => 'normal',
-			'color'           => '#FFFFFF',
-			'font-size'       => '16px',
+			'font-size'       => '14px',
 			'line-height'     => '1.5',
 			'letter-spacing'  => '0',
-			'text-transform'  => 'uppercase',
+			'text-transform'  => 'none',
 			'text-decoration' => 'none',
 		],
 		'output'      => [
@@ -417,16 +416,16 @@ new \Kirki\Pro\Field\Padding(
 		'responsive' => true,
 		'default'     => [
             'desktop' => [
-                'top'    => '2.5',
+                'top'    => '6.5',
                 'right'  => '0',
-                'bottom' => '2.5',
+                'bottom' => '6.5',
                 'left'   => '0',
             ],
             'tablet'  => [
-                'top'    => '2.5',
+                'top'    => '6.5',
                 'right'  => '0',
                 'bottom' => '5',
-                'left'   => '0.25',
+                'left'   => '6.5',
             ],
             'mobile'  => [
                 'top'    => '3',
@@ -1206,7 +1205,7 @@ new \Kirki\Field\Typography(
 			'variant'         => '500',
 			'font-style'      => 'normal',
 			'color'           => '#0F0E17',
-			'font-size'       => '24px',
+			'font-size'       => '32px',
 			'line-height'     => '1.2',
 			'letter-spacing'  => '0',
 			'text-transform'  => 'none',
@@ -1371,7 +1370,7 @@ new \Kirki\Field\Color(
         ],
 		'output'      => [
 			[
-				'element' => 'a.backto-top',
+				'element' => '.backto-top a',
 				'property' => 'color'
 			],
 		],
