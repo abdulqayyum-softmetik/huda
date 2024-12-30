@@ -21,18 +21,17 @@
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?> data-bs-theme="light">
+<body <?php body_class(); 'huda-theme' ?> data-bs-theme="light">
 <?php wp_body_open(); ?>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'huda' ); ?></a>
 
-
-
 	<?php
 	
-
 	    do_action('huda_header_before');
+
         get_template_part('template-parts/headers/header', 'default');
+		
         do_action('huda_header_after');
 
 	?>

@@ -221,6 +221,13 @@ if ( class_exists( 'kirki' ) ){
 	require get_template_directory() . '/inc/customizer.php';
 }
 
+add_action( 'init', function() {
+    if ( class_exists( 'Kirki' ) && isset( $_GET['action'] ) && $_GET['action'] === 'elementor' ) {
+        // Disable Kirki's inline styles
+        remove_action( 'wp_head', [ 'Kirki_Output', 'maybe_print_styles_inline' ] );
+    }
+});
+
 
 /**
  * Tgmpa Plugin activations.
@@ -236,11 +243,6 @@ require get_template_directory() . '/inc/demo-content.php';
  * Theme updates.
  */
 require get_template_directory() . '/inc/theme-updates/updates.php';
-
-
-
-
-
 
 
 ?>
