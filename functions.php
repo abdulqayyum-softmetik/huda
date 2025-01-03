@@ -132,14 +132,6 @@ function huda_content_width() {
 add_action( 'after_setup_theme', 'huda_content_width', 0 );
 
 /**
- * Include Plugins Path.
- */
-if ( ! function_exists( 'is_plugin_active' ) ) {
-    require_once ABSPATH . 'wp-admin/includes/plugin.php';
-}
-
-
-/**
  * Theme updates.
  */
 require get_template_directory() . '/inc/theme-updates/updates.php';
@@ -226,14 +218,6 @@ require get_template_directory() . '/inc/core/theme-hooks.php';
 if ( class_exists( 'kirki' ) ){
 	require get_template_directory() . '/inc/customizer.php';
 }
-
-add_action( 'init', function() {
-    if ( class_exists( 'Kirki' ) && isset( $_GET['action'] ) && $_GET['action'] === 'elementor' ) {
-        // Disable Kirki's inline styles
-        remove_action( 'wp_head', [ 'Kirki_Output', 'maybe_print_styles_inline' ] );
-    }
-});
-
 
 /**
  * Tgmpa Plugin activations.
