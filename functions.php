@@ -131,6 +131,12 @@ function huda_content_width() {
 }
 add_action( 'after_setup_theme', 'huda_content_width', 0 );
 
+/**
+ * Include Plugins Path.
+ */
+if ( ! function_exists( 'is_plugin_active' ) ) {
+    require_once ABSPATH . 'wp-admin/includes/plugin.php';
+}
 
 
 /**

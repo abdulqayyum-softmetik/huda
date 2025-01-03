@@ -11,8 +11,8 @@ if ( !function_exists('data_fetch') ) {
             's' => esc_attr( $_POST['keyword'] ),
             'post_type' => 'post'
         ));
-
         if ( $the_query->have_posts() ) :
+            echo '<div class="search-wrapper">';
             while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
                 <article class="search">
                     <a href="<?php echo esc_url( get_permalink() ); ?>">
@@ -22,9 +22,14 @@ if ( !function_exists('data_fetch') ) {
                         <a href="<?php echo esc_url( get_permalink() ); ?>"> 
                             <?php the_title(); ?> 
                         </a>
+
+                        <p class="post-excerpt">
+                            <?php echo esc_html( wp_trim_words( get_the_excerpt(), 8, '...' ) ); ?>
+                        </p>
                     </div>
                 </article>
             <?php endwhile;
+            echo '</div>';
             wp_reset_postdata();
         else :
             echo '<h3>No Results Found</h3>';

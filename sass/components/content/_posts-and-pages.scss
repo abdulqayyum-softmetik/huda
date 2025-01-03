@@ -404,18 +404,20 @@ section{
 
 article{
 	&.search{
-		width: 32.0%;
-		max-height: 400px;
-		padding: 1em;
+		width: 100%;
+		display: flex;
+		align-items: start;
+		gap: 16px;
 		background: $color__background-body;
+		padding-bottom: 16px;
 
 		a{
 			gap: 0.8em;
             &.post-thumbnail{
 				
                 img{
-                    max-width: 100%;
-                    height: 11em;
+                    max-width: 80px;
+    				max-height: 80px;
                     border-radius: 6px;
                 }
             }
@@ -424,10 +426,6 @@ article{
 
 		.posted-on{
 			font-size: 14px;
-		}
-
-		.post-content{
-			margin-top: 0.6em;
 		}
 
 	}
