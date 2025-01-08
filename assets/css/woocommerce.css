@@ -69,6 +69,7 @@ ul.products li.product {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background-color: #ECF1ED;
 }
 @media screen and (max-width: 768px) {
   ul.products li.product {
@@ -94,9 +95,10 @@ ul.products li.product img {
   -o-object-fit: cover;
      object-fit: cover;
   display: block;
+  border-radius: 6px;
 }
 ul.products li.product h2, ul.products li.product .woocommerce-loop-product__title {
-  font-size: 24px;
+  font-size: 16px;
   line-height: normal !important;
   color: #05011C;
 }
@@ -112,6 +114,9 @@ ul.products li.product .onsale.huda-onsale-card {
 }
 ul.products li.product a:visited {
   color: #FFFFFE;
+}
+ul.products li.product .added_to_cart {
+  margin-top: 1em;
 }
 ul.products li.product .button {
   width: 100%;
@@ -136,7 +141,7 @@ ul.products li.product .button.loading::before {
   width: 1.125em;
   height: 1.125em;
   position: absolute;
-  right: 6px;
+  right: 12px;
   transform: translate(-50%, 0%);
   border-radius: 50%;
   display: inline-block;
@@ -161,7 +166,7 @@ ul.products li.product .button.added::after {
   font-family: "remixicon";
   position: absolute;
   top: 50%;
-  right: 0;
+  right: 12px;
   font-size: 1em;
   transform: translate(-50%, -50%);
   border-radius: 50%;

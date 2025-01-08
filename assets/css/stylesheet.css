@@ -292,7 +292,7 @@ input[type=submit],
   border: 1px solid;
   line-height: normal;
   font-weight: 600;
-  color: #FFFFFE;
+  color: #FFFFFE !important;
   border-color: #ccc #ccc #bbb;
   border-radius: 3.125em;
   background: #22374B;

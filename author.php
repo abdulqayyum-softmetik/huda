@@ -10,7 +10,10 @@ get_header(); ?>
 
 <?php
 
-    do_action('huda_author')
+    // Render the single template
+    if (function_exists('render_author_template')) {
+        render_author_template('author');
+    } 
 
 ?>
 

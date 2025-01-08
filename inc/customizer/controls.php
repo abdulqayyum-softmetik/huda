@@ -981,7 +981,7 @@ new \Kirki\Field\Color(
 		'description' => esc_html__( '', 'huda' ),
 		'section'     => 'huda_buttons_section',
 		'tab'         => 'design',
-		'default'     => 'inherit',
+		'default'     => '#ffffff',
 		'output' => array(
 			array(
 				'element'  => '.btn, .button, button, .buy-button',
@@ -1370,7 +1370,7 @@ new \Kirki\Field\Color(
         ],
 		'output'      => [
 			[
-				'element' => '.backto-top a',
+				'element' => 'footer a i, footer i',
 				'property' => 'color'
 			],
 		],

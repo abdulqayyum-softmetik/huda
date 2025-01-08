@@ -10,10 +10,11 @@ ul.products {
 		border-radius: 2em;
 		@include flex-column;
 		justify-content: space-between;
+		background-color: #ECF1ED;
 
 		@media screen and ( max-width: $breakpoint-medium ) {
 			margin-bottom: 1em;
-		}
+		}	
 
 		@media screen and ( max-width: $breakpoint-small ) {
 			min-height: 100%;
@@ -33,10 +34,11 @@ ul.products {
 			max-height: 9.063em;
 			object-fit: cover;
 			display: block;
+			border-radius: 6px;
 		}
 
 		h2, .woocommerce-loop-product__title{
-			font-size: 24px;
+			font-size: 16px;
 			line-height: normal !important;
 			color: $color__black;
 		}
@@ -57,6 +59,11 @@ ul.products {
 		a:visited{
 			color: $color__white;
 		}
+
+		.added_to_cart{
+			margin-top: 1em;
+		}
+
 
 		.button {
 			width: 100%;
@@ -81,7 +88,7 @@ ul.products {
 					width: 1.125em;
 					height: 1.125em;
 					position: absolute;
-					right: 6px;
+					right: 12px;
 					transform: translate(-50%, -0%);
 					border-radius: 50%;
 					display: inline-block;
@@ -108,7 +115,7 @@ ul.products {
 					font-family: "remixicon";
 					position: absolute;
 					top: 50%;
-					right: 0;
+					right: 12px;
 					font-size: 1em;
 					transform: translate(-50%, -50%);
 					border-radius: 50%;

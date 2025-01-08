@@ -283,6 +283,59 @@ function huda_category_content(){
 }
 add_action('huda_category','huda_category_content');
 
+function huda_tag_content() {
+    $page_container_width = huda_get_page_container_width();
+    ?>
+    <main class="tag-page">
+        <section class="page-hero-section">
+
+            <div class="row justify-content-center">
+                <div class="col-lg-12 col-md-12 col-12">
+                    <!-- Heading -->
+                    <h1 class="tag-title">
+                        Tag: <?php echo esc_html(single_tag_title()); // Display the tag title ?>
+                    </h1>
+                </div>
+
+                <div class="col-lg-6 col-md-8 col-12">
+                    <!-- Paragraph -->
+                    <?php echo wp_kses_post(tag_description()); // Display the tag description ?>
+                </div>
+                
+                <div class="col-lg-12 col-md-12 col-12">
+                    <!-- Search -->
+                    <?php esc_html(get_search_form()); ?>
+                </div>
+            </div>
+
+        </section>
+        <div class="content">
+            <div class="<?php echo esc_attr($page_container_width); ?>">
+                <?php if (have_posts()) : ?>
+                    <div class="row gy-4">
+                        <?php while (have_posts()) : the_post(); ?>
+                            <div class="col-lg-4 col-md-4 col-12">
+                                <?php get_template_part('template-parts/content', get_post_type()); ?>
+                            </div>
+                        <?php endwhile; ?>
+                        <div class="pagination">
+                            <?php
+                                // Pagination function
+                                huda_pagination();
+                            ?>
+                        </div>
+                    </div>
+                <?php else : ?>
+                    <?php get_template_part('template-parts/content', 'none'); ?>
+                <?php endif; ?>
+            </div>
+        </div>
+    </main>
+    <?php
+}
+add_action('huda_tag', 'huda_tag_content');
+
+
 function huda_author_content(){
     $page_container_width = huda_get_page_container_width();
     ?>

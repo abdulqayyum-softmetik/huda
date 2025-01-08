@@ -2,14 +2,13 @@
 
 get_header();
 
+// Hook into WooCommerce's template loading process
+
+
 if (function_exists('render_single_product_template')) {
-    $post_type = get_post_type();
-
-    // Render custom template
-    render_single_product_template($post_type);
-
+    // Render custom template using the function
+    render_single_product_template('product');
 } else {
-    // Fallback to default WooCommerce template
     woocommerce_content();
 }
 
