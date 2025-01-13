@@ -3,9 +3,13 @@
 	div.product {
 		position: relative;
 
+		@media screen and (max-width: $breakpoint-small) {
+			padding: 0 1em;
+		}
+
 		h1{
 			&.product_title{
-				font-size: 3em;
+				font-size: 2em;
 				font-weight: 600;
 				color: $color__black;
 
@@ -116,9 +120,11 @@
 			float: left;
 			width: 50%;
 			padding-left: 2em;
+			margin-top: 0;
 
 			@media screen and (max-width: $breakpoint-medium) {
 				width: 100%;
+				margin-top: 1em;
 				padding-left: 0;
 			}
 

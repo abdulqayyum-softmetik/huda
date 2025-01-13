@@ -42,8 +42,6 @@ function huda_comments_content(){
         <div id="comments" class="comments-area">
 
             <?php
-            // Always display the comment form
-            comment_form();
 
             // Check if there are comments
             if ( have_comments() ) :
@@ -98,6 +96,14 @@ function huda_comments_content(){
                     <?php
                 endif;
             ?>
+
+            <?php 
+
+                // Always display the comment form
+                comment_form();
+            
+            ?>
+
         </div><!-- .comments-area -->
     <?php
 }
@@ -133,7 +139,7 @@ function huda_single_post_content(){
 
                     <?php if ( true == get_theme_mod( 'huda_related_post_setting', 'on' ) ) : ?>
                        <div class="">
-                        <?php related_articles(); ?>
+                            <?php related_articles(); ?>
                        </div>
                     <?php else : ?>
                         <?php // silence is golden ?>
@@ -248,11 +254,6 @@ function huda_category_content(){
                         <!-- Paragraph -->
                         <?php echo wp_kses_post( category_description() ); // Display the category description ?>
                     </div>
-                    
-                    <div class="col-lg-12 col-md-12 col-12">
-                        <!-- Search -->
-                        <?php esc_html( get_search_form() ); ?>
-                    </div>
                 </div>
  
             </section>
@@ -300,11 +301,6 @@ function huda_tag_content() {
                 <div class="col-lg-6 col-md-8 col-12">
                     <!-- Paragraph -->
                     <?php echo wp_kses_post(tag_description()); // Display the tag description ?>
-                </div>
-                
-                <div class="col-lg-12 col-md-12 col-12">
-                    <!-- Search -->
-                    <?php esc_html(get_search_form()); ?>
                 </div>
             </div>
 
@@ -386,3 +382,17 @@ function huda_customize_remove_panels( $wp_customize ) {
     $wp_customize->remove_section( 'header_image' );
 }
 add_action( 'customize_register', 'huda_customize_remove_panels', 20 );
+
+
+add_action( 'woocommerce_before_shop_loop_item', 'huda_add_container_start', 5 );
+function huda_add_container_start() {
+    // Open a container before the product class
+    echo '<div class="container">';
+}
+
+add_action( 'woocommerce_after_shop_loop_item', 'huda_add_container_end', 15 );
+function huda_add_container_end() {
+    // Close the container after the product class
+    echo '</div>';
+}
+

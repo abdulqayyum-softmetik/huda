@@ -2,15 +2,15 @@ ul.products {
 	margin-top: 1em;
 
 	li.product {
-		min-height: 360px;
+		min-height: 100%;
 		list-style: none;
 		position: relative;
 		margin-bottom: 6em;
 		padding: 2em 1.5em;
-		border-radius: 2em;
+		border-radius: 0;
 		@include flex-column;
 		justify-content: space-between;
-		background-color: #ECF1ED;
+		background-color: #F7F7F7;
 
 		@media screen and ( max-width: $breakpoint-medium ) {
 			margin-bottom: 1em;
@@ -23,7 +23,7 @@ ul.products {
 		.huda-product-content-wrap{
 			width: 100%;
 			display: flex;
-			padding: 1em;
+			padding: 1em 0;
 			flex-direction: column;
 		}
 

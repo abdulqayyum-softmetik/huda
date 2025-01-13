@@ -190,25 +190,29 @@ if ( ! function_exists( 'huda_previous_post' ) ) :
 	 */
 	function huda_previous_post(){
 		?>
-			<nav class="previous-post">
-				<?php 
-				$prev_post = get_previous_post(); 
+		<?php 
+			$prev_post = get_previous_post(); 
 
-				if ( ! empty( $prev_post ) ) : ?>
-				    <div class="content d-flex align-items-center gap-2 mb-2">
+			if ( ! empty( $prev_post ) ) : ?>
+				<nav class="previous-post">
+					<div class="d-flex align-items-center gap-2 mb-2">
+						<span>Previous Post</span>
+					</div>	
+					<div class="content d-flex align-items-start gap-2">
 						<div class="prevoius-post-image">
 							<?php echo get_the_post_thumbnail( $prev_post->ID, array( 100, 100 ) );?>
 						</div>
-						<a href="<?php echo get_permalink( $prev_post->ID ); ?>" class="link">
-							<?php echo esc_html( $prev_post->post_title ); ?>
-							<div class="d-flex align-items-center gap-2">
-								<i class="ri-arrow-left-up-line"></i>
-								<span>Previous Post</span>
-							</div>		
-						</a>
+						
+						<div class="d-flex flex-column align-items-start gap-1">
+							<a href="<?php echo get_permalink( $prev_post->ID ); ?>" class="link">
+								<?php echo esc_html( $prev_post->post_title ); ?>	
+							</a>
+
+							<?php huda_posted_on(); ?>
+						</div>
 					</div>
-				<?php endif; ?>
-			</nav>
+				</nav>
+			<?php endif; ?>
 		<?php
 	}
 endif;
@@ -219,26 +223,29 @@ if ( ! function_exists( 'huda_next_post' ) ) :
 	 */
 	function huda_next_post(){
 		?>
-			<nav class="next-post">
-				<?php 
-				$next_post = get_next_post(); 
+			<?php 
+			$next_post = get_next_post(); 
 
-				if ( ! empty( $next_post ) ) : ?>
-					<div class="content d-flex align-items-center gap-2 mb-2">
+			if ( ! empty( $next_post ) ) : ?>
+				<nav class="next-post">
+					<div class="d-flex align-items-center gap-2 mb-2">
+						<span>Next Post</span>
+					</div>
+					<div class="content d-flex align-items-start gap-2 mb-2">
 						<div class="next-post-image">
 							<?php echo get_the_post_thumbnail( $next_post->ID, array( 100, 100 ) );?>
 						</div>
 
-						<a href="<?php echo get_permalink( $next_post->ID ); ?>" class="link">
-							<?php echo esc_html( $next_post->post_title ); ?>
-							<div class="d-flex align-items-center gap-2">
-								<span>Next Post</span>
-								<i class="ri-arrow-right-up-line"></i>
-							</div>
-						</a>
+						<div class="d-flex flex-column align-items-start gap-1">
+							<a href="<?php echo get_permalink( $next_post->ID ); ?>" class="link">
+								<?php echo esc_html( $next_post->post_title ); ?>
+							</a>
+
+							<?php huda_posted_on(); ?>
+						</div>
 					</div>
-				<?php endif; ?>
-			</nav>
+				</nav>
+			<?php endif; ?>
 		<?php
 	}
 endif;
@@ -250,7 +257,7 @@ if ( ! function_exists( 'huda_read_more' ) ) :
 	function huda_read_more(){
 		?>
 			<div class="d-flex align-items-center">
-				<a class="btn-read-more-arrow"data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Read More" href="<?php echo esc_url( get_permalink() ); ?>">
+				<a class="btn-read-more-arrow" href="<?php echo esc_url( get_permalink() ); ?>">
 					Learn more
 				</a>
 				<i class="ri-arrow-right-line"></i>

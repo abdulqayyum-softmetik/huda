@@ -132,14 +132,13 @@
 					?>
 						<?php get_template_part( 'inc/post', 'navigation' ); ?>
 					<?php
-			?>
+				?>
 			<?php else : ?>
 				<footer class="entry-footer">
 					<div class="d-flex align-items-center justify-content-between">
 						<div class="read-time">
 							<?php huda_read_more(); ?>
 						</div>
-						
 					</div>
 				</footer><!-- .entry-footer -->
 			<?php endif;?>

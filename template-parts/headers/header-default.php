@@ -6,8 +6,11 @@
 $container_width = huda_get_header_container_width(); 
 $sticky_header = huda_header_sticky_setting();
 $button_url = huda_header_button_url();
+// Retrieve the text value stored in Kirki's 'text_setting'
+$button_text_value = get_theme_mod( 'header_button_text_setting', 'Subscribe' );
+
 ?>
-<header class="header-main <?php echo esc_attr($sticky_header == "on" ? 'sticky' : 'relative'); ?>">
+<header class="header-main <?php echo esc_attr( $sticky_header == "on" ? 'sticky' : 'relative' ); ?>">
     <nav>
         <div class="<?php echo esc_attr( $container_width ); ?>">
             <div class="position-relative gap-4" id="main-menu">
@@ -46,13 +49,11 @@ $button_url = huda_header_button_url();
                     <div class="col-lg-3 col-md-4 col-4 px-0">
                         <div class="d-flex align-items-center justify-content-end gap-3"> 
                             <?php 
-                                if ( is_singular() ) :
-                                    ?>
-                                        <div>
-                                            <?php get_template_part( 'template-parts/components/offcanvas', 'search' ); ?>
-                                        </div>
-                                    <?php
-                                endif;
+                                ?>
+                                    <div>
+                                        <?php get_template_part( 'template-parts/components/offcanvas', 'search' ); ?>
+                                    </div>
+                                <?php
                             ?>
                             
                             <div>
@@ -79,7 +80,7 @@ $button_url = huda_header_button_url();
                             </div>
                             
                             <div class="d-xl-block d-lg-block d-md-block d-none">
-                                <a href="<?php echo esc_url( $button_url ); ?>" target="_blank" rel="no-follow" class="buy-button">Buy Huda</a>
+                                <a href="<?php echo esc_url( $button_url ); ?>" target="_blank" rel="no-follow" class="buy-button"><?php echo esc_html( $button_text_value ) ?></a>
                             </div>
 
                         </div>

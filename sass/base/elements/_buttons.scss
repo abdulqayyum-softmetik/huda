@@ -6,9 +6,9 @@ input[type="submit"],
 	border: 1px solid;
 	line-height: normal;
 	font-weight: 600;
-	color: $color__white !important;
+	color: $color__white;
 	border-color: $color__border-button;
-	border-radius: 3.125em;
+	border-radius: 0;
 	background: $color__accent;
 	transition: 0.3s ease-in;
 

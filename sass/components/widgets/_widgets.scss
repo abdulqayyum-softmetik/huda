@@ -16,9 +16,33 @@
 .offcanvas{     
     &.main{
         .offcanvas-header{
+            .site-title{
+                a{
+                    color: $color__black !important;
+                }
+            } 
             border-bottom: 1px solid $color__border-abbr;
             .wp-block-image{
                 margin-bottom: 0;
+            }
+        }
+
+        .offcanvas-title{
+            line-height: 0 !important;
+        }
+
+        span{
+            font-size: 14px;
+        }
+
+        .dropdown {
+
+            .dropdown-menu {
+                top: 0 !important;
+                position: relative !important;
+                margin-top: 0 !important;
+                margin-bottom: 1em !important;
+                transform: translateY(1em) !important;
             }
         }
 
@@ -33,7 +57,6 @@ aside{
     width: 100%;
     height: 100%;
     padding-left: 1em;
-	border-left: 1px solid $color__border-abbr;
     @include flex-column;
     gap: 1em;
 
@@ -52,7 +75,7 @@ aside{
                 li{
                     &.cat-item{
 						padding: 8px 16px;
-						border-radius: 50px;
+						border-radius: 0;
                         background-color: $color__white;
 
                         a{
@@ -143,30 +166,54 @@ aside{
     gap: 0.6em;
 }
 
-.offcanvas {
-
-    &.main {
-        .dropdown {
-            &:hover {
-                .dropdown-menu {
-                    display: block !important;
-                    margin-top: 0;
-                }
-            }
-        }
-    }
-
-   
-}
-
 .offcanvas{
     &.search-wrapper{
-        height: 56vh;
+        height: max-content;
+        padding-bottom: 6em;   
     }
 }
 
 .search-form-wrapper{
     position: relative;
+    width: 800px;
+    margin: 0 auto;
+
+    @media screen and (max-width: $breakpoint-small) {
+        width: 100%;
+    }	
+
+    article{
+        &.search{
+            width: 100%;
+            display: flex;
+            align-items: start;
+            justify-content: start;
+            gap: 16px;
+            background: $color__background-body;
+            margin-bottom: 0 !important;
+    
+            a{	
+                font-size: 1.4em;
+                font-weight: 500;
+                margin-bottom: 0.5em;
+    
+                &.post-thumbnail{
+                    
+                    img{
+                        max-width: 140px;
+                        max-height: 140px;
+                        border-radius: 0;
+                    }
+                }
+            }
+    
+    
+            .posted-on{
+                font-size: 14px;
+            }
+    
+        }
+    }
 
     form{
         margin-top: 2.5em;
@@ -180,35 +227,24 @@ aside{
             text-align: center;
 
             input{
-                width: 29em;
+                width: 100%;
                 padding: 0.75em 1.25em;
-                border-radius: 3.125em;
+                border-radius: 0;
                 border: 1px solid $color__accent;
-                color: $color__accent;
-
-                @media screen and (max-width: $breakpoint-medium) {
-                    width: 90%;
-                    margin: 0 auto;
-                }
+                color: $color__black;
             }
         }
     }
 
     .search-result-wrapper{
         width: 100%;
-        position: absolute;
-        left: 50%;
-        top: 6em;
-        transform: translate(-50%, 0%);
 
         #datafetch{
-            width: 96%;
+            width: 100%;
             margin: 0 auto;
-            display: flex;
-            justify-content: center;
             background-color: $color__white;
             box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-            border-radius: 1em;
+            border-radius: 0;
 
             @media screen and (max-width: $breakpoint-small) {
                 flex-wrap: wrap;
@@ -218,8 +254,14 @@ aside{
                 margin: 1em 0;
             }
 
+            .search-wrapper{
+                padding: 1em;
+            }
+
             article{
-                margin: 2.4em;
+                text-align: left;
+                flex-direction: row;
+                background-color: transparent;
 
                 @media screen and (max-width: $breakpoint-medium) {
                     width: 100%;
@@ -274,7 +316,7 @@ body{
     position: fixed;
     width: 2.375em;
     height: 2.375em;
-    bottom: 1em;
+    bottom: 2em;
     right: 2em;
     background: $color__accent;
     border-radius: 50px;

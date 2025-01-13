@@ -1,11 +1,19 @@
 <a data-bs-toggle="offcanvas" href="#Offcanvasidebar" role="button" aria-controls="Offcanvasidebar">
-  <i class="ri-menu-2-line"></i>
+  <i class="ri-menu-4-fill"></i>
 </a>
 
 <div class="offcanvas main offcanvas-end" tabindex="-1" id="Offcanvasidebar" aria-labelledby="OffcanvasidebarLabel">
   <div class="offcanvas-header">
     <div class="offcanvas-title">
-      <?php dynamic_sidebar( 'logo-widget' ); ?>
+        <?php if ( get_bloginfo( 'name' ) ) : ?>
+            <div class="site-title">
+                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+            </div>
+        <?php endif; ?>
+
+        <?php if ( get_bloginfo( 'description' ) ) : ?>
+            <p><?php bloginfo( 'description' ); ?></p>
+        <?php endif; ?>
     </div>
     <div type="button" class="btn-close m-0" data-bs-dismiss="offcanvas" aria-label="Close"></div>
   </div>

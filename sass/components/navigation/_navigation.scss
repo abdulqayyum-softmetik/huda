@@ -147,6 +147,15 @@ nav {
 
 	&.previous-post,
 	&.next-post{
+		width: 400px;
+		padding: 1.25em 1.5em;
+		border: 1px solid $color__border-abbr;
+		margin-top: 1em;
+
+		@media screen and (max-width: $breakpoint-medium) {
+			width: 100%;
+		}	
+
 		.content{
 			width: 100%;
 			height: auto;
@@ -164,9 +173,9 @@ nav {
 		.next-post-image,
 		.prevoius-post-image{
 			img{
-				max-width: 60px;
+				max-width: 80px;
 				height: auto;
-				border-radius: 1.5em;
+				border-radius: 0;
 			}
 		}
 
@@ -174,7 +183,7 @@ nav {
 			&.link{
 				font-family: 'Space Grotesk';
 				font-weight: 600;
-				font-size: 0.98em;
+				font-size: 1.2em;
 
 				span,i{
 					font-weight: 400;
@@ -193,7 +202,6 @@ nav {
 		margin: 0 0 1.5em;
 		padding: 1em 0;
 		border-top: 1px solid $color__border-abbr;
-		border-bottom: 1px solid $color__border-abbr;
 	}
 
 	.nav-links {

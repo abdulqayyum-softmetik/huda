@@ -1,7 +1,7 @@
 header.header-main{
     width: 100%;
     padding: 1em;
-    background-color: $color__white;
+    background-color: $color__dark;
     z-index: 999;
     transition: 0.3s all;
 
@@ -12,7 +12,7 @@ header.header-main{
         text-transform: capitalize;
 
         a{
-            color: $color__black;
+            color: $color__white;
         }
     }
 
@@ -27,7 +27,7 @@ header.header-main{
 
                 a {
                     &.nav-link {
-                        color: $color__black;
+                        color: $color__white;
                         transition: 0.3s ease;
                     
                         &:hover, &:focus{
@@ -52,6 +52,8 @@ header.header-main{
                 }
 
                 ul.dropdown-menu{
+                    margin-top: 1.438em !important;
+                    border-radius: 0 !important;
                     li {
                         a{
                             text-align: left;
@@ -66,16 +68,6 @@ header.header-main{
             }
         }
 
-        .dropdown {
-            &:hover {
-                .dropdown-menu {
-                    display: block;
-                    margin-top: 0;
-                }
-            }
-        }
-        
-
         i, svg, span, 
         .fa-shopping-cart{
             font-size: 1.25em;
@@ -83,28 +75,8 @@ header.header-main{
         }
     }
 
-    .offcanvas{
-        &.main{
-            .offcanvas-title{
-                line-height: 0 !important;
-            }
-            span{
-                font-size: 14px;
-            }
-
-            .dropdown {
-                &:hover {
-                    .dropdown-menu {
-                        display: inherit;
-                    }
-                }
-            }
-        }
-    }
-
-
     .buy-button{
-        padding: 0.4em 1em;
+        padding: 0.625em 1.25em;
         color: $color__white;
         background: $color__gradient;
     }
@@ -115,7 +87,7 @@ header.header-main{
         font-size: 10px;
         line-height: 14px;
         text-align: center;
-        left: 8px !important;
+        left: 4px !important;
         color: $color__white;
         background: $color__accent;
     }

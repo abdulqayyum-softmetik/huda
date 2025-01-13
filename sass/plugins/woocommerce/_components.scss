@@ -48,10 +48,6 @@
 					padding: 0.75em 0.75em;
 					border-radius: 0.5em;
 				}
-
-				.reset_variations{
-					margin-left: 0.8em;
-				}
 			}
 		}
 	}
@@ -208,6 +204,10 @@ p.stars {
  * Tabs
  */
 .woocommerce-tabs {
+
+	@media screen and (max-width: $breakpoint-small) {
+		padding: 0 1em;
+	}
 
 	ul.tabs {
 		width: 100%;
@@ -414,7 +414,7 @@ p.no-comments {
 .woocommerce-info,
 .woocommerce-noreviews,
 p.no-comments {
-	color: $color__white;
+	color: $color__black;
 	background-color: $woocommerce__color-info;
 }
 

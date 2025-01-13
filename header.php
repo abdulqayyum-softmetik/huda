@@ -8,12 +8,13 @@
  *
  * 
  * @package Huda
- */
-	$rtl_mode_switch = get_theme_mod( 'huda_rtl_switch_setting', 'off' ); // Set default to 'off' if no option exists
+ */	
+	// Right to left function
+	$rtl_enabled = huda_is_rtl_enabled();
 ?>
 
 <!doctype html>
-	<html <?php language_attributes(); ?> dir="<?php echo esc_attr( $rtl_mode_switch ? 'rtl' : 'ltr' ); ?>">
+	<html <?php language_attributes(); ?> dir="<?php echo esc_attr( $rtl_enabled ? 'rtl' : 'ltr' ); ?>">
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">

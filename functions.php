@@ -132,9 +132,9 @@ function huda_content_width() {
 add_action( 'after_setup_theme', 'huda_content_width', 0 );
 
 /**
- * Theme updates.
+ * Rtl helper.
  */
-require get_template_directory() . '/inc/theme-updates/updates.php';
+require_once get_template_directory() . '/inc/rtl-helper.php';
 
 /**
  * Include widget area.
@@ -173,16 +173,6 @@ require get_template_directory() . '/inc/live-search.php';
 require get_template_directory() . '/inc/bootstrap-navigation.php';
 
 /**
- * Template Functions
- */
-function huda_include_custom_functions() {
-
-    require get_template_directory() . '/inc/customizer/customizer-functions.php';
-
-}
-add_action( 'after_setup_theme', 'huda_include_custom_functions' );
-
-/**
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/template-tags.php';
@@ -218,6 +208,16 @@ require get_template_directory() . '/inc/core/theme-hooks.php';
 if ( class_exists( 'kirki' ) ){
 	require get_template_directory() . '/inc/customizer.php';
 }
+
+/**
+ * Customizer Functions
+ */
+function huda_include_custom_functions() {
+
+    require get_template_directory() . '/inc/customizer/customizer-functions.php';
+
+}
+add_action( 'after_setup_theme', 'huda_include_custom_functions' );
 
 /**
  * Tgmpa Plugin activations.

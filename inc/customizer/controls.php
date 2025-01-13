@@ -39,7 +39,7 @@ new \Kirki\Field\Image(
 	[
 		'settings'    => 'logo_secondary_setting_url',
 		'label'       => esc_html__( 'Logo Secondary', 'huda' ),
-		'description' => esc_html__( 'Logo Secondary - Light Logo', 'huda' ),
+		'description' => esc_html__( 'Logo Secondary', 'huda' ),
 		'section'     => 'title_tagline',
 		'default'     => '',
 	]
@@ -89,6 +89,17 @@ new \Kirki\Field\Checkbox_Switch(
 	]
 );
 
+new \Kirki\Field\Text(
+	[
+		'settings' => 'header_button_text_setting',
+		'label'    => esc_html__( 'Button Text', 'huda' ),
+		'section'  => 'huda_header_section',
+		'default'  => esc_html__( 'Subscribe', 'huda' ),
+		'priority' => 10,
+	]
+);
+
+
 new \Kirki\Field\URL(
 	[
 		'settings' => 'header_button_url_setting',
@@ -106,7 +117,7 @@ new \Kirki\Field\Radio_Image(
 		'label'       => esc_html__( 'Header Container Layout', 'huda' ),
 		'description' => esc_html__( 'Select header container layout default is full width', 'huda' ),
 		'section'     => 'huda_header_section',
-		'default'     => 'container-fluid',
+		'default'     => 'container',
 		'priority'    => 10,
 		'tab' => 'general',
 		'choices'     => [
@@ -170,7 +181,7 @@ new \Kirki\Field\Color(
 		'description' => esc_html__( '', 'huda' ),
 		'section'     => 'huda_header_section',
 		'tab' => 'design',
-		'default'     => '#22374B',
+		'default'     => '#E93315',
         'choices'     => [
             'alpha' => true,
         ],
@@ -190,7 +201,7 @@ new \Kirki\Field\Color(
 		'label'       => __( 'Header Background color', 'huda' ),
 		'description' => esc_html__( '', 'huda' ),
 		'section'     => 'huda_header_section',
-		'default'     => '#FFFFFE',
+		'default'     => '#1A0A03',
 		'tab' => 'design',
 		'output'      => [
 			[
@@ -224,11 +235,28 @@ new \Kirki\Field\Color(
 		'label'       => __( 'Header Icons Color', 'huda' ),
 		'description' => esc_html__( '', 'huda' ),
 		'section'     => 'huda_header_section',
-		'default'     => '#22374b',
+		'default'     => '#ffffff',
 		'tab' => 'design',
 		'output'      => [
 			[
 				'element' => 'header.header-main nav i',
+			],
+		],
+	]
+);
+
+new \Kirki\Field\Color(
+	[
+		'settings'    => 'header_dropdown_color_setting_hex',
+		'label'       => __( 'Header Dropdown Color', 'huda' ),
+		'description' => esc_html__( '', 'huda' ),
+		'section'     => 'huda_header_section',
+		'default'     => '#ffffff',
+		'tab' => 'design',
+		'output'      => [
+			[
+				'element' => 'ul.dropdown-menu',
+				'property' => 'background',
 			],
 		],
 	]
@@ -258,6 +286,34 @@ new \Kirki\Field\Typography(
 		'output'      => [
 			[
 				'element' => 'header.header-main a.buy-button',
+			],
+		],
+	]
+);
+
+new \Kirki\Field\Typography(
+	[
+		'settings'    => 'header_site_title_typography_setting',
+		'label'       => esc_html__( 'Site Title typography', 'huda' ),
+		'description' => esc_html__( '', 'huda' ),
+		'section'     => 'huda_header_section',
+		'priority'    => 10,
+		'transport'   => 'auto',
+		'tab' => 'design',
+		'default'     => [
+			'font-family'     => 'Space Grotesk',
+			'variant'         => 'regular',
+			'font-style'      => 'normal',
+			'color'           => '#ffffff',
+			'font-size'       => '28px',
+			'line-height'     => 'initial',
+			'letter-spacing'  => '0',
+			'text-transform'  => 'none',
+			'text-decoration' => 'none',
+		],
+		'output'      => [
+			[
+				'element' => 'header.header-main nav ul li a.nav-link',
 			],
 		],
 	]
@@ -303,7 +359,7 @@ new \Kirki\Field\Typography(
 			'font-family'     => 'Space Grotesk',
 			'variant'         => 'regular',
 			'font-style'      => 'normal',
-			'color'           => '#0F0E17',
+			'color'           => '#ffffff',
 			'font-size'       => '14px',
 			'line-height'     => 'initial',
 			'letter-spacing'  => '0',
@@ -321,7 +377,7 @@ new \Kirki\Field\Typography(
 
 new \Kirki\Field\Typography(
 	[
-		'settings'    => 'header_typography_setting',
+		'settings'    => 'header_dropdown_typography_setting',
 		'label'       => esc_html__( 'Header menu dropdown typography', 'huda' ),
 		'description' => esc_html__( '', 'huda' ),
 		'section'     => 'huda_header_section',
@@ -481,15 +537,15 @@ new \Kirki\Pro\Field\Padding(
 		'responsive' => true,
 		'default'     => [
             'desktop' => [
-                'top'    => '50',
+                'top'    => '0',
                 'right'  => '18',
-                'bottom' => '10',
+                'bottom' => '0',
                 'left'   => '18',
             ],
             'tablet'  => [
-                'top'    => '20',
+                'top'    => '0',
                 'right'  => '18',
-                'bottom' => '10',
+                'bottom' => '0',
                 'left'   => '18',
             ],
             'mobile'  => [
@@ -569,7 +625,7 @@ new \Kirki\Field\Color(
 		'label'       => __( 'Footer Background color', 'huda' ),
 		'description' => esc_html__( '', 'huda' ),
 		'section'     => 'huda_footer_section',
-		'default'     => '#ECF1ED',
+		'default'     => '#1A0A03',
 		'tab' => 'design',
 		'output'      => [
 			[
@@ -618,7 +674,7 @@ new \Kirki\Field\Typography(
 		],
 		'output'  => [
 			[
-				'element' => '.wp-block-heading, .nf-form-title h4, h2.widget-title',
+				'element' => '.wp-block-heading, h2.widget-title',
 			],
 		],
 	]
@@ -998,7 +1054,7 @@ new \Kirki\Field\Color(
 		'description' => esc_html__( '', 'huda' ),
 		'section'     => 'huda_buttons_section',
 		'tab'         => 'design',
-		'default'     => '#22374b',
+		'default'     => '#E93315',
 		'output' => array(
 			array(
 				'element'  => '.btn, .button, button',
@@ -1018,7 +1074,7 @@ new \Kirki\Field\Color(
 		'description' => esc_html__( '', 'huda' ),
 		'section'     => 'huda_buttons_section',
 		'tab'         => 'design',
-		'default'     => '#22374b',
+		'default'     => '#E93315',
 		'output' => array(
 			array(
 				'element'  => '.btn, .button, button',
@@ -1205,8 +1261,8 @@ new \Kirki\Field\Typography(
 			'variant'         => '500',
 			'font-style'      => 'normal',
 			'color'           => '#0F0E17',
-			'font-size'       => '32px',
-			'line-height'     => '1.2',
+			'font-size'       => '24px',
+			'line-height'     => 'normal',
 			'letter-spacing'  => '0',
 			'text-transform'  => 'none',
 			'text-decoration' => 'none',
@@ -1265,9 +1321,9 @@ new \Kirki\Pro\Field\Padding(
 		'responsive' => true,
 		'default'     => [
             'desktop' => [
-                'top'    => '5',
+                'top'    => '1.8',
                 'right'  => '0',
-                'bottom' => '5',
+                'bottom' => '1.8',
                 'left'   => '0',
             ],
             'tablet'  => [
@@ -1290,7 +1346,7 @@ new \Kirki\Pro\Field\Padding(
 		],
 		'output' => [
 			[
-				'element'     => 'body .site main',
+				'element'     => 'body .site main, .hea-theme-builder-wrapper',
 				'media_query' => [
 					'desktop' => '@media (min-width: 1024px)',
 					'tablet'  => '@media (min-width: 768px) and (max-width: 1023px)',
@@ -1336,6 +1392,32 @@ new \Kirki\Field\Dimension(
 		],
 	]
 );
+
+new \Kirki\Field\Dimensions(
+	[
+		'settings'    => 'back_to_top_setting_dimensions',
+		'label'       => esc_html__( 'Dimensions Control', 'huda' ),
+		'description' => esc_html__( 'Set dimensions for the back-to-top button.', 'huda' ),
+		'section'     => 'huda_back_to_top_section',
+		'tab' => 'design',
+		'responsive'  => true,
+		'default'     => [
+			'width'  => '100px',
+			'height' => '100px',
+		],
+		'output'      => [
+			[
+				'element'  => '.backto-top',
+				'property' => 'width',
+			],
+			[
+				'element'  => '.backto-top',
+				'property' => 'height',
+			],
+		],
+	]
+);
+
 
 new \Kirki\Field\Color(
 	[
@@ -1476,7 +1558,7 @@ new \Kirki\Field\Dimension(
 		'label'       => esc_html__( 'Product Card Border Radius', 'huda' ),
 		'description' => esc_html__( '', 'huda' ),
 		'section'     => 'woocommerce_product_catalog',
-		'default'     => '32px',
+		'default'     => '0px',
 		'tab' => 'design',
 		'output'      => [
 			[
@@ -1496,7 +1578,7 @@ new \Kirki\Field\Color(
 		'label'       => __( 'Product Card Background Color', 'huda' ),
 		'description' => esc_html__( '', 'huda' ),
 		'section'     => 'woocommerce_product_catalog',
-		'default'     => '#ECF1ED',
+		'default'     => '#F7F7F7',
 		'output' => array(
 			array(
 				'element'  => '.huda-site-main ul.products li.product',

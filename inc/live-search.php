@@ -9,23 +9,41 @@ if ( !function_exists('data_fetch') ) {
         $the_query = new WP_Query(array(
             'posts_per_page' => 4,
             's' => esc_attr( $_POST['keyword'] ),
-            'post_type' => 'post'
+            'post_type' => array('post', 'product') // Include both posts and products
         ));
+        
         if ( $the_query->have_posts() ) :
             echo '<div class="search-wrapper">';
             while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
                 <article class="search">
                     <a href="<?php echo esc_url( get_permalink() ); ?>">
-                        <?php huda_post_thumbnail('medium'); ?>
+                        <?php 
+                        // Check if WooCommerce product image function exists for better compatibility
+                        if ( function_exists( 'woocommerce_get_product_thumbnail' ) && get_post_type() === 'product' ) {
+                            echo woocommerce_get_product_thumbnail(); 
+                        } else {
+                            huda_post_thumbnail('medium'); 
+                        }
+                        ?>
                     </a>
                     <div class="post-content d-flex flex-column">
                         <a href="<?php echo esc_url( get_permalink() ); ?>"> 
                             <?php the_title(); ?> 
                         </a>
-
                         <p class="post-excerpt">
-                            <?php echo esc_html( wp_trim_words( get_the_excerpt(), 8, '...' ) ); ?>
+                            <?php 
+                                echo esc_html( wp_trim_words( get_the_excerpt(), 8, '...' ) ); 
+                            ?>
                         </p>
+
+                        <?php if ( get_post_type() === 'product' && function_exists( 'wc_get_product' ) ) :
+                            $product = wc_get_product( get_the_ID() ); // Get product object
+                            if ( $product ) : ?>
+                                <p class="product-price">
+                                    <?php echo $product->get_price_html(); // Display product price ?>
+                                </p>
+                            <?php endif;
+                        endif; ?>
                     </div>
                 </article>
             <?php endwhile;
@@ -38,6 +56,7 @@ if ( !function_exists('data_fetch') ) {
         die();
     }
 }
+
 
 // Add the AJAX fetch JavaScript to the footer
 add_action('wp_footer', 'ajax_fetch');

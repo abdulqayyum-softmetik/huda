@@ -4,7 +4,7 @@
 
 <div class="offcanvas offcanvas-top search-wrapper" tabindex="-1" id="Offcanvasearch" aria-labelledby="OffcanvasearchLabel">
   <div class="offcanvas-header">
-    <div type="button" class="btn-close start-0" data-bs-dismiss="offcanvas" aria-label="Close"></div>
+    <div class="btn-close float-start pt-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#Offcanvasearch" aria-controls="offcanvasExample"></div>
   </div>
   <div class="offcanvas-body">
     <div class="content text-center">

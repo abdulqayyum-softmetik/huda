@@ -3,13 +3,14 @@ footer{
         width: 100%;
         padding: 2.8em 0 1.2em 0;
         color: $color__white;
-        background-color: $color__bg;
+        background-color: $color__dark;
 
         .footer-content{
-            padding-bottom: 2.8em;
+            padding: 2em 0;
+            border-bottom: 1px solid rgb(77, 62, 59);
 
             a{
-                color: $color__black;
+                color: $color__white;
 
                 &:hover{
                     color: $color__accent;
@@ -40,29 +41,16 @@ footer{
                 }
             }
 
-            .widget{
-                &.widget_ninja_forms_widget{
-                    @media (max-width: 575px){
-                        margin-top: 1.8em;
-                    }
-                }
-            } 
-
-            span{
-                &.nf-form-title{
-                    h3{
-                        color: $color__black;
-                    }
-                }
+            h2.widget-title{
+                color: $color__white;
             }
         }
 
         .footer-copyright{
-            color: black;
+            color: $color__white;
             @include flex-center;
             text-transform: capitalize;
-            border-top: 1px solid $color__border-abbr;
-            padding: 0.60em 0 0 0;
+            padding: 2em 0;
 
             span{
                 font-weight: 300;

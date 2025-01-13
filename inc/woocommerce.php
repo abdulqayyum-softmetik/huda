@@ -315,11 +315,3 @@ if ( ! function_exists( 'huda_woocommerce_product_content_wrap' ) ) {
 		echo '</div>';
 	}
 }
-
-add_filter('woocommerce_locate_template', function($template, $template_name, $template_path) {
-    if ($template_name === 'cart/cart.php') {
-        echo '<h1>Custom Template Triggered</h1>';
-        return get_template_directory() . '/woocommerce/cart/cart.php';
-    }
-    return $template;
-}, 10, 3);

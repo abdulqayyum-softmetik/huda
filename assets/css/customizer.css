@@ -81,7 +81,8 @@
 #customize-control-blog__card_read_more_bg_color_hover,
 #customize-control-huda_Offcanvas_social_icons_color,
 #customize-control-huda_Offcanvas_menu_active_color,
-#customize-control-huda_wooocommerce_product_card_background{
+#customize-control-huda_wooocommerce_product_card_background,
+#customize-control-header_dropdown_color_setting_hex{
     padding: 0.90em;
     line-height: normal;
     background-color: #fffffe;
@@ -91,7 +92,8 @@
     margin-top: 0.6em;
 }
 
-#customize-control-back_to_top_radius{
+#customize-control-back_to_top_radius,
+#customize-control-kirki_responsive__back_to_top_setting_dimensions{
     padding: 1em;
     background: white;
     border: 1px dashed #849EEC;
