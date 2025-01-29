@@ -202,6 +202,11 @@ if ( class_exists( 'WooCommerce' ) ) {
 require get_template_directory() . '/inc/core/theme-hooks.php';
 
 /**
+ * Implement the Custom Posts.
+ */
+require get_template_directory() . '/inc/custom-posts/custom-posts.php';
+
+/**
  * Kirki Customizer Adavnced Options.
  */
 
