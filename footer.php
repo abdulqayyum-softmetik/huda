@@ -32,11 +32,14 @@
 			
 				do_action( 'huda_footer' );
 				do_action( 'huda_footer_after' );
+
+				
 			}
 		?>
 	
 	</div><!-- #page -->
 
+	<?php wp_footer(); ?>
 
 </body>
 </html>

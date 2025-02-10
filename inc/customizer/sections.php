@@ -27,25 +27,6 @@ new \Kirki\Section(
 );
 
 /* 
-* Huda Hero Section
-*/
-new \Kirki\Section(
-	'huda_hero_section',
-	[
-		'title' => esc_html__( 'Hero Section', 'huda' ),
-		'panel' => 'huda_global_options',
-		'tabs'  => [
-			'general' => [
-				'label' => esc_html__( 'General', 'huda' ),
-			],
-			'design'  => [
-				'label' => esc_html__( 'Design', 'huda' ),
-			],
-		],
-	]
-);
-
-/* 
 * Huda Header Layout Section
 */
 new \Kirki\Section(
@@ -73,27 +54,6 @@ new \Kirki\Section(
 	[
 		'title' => esc_html__( 'Footer Options', 'huda' ),
 		'panel' => 'huda_footer_options',
-		'tabs'  => [
-			'general' => [
-				'label' => esc_html__( 'General', 'huda' ),
-			],
-			'design'  => [
-				'label' => esc_html__( 'Design', 'huda' ),
-			],
-		],
-	]
-);
-
-/* 
-* back to top section
-*/
-new \Kirki\Section(
-	'huda_back_to_top_section',
-	[
-		'title'       => esc_html__( 'Back To Top', 'huda' ),
-		'description' => esc_html__( '', 'huda' ),
-		'panel'       => 'huda_global_options',
-		'priority'    => 160,
 		'tabs'  => [
 			'general' => [
 				'label' => esc_html__( 'General', 'huda' ),

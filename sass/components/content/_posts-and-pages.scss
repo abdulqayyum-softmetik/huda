@@ -124,7 +124,7 @@ section{
 		padding: 0.8em;
 		border-radius: 0;
 		background-color: $color__white;
-		justify-content: space-between;
+		justify-content: start;
 		@include flex-column;
 		margin-bottom: 1em;
 		gap: 0;

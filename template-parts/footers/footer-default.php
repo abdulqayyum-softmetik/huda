@@ -54,6 +54,4 @@ $container_width = huda_get_footer_container_width();
         </div>
     </div>
 
-	<?php wp_footer(); ?>
-
 </footer>

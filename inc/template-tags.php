@@ -507,30 +507,3 @@ if( ! function_exists( 'huda_social_links' ) ) :
 		<?php
 	}
 endif;
-
-add_action( 'wp_footer', 'huda_scroll_top' );
-if ( ! function_exists( 'huda_scroll_top' ) ) :
-	function huda_scroll_top(){
-		/**
-		 * Scroll to top 
-		 */
-		?>
-			<?php 
-				if ( true == get_theme_mod( 'back_to_top_switch_setting', 'on' ) ) : 
-					
-						$scrollTopV = 'event.preventDefault(); window.scrollTo({top: 0, behavior: "smooth"});';
-						?>
-							<div id="scrollToTop">
-								<a href="#" class="backto-top" onclick='<?php echo esc_js( $scrollTopV ) ?>'>
-									<i class="ri-arrow-up-line"></i>
-								</a>
-							</div>
-						<?php
-					
-				else :
-					// Sillence is golden
-				endif; 
-			?>
-		<?php
-	}
-endif;
