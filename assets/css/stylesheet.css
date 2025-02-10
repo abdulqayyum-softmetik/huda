@@ -765,7 +765,6 @@ section .comments-area {
 .search article,
 .related-posts article {
   width: 100%;
-  height: 100%;
   padding: 0.8em;
   border-radius: 0;
   background-color: #FFFFFE;
