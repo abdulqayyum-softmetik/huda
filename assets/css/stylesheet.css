@@ -296,6 +296,7 @@ input[type=submit],
   border-radius: 0;
   background: #E93315;
   transition: 0.3s ease-in;
+  display: block;
 }
 button:hover,
 input[type=button]:hover,

@@ -105,25 +105,6 @@ new \Kirki\Section(
 );
 
 /* 
-* Huda Buttons Section
-*/
-new \Kirki\Section(
-	'huda_buttons_section',
-	[
-		'title' => esc_html__( 'Buttons', 'huda' ),
-		'panel' => 'huda_global_options',
-		'tabs'  => [
-			'general' => [
-				'label' => esc_html__( 'General', 'huda' ),
-			],
-			'design'  => [
-				'label' => esc_html__( 'Design', 'huda' ),
-			],
-		],
-	]
-);
-
-/* 
 * Huda Blog Layout Section
 */
 new \Kirki\Section(

@@ -11,6 +11,7 @@ input[type="submit"],
 	border-radius: 0;
 	background: $color__accent;
 	transition: 0.3s ease-in;
+	display: block;
 
 	&:hover {
 		color: $color__black;
